@@ -12,8 +12,7 @@ jobs:
         with:
           repoToken: "${{ secrets.GITHUB_TOKEN }}"
           firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT_GODDCHEN_CV }}"
-          projectId: goddchen-cv
-          target: goddchen-cv-dev
+          projectId: goddchen-cv-dev
   flutter_package:
     uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/flutter_package.yml@v1
     with:
