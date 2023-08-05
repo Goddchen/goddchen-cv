@@ -1,9 +1,14 @@
 include: package:flutter_lints/flutter.yaml
 
-linter:
-  rules:
-    - sort_pub_dependencies
-
 analyzer:
   errors:
+    prefer_final_parameters: error
     sort_pub_dependencies: error
+  exclude:
+    - "**/*.freezed.dart"
+    - "**/*.g.dart"
+
+linter:
+  rules:
+    - prefer_final_parameters
+    - sort_pub_dependencies
