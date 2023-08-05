@@ -1,0 +1,8 @@
+flavors:
+  develop:
+    app:
+      name: Martin "Goddchen" Liersch (Dev)
+  production:
+    app:
+      name: Martin "Goddchen" Liersch
+ide: vscode
