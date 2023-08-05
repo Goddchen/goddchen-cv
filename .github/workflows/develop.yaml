@@ -1,3 +1,8 @@
+name: Deploy to Firebase Hosting
+on:
+  push:
+    branches:
+      - develop
 jobs:
   build_and_deploy:
     runs-on: ubuntu-22.04
@@ -13,13 +18,3 @@ jobs:
           repoToken: "${{ secrets.GITHUB_TOKEN }}"
           firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT_GODDCHEN_CV }}"
           projectId: goddchen-cv-dev
-  flutter_package:
-    uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/flutter_package.yml@v1
-    with:
-      flutter_version: "3.10.6"
-      min_coverage: 0
-      runs_on: "ubuntu-22.04"
-  semantic_pull_request:
-    uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/semantic_pull_request.yml@v1
-name: Pull Requests
-on: pull_request
