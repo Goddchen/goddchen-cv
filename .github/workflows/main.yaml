@@ -11,10 +11,15 @@ jobs:
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
+          cache: true
           flutter-version: "3.10.6"
       - run: flutter build web
-      - uses: FirebaseExtended/action-hosting-deploy@v0
+      - env:
+          FIREBASE_CLI_EXPERIMENTS: webframeworks
+        uses: FirebaseExtended/action-hosting-deploy@v0
         with:
-          repoToken: "${{ secrets.GITHUB_TOKEN }}"
+          channelId: live
           firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT_GODDCHEN_CV }}"
           projectId: goddchen-cv
+          repoToken: "${{ secrets.GITHUB_TOKEN }}"
+          target: goddchen-cv
