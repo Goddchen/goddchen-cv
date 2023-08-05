@@ -1,0 +1,9 @@
+include: package:flutter_lints/flutter.yaml
+
+linter:
+  rules:
+    - sort_pub_dependencies
+
+analyzer:
+  errors:
+    sort_pub_dependencies: error
