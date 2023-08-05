@@ -7,12 +7,17 @@ jobs:
         uses: subosito/flutter-action@v2
         with:
           flutter-version: "3.10.6"
+          cache: true
+
       - run: flutter build web
-      - uses: FirebaseExtended/action-hosting-deploy@v0
+      - env:
+          FIREBASE_CLI_EXPERIMENTS: webframeworks
+        uses: FirebaseExtended/action-hosting-deploy@v0
         with:
-          repoToken: "${{ secrets.GITHUB_TOKEN }}"
+          channelId: live
           firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT_GODDCHEN_CV }}"
           projectId: goddchen-cv
+          repoToken: "${{ secrets.GITHUB_TOKEN }}"
           target: goddchen-cv-dev
   flutter_package:
     uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/flutter_package.yml@v1
