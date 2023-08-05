@@ -1,5 +1,9 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'package:goddchen_cv/main.dart';
 
 void main() {
-  test('Dummy, remove once real tests are here', () {});
+  testWidgets('Dummy, remove once real tests are here',
+      (final WidgetTester widgetTester) async {
+    await widgetTester.pumpWidget(const MainApp());
+  });
 }
