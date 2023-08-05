@@ -2,7 +2,7 @@
   "hosting": [
     {
       "site": "goddchen-cv",
-      "source": ".",
+      "public": "build/web/",
       "ignore": [
         "firebase.json",
         "**/.*",
@@ -14,7 +14,7 @@
     },
     {
       "site": "goddchen-cv-dev",
-      "source": ".",
+      "public": "build/web/",
       "ignore": [
         "firebase.json",
         "**/.*",
