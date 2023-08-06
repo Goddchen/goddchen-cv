@@ -20,8 +20,8 @@ class GithubPrsView extends MvcView<GithubPrsModel, GithubPrsController> {
   Widget build(final BuildContext context) => Section(
         title: 'Github PRs',
         child: model.prs.build(
-          dataBuilder: (final List<GithubPrsModelPr> data) => ListView(
-            shrinkWrap: true,
+          dataBuilder: (final List<GithubPrsModelPr> data) => Column(
+            mainAxisSize: MainAxisSize.min,
             children: data
                 .map(
                   (final GithubPrsModelPr pr) => Consumer(

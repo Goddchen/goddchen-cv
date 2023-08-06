@@ -21,8 +21,8 @@ class YoutubeVideosView
   Widget build(final BuildContext context) => Section(
         title: 'Youtube Videos',
         child: model.videos.build(
-          dataBuilder: (final List<YoutubeVideoModelVideo> data) => ListView(
-            shrinkWrap: true,
+          dataBuilder: (final List<YoutubeVideoModelVideo> data) => Column(
+            mainAxisSize: MainAxisSize.min,
             children: data
                 .map(
                   (final YoutubeVideoModelVideo video) => Consumer(
