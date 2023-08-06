@@ -7,6 +7,7 @@ import 'package:goddchen_cv/github_prs/github_prs_controller.dart';
 import 'package:goddchen_cv/github_prs/github_prs_model.dart';
 import 'package:goddchen_cv/mvc/mvc_view.dart';
 import 'package:goddchen_cv/services/github/github_service.dart';
+import 'package:goddchen_cv/services/navigation/navigation_service.dart';
 import 'package:goddchen_cv/widgets/section.dart';
 
 class GithubPrsView extends MvcView<GithubPrsModel, GithubPrsController> {
@@ -29,6 +30,7 @@ class GithubPrsView extends MvcView<GithubPrsModel, GithubPrsController> {
                       final GithubPrControllerImplementationProvider provider =
                           GithubPrControllerImplementationProvider(
                         githubService: ref.watch(githubServiceProvider),
+                        navigationService: ref.watch(navigationServiceProvider),
                         number: pr.number,
                         owner: pr.owner,
                         repo: pr.repo,

@@ -7,7 +7,7 @@ part of 'github_pr_controller_implementation.dart';
 // **************************************************************************
 
 String _$githubPrControllerImplementationHash() =>
-    r'fbead22c0413c2a6a55b1f439c4980505563ff12';
+    r'ec42ce6c7ccaacd0fc38457de0a29449748c0608';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -33,12 +33,14 @@ class _SystemHash {
 abstract class _$GithubPrControllerImplementation
     extends BuildlessAutoDisposeNotifier<GithubPrModel> {
   late final GithubPrGithubService githubService;
+  late final GithubPrNavigationService navigationService;
   late final int number;
   late final String owner;
   late final String repo;
 
   GithubPrModel build({
     required GithubPrGithubService githubService,
+    required GithubPrNavigationService navigationService,
     required int number,
     required String owner,
     required String repo,
@@ -58,12 +60,14 @@ class GithubPrControllerImplementationFamily extends Family<GithubPrModel> {
   /// See also [GithubPrControllerImplementation].
   GithubPrControllerImplementationProvider call({
     required GithubPrGithubService githubService,
+    required GithubPrNavigationService navigationService,
     required int number,
     required String owner,
     required String repo,
   }) {
     return GithubPrControllerImplementationProvider(
       githubService: githubService,
+      navigationService: navigationService,
       number: number,
       owner: owner,
       repo: repo,
@@ -76,6 +80,7 @@ class GithubPrControllerImplementationFamily extends Family<GithubPrModel> {
   ) {
     return call(
       githubService: provider.githubService,
+      navigationService: provider.navigationService,
       number: provider.number,
       owner: provider.owner,
       repo: provider.repo,
@@ -104,12 +109,14 @@ class GithubPrControllerImplementationProvider
   /// See also [GithubPrControllerImplementation].
   GithubPrControllerImplementationProvider({
     required this.githubService,
+    required this.navigationService,
     required this.number,
     required this.owner,
     required this.repo,
   }) : super.internal(
           () => GithubPrControllerImplementation()
             ..githubService = githubService
+            ..navigationService = navigationService
             ..number = number
             ..owner = owner
             ..repo = repo,
@@ -125,6 +132,7 @@ class GithubPrControllerImplementationProvider
         );
 
   final GithubPrGithubService githubService;
+  final GithubPrNavigationService navigationService;
   final int number;
   final String owner;
   final String repo;
@@ -133,6 +141,7 @@ class GithubPrControllerImplementationProvider
   bool operator ==(Object other) {
     return other is GithubPrControllerImplementationProvider &&
         other.githubService == githubService &&
+        other.navigationService == navigationService &&
         other.number == number &&
         other.owner == owner &&
         other.repo == repo;
@@ -142,6 +151,7 @@ class GithubPrControllerImplementationProvider
   int get hashCode {
     var hash = _SystemHash.combine(0, runtimeType.hashCode);
     hash = _SystemHash.combine(hash, githubService.hashCode);
+    hash = _SystemHash.combine(hash, navigationService.hashCode);
     hash = _SystemHash.combine(hash, number.hashCode);
     hash = _SystemHash.combine(hash, owner.hashCode);
     hash = _SystemHash.combine(hash, repo.hashCode);
@@ -155,6 +165,7 @@ class GithubPrControllerImplementationProvider
   ) {
     return notifier.build(
       githubService: githubService,
+      navigationService: navigationService,
       number: number,
       owner: owner,
       repo: repo,
