@@ -8,7 +8,9 @@
             "flutterMode": "debug",
             "args": [
                 "--flavor",
-                "develop"
+                "develop",
+                "--web-renderer",
+                "html"
             ],
             "program": "lib/main_develop.dart"
         },

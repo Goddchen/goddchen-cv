@@ -21,7 +21,7 @@ class GithubPrView extends MvcView<GithubPrModel, GithubPrController> {
             child: Center(
               child: model.pr.build(
                 dataBuilder: (final GithubPrModelPr data) => Row(
-                  children: [
+                  children: <Widget>[
                     Assets.icons.github.pullRequest.svg(
                       height: 48,
                       width: 48,
@@ -30,7 +30,7 @@ class GithubPrView extends MvcView<GithubPrModel, GithubPrController> {
                     Expanded(
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
-                        children: [
+                        children: <Widget>[
                           Text('${data.link}'),
                           Text(data.title),
                           Text('${data.createdAt}'),
