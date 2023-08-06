@@ -15,28 +15,28 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$YoutubeVideoModelVideo {
+mixin _$YoutubeVideosModelVideo {
   String get id => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $YoutubeVideoModelVideoCopyWith<YoutubeVideoModelVideo> get copyWith =>
+  $YoutubeVideosModelVideoCopyWith<YoutubeVideosModelVideo> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $YoutubeVideoModelVideoCopyWith<$Res> {
-  factory $YoutubeVideoModelVideoCopyWith(YoutubeVideoModelVideo value,
-          $Res Function(YoutubeVideoModelVideo) then) =
-      _$YoutubeVideoModelVideoCopyWithImpl<$Res, YoutubeVideoModelVideo>;
+abstract class $YoutubeVideosModelVideoCopyWith<$Res> {
+  factory $YoutubeVideosModelVideoCopyWith(YoutubeVideosModelVideo value,
+          $Res Function(YoutubeVideosModelVideo) then) =
+      _$YoutubeVideosModelVideoCopyWithImpl<$Res, YoutubeVideosModelVideo>;
   @useResult
   $Res call({String id});
 }
 
 /// @nodoc
-class _$YoutubeVideoModelVideoCopyWithImpl<$Res,
-        $Val extends YoutubeVideoModelVideo>
-    implements $YoutubeVideoModelVideoCopyWith<$Res> {
-  _$YoutubeVideoModelVideoCopyWithImpl(this._value, this._then);
+class _$YoutubeVideosModelVideoCopyWithImpl<$Res,
+        $Val extends YoutubeVideosModelVideo>
+    implements $YoutubeVideosModelVideoCopyWith<$Res> {
+  _$YoutubeVideosModelVideoCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -58,23 +58,23 @@ class _$YoutubeVideoModelVideoCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_YoutubeVideoModelVideoCopyWith<$Res>
-    implements $YoutubeVideoModelVideoCopyWith<$Res> {
-  factory _$$_YoutubeVideoModelVideoCopyWith(_$_YoutubeVideoModelVideo value,
-          $Res Function(_$_YoutubeVideoModelVideo) then) =
-      __$$_YoutubeVideoModelVideoCopyWithImpl<$Res>;
+abstract class _$$_YoutubeVideosModelVideoCopyWith<$Res>
+    implements $YoutubeVideosModelVideoCopyWith<$Res> {
+  factory _$$_YoutubeVideosModelVideoCopyWith(_$_YoutubeVideosModelVideo value,
+          $Res Function(_$_YoutubeVideosModelVideo) then) =
+      __$$_YoutubeVideosModelVideoCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String id});
 }
 
 /// @nodoc
-class __$$_YoutubeVideoModelVideoCopyWithImpl<$Res>
-    extends _$YoutubeVideoModelVideoCopyWithImpl<$Res,
-        _$_YoutubeVideoModelVideo>
-    implements _$$_YoutubeVideoModelVideoCopyWith<$Res> {
-  __$$_YoutubeVideoModelVideoCopyWithImpl(_$_YoutubeVideoModelVideo _value,
-      $Res Function(_$_YoutubeVideoModelVideo) _then)
+class __$$_YoutubeVideosModelVideoCopyWithImpl<$Res>
+    extends _$YoutubeVideosModelVideoCopyWithImpl<$Res,
+        _$_YoutubeVideosModelVideo>
+    implements _$$_YoutubeVideosModelVideoCopyWith<$Res> {
+  __$$_YoutubeVideosModelVideoCopyWithImpl(_$_YoutubeVideosModelVideo _value,
+      $Res Function(_$_YoutubeVideosModelVideo) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -82,7 +82,7 @@ class __$$_YoutubeVideoModelVideoCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
   }) {
-    return _then(_$_YoutubeVideoModelVideo(
+    return _then(_$_YoutubeVideosModelVideo(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -93,22 +93,22 @@ class __$$_YoutubeVideoModelVideoCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_YoutubeVideoModelVideo implements _YoutubeVideoModelVideo {
-  const _$_YoutubeVideoModelVideo({required this.id});
+class _$_YoutubeVideosModelVideo implements _YoutubeVideosModelVideo {
+  const _$_YoutubeVideosModelVideo({required this.id});
 
   @override
   final String id;
 
   @override
   String toString() {
-    return 'YoutubeVideoModelVideo(id: $id)';
+    return 'YoutubeVideosModelVideo(id: $id)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_YoutubeVideoModelVideo &&
+            other is _$_YoutubeVideosModelVideo &&
             (identical(other.id, id) || other.id == id));
   }
 
@@ -118,26 +118,27 @@ class _$_YoutubeVideoModelVideo implements _YoutubeVideoModelVideo {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_YoutubeVideoModelVideoCopyWith<_$_YoutubeVideoModelVideo> get copyWith =>
-      __$$_YoutubeVideoModelVideoCopyWithImpl<_$_YoutubeVideoModelVideo>(
-          this, _$identity);
+  _$$_YoutubeVideosModelVideoCopyWith<_$_YoutubeVideosModelVideo>
+      get copyWith =>
+          __$$_YoutubeVideosModelVideoCopyWithImpl<_$_YoutubeVideosModelVideo>(
+              this, _$identity);
 }
 
-abstract class _YoutubeVideoModelVideo implements YoutubeVideoModelVideo {
-  const factory _YoutubeVideoModelVideo({required final String id}) =
-      _$_YoutubeVideoModelVideo;
+abstract class _YoutubeVideosModelVideo implements YoutubeVideosModelVideo {
+  const factory _YoutubeVideosModelVideo({required final String id}) =
+      _$_YoutubeVideosModelVideo;
 
   @override
   String get id;
   @override
   @JsonKey(ignore: true)
-  _$$_YoutubeVideoModelVideoCopyWith<_$_YoutubeVideoModelVideo> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$_YoutubeVideosModelVideoCopyWith<_$_YoutubeVideosModelVideo>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 mixin _$YoutubeVideosModel {
-  Either<Object, Option<List<YoutubeVideoModelVideo>>> get videos =>
+  Either<Object, Option<List<YoutubeVideosModelVideo>>> get videos =>
       throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -151,7 +152,7 @@ abstract class $YoutubeVideosModelCopyWith<$Res> {
           YoutubeVideosModel value, $Res Function(YoutubeVideosModel) then) =
       _$YoutubeVideosModelCopyWithImpl<$Res, YoutubeVideosModel>;
   @useResult
-  $Res call({Either<Object, Option<List<YoutubeVideoModelVideo>>> videos});
+  $Res call({Either<Object, Option<List<YoutubeVideosModelVideo>>> videos});
 }
 
 /// @nodoc
@@ -173,7 +174,7 @@ class _$YoutubeVideosModelCopyWithImpl<$Res, $Val extends YoutubeVideosModel>
       videos: null == videos
           ? _value.videos
           : videos // ignore: cast_nullable_to_non_nullable
-              as Either<Object, Option<List<YoutubeVideoModelVideo>>>,
+              as Either<Object, Option<List<YoutubeVideosModelVideo>>>,
     ) as $Val);
   }
 }
@@ -186,7 +187,7 @@ abstract class _$$_YoutubeVideosModelCopyWith<$Res>
       __$$_YoutubeVideosModelCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Either<Object, Option<List<YoutubeVideoModelVideo>>> videos});
+  $Res call({Either<Object, Option<List<YoutubeVideosModelVideo>>> videos});
 }
 
 /// @nodoc
@@ -206,7 +207,7 @@ class __$$_YoutubeVideosModelCopyWithImpl<$Res>
       videos: null == videos
           ? _value.videos
           : videos // ignore: cast_nullable_to_non_nullable
-              as Either<Object, Option<List<YoutubeVideoModelVideo>>>,
+              as Either<Object, Option<List<YoutubeVideosModelVideo>>>,
     ));
   }
 }
@@ -217,7 +218,7 @@ class _$_YoutubeVideosModel implements _YoutubeVideosModel {
   const _$_YoutubeVideosModel({required this.videos});
 
   @override
-  final Either<Object, Option<List<YoutubeVideoModelVideo>>> videos;
+  final Either<Object, Option<List<YoutubeVideosModelVideo>>> videos;
 
   @override
   String toString() {
@@ -245,11 +246,11 @@ class _$_YoutubeVideosModel implements _YoutubeVideosModel {
 
 abstract class _YoutubeVideosModel implements YoutubeVideosModel {
   const factory _YoutubeVideosModel(
-      {required final Either<Object, Option<List<YoutubeVideoModelVideo>>>
+      {required final Either<Object, Option<List<YoutubeVideosModelVideo>>>
           videos}) = _$_YoutubeVideosModel;
 
   @override
-  Either<Object, Option<List<YoutubeVideoModelVideo>>> get videos;
+  Either<Object, Option<List<YoutubeVideosModelVideo>>> get videos;
   @override
   @JsonKey(ignore: true)
   _$$_YoutubeVideosModelCopyWith<_$_YoutubeVideosModel> get copyWith =>
