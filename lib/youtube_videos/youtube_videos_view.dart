@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:goddchen_cv/common.dart';
 import 'package:goddchen_cv/mvc/mvc_view.dart';
+import 'package:goddchen_cv/services/navigation/navigation_service.dart';
 import 'package:goddchen_cv/services/youtube/youtube_service.dart';
 import 'package:goddchen_cv/widgets/section.dart';
 import 'package:goddchen_cv/youtube_video/youtube_video_controller_implementation.dart';
@@ -31,6 +32,7 @@ class YoutubeVideosView
                           provider =
                           youtubeVideoControllerImplementationProvider(
                         id: video.id,
+                        navigationService: ref.watch(navigationServiceProvider),
                         youtubeService: ref.watch(youtubeServiceProvider),
                       );
                       return YoutubeVideoView(

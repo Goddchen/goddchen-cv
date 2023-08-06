@@ -121,6 +121,7 @@ class YoutubeServiceImplementation implements YoutubeServiceAggregator {
           final YoutubeRestApiVideos videos =
               await _youtubeRestApi.getVideo(id: id);
           return YoutubeVideoYoutubeServiceVideo(
+            link: Uri.parse('https://www.youtube.com/watch?v=$id'),
             thumbnail:
                 Uri.parse(videos.items.first.snippet.thumbnails.standard.url),
             title: videos.items.first.snippet.title,

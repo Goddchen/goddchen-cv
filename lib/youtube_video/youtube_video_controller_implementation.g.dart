@@ -7,7 +7,7 @@ part of 'youtube_video_controller_implementation.dart';
 // **************************************************************************
 
 String _$youtubeVideoControllerImplementationHash() =>
-    r'bf932f636c052b4f8f33f74e4ce72d87e16bd64e';
+    r'4d0e67f009eb08f416e217e0d091a23a34c3e3e1';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -33,10 +33,12 @@ class _SystemHash {
 abstract class _$YoutubeVideoControllerImplementation
     extends BuildlessAutoDisposeNotifier<YoutubeVideoModel> {
   late final String id;
+  late final YoutubeVideoNavigationService navigationService;
   late final YoutubeVideoYoutubeService youtubeService;
 
   YoutubeVideoModel build({
     required String id,
+    required YoutubeVideoNavigationService navigationService,
     required YoutubeVideoYoutubeService youtubeService,
   });
 }
@@ -55,10 +57,12 @@ class YoutubeVideoControllerImplementationFamily
   /// See also [YoutubeVideoControllerImplementation].
   YoutubeVideoControllerImplementationProvider call({
     required String id,
+    required YoutubeVideoNavigationService navigationService,
     required YoutubeVideoYoutubeService youtubeService,
   }) {
     return YoutubeVideoControllerImplementationProvider(
       id: id,
+      navigationService: navigationService,
       youtubeService: youtubeService,
     );
   }
@@ -69,6 +73,7 @@ class YoutubeVideoControllerImplementationFamily
   ) {
     return call(
       id: provider.id,
+      navigationService: provider.navigationService,
       youtubeService: provider.youtubeService,
     );
   }
@@ -95,10 +100,12 @@ class YoutubeVideoControllerImplementationProvider
   /// See also [YoutubeVideoControllerImplementation].
   YoutubeVideoControllerImplementationProvider({
     required this.id,
+    required this.navigationService,
     required this.youtubeService,
   }) : super.internal(
           () => YoutubeVideoControllerImplementation()
             ..id = id
+            ..navigationService = navigationService
             ..youtubeService = youtubeService,
           from: youtubeVideoControllerImplementationProvider,
           name: r'youtubeVideoControllerImplementationProvider',
@@ -113,12 +120,14 @@ class YoutubeVideoControllerImplementationProvider
         );
 
   final String id;
+  final YoutubeVideoNavigationService navigationService;
   final YoutubeVideoYoutubeService youtubeService;
 
   @override
   bool operator ==(Object other) {
     return other is YoutubeVideoControllerImplementationProvider &&
         other.id == id &&
+        other.navigationService == navigationService &&
         other.youtubeService == youtubeService;
   }
 
@@ -126,6 +135,7 @@ class YoutubeVideoControllerImplementationProvider
   int get hashCode {
     var hash = _SystemHash.combine(0, runtimeType.hashCode);
     hash = _SystemHash.combine(hash, id.hashCode);
+    hash = _SystemHash.combine(hash, navigationService.hashCode);
     hash = _SystemHash.combine(hash, youtubeService.hashCode);
 
     return _SystemHash.finish(hash);
@@ -137,6 +147,7 @@ class YoutubeVideoControllerImplementationProvider
   ) {
     return notifier.build(
       id: id,
+      navigationService: navigationService,
       youtubeService: youtubeService,
     );
   }
