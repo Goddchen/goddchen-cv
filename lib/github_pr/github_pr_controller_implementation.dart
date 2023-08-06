@@ -4,6 +4,7 @@ import 'package:fpdart/fpdart.dart';
 import 'package:goddchen_cv/github_pr/github_pr_controller.dart';
 import 'package:goddchen_cv/github_pr/github_pr_github_service.dart';
 import 'package:goddchen_cv/github_pr/github_pr_model.dart';
+import 'package:goddchen_cv/github_pr/github_pr_navigation_service.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'github_pr_controller_implementation.g.dart';
@@ -14,6 +15,7 @@ class GithubPrControllerImplementation
   @override
   GithubPrModel build({
     required final GithubPrGithubService githubService,
+    required final GithubPrNavigationService navigationService,
     required final int number,
     required final String owner,
     required final String repo,
@@ -47,4 +49,8 @@ class GithubPrControllerImplementation
           ),
         ),
       );
+
+  @override
+  void tapPr({required final GithubPrModelPr pr}) =>
+      navigationService.openUri(uri: pr.link);
 }

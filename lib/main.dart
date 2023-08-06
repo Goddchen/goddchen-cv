@@ -70,6 +70,7 @@ class App extends StatelessWidget {
                 final GithubPrControllerImplementationProvider provider =
                     GithubPrControllerImplementationProvider(
                   githubService: ref.watch(githubServiceProvider),
+                  navigationService: ref.watch(navigationServiceProvider),
                   number: pr.number,
                   owner: pr.owner,
                   repo: pr.repo,

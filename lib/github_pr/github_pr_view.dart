@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fpdart/fpdart.dart';
 import 'package:goddchen_cv/common.dart';
 import 'package:goddchen_cv/gen/assets.gen.dart';
 import 'package:goddchen_cv/github_pr/github_pr_controller.dart';
@@ -22,7 +23,13 @@ class GithubPrView extends MvcView<GithubPrModel, GithubPrController> {
           child: Material(
             type: MaterialType.transparency,
             child: InkWell(
-              onTap: () {},
+              onTap: model.pr
+                  .toOption()
+                  .flatMap((final Option<GithubPrModelPr> prOption) => prOption)
+                  .fold(
+                      () => null,
+                      (final GithubPrModelPr pr) =>
+                          () => controller.tapPr(pr: pr)),
               child: SizedBox(
                 height: 160,
                 child: Padding(
