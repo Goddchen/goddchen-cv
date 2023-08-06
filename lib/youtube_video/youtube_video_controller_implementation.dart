@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:fpdart/fpdart.dart';
 import 'package:goddchen_cv/youtube_video/youtube_video_controller.dart';
 import 'package:goddchen_cv/youtube_video/youtube_video_model.dart';
+import 'package:goddchen_cv/youtube_video/youtube_video_navigation_service.dart';
 import 'package:goddchen_cv/youtube_video/youtube_video_youtube_service.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
@@ -16,6 +17,7 @@ class YoutubeVideoControllerImplementation
       .videoTask(id: id)
       .map(
         (final YoutubeVideoYoutubeServiceVideo video) => YoutubeVideoModelVideo(
+          link: video.link,
           thumbnail: video.thumbnail,
           title: video.title,
         ),
@@ -29,6 +31,7 @@ class YoutubeVideoControllerImplementation
   @override
   YoutubeVideoModel build({
     required final String id,
+    required final YoutubeVideoNavigationService navigationService,
     required final YoutubeVideoYoutubeService youtubeService,
   }) {
     scheduleMicrotask(_initTask.run);
@@ -36,5 +39,6 @@ class YoutubeVideoControllerImplementation
   }
 
   @override
-  void tapVideo({required final YoutubeVideoModelVideo video}) {}
+  void tapVideo({required final YoutubeVideoModelVideo video}) =>
+      navigationService.openUri(uri: video.link);
 }
