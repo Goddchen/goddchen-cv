@@ -52,11 +52,12 @@ class GithubServiceImplementation implements GithubServiceAggregator {
   TaskEither<Object, List<GithubPrsGithubServicePr>> get prsTask =>
       TaskEither<Object, List<GithubPrsGithubServicePr>>.tryCatch(
         () async {
-          final String jsonString = await rootBundle.loadString(Assets.prs);
+          final String jsonString =
+              await rootBundle.loadString(Assets.data.prs);
           final List<dynamic> iterable = jsonDecode(jsonString);
           return iterable
               .map(
-                (final pr) => GithubServicePrConfig.fromJson(pr),
+                (final dynamic pr) => GithubServicePrConfig.fromJson(pr),
               )
               .map(
                 (final GithubServicePrConfig pr) => GithubPrsGithubServicePr(
@@ -76,12 +77,13 @@ class GithubServiceImplementation implements GithubServiceAggregator {
     required final String owner,
     required final String repo,
   }) =>
-      TaskEither<Object, GithubPrGithubServicePrData>.Do((final $) async {
+      TaskEither<Object, GithubPrGithubServicePrData>.Do(
+          (final Future<A> Function<A>(TaskEither<Object, A>) $) async {
         final GithubRestApiGetPull getPull = await $(
           TaskEither<Object, GithubRestApiGetPull>.tryCatch(
               () async => _githubRestApi.getPull(
                   number: number, owner: owner, repo: repo),
-              (final error, final __) => error),
+              (final Object error, final __) => error),
         );
         return GithubPrGithubServicePrData(
           createdAt: getPull.createdAt,

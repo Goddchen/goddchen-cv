@@ -11,6 +11,19 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter/services.dart';
 
+class $AssetsDataGen {
+  const $AssetsDataGen();
+
+  /// File path: assets/data/prs.json
+  String get prs => 'assets/data/prs.json';
+
+  /// File path: assets/data/youtube_videos.json
+  String get youtubeVideos => 'assets/data/youtube_videos.json';
+
+  /// List of all assets
+  List<String> get values => [prs, youtubeVideos];
+}
+
 class $AssetsIconsGen {
   const $AssetsIconsGen();
 
@@ -31,11 +44,8 @@ class $AssetsIconsGithubGen {
 class Assets {
   Assets._();
 
+  static const $AssetsDataGen data = $AssetsDataGen();
   static const $AssetsIconsGen icons = $AssetsIconsGen();
-  static const String prs = 'assets/prs.json';
-
-  /// List of all assets
-  List<String> get values => [prs];
 }
 
 class AssetGenImage {

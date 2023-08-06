@@ -25,8 +25,9 @@ class GithubPrsView extends MvcView<GithubPrsModel, GithubPrsController> {
             children: data
                 .map(
                   (final GithubPrsModelPr pr) => Consumer(
-                    builder: (final _, final ref, final __) {
-                      final provider = GithubPrControllerImplementationProvider(
+                    builder: (final _, final WidgetRef ref, final __) {
+                      final GithubPrControllerImplementationProvider provider =
+                          GithubPrControllerImplementationProvider(
                         githubService: ref.watch(githubServiceProvider),
                         number: pr.number,
                         owner: pr.owner,

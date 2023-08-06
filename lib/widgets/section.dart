@@ -13,7 +13,7 @@ class Section extends StatelessWidget {
 
   @override
   Widget build(final BuildContext context) => Column(
-        children: [
+        children: <Widget>[
           Text(
             _title,
             style: Theme.of(context).textTheme.headlineLarge,
