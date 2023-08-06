@@ -5,15 +5,15 @@ import 'package:goddchen_cv/common.dart';
 part 'youtube_videos_model.freezed.dart';
 
 @freezed
-class YoutubeVideoModelVideo with _$YoutubeVideoModelVideo {
-  const factory YoutubeVideoModelVideo({
+class YoutubeVideosModelVideo with _$YoutubeVideosModelVideo {
+  const factory YoutubeVideosModelVideo({
     required final String id,
-  }) = _YoutubeVideoModelVideo;
+  }) = _YoutubeVideosModelVideo;
 }
 
 @freezed
 class YoutubeVideosModel with _$YoutubeVideosModel {
   const factory YoutubeVideosModel({
-    required final AsyncResult<List<YoutubeVideoModelVideo>> videos,
+    required final AsyncResult<List<YoutubeVideosModelVideo>> videos,
   }) = _YoutubeVideosModel;
 }

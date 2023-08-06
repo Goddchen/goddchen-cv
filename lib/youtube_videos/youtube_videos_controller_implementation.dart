@@ -15,11 +15,11 @@ class YoutubeVideosControllerImplementation
   Task<void> get _initTask => youtubeService.videosTask
       .map((final List<YoutubeVideosYoutubeServiceVideo> videos) => videos
           .map((final YoutubeVideosYoutubeServiceVideo video) =>
-              YoutubeVideoModelVideo(id: video.id))
+              YoutubeVideosModelVideo(id: video.id))
           .toList())
       .match(
         (final Object error) => state = state.copyWith(videos: left(error)),
-        (final List<YoutubeVideoModelVideo> videos) =>
+        (final List<YoutubeVideosModelVideo> videos) =>
             state = state.copyWith(videos: right(some(videos))),
       );
 
