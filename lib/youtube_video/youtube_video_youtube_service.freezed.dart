@@ -16,6 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$YoutubeVideoYoutubeServiceVideo {
+  Uri get link => throw _privateConstructorUsedError;
   Uri get thumbnail => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
 
@@ -32,7 +33,7 @@ abstract class $YoutubeVideoYoutubeServiceVideoCopyWith<$Res> {
       _$YoutubeVideoYoutubeServiceVideoCopyWithImpl<$Res,
           YoutubeVideoYoutubeServiceVideo>;
   @useResult
-  $Res call({Uri thumbnail, String title});
+  $Res call({Uri link, Uri thumbnail, String title});
 }
 
 /// @nodoc
@@ -49,10 +50,15 @@ class _$YoutubeVideoYoutubeServiceVideoCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? link = null,
     Object? thumbnail = null,
     Object? title = null,
   }) {
     return _then(_value.copyWith(
+      link: null == link
+          ? _value.link
+          : link // ignore: cast_nullable_to_non_nullable
+              as Uri,
       thumbnail: null == thumbnail
           ? _value.thumbnail
           : thumbnail // ignore: cast_nullable_to_non_nullable
@@ -74,7 +80,7 @@ abstract class _$$_YoutubeVideoYoutubeServiceVideoCopyWith<$Res>
       __$$_YoutubeVideoYoutubeServiceVideoCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Uri thumbnail, String title});
+  $Res call({Uri link, Uri thumbnail, String title});
 }
 
 /// @nodoc
@@ -90,10 +96,15 @@ class __$$_YoutubeVideoYoutubeServiceVideoCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? link = null,
     Object? thumbnail = null,
     Object? title = null,
   }) {
     return _then(_$_YoutubeVideoYoutubeServiceVideo(
+      link: null == link
+          ? _value.link
+          : link // ignore: cast_nullable_to_non_nullable
+              as Uri,
       thumbnail: null == thumbnail
           ? _value.thumbnail
           : thumbnail // ignore: cast_nullable_to_non_nullable
@@ -111,8 +122,10 @@ class __$$_YoutubeVideoYoutubeServiceVideoCopyWithImpl<$Res>
 class _$_YoutubeVideoYoutubeServiceVideo
     implements _YoutubeVideoYoutubeServiceVideo {
   const _$_YoutubeVideoYoutubeServiceVideo(
-      {required this.thumbnail, required this.title});
+      {required this.link, required this.thumbnail, required this.title});
 
+  @override
+  final Uri link;
   @override
   final Uri thumbnail;
   @override
@@ -120,7 +133,7 @@ class _$_YoutubeVideoYoutubeServiceVideo
 
   @override
   String toString() {
-    return 'YoutubeVideoYoutubeServiceVideo(thumbnail: $thumbnail, title: $title)';
+    return 'YoutubeVideoYoutubeServiceVideo(link: $link, thumbnail: $thumbnail, title: $title)';
   }
 
   @override
@@ -128,13 +141,14 @@ class _$_YoutubeVideoYoutubeServiceVideo
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_YoutubeVideoYoutubeServiceVideo &&
+            (identical(other.link, link) || other.link == link) &&
             (identical(other.thumbnail, thumbnail) ||
                 other.thumbnail == thumbnail) &&
             (identical(other.title, title) || other.title == title));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, thumbnail, title);
+  int get hashCode => Object.hash(runtimeType, link, thumbnail, title);
 
   @JsonKey(ignore: true)
   @override
@@ -148,9 +162,12 @@ class _$_YoutubeVideoYoutubeServiceVideo
 abstract class _YoutubeVideoYoutubeServiceVideo
     implements YoutubeVideoYoutubeServiceVideo {
   const factory _YoutubeVideoYoutubeServiceVideo(
-      {required final Uri thumbnail,
+      {required final Uri link,
+      required final Uri thumbnail,
       required final String title}) = _$_YoutubeVideoYoutubeServiceVideo;
 
+  @override
+  Uri get link;
   @override
   Uri get thumbnail;
   @override

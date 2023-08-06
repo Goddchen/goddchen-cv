@@ -12,6 +12,7 @@ abstract interface class YoutubeVideoYoutubeService {
 @freezed
 class YoutubeVideoYoutubeServiceVideo with _$YoutubeVideoYoutubeServiceVideo {
   const factory YoutubeVideoYoutubeServiceVideo({
+    required final Uri link,
     required final Uri thumbnail,
     required final String title,
   }) = _YoutubeVideoYoutubeServiceVideo;

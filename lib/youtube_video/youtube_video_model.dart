@@ -14,6 +14,7 @@ class YoutubeVideoModel with _$YoutubeVideoModel {
 @freezed
 class YoutubeVideoModelVideo with _$YoutubeVideoModelVideo {
   const factory YoutubeVideoModelVideo({
+    required final Uri link,
     required final Uri thumbnail,
     required final String title,
   }) = _YoutubeVideoModelVideo;
