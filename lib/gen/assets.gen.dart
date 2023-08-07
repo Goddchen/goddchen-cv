@@ -15,6 +15,7 @@ class $AssetsIconsGen {
   const $AssetsIconsGen();
 
   $AssetsIconsGithubGen get github => const $AssetsIconsGithubGen();
+  $AssetsIconsYoutubeGen get youtube => const $AssetsIconsYoutubeGen();
 }
 
 class $AssetsImagesGen {
@@ -32,6 +33,16 @@ class $AssetsIconsGithubGen {
 
   /// List of all assets
   List<SvgGenImage> get values => [pullRequest];
+}
+
+class $AssetsIconsYoutubeGen {
+  const $AssetsIconsYoutubeGen();
+
+  /// File path: assets/icons/youtube/logo.svg
+  SvgGenImage get logo => const SvgGenImage('assets/icons/youtube/logo.svg');
+
+  /// List of all assets
+  List<SvgGenImage> get values => [logo];
 }
 
 class $AssetsImagesYoutubeGen {

@@ -15,7 +15,7 @@ class PortfolioView extends MvcView<PortfolioModel, PortfolioController> {
 
   @override
   Widget build(final BuildContext context) => Section(
-        seedColor: const Color.fromARGB(255, 0, 123, 255),
+        seedColor: portfolioColor,
         title: 'Portfolio',
         child: model.projects.build(
           dataBuilder: (final List<PortfolioModelProject> data) =>

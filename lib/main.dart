@@ -2,14 +2,19 @@ import 'dart:async';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_adaptive_scaffold/flutter_adaptive_scaffold.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:fpdart/fpdart.dart' hide State;
+import 'package:goddchen_cv/common.dart';
+import 'package:goddchen_cv/constants.dart';
 import 'package:goddchen_cv/flavors.dart';
+import 'package:goddchen_cv/gen/assets.gen.dart';
 import 'package:goddchen_cv/github_prs/github_prs_controller_implementation.dart';
 import 'package:goddchen_cv/github_prs/github_prs_view.dart';
 import 'package:goddchen_cv/portfolio/portfolio_controller_implementation.dart';
 import 'package:goddchen_cv/portfolio/portfolio_view.dart';
-import 'package:goddchen_cv/services/navigation/navigation_service.dart';
 import 'package:goddchen_cv/services/data/data_service.dart';
+import 'package:goddchen_cv/services/navigation/navigation_service.dart';
 import 'package:goddchen_cv/youtube_videos/youtube_videos_controller_implementation.dart';
 import 'package:goddchen_cv/youtube_videos/youtube_videos_view.dart';
 
@@ -17,16 +22,76 @@ FutureOr<void> main() async {
   runApp(const App());
 }
 
-class App extends StatelessWidget {
+class App extends StatefulWidget {
   const App({super.key});
 
   @override
+  State<App> createState() => _AppState();
+}
+
+class _AppState extends State<App> {
+  @override
   Widget build(final BuildContext context) {
-    final Scaffold scaffold = Scaffold(
-      appBar: AppBar(
-        title: Text(F.title),
+    final Widget scaffold = NotificationListener<ScrollNotification>(
+      onNotification: (final ScrollNotification notification) {
+        setState(() {});
+        return false;
+      },
+      child: AdaptiveScaffold(
+        appBar: AppBar(
+          title: Text(F.title),
+        ),
+        body: (final _) => _buildBody(),
+        destinations: <NavigationDestination>[
+          const NavigationDestination(
+            icon: Icon(
+              Icons.home,
+              color: portfolioColor,
+            ),
+            label: 'Portfolio',
+          ),
+          NavigationDestination(
+            icon: Assets.icons.youtube.logo.svg(
+              height: 24,
+              width: 24,
+            ),
+            label: 'Youtube Videos',
+          ),
+          NavigationDestination(
+            icon: Assets.icons.github.pullRequest.svg(
+              height: 24,
+              width: 24,
+            ),
+            label: 'PRs',
+          ),
+        ],
+        key: scaffoldKey,
+        onSelectedIndexChange: (final int index) => switch (index) {
+          0 => optionOf(portfolioKey.currentContext).fold(
+              () {},
+              (final BuildContext context) => Scrollable.ensureVisible(
+                context,
+                duration: kThemeAnimationDuration,
+              ),
+            ),
+          1 => optionOf(youtubeVideosKey.currentContext).fold(
+              () {},
+              (final BuildContext context) => Scrollable.ensureVisible(
+                context,
+                duration: kThemeAnimationDuration,
+              ),
+            ),
+          2 => optionOf(prsKey.currentContext).fold(
+              () {},
+              (final BuildContext context) => Scrollable.ensureVisible(
+                context,
+                duration: kThemeAnimationDuration,
+              ),
+            ),
+          _ => null,
+        },
+        selectedIndex: _calculateSelectedIndex(context: context),
       ),
-      body: _buildBody(),
     );
     return ProviderScope(
       child: MaterialApp(
@@ -54,6 +119,7 @@ class App extends StatelessWidget {
       );
 
   Widget _buildGithubPrs() => Consumer(
+        key: prsKey,
         builder: (final _, final WidgetRef ref, final ___) {
           final GithubPrsControllerImplementationProvider provider =
               githubPrsControllerImplementationProvider(
@@ -68,6 +134,7 @@ class App extends StatelessWidget {
       );
 
   Widget _buildPortfolio() => Consumer(
+        key: portfolioKey,
         builder: (final _, final WidgetRef ref, final ___) {
           final PortfolioControllerImplementationProvider provider =
               portfolioControllerImplementationProvider(
@@ -82,6 +149,7 @@ class App extends StatelessWidget {
       );
 
   Widget _buildYoutubeVideos() => Consumer(
+        key: youtubeVideosKey,
         builder: (final _, final WidgetRef ref, final ___) {
           final YoutubeVideosControllerImplementationProvider provider =
               youtubeVideosControllerImplementationProvider(
@@ -94,4 +162,22 @@ class App extends StatelessWidget {
           );
         },
       );
+
+  int _calculateSelectedIndex({
+    required final BuildContext context,
+  }) {
+    Either<Object, double> youtubeVideosYOffset =
+        findWidgetOffset(globalKey: youtubeVideosKey);
+    Either<Object, double> prsYOffset = findWidgetOffset(globalKey: prsKey);
+    if (prsYOffset.toOption().getOrElse(() => double.infinity) <= 0) {
+      return 2;
+    } else if (youtubeVideosYOffset
+            .toOption()
+            .getOrElse(() => double.infinity) <=
+        0) {
+      return 1;
+    } else {
+      return 0;
+    }
+  }
 }
