@@ -4,6 +4,7 @@ analyzer:
   errors:
     always_specify_types: error
     prefer_final_parameters: error
+    require_trailing_commas: error
     sort_pub_dependencies: error
   exclude:
     - "**/*.freezed.dart"
@@ -13,4 +14,5 @@ linter:
   rules:
     - always_specify_types
     - prefer_final_parameters
+    - require_trailing_commas
     - sort_pub_dependencies

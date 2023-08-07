@@ -27,9 +27,10 @@ class GithubPrView extends MvcView<GithubPrModel, GithubPrController> {
                   .toOption()
                   .flatMap((final Option<GithubPrModelPr> prOption) => prOption)
                   .fold(
-                      () => null,
-                      (final GithubPrModelPr pr) =>
-                          () => controller.tapPr(pr: pr)),
+                    () => null,
+                    (final GithubPrModelPr pr) =>
+                        () => controller.tapPr(pr: pr),
+                  ),
               child: SizedBox(
                 height: 160,
                 child: Padding(

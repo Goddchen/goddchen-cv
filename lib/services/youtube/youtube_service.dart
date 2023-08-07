@@ -59,7 +59,8 @@ class YoutubeRestApiVideosVideoSnippet with _$YoutubeRestApiVideosVideoSnippet {
   }) = _YoutubeRestApiVideosVideoSnippet;
 
   factory YoutubeRestApiVideosVideoSnippet.fromJson(
-          final Map<String, dynamic> json) =>
+    final Map<String, dynamic> json,
+  ) =>
       _$YoutubeRestApiVideosVideoSnippetFromJson(json);
 }
 
@@ -71,7 +72,8 @@ class YoutubeRestApiVideosVideoSnippetThumbnail
   }) = _YoutubeRestApiVideosVideoSnippetThumbnail;
 
   factory YoutubeRestApiVideosVideoSnippetThumbnail.fromJson(
-          final Map<String, dynamic> json) =>
+    final Map<String, dynamic> json,
+  ) =>
       _$YoutubeRestApiVideosVideoSnippetThumbnailFromJson(json);
 }
 
@@ -83,7 +85,8 @@ class YoutubeRestApiVideosVideoSnippetThumbnails
   }) = _YoutubeRestApiVideosVideoSnippetThumbnails;
 
   factory YoutubeRestApiVideosVideoSnippetThumbnails.fromJson(
-          final Map<String, dynamic> json) =>
+    final Map<String, dynamic> json,
+  ) =>
       _$YoutubeRestApiVideosVideoSnippetThumbnailsFromJson(json);
 }
 
@@ -101,21 +104,26 @@ class YoutubeServiceImplementation implements YoutubeServiceAggregator {
               await rootBundle.loadString(Assets.data.youtubeVideos);
           final List<dynamic> videos = jsonDecode(jsonString);
           return videos
-              .map((final dynamic video) =>
-                  YoutubeServiceVideoConfig.fromJson(video))
+              .map(
+                (final dynamic video) =>
+                    YoutubeServiceVideoConfig.fromJson(video),
+              )
               .toList();
         },
         (final Object error, final __) => error,
       ).map(
         (final List<YoutubeServiceVideoConfig> videos) => videos
-            .map((final YoutubeServiceVideoConfig video) =>
-                YoutubeVideosYoutubeServiceVideo(id: video.id))
+            .map(
+              (final YoutubeServiceVideoConfig video) =>
+                  YoutubeVideosYoutubeServiceVideo(id: video.id),
+            )
             .toList(),
       );
 
   @override
-  TaskEither<Object, YoutubeVideoYoutubeServiceVideo> videoTask(
-          {required final String id}) =>
+  TaskEither<Object, YoutubeVideoYoutubeServiceVideo> videoTask({
+    required final String id,
+  }) =>
       TaskEither<Object, YoutubeVideoYoutubeServiceVideo>.tryCatch(
         () async {
           final YoutubeRestApiVideos videos =

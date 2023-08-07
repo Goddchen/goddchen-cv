@@ -81,9 +81,13 @@ class GithubServiceImplementation implements GithubServiceAggregator {
           (final Future<A> Function<A>(TaskEither<Object, A>) $) async {
         final GithubRestApiGetPull getPull = await $(
           TaskEither<Object, GithubRestApiGetPull>.tryCatch(
-              () async => _githubRestApi.getPull(
-                  number: number, owner: owner, repo: repo),
-              (final Object error, final __) => error),
+            () async => _githubRestApi.getPull(
+              number: number,
+              owner: owner,
+              repo: repo,
+            ),
+            (final Object error, final __) => error,
+          ),
         );
         return GithubPrGithubServicePrData(
           createdAt: getPull.createdAt,

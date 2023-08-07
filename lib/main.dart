@@ -9,8 +9,11 @@ import 'package:goddchen_cv/github_pr/github_pr_view.dart';
 import 'package:goddchen_cv/github_prs/github_prs_controller_implementation.dart';
 import 'package:goddchen_cv/github_prs/github_prs_model.dart';
 import 'package:goddchen_cv/github_prs/github_prs_view.dart';
+import 'package:goddchen_cv/portfolio/portfolio_controller_implementation.dart';
+import 'package:goddchen_cv/portfolio/portfolio_view.dart';
 import 'package:goddchen_cv/services/github/github_service.dart';
 import 'package:goddchen_cv/services/navigation/navigation_service.dart';
+import 'package:goddchen_cv/services/data/data_service.dart';
 import 'package:goddchen_cv/services/youtube/youtube_service.dart';
 import 'package:goddchen_cv/youtube_video/youtube_video_controller_implementation.dart';
 import 'package:goddchen_cv/youtube_video/youtube_video_view.dart';
@@ -50,6 +53,7 @@ class App extends StatelessWidget {
   Widget _buildBody() => SingleChildScrollView(
         child: Column(
           children: <Widget>[
+            _buildPortfolio(),
             _buildYoutubeVideos(),
             _buildGithubPrs(),
           ],
@@ -81,6 +85,20 @@ class App extends StatelessWidget {
                 );
               },
             ),
+          );
+        },
+      );
+
+  Widget _buildPortfolio() => Consumer(
+        builder: (final _, final WidgetRef ref, final ___) {
+          final PortfolioControllerImplementationProvider provider =
+              portfolioControllerImplementationProvider(
+            dataService: ref.watch(dataServiceProvider),
+            navigationService: ref.watch(navigationServiceProvider),
+          );
+          return PortfolioView(
+            controller: ref.watch(provider.notifier),
+            model: ref.watch(provider),
           );
         },
       );
