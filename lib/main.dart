@@ -65,7 +65,6 @@ class _AppState extends State<App> {
             label: 'PRs',
           ),
         ],
-        key: scaffoldKey,
         onSelectedIndexChange: (final int index) => switch (index) {
           0 => optionOf(portfolioKey.currentContext).fold(
               () {},
