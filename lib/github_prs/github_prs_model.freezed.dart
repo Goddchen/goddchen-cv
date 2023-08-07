@@ -136,9 +136,8 @@ abstract class _GithubPrsModel implements GithubPrsModel {
 
 /// @nodoc
 mixin _$GithubPrsModelPr {
-  int get number => throw _privateConstructorUsedError;
-  String get owner => throw _privateConstructorUsedError;
-  String get repo => throw _privateConstructorUsedError;
+  Uri get link => throw _privateConstructorUsedError;
+  String get title => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $GithubPrsModelPrCopyWith<GithubPrsModelPr> get copyWith =>
@@ -151,7 +150,7 @@ abstract class $GithubPrsModelPrCopyWith<$Res> {
           GithubPrsModelPr value, $Res Function(GithubPrsModelPr) then) =
       _$GithubPrsModelPrCopyWithImpl<$Res, GithubPrsModelPr>;
   @useResult
-  $Res call({int number, String owner, String repo});
+  $Res call({Uri link, String title});
 }
 
 /// @nodoc
@@ -167,22 +166,17 @@ class _$GithubPrsModelPrCopyWithImpl<$Res, $Val extends GithubPrsModelPr>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? number = null,
-    Object? owner = null,
-    Object? repo = null,
+    Object? link = null,
+    Object? title = null,
   }) {
     return _then(_value.copyWith(
-      number: null == number
-          ? _value.number
-          : number // ignore: cast_nullable_to_non_nullable
-              as int,
-      owner: null == owner
-          ? _value.owner
-          : owner // ignore: cast_nullable_to_non_nullable
-              as String,
-      repo: null == repo
-          ? _value.repo
-          : repo // ignore: cast_nullable_to_non_nullable
+      link: null == link
+          ? _value.link
+          : link // ignore: cast_nullable_to_non_nullable
+              as Uri,
+      title: null == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
               as String,
     ) as $Val);
   }
@@ -196,7 +190,7 @@ abstract class _$$_GithubPrsModelPrCopyWith<$Res>
       __$$_GithubPrsModelPrCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int number, String owner, String repo});
+  $Res call({Uri link, String title});
 }
 
 /// @nodoc
@@ -210,22 +204,17 @@ class __$$_GithubPrsModelPrCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? number = null,
-    Object? owner = null,
-    Object? repo = null,
+    Object? link = null,
+    Object? title = null,
   }) {
     return _then(_$_GithubPrsModelPr(
-      number: null == number
-          ? _value.number
-          : number // ignore: cast_nullable_to_non_nullable
-              as int,
-      owner: null == owner
-          ? _value.owner
-          : owner // ignore: cast_nullable_to_non_nullable
-              as String,
-      repo: null == repo
-          ? _value.repo
-          : repo // ignore: cast_nullable_to_non_nullable
+      link: null == link
+          ? _value.link
+          : link // ignore: cast_nullable_to_non_nullable
+              as Uri,
+      title: null == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -234,19 +223,16 @@ class __$$_GithubPrsModelPrCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_GithubPrsModelPr implements _GithubPrsModelPr {
-  const _$_GithubPrsModelPr(
-      {required this.number, required this.owner, required this.repo});
+  const _$_GithubPrsModelPr({required this.link, required this.title});
 
   @override
-  final int number;
+  final Uri link;
   @override
-  final String owner;
-  @override
-  final String repo;
+  final String title;
 
   @override
   String toString() {
-    return 'GithubPrsModelPr(number: $number, owner: $owner, repo: $repo)';
+    return 'GithubPrsModelPr(link: $link, title: $title)';
   }
 
   @override
@@ -254,13 +240,12 @@ class _$_GithubPrsModelPr implements _GithubPrsModelPr {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_GithubPrsModelPr &&
-            (identical(other.number, number) || other.number == number) &&
-            (identical(other.owner, owner) || other.owner == owner) &&
-            (identical(other.repo, repo) || other.repo == repo));
+            (identical(other.link, link) || other.link == link) &&
+            (identical(other.title, title) || other.title == title));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, number, owner, repo);
+  int get hashCode => Object.hash(runtimeType, link, title);
 
   @JsonKey(ignore: true)
   @override
@@ -271,16 +256,13 @@ class _$_GithubPrsModelPr implements _GithubPrsModelPr {
 
 abstract class _GithubPrsModelPr implements GithubPrsModelPr {
   const factory _GithubPrsModelPr(
-      {required final int number,
-      required final String owner,
-      required final String repo}) = _$_GithubPrsModelPr;
+      {required final Uri link,
+      required final String title}) = _$_GithubPrsModelPr;
 
   @override
-  int get number;
+  Uri get link;
   @override
-  String get owner;
-  @override
-  String get repo;
+  String get title;
   @override
   @JsonKey(ignore: true)
   _$$_GithubPrsModelPrCopyWith<_$_GithubPrsModelPr> get copyWith =>

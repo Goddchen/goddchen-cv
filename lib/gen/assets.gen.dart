@@ -11,26 +11,16 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter/services.dart';
 
-class $AssetsDataGen {
-  const $AssetsDataGen();
-
-  /// File path: assets/data/projects.json
-  String get projects => 'assets/data/projects.json';
-
-  /// File path: assets/data/prs.json
-  String get prs => 'assets/data/prs.json';
-
-  /// File path: assets/data/youtube_videos.json
-  String get youtubeVideos => 'assets/data/youtube_videos.json';
-
-  /// List of all assets
-  List<String> get values => [projects, prs, youtubeVideos];
-}
-
 class $AssetsIconsGen {
   const $AssetsIconsGen();
 
   $AssetsIconsGithubGen get github => const $AssetsIconsGithubGen();
+}
+
+class $AssetsImagesGen {
+  const $AssetsImagesGen();
+
+  $AssetsImagesYoutubeGen get youtube => const $AssetsImagesYoutubeGen();
 }
 
 class $AssetsIconsGithubGen {
@@ -44,11 +34,59 @@ class $AssetsIconsGithubGen {
   List<SvgGenImage> get values => [pullRequest];
 }
 
+class $AssetsImagesYoutubeGen {
+  const $AssetsImagesYoutubeGen();
+
+  /// File path: assets/images/youtube/thumbnail_31MUyoAl8pE.jpg
+  AssetGenImage get thumbnail31MUyoAl8pE =>
+      const AssetGenImage('assets/images/youtube/thumbnail_31MUyoAl8pE.jpg');
+
+  /// File path: assets/images/youtube/thumbnail_6kNvwk2F6LE.jpg
+  AssetGenImage get thumbnail6kNvwk2F6LE =>
+      const AssetGenImage('assets/images/youtube/thumbnail_6kNvwk2F6LE.jpg');
+
+  /// File path: assets/images/youtube/thumbnail_MCFnD38PFwc.jpg
+  AssetGenImage get thumbnailMCFnD38PFwc =>
+      const AssetGenImage('assets/images/youtube/thumbnail_MCFnD38PFwc.jpg');
+
+  /// File path: assets/images/youtube/thumbnail_TNnccRimhsI.jpg
+  AssetGenImage get thumbnailTNnccRimhsI =>
+      const AssetGenImage('assets/images/youtube/thumbnail_TNnccRimhsI.jpg');
+
+  /// File path: assets/images/youtube/thumbnail__-Bvw8j7XLM.jpg
+  AssetGenImage get thumbnailBvw8j7XLM =>
+      const AssetGenImage('assets/images/youtube/thumbnail__-Bvw8j7XLM.jpg');
+
+  /// File path: assets/images/youtube/thumbnail_nYJmXDPSn8Q.jpg
+  AssetGenImage get thumbnailNYJmXDPSn8Q =>
+      const AssetGenImage('assets/images/youtube/thumbnail_nYJmXDPSn8Q.jpg');
+
+  /// File path: assets/images/youtube/thumbnail_rAHYQIeo8-g.jpg
+  AssetGenImage get thumbnailRAHYQIeo8G =>
+      const AssetGenImage('assets/images/youtube/thumbnail_rAHYQIeo8-g.jpg');
+
+  /// File path: assets/images/youtube/thumbnail_xXHQBqlNk_I.jpg
+  AssetGenImage get thumbnailXXHQBqlNkI =>
+      const AssetGenImage('assets/images/youtube/thumbnail_xXHQBqlNk_I.jpg');
+
+  /// List of all assets
+  List<AssetGenImage> get values => [
+        thumbnail31MUyoAl8pE,
+        thumbnail6kNvwk2F6LE,
+        thumbnailMCFnD38PFwc,
+        thumbnailTNnccRimhsI,
+        thumbnailBvw8j7XLM,
+        thumbnailNYJmXDPSn8Q,
+        thumbnailRAHYQIeo8G,
+        thumbnailXXHQBqlNkI
+      ];
+}
+
 class Assets {
   Assets._();
 
-  static const $AssetsDataGen data = $AssetsDataGen();
   static const $AssetsIconsGen icons = $AssetsIconsGen();
+  static const $AssetsImagesGen images = $AssetsImagesGen();
 }
 
 class AssetGenImage {

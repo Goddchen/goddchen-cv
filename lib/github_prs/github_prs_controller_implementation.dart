@@ -2,8 +2,9 @@ import 'dart:async';
 
 import 'package:fpdart/fpdart.dart';
 import 'package:goddchen_cv/github_prs/github_prs_controller.dart';
-import 'package:goddchen_cv/github_prs/github_prs_github_service.dart';
+import 'package:goddchen_cv/github_prs/github_prs_data_service.dart';
 import 'package:goddchen_cv/github_prs/github_prs_model.dart';
+import 'package:goddchen_cv/github_prs/github_prs_navigation_service.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'github_prs_controller_implementation.g.dart';
@@ -11,14 +12,13 @@ part 'github_prs_controller_implementation.g.dart';
 @riverpod
 class GithubPrsControllerImplementation
     extends _$GithubPrsControllerImplementation implements GithubPrsController {
-  Task<void> get _initTask => githubService.prsTask
+  Task<void> get _initTask => dataService.prsTask
       .map(
-        (final List<GithubPrsGithubServicePr> prs) => prs
+        (final List<GithubPrsDataServicePr> prs) => prs
             .map(
-              (final GithubPrsGithubServicePr pr) => GithubPrsModelPr(
-                number: pr.number,
-                owner: pr.owner,
-                repo: pr.repo,
+              (final GithubPrsDataServicePr pr) => GithubPrsModelPr(
+                link: pr.link,
+                title: pr.title,
               ),
             )
             .toList(),
@@ -31,9 +31,14 @@ class GithubPrsControllerImplementation
 
   @override
   GithubPrsModel build({
-    required final GithubPrsGithubService githubService,
+    required final GithubPrsDataService dataService,
+    required final GithubPrsNavigationService navigationService,
   }) {
     scheduleMicrotask(_initTask.run);
     return GithubPrsModel(prs: right(none()));
   }
+
+  @override
+  void openPr({required final GithubPrsModelPr pr}) =>
+      navigationService.openUri(uri: pr.link);
 }

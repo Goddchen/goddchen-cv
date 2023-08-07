@@ -17,6 +17,9 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$YoutubeVideosModelVideo {
   String get id => throw _privateConstructorUsedError;
+  Option<String> get imageAssetPath => throw _privateConstructorUsedError;
+  Uri get link => throw _privateConstructorUsedError;
+  String get title => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $YoutubeVideosModelVideoCopyWith<YoutubeVideosModelVideo> get copyWith =>
@@ -29,7 +32,7 @@ abstract class $YoutubeVideosModelVideoCopyWith<$Res> {
           $Res Function(YoutubeVideosModelVideo) then) =
       _$YoutubeVideosModelVideoCopyWithImpl<$Res, YoutubeVideosModelVideo>;
   @useResult
-  $Res call({String id});
+  $Res call({String id, Option<String> imageAssetPath, Uri link, String title});
 }
 
 /// @nodoc
@@ -47,11 +50,26 @@ class _$YoutubeVideosModelVideoCopyWithImpl<$Res,
   @override
   $Res call({
     Object? id = null,
+    Object? imageAssetPath = null,
+    Object? link = null,
+    Object? title = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      imageAssetPath: null == imageAssetPath
+          ? _value.imageAssetPath
+          : imageAssetPath // ignore: cast_nullable_to_non_nullable
+              as Option<String>,
+      link: null == link
+          ? _value.link
+          : link // ignore: cast_nullable_to_non_nullable
+              as Uri,
+      title: null == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
               as String,
     ) as $Val);
   }
@@ -65,7 +83,7 @@ abstract class _$$_YoutubeVideosModelVideoCopyWith<$Res>
       __$$_YoutubeVideosModelVideoCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String id});
+  $Res call({String id, Option<String> imageAssetPath, Uri link, String title});
 }
 
 /// @nodoc
@@ -81,11 +99,26 @@ class __$$_YoutubeVideosModelVideoCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = null,
+    Object? imageAssetPath = null,
+    Object? link = null,
+    Object? title = null,
   }) {
     return _then(_$_YoutubeVideosModelVideo(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      imageAssetPath: null == imageAssetPath
+          ? _value.imageAssetPath
+          : imageAssetPath // ignore: cast_nullable_to_non_nullable
+              as Option<String>,
+      link: null == link
+          ? _value.link
+          : link // ignore: cast_nullable_to_non_nullable
+              as Uri,
+      title: null == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -94,14 +127,24 @@ class __$$_YoutubeVideosModelVideoCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_YoutubeVideosModelVideo implements _YoutubeVideosModelVideo {
-  const _$_YoutubeVideosModelVideo({required this.id});
+  const _$_YoutubeVideosModelVideo(
+      {required this.id,
+      required this.imageAssetPath,
+      required this.link,
+      required this.title});
 
   @override
   final String id;
+  @override
+  final Option<String> imageAssetPath;
+  @override
+  final Uri link;
+  @override
+  final String title;
 
   @override
   String toString() {
-    return 'YoutubeVideosModelVideo(id: $id)';
+    return 'YoutubeVideosModelVideo(id: $id, imageAssetPath: $imageAssetPath, link: $link, title: $title)';
   }
 
   @override
@@ -109,11 +152,15 @@ class _$_YoutubeVideosModelVideo implements _YoutubeVideosModelVideo {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_YoutubeVideosModelVideo &&
-            (identical(other.id, id) || other.id == id));
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.imageAssetPath, imageAssetPath) ||
+                other.imageAssetPath == imageAssetPath) &&
+            (identical(other.link, link) || other.link == link) &&
+            (identical(other.title, title) || other.title == title));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, id);
+  int get hashCode => Object.hash(runtimeType, id, imageAssetPath, link, title);
 
   @JsonKey(ignore: true)
   @override
@@ -125,11 +172,20 @@ class _$_YoutubeVideosModelVideo implements _YoutubeVideosModelVideo {
 }
 
 abstract class _YoutubeVideosModelVideo implements YoutubeVideosModelVideo {
-  const factory _YoutubeVideosModelVideo({required final String id}) =
-      _$_YoutubeVideosModelVideo;
+  const factory _YoutubeVideosModelVideo(
+      {required final String id,
+      required final Option<String> imageAssetPath,
+      required final Uri link,
+      required final String title}) = _$_YoutubeVideosModelVideo;
 
   @override
   String get id;
+  @override
+  Option<String> get imageAssetPath;
+  @override
+  Uri get link;
+  @override
+  String get title;
   @override
   @JsonKey(ignore: true)
   _$$_YoutubeVideosModelVideoCopyWith<_$_YoutubeVideosModelVideo>

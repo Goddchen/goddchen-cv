@@ -7,7 +7,7 @@ part of 'github_prs_controller_implementation.dart';
 // **************************************************************************
 
 String _$githubPrsControllerImplementationHash() =>
-    r'865e650602a1c166bc20235f67526c3106f142ea';
+    r'f5fa1830f50136e4459e8c5f1038ebddff501c78';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -32,10 +32,12 @@ class _SystemHash {
 
 abstract class _$GithubPrsControllerImplementation
     extends BuildlessAutoDisposeNotifier<GithubPrsModel> {
-  late final GithubPrsGithubService githubService;
+  late final GithubPrsDataService dataService;
+  late final GithubPrsNavigationService navigationService;
 
   GithubPrsModel build({
-    required GithubPrsGithubService githubService,
+    required GithubPrsDataService dataService,
+    required GithubPrsNavigationService navigationService,
   });
 }
 
@@ -51,10 +53,12 @@ class GithubPrsControllerImplementationFamily extends Family<GithubPrsModel> {
 
   /// See also [GithubPrsControllerImplementation].
   GithubPrsControllerImplementationProvider call({
-    required GithubPrsGithubService githubService,
+    required GithubPrsDataService dataService,
+    required GithubPrsNavigationService navigationService,
   }) {
     return GithubPrsControllerImplementationProvider(
-      githubService: githubService,
+      dataService: dataService,
+      navigationService: navigationService,
     );
   }
 
@@ -63,7 +67,8 @@ class GithubPrsControllerImplementationFamily extends Family<GithubPrsModel> {
     covariant GithubPrsControllerImplementationProvider provider,
   ) {
     return call(
-      githubService: provider.githubService,
+      dataService: provider.dataService,
+      navigationService: provider.navigationService,
     );
   }
 
@@ -88,10 +93,12 @@ class GithubPrsControllerImplementationProvider
         GithubPrsModel> {
   /// See also [GithubPrsControllerImplementation].
   GithubPrsControllerImplementationProvider({
-    required this.githubService,
+    required this.dataService,
+    required this.navigationService,
   }) : super.internal(
           () => GithubPrsControllerImplementation()
-            ..githubService = githubService,
+            ..dataService = dataService
+            ..navigationService = navigationService,
           from: githubPrsControllerImplementationProvider,
           name: r'githubPrsControllerImplementationProvider',
           debugGetCreateSourceHash:
@@ -103,18 +110,21 @@ class GithubPrsControllerImplementationProvider
               ._allTransitiveDependencies,
         );
 
-  final GithubPrsGithubService githubService;
+  final GithubPrsDataService dataService;
+  final GithubPrsNavigationService navigationService;
 
   @override
   bool operator ==(Object other) {
     return other is GithubPrsControllerImplementationProvider &&
-        other.githubService == githubService;
+        other.dataService == dataService &&
+        other.navigationService == navigationService;
   }
 
   @override
   int get hashCode {
     var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, githubService.hashCode);
+    hash = _SystemHash.combine(hash, dataService.hashCode);
+    hash = _SystemHash.combine(hash, navigationService.hashCode);
 
     return _SystemHash.finish(hash);
   }
@@ -124,7 +134,8 @@ class GithubPrsControllerImplementationProvider
     covariant GithubPrsControllerImplementation notifier,
   ) {
     return notifier.build(
-      githubService: githubService,
+      dataService: dataService,
+      navigationService: navigationService,
     );
   }
 }

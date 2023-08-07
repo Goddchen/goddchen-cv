@@ -2,8 +2,9 @@ import 'dart:async';
 
 import 'package:fpdart/fpdart.dart';
 import 'package:goddchen_cv/youtube_videos/youtube_videos_controller.dart';
+import 'package:goddchen_cv/youtube_videos/youtube_videos_data_service.dart';
 import 'package:goddchen_cv/youtube_videos/youtube_videos_model.dart';
-import 'package:goddchen_cv/youtube_videos/youtube_videos_youtube_service.dart';
+import 'package:goddchen_cv/youtube_videos/youtube_videos_navigation_service.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'youtube_videos_controller_implementation.g.dart';
@@ -12,12 +13,17 @@ part 'youtube_videos_controller_implementation.g.dart';
 class YoutubeVideosControllerImplementation
     extends _$YoutubeVideosControllerImplementation
     implements YoutubeVideosController {
-  Task<void> get _initTask => youtubeService.videosTask
+  Task<void> get _initTask => dataService.videosTask
       .map(
-        (final List<YoutubeVideosYoutubeServiceVideo> videos) => videos
+        (final List<YoutubeVideosDataServiceVideo> videos) => videos
             .map(
-              (final YoutubeVideosYoutubeServiceVideo video) =>
-                  YoutubeVideosModelVideo(id: video.id),
+              (final YoutubeVideosDataServiceVideo video) =>
+                  YoutubeVideosModelVideo(
+                id: video.id,
+                imageAssetPath: video.imageAssetPath,
+                link: Uri.parse('https://www.youtube.com/watch?v=${video.id}'),
+                title: video.title,
+              ),
             )
             .toList(),
       )
@@ -29,9 +35,14 @@ class YoutubeVideosControllerImplementation
 
   @override
   YoutubeVideosModel build({
-    required final YoutubeVideosYoutubeService youtubeService,
+    required final YoutubeVideosNavigationService navigationService,
+    required final YoutubeVideosDataService dataService,
   }) {
     scheduleMicrotask(_initTask.run);
     return YoutubeVideosModel(videos: right(none()));
   }
+
+  @override
+  void openVideo({required final YoutubeVideosModelVideo video}) =>
+      navigationService.openUri(uri: video.link);
 }
