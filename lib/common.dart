@@ -1,6 +1,18 @@
 import 'package:flutter/widgets.dart';
 import 'package:fpdart/fpdart.dart';
 
+Either<Object, double> findWidgetOffset({required final GlobalKey globalKey}) =>
+    optionOf(globalKey.currentContext)
+        .flatMap(
+          (final BuildContext context) => optionOf(context.findRenderObject()),
+        )
+        .map((final RenderObject renderObject) => renderObject as RenderBox)
+        .map(
+          (final RenderBox renderBox) =>
+              renderBox.localToGlobal(Offset.zero).dy,
+        )
+        .toEither(() => 'Couldn\'t find widget or context');
+
 typedef AsyncResult<T> = Either<Object, Option<T>>;
 
 extension AsyncResultExtensions<T> on AsyncResult<T> {

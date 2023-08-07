@@ -16,7 +16,7 @@ class GithubPrsView extends MvcView<GithubPrsModel, GithubPrsController> {
 
   @override
   Widget build(final BuildContext context) => Section(
-        seedColor: const Color.fromARGB(255, 0, 0, 0),
+        seedColor: githubColor,
         title: 'Github PRs',
         child: model.prs.build(
           dataBuilder: (final List<GithubPrsModelPr> data) => GridView.extent(

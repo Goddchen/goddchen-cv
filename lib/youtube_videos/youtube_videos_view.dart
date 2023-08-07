@@ -17,7 +17,7 @@ class YoutubeVideosView
 
   @override
   Widget build(final BuildContext context) => Section(
-        seedColor: const Color.fromARGB(255, 255, 0, 0),
+        seedColor: youtubeColor,
         title: 'Youtube Videos',
         child: model.videos.build(
           dataBuilder: (final List<YoutubeVideosModelVideo> data) =>
