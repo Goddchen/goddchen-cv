@@ -13,7 +13,7 @@ jobs:
         with:
           cache: true
           flutter-version: "3.10.6"
-      - run: flutter build web -t lib/main_production.dart --web-renderer html
+      - run: flutter build web -t lib/main_production.dart
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           channelId: live
