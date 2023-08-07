@@ -1,19 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:goddchen_cv/common.dart';
+import 'package:goddchen_cv/gen/assets.gen.dart';
 import 'package:goddchen_cv/github_prs/github_prs_controller.dart';
 import 'package:goddchen_cv/github_prs/github_prs_model.dart';
 import 'package:goddchen_cv/mvc/mvc_view.dart';
 import 'package:goddchen_cv/widgets/section.dart';
 
 class GithubPrsView extends MvcView<GithubPrsModel, GithubPrsController> {
-  final Widget Function(GithubPrsModelPr pr) _prBuilder;
-
   const GithubPrsView({
     super.key,
     required super.controller,
     required super.model,
-    required final Widget Function(GithubPrsModelPr pr) prBuilder,
-  }) : _prBuilder = prBuilder;
+  });
 
   @override
   Widget build(final BuildContext context) => Section(
@@ -22,7 +20,12 @@ class GithubPrsView extends MvcView<GithubPrsModel, GithubPrsController> {
           dataBuilder: (final List<GithubPrsModelPr> data) => Column(
             mainAxisSize: MainAxisSize.min,
             children: data
-                .map((final GithubPrsModelPr pr) => _prBuilder(pr))
+                .map(
+                  (final GithubPrsModelPr pr) => _Pr(
+                    controller: controller,
+                    pr: pr,
+                  ),
+                )
                 .toList(),
           ),
           errorBuilder: (final _) => const Center(
@@ -30,6 +33,59 @@ class GithubPrsView extends MvcView<GithubPrsModel, GithubPrsController> {
           ),
           loadingBuilder: () => const Center(
             child: CircularProgressIndicator(),
+          ),
+        ),
+      );
+}
+
+class _Pr extends StatelessWidget {
+  final GithubPrsController _controller;
+  final GithubPrsModelPr _pr;
+
+  const _Pr({
+    required final GithubPrsController controller,
+    required final GithubPrsModelPr pr,
+  })  : _controller = controller,
+        _pr = pr;
+
+  @override
+  Widget build(final BuildContext context) => Card(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(16),
+        ),
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(16),
+          child: Material(
+            type: MaterialType.transparency,
+            child: InkWell(
+              onTap: () => _controller.openPr(pr: _pr),
+              child: SizedBox(
+                height: 160,
+                child: Padding(
+                  padding: const EdgeInsets.all(16),
+                  child: Center(
+                    child: Row(
+                      children: <Widget>[
+                        Assets.icons.github.pullRequest.svg(
+                          height: 48,
+                          width: 48,
+                        ),
+                        const SizedBox(width: 16),
+                        Expanded(
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: <Widget>[
+                              Text('${_pr.link}'),
+                              Text(_pr.title),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ),
           ),
         ),
       );

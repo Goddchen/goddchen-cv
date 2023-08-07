@@ -7,7 +7,7 @@ part of 'youtube_videos_controller_implementation.dart';
 // **************************************************************************
 
 String _$youtubeVideosControllerImplementationHash() =>
-    r'c98a668217f55c56e91f8ae100bdfe09a6746fe8';
+    r'bd9b5ca48c3e803a61c0c5ff26bc356d58df7efd';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -32,10 +32,12 @@ class _SystemHash {
 
 abstract class _$YoutubeVideosControllerImplementation
     extends BuildlessAutoDisposeNotifier<YoutubeVideosModel> {
-  late final YoutubeVideosYoutubeService youtubeService;
+  late final YoutubeVideosNavigationService navigationService;
+  late final YoutubeVideosDataService dataService;
 
   YoutubeVideosModel build({
-    required YoutubeVideosYoutubeService youtubeService,
+    required YoutubeVideosNavigationService navigationService,
+    required YoutubeVideosDataService dataService,
   });
 }
 
@@ -52,10 +54,12 @@ class YoutubeVideosControllerImplementationFamily
 
   /// See also [YoutubeVideosControllerImplementation].
   YoutubeVideosControllerImplementationProvider call({
-    required YoutubeVideosYoutubeService youtubeService,
+    required YoutubeVideosNavigationService navigationService,
+    required YoutubeVideosDataService dataService,
   }) {
     return YoutubeVideosControllerImplementationProvider(
-      youtubeService: youtubeService,
+      navigationService: navigationService,
+      dataService: dataService,
     );
   }
 
@@ -64,7 +68,8 @@ class YoutubeVideosControllerImplementationFamily
     covariant YoutubeVideosControllerImplementationProvider provider,
   ) {
     return call(
-      youtubeService: provider.youtubeService,
+      navigationService: provider.navigationService,
+      dataService: provider.dataService,
     );
   }
 
@@ -89,10 +94,12 @@ class YoutubeVideosControllerImplementationProvider
         YoutubeVideosControllerImplementation, YoutubeVideosModel> {
   /// See also [YoutubeVideosControllerImplementation].
   YoutubeVideosControllerImplementationProvider({
-    required this.youtubeService,
+    required this.navigationService,
+    required this.dataService,
   }) : super.internal(
           () => YoutubeVideosControllerImplementation()
-            ..youtubeService = youtubeService,
+            ..navigationService = navigationService
+            ..dataService = dataService,
           from: youtubeVideosControllerImplementationProvider,
           name: r'youtubeVideosControllerImplementationProvider',
           debugGetCreateSourceHash:
@@ -105,18 +112,21 @@ class YoutubeVideosControllerImplementationProvider
               ._allTransitiveDependencies,
         );
 
-  final YoutubeVideosYoutubeService youtubeService;
+  final YoutubeVideosNavigationService navigationService;
+  final YoutubeVideosDataService dataService;
 
   @override
   bool operator ==(Object other) {
     return other is YoutubeVideosControllerImplementationProvider &&
-        other.youtubeService == youtubeService;
+        other.navigationService == navigationService &&
+        other.dataService == dataService;
   }
 
   @override
   int get hashCode {
     var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, youtubeService.hashCode);
+    hash = _SystemHash.combine(hash, navigationService.hashCode);
+    hash = _SystemHash.combine(hash, dataService.hashCode);
 
     return _SystemHash.finish(hash);
   }
@@ -126,7 +136,8 @@ class YoutubeVideosControllerImplementationProvider
     covariant YoutubeVideosControllerImplementation notifier,
   ) {
     return notifier.build(
-      youtubeService: youtubeService,
+      navigationService: navigationService,
+      dataService: dataService,
     );
   }
 }

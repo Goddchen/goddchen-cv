@@ -14,8 +14,7 @@ class GithubPrsModel with _$GithubPrsModel {
 @freezed
 class GithubPrsModelPr with _$GithubPrsModelPr {
   const factory GithubPrsModelPr({
-    required final int number,
-    required final String owner,
-    required final String repo,
+    required final Uri link,
+    required final String title,
   }) = _GithubPrsModelPr;
 }

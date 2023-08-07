@@ -1,6 +1,6 @@
-import 'package:goddchen_cv/github_pr/github_pr_navigation_service.dart';
+import 'package:goddchen_cv/github_prs/github_prs_navigation_service.dart';
 import 'package:goddchen_cv/portfolio/portfolio_navigation_service.dart';
-import 'package:goddchen_cv/youtube_video/youtube_video_navigation_service.dart';
+import 'package:goddchen_cv/youtube_videos/youtube_videos_navigation_service.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -12,9 +12,9 @@ NavigationServiceAggregator navigationService(final _) =>
 
 abstract interface class NavigationServiceAggregator
     implements
-        GithubPrNavigationService,
+        GithubPrsNavigationService,
         PortfolioNavigationService,
-        YoutubeVideoNavigationService {}
+        YoutubeVideosNavigationService {}
 
 class NavigationServiceImplementation implements NavigationServiceAggregator {
   @override
