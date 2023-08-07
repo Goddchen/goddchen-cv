@@ -14,6 +14,9 @@ import 'package:flutter/services.dart';
 class $AssetsDataGen {
   const $AssetsDataGen();
 
+  /// File path: assets/data/projects.json
+  String get projects => 'assets/data/projects.json';
+
   /// File path: assets/data/prs.json
   String get prs => 'assets/data/prs.json';
 
@@ -21,7 +24,7 @@ class $AssetsDataGen {
   String get youtubeVideos => 'assets/data/youtube_videos.json';
 
   /// List of all assets
-  List<String> get values => [prs, youtubeVideos];
+  List<String> get values => [projects, prs, youtubeVideos];
 }
 
 class $AssetsIconsGen {

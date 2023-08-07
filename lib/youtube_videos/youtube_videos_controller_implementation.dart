@@ -13,10 +13,14 @@ class YoutubeVideosControllerImplementation
     extends _$YoutubeVideosControllerImplementation
     implements YoutubeVideosController {
   Task<void> get _initTask => youtubeService.videosTask
-      .map((final List<YoutubeVideosYoutubeServiceVideo> videos) => videos
-          .map((final YoutubeVideosYoutubeServiceVideo video) =>
-              YoutubeVideosModelVideo(id: video.id))
-          .toList())
+      .map(
+        (final List<YoutubeVideosYoutubeServiceVideo> videos) => videos
+            .map(
+              (final YoutubeVideosYoutubeServiceVideo video) =>
+                  YoutubeVideosModelVideo(id: video.id),
+            )
+            .toList(),
+      )
       .match(
         (final Object error) => state = state.copyWith(videos: left(error)),
         (final List<YoutubeVideosModelVideo> videos) =>

@@ -53,9 +53,12 @@ class YoutubeVideoView
                   child: InkWell(
                     onTap: model.video
                         .toOption()
-                        .flatMap((final Option<YoutubeVideoModelVideo>
-                                videoOption) =>
-                            videoOption)
+                        .flatMap(
+                          (
+                            final Option<YoutubeVideoModelVideo> videoOption,
+                          ) =>
+                              videoOption,
+                        )
                         .fold(
                           () => null,
                           (final YoutubeVideoModelVideo video) =>
