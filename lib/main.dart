@@ -43,6 +43,7 @@ class App extends StatelessWidget {
   }
 
   Widget _buildBody() => SingleChildScrollView(
+        padding: const EdgeInsets.all(16),
         child: Column(
           children: <Widget>[
             _buildPortfolio(),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:goddchen_cv/common.dart';
+import 'package:goddchen_cv/constants.dart';
 import 'package:goddchen_cv/gen/assets.gen.dart';
 import 'package:goddchen_cv/github_prs/github_prs_controller.dart';
 import 'package:goddchen_cv/github_prs/github_prs_model.dart';
@@ -15,10 +16,16 @@ class GithubPrsView extends MvcView<GithubPrsModel, GithubPrsController> {
 
   @override
   Widget build(final BuildContext context) => Section(
+        seedColor: const Color.fromARGB(255, 0, 0, 0),
         title: 'Github PRs',
         child: model.prs.build(
-          dataBuilder: (final List<GithubPrsModelPr> data) => Column(
-            mainAxisSize: MainAxisSize.min,
+          dataBuilder: (final List<GithubPrsModelPr> data) => GridView.extent(
+            childAspectRatio: gridViewChildAspectRatio,
+            crossAxisSpacing: gridViewHorizontalSpacing,
+            mainAxisSpacing: gridViewVerticalSpacing,
+            maxCrossAxisExtent: gridViewMaxExtent,
+            physics: const NeverScrollableScrollPhysics(),
+            shrinkWrap: true,
             children: data
                 .map(
                   (final GithubPrsModelPr pr) => _Pr(
@@ -50,6 +57,7 @@ class _Pr extends StatelessWidget {
 
   @override
   Widget build(final BuildContext context) => Card(
+        color: Theme.of(context).colorScheme.surfaceVariant,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(16),
         ),
@@ -59,29 +67,39 @@ class _Pr extends StatelessWidget {
             type: MaterialType.transparency,
             child: InkWell(
               onTap: () => _controller.openPr(pr: _pr),
-              child: SizedBox(
-                height: 160,
-                child: Padding(
-                  padding: const EdgeInsets.all(16),
-                  child: Center(
-                    child: Row(
-                      children: <Widget>[
-                        Assets.icons.github.pullRequest.svg(
-                          height: 48,
-                          width: 48,
+              child: Padding(
+                padding: const EdgeInsets.all(16),
+                child: Center(
+                  child: Row(
+                    children: <Widget>[
+                      Assets.icons.github.pullRequest.svg(
+                        height: 48,
+                        width: 48,
+                      ),
+                      const SizedBox(width: 16),
+                      Expanded(
+                        child: Stack(
+                          children: <Widget>[
+                            Align(
+                              alignment: Alignment.topCenter,
+                              child: Text(
+                                '${_pr.link}',
+                                style: Theme.of(context).textTheme.titleLarge,
+                                textAlign: TextAlign.center,
+                              ),
+                            ),
+                            Align(
+                              alignment: Alignment.center,
+                              child: Text(
+                                _pr.title,
+                                style: Theme.of(context).textTheme.bodyMedium,
+                                textAlign: TextAlign.center,
+                              ),
+                            ),
+                          ],
                         ),
-                        const SizedBox(width: 16),
-                        Expanded(
-                          child: Column(
-                            mainAxisSize: MainAxisSize.min,
-                            children: <Widget>[
-                              Text('${_pr.link}'),
-                              Text(_pr.title),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                 ),
               ),
