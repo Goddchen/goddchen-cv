@@ -24,6 +24,7 @@ class GithubPrsView extends MvcView<GithubPrsModel, GithubPrsController> {
             crossAxisSpacing: gridViewHorizontalSpacing,
             mainAxisSpacing: gridViewVerticalSpacing,
             maxCrossAxisExtent: gridViewMaxExtent,
+            physics: const NeverScrollableScrollPhysics(),
             shrinkWrap: true,
             children: data
                 .map(

@@ -26,6 +26,7 @@ class YoutubeVideosView
             crossAxisSpacing: gridViewHorizontalSpacing,
             mainAxisSpacing: gridViewVerticalSpacing,
             maxCrossAxisExtent: gridViewMaxExtent,
+            physics: const NeverScrollableScrollPhysics(),
             shrinkWrap: true,
             children: data
                 .map(

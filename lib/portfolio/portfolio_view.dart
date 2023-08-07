@@ -24,6 +24,7 @@ class PortfolioView extends MvcView<PortfolioModel, PortfolioController> {
             crossAxisSpacing: gridViewHorizontalSpacing,
             mainAxisSpacing: gridViewVerticalSpacing,
             maxCrossAxisExtent: gridViewMaxExtent,
+            physics: const NeverScrollableScrollPhysics(),
             shrinkWrap: true,
             children: data
                 .map(
