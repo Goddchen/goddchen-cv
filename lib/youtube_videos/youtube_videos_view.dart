@@ -59,7 +59,6 @@ class _YoutubeVideo extends StatelessWidget {
 
   @override
   Widget build(final BuildContext context) => Card(
-        color: Colors.green,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(16),
         ),
