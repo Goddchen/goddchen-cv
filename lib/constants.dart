@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
+const Color cvColor = Colors.yellow;
+final GlobalKey cvKey = GlobalKey(debugLabel: 'cv');
 const Color githubColor = Color.fromARGB(255, 0, 0, 0);
 const double gridViewChildAspectRatio = 4 / 3;
 const double gridViewHorizontalSpacing = 8;
