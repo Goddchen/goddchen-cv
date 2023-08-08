@@ -11,6 +11,7 @@ import 'package:goddchen_cv/flavors.dart';
 import 'package:goddchen_cv/gen/assets.gen.dart';
 import 'package:goddchen_cv/github_prs/github_prs_controller_implementation.dart';
 import 'package:goddchen_cv/github_prs/github_prs_view.dart';
+import 'package:goddchen_cv/main_navigation_service.dart';
 import 'package:goddchen_cv/portfolio/portfolio_controller_implementation.dart';
 import 'package:goddchen_cv/portfolio/portfolio_view.dart';
 import 'package:goddchen_cv/services/data/data_service.dart';
@@ -31,80 +32,19 @@ class App extends StatefulWidget {
 
 class _AppState extends State<App> {
   @override
-  Widget build(final BuildContext context) {
-    final Widget scaffold = NotificationListener<ScrollNotification>(
-      onNotification: (final ScrollNotification notification) {
-        setState(() {});
-        return false;
-      },
-      child: AdaptiveScaffold(
-        appBar: AppBar(
-          title: Text(F.title),
+  Widget build(final BuildContext context) => ProviderScope(
+        child: MaterialApp(
+          navigatorKey: navigatorKey,
+          title: F.title,
+          home: F.appFlavor == Flavor.develop || kDebugMode
+              ? Banner(
+                  message: F.name,
+                  location: BannerLocation.topStart,
+                  child: _buildScaffold(),
+                )
+              : _buildScaffold(),
         ),
-        body: (final _) => _buildBody(),
-        destinations: <NavigationDestination>[
-          const NavigationDestination(
-            icon: Icon(
-              Icons.home,
-              color: portfolioColor,
-            ),
-            label: 'Portfolio',
-          ),
-          NavigationDestination(
-            icon: Assets.icons.youtube.logo.svg(
-              height: 24,
-              width: 24,
-            ),
-            label: 'Youtube Videos',
-          ),
-          NavigationDestination(
-            icon: Assets.icons.github.pullRequest.svg(
-              height: 24,
-              width: 24,
-            ),
-            label: 'PRs',
-          ),
-        ],
-        onSelectedIndexChange: (final int index) => switch (index) {
-          0 => optionOf(portfolioKey.currentContext).fold(
-              () {},
-              (final BuildContext context) => Scrollable.ensureVisible(
-                context,
-                duration: kThemeAnimationDuration,
-              ),
-            ),
-          1 => optionOf(youtubeVideosKey.currentContext).fold(
-              () {},
-              (final BuildContext context) => Scrollable.ensureVisible(
-                context,
-                duration: kThemeAnimationDuration,
-              ),
-            ),
-          2 => optionOf(prsKey.currentContext).fold(
-              () {},
-              (final BuildContext context) => Scrollable.ensureVisible(
-                context,
-                duration: kThemeAnimationDuration,
-              ),
-            ),
-          _ => null,
-        },
-        selectedIndex: _calculateSelectedIndex(context: context),
-      ),
-    );
-    return ProviderScope(
-      child: MaterialApp(
-        title: F.title,
-        home: F.appFlavor == Flavor.develop || kDebugMode
-            ? Banner(
-                message: F.name,
-                location: BannerLocation.topStart,
-                child: scaffold,
-              )
-            : scaffold,
-      ),
-    );
-  }
+      );
 
   Widget _buildBody() => SingleChildScrollView(
         padding: const EdgeInsets.all(16),
@@ -143,6 +83,78 @@ class _AppState extends State<App> {
           return PortfolioView(
             controller: ref.watch(provider.notifier),
             model: ref.watch(provider),
+          );
+        },
+      );
+
+  Widget _buildScaffold() => Consumer(
+        builder: (final BuildContext context, final WidgetRef ref, final ___) {
+          final MainNavigationService navigationService =
+              ref.watch(navigationServiceProvider);
+          return NotificationListener<ScrollNotification>(
+            onNotification: (final ScrollNotification notification) {
+              setState(() {});
+              return false;
+            },
+            child: AdaptiveScaffold(
+              appBar: AppBar(
+                title: Text(F.title),
+              ),
+              body: (final _) => _buildBody(),
+              destinations: <NavigationDestination>[
+                const NavigationDestination(
+                  icon: Icon(
+                    Icons.home,
+                    color: portfolioColor,
+                  ),
+                  label: 'Portfolio',
+                ),
+                NavigationDestination(
+                  icon: Assets.icons.youtube.logo.svg(
+                    height: 24,
+                    width: 24,
+                  ),
+                  label: 'Youtube Videos',
+                ),
+                NavigationDestination(
+                  icon: Assets.icons.github.pullRequest.svg(
+                    height: 24,
+                    width: 24,
+                  ),
+                  label: 'PRs',
+                ),
+              ],
+              onSelectedIndexChange: (final int index) {
+                if (navigationService.canPop()) {
+                  navigationService.pop();
+                }
+                return switch (index) {
+                  0 => optionOf(portfolioKey.currentContext).fold(
+                      () {},
+                      (final BuildContext context) => Scrollable.ensureVisible(
+                        context,
+                        duration: kThemeAnimationDuration,
+                      ),
+                    ),
+                  1 => optionOf(youtubeVideosKey.currentContext).fold(
+                      () {},
+                      (final BuildContext context) => Scrollable.ensureVisible(
+                        context,
+                        duration: kThemeAnimationDuration,
+                      ),
+                    ),
+                  2 => optionOf(prsKey.currentContext).fold(
+                      () {},
+                      (final BuildContext context) => Scrollable.ensureVisible(
+                        context,
+                        duration: kThemeAnimationDuration,
+                      ),
+                    ),
+                  _ => null,
+                };
+              },
+              selectedIndex: _calculateSelectedIndex(context: context),
+            ),
           );
         },
       );

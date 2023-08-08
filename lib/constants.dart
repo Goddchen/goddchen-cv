@@ -6,6 +6,8 @@ const double gridViewChildAspectRatio = 4 / 3;
 const double gridViewHorizontalSpacing = 8;
 const double gridViewMaxExtent = 600;
 const double gridViewVerticalSpacing = 8;
+final GlobalKey<NavigatorState> navigatorKey =
+    GlobalKey(debugLabel: 'navigator');
 const Color portfolioColor = Color.fromARGB(255, 0, 123, 255);
 final GlobalKey portfolioKey = GlobalKey(debugLabel: 'portfolio');
 final GlobalKey prsKey = GlobalKey(debugLabel: 'prs');
