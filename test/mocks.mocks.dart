@@ -5,14 +5,18 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:fpdart/fpdart.dart' as _i2;
 import 'package:goddchen_cv/github_prs/github_prs_data_service.dart' as _i4;
-import 'package:goddchen_cv/portfolio/portfolio_data_service.dart' as _i5;
+import 'package:goddchen_cv/hobbies/hobbies_controller.dart' as _i8;
+import 'package:goddchen_cv/hobbies/hobbies_data_service.dart' as _i5;
+import 'package:goddchen_cv/hobbies/hobbies_model.dart' as _i9;
+import 'package:goddchen_cv/portfolio/portfolio_data_service.dart' as _i6;
 import 'package:goddchen_cv/services/data/data_service.dart' as _i3;
-import 'package:goddchen_cv/services/navigation/navigation_service.dart' as _i7;
+import 'package:goddchen_cv/services/navigation/navigation_service.dart'
+    as _i10;
 import 'package:goddchen_cv/youtube_videos/youtube_videos_controller.dart'
-    as _i8;
+    as _i11;
 import 'package:goddchen_cv/youtube_videos/youtube_videos_data_service.dart'
-    as _i6;
-import 'package:goddchen_cv/youtube_videos/youtube_videos_model.dart' as _i9;
+    as _i7;
+import 'package:goddchen_cv/youtube_videos/youtube_videos_model.dart' as _i12;
 import 'package:mockito/mockito.dart' as _i1;
 
 // ignore_for_file: type=lint
@@ -57,32 +61,61 @@ class MockDataServiceAggregator extends _i1.Mock
         ),
       ) as _i2.TaskEither<Object, List<_i4.GithubPrsDataServicePr>>);
   @override
-  _i2.TaskEither<Object, List<_i5.PortfolioDataServiceProject>>
+  _i2.TaskEither<Object, List<_i5.HobbiesDataServiceHobby>> get hobbiesTask =>
+      (super.noSuchMethod(
+        Invocation.getter(#hobbiesTask),
+        returnValue:
+            _FakeTaskEither_0<Object, List<_i5.HobbiesDataServiceHobby>>(
+          this,
+          Invocation.getter(#hobbiesTask),
+        ),
+      ) as _i2.TaskEither<Object, List<_i5.HobbiesDataServiceHobby>>);
+  @override
+  _i2.TaskEither<Object, List<_i6.PortfolioDataServiceProject>>
       get projectsTask => (super.noSuchMethod(
             Invocation.getter(#projectsTask),
             returnValue: _FakeTaskEither_0<Object,
-                List<_i5.PortfolioDataServiceProject>>(
+                List<_i6.PortfolioDataServiceProject>>(
               this,
               Invocation.getter(#projectsTask),
             ),
-          ) as _i2.TaskEither<Object, List<_i5.PortfolioDataServiceProject>>);
+          ) as _i2.TaskEither<Object, List<_i6.PortfolioDataServiceProject>>);
   @override
-  _i2.TaskEither<Object, List<_i6.YoutubeVideosDataServiceVideo>>
+  _i2.TaskEither<Object, List<_i7.YoutubeVideosDataServiceVideo>>
       get videosTask => (super.noSuchMethod(
             Invocation.getter(#videosTask),
             returnValue: _FakeTaskEither_0<Object,
-                List<_i6.YoutubeVideosDataServiceVideo>>(
+                List<_i7.YoutubeVideosDataServiceVideo>>(
               this,
               Invocation.getter(#videosTask),
             ),
-          ) as _i2.TaskEither<Object, List<_i6.YoutubeVideosDataServiceVideo>>);
+          ) as _i2.TaskEither<Object, List<_i7.YoutubeVideosDataServiceVideo>>);
+}
+
+/// A class which mocks [HobbiesController].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockHobbiesController extends _i1.Mock implements _i8.HobbiesController {
+  MockHobbiesController() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  void openHobby({required _i9.HobbiesModelHobby? hobby}) => super.noSuchMethod(
+        Invocation.method(
+          #openHobby,
+          [],
+          {#hobby: hobby},
+        ),
+        returnValueForMissingStub: null,
+      );
 }
 
 /// A class which mocks [NavigationServiceAggregator].
 ///
 /// See the documentation for Mockito's code generation for more information.
 class MockNavigationServiceAggregator extends _i1.Mock
-    implements _i7.NavigationServiceAggregator {
+    implements _i10.NavigationServiceAggregator {
   MockNavigationServiceAggregator() {
     _i1.throwOnMissingStub(this);
   }
@@ -118,13 +151,13 @@ class MockNavigationServiceAggregator extends _i1.Mock
 ///
 /// See the documentation for Mockito's code generation for more information.
 class MockYoutubeVideosController extends _i1.Mock
-    implements _i8.YoutubeVideosController {
+    implements _i11.YoutubeVideosController {
   MockYoutubeVideosController() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  void openVideo({required _i9.YoutubeVideosModelVideo? video}) =>
+  void openVideo({required _i12.YoutubeVideosModelVideo? video}) =>
       super.noSuchMethod(
         Invocation.method(
           #openVideo,

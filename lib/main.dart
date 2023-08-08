@@ -11,6 +11,8 @@ import 'package:goddchen_cv/flavors.dart';
 import 'package:goddchen_cv/gen/assets.gen.dart';
 import 'package:goddchen_cv/github_prs/github_prs_controller_implementation.dart';
 import 'package:goddchen_cv/github_prs/github_prs_view.dart';
+import 'package:goddchen_cv/hobbies/hobbies_controller_implemenation.dart';
+import 'package:goddchen_cv/hobbies/hobbies_view.dart';
 import 'package:goddchen_cv/main_navigation_service.dart';
 import 'package:goddchen_cv/portfolio/portfolio_controller_implementation.dart';
 import 'package:goddchen_cv/portfolio/portfolio_view.dart';
@@ -53,8 +55,24 @@ class _AppState extends State<App> {
             _buildPortfolio(),
             _buildYoutubeVideos(),
             _buildGithubPrs(),
+            _buildHobbies(),
           ],
         ),
+      );
+
+  Widget _buildHobbies() => Consumer(
+        key: hobbiesKey,
+        builder: (final _, final WidgetRef ref, final ___) {
+          final HobbiesControllerImplementationProvider provider =
+              hobbiesControllerImplementationProvider(
+            dataService: ref.watch(dataServiceProvider),
+            navigationService: ref.watch(navigationServiceProvider),
+          );
+          return HobbiesView(
+            controller: ref.watch(provider.notifier),
+            model: ref.watch(provider),
+          );
+        },
       );
 
   Widget _buildGithubPrs() => Consumer(
@@ -123,6 +141,14 @@ class _AppState extends State<App> {
                   ),
                   label: 'PRs',
                 ),
+                const NavigationDestination(
+                  icon: Icon(
+                    Icons.favorite,
+                    size: 24,
+                    color: hobbiesColor,
+                  ),
+                  label: 'Hobbies',
+                ),
               ],
               onSelectedIndexChange: (final int index) {
                 if (navigationService.canPop()) {
@@ -144,6 +170,13 @@ class _AppState extends State<App> {
                       ),
                     ),
                   2 => optionOf(prsKey.currentContext).fold(
+                      () {},
+                      (final BuildContext context) => Scrollable.ensureVisible(
+                        context,
+                        duration: kThemeAnimationDuration,
+                      ),
+                    ),
+                  3 => optionOf(hobbiesKey.currentContext).fold(
                       () {},
                       (final BuildContext context) => Scrollable.ensureVisible(
                         context,
@@ -177,10 +210,14 @@ class _AppState extends State<App> {
   int _calculateSelectedIndex({
     required final BuildContext context,
   }) {
+    Either<Object, double> hobbiesYOffset =
+        findWidgetOffset(globalKey: hobbiesKey);
     Either<Object, double> youtubeVideosYOffset =
         findWidgetOffset(globalKey: youtubeVideosKey);
     Either<Object, double> prsYOffset = findWidgetOffset(globalKey: prsKey);
-    if (prsYOffset.toOption().getOrElse(() => double.infinity) <= 0) {
+    if (hobbiesYOffset.toOption().getOrElse(() => double.infinity) <= 0) {
+      return 3;
+    } else if (prsYOffset.toOption().getOrElse(() => double.infinity) <= 0) {
       return 2;
     } else if (youtubeVideosYOffset
             .toOption()
