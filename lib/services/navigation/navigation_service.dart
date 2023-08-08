@@ -3,6 +3,7 @@ import 'package:fpdart/fpdart.dart';
 import 'package:goddchen_cv/constants.dart';
 import 'package:goddchen_cv/cv/cv_navigation_service.dart';
 import 'package:goddchen_cv/github_prs/github_prs_navigation_service.dart';
+import 'package:goddchen_cv/hobbies/hobbies_navigation_service.dart';
 import 'package:goddchen_cv/main_navigation_service.dart';
 import 'package:goddchen_cv/portfolio/portfolio_navigation_service.dart';
 import 'package:goddchen_cv/youtube_videos/youtube_videos_navigation_service.dart';
@@ -19,6 +20,7 @@ abstract interface class NavigationServiceAggregator
     implements
         CvNavigationService,
         GithubPrsNavigationService,
+        HobbiesNavigationService,
         MainNavigationService,
         PortfolioNavigationService,
         YoutubeVideosNavigationService {}

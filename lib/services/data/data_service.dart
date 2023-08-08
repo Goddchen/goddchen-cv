@@ -2,6 +2,7 @@ import 'package:fpdart/fpdart.dart';
 import 'package:goddchen_cv/cv/cv_data_service.dart';
 import 'package:goddchen_cv/gen/assets.gen.dart';
 import 'package:goddchen_cv/github_prs/github_prs_data_service.dart';
+import 'package:goddchen_cv/hobbies/hobbies_data_service.dart';
 import 'package:goddchen_cv/portfolio/portfolio_data_service.dart';
 import 'package:goddchen_cv/youtube_videos/youtube_videos_data_service.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -15,6 +16,7 @@ abstract interface class DataServiceAggregator
     implements
         CvDataService,
         GithubPrsDataService,
+        HobbiesDataService,
         PortfolioDataService,
         YoutubeVideosDataService {}
 
@@ -29,6 +31,17 @@ class DataServiceImplementation implements DataServiceAggregator {
             link: some(Uri.parse('https://www.goddchen.de')),
             title: 'Title',
             until: DateTime(2023, 8, 1),
+          ),
+        ],
+      );
+
+  @override
+  TaskEither<Object, List<HobbiesDataServiceHobby>> get hobbiesTask =>
+      TaskEither<Object, List<HobbiesDataServiceHobby>>.of(
+        <HobbiesDataServiceHobby>[
+          HobbiesDataServiceHobby(
+            link: Uri.parse('https://www.goddchen.de'),
+            title: 'Website',
           ),
         ],
       );
