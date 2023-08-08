@@ -7,6 +7,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:fpdart/fpdart.dart' hide State;
 import 'package:goddchen_cv/common.dart';
 import 'package:goddchen_cv/constants.dart';
+import 'package:goddchen_cv/cv/cv_controller_implementation.dart';
+import 'package:goddchen_cv/cv/cv_view.dart';
 import 'package:goddchen_cv/flavors.dart';
 import 'package:goddchen_cv/gen/assets.gen.dart';
 import 'package:goddchen_cv/github_prs/github_prs_controller_implementation.dart';
@@ -52,12 +54,28 @@ class _AppState extends State<App> {
         padding: const EdgeInsets.all(16),
         child: Column(
           children: <Widget>[
+            _buildCv(),
             _buildPortfolio(),
             _buildYoutubeVideos(),
             _buildGithubPrs(),
             _buildHobbies(),
           ],
         ),
+      );
+
+  Widget _buildCv() => Consumer(
+        key: cvKey,
+        builder: (final _, final WidgetRef ref, final ___) {
+          final CvControllerImplementationProvider provider =
+              cvControllerImplementationProvider(
+            dataService: ref.watch(dataServiceProvider),
+            navigationService: ref.watch(navigationServiceProvider),
+          );
+          return CvView(
+            controller: ref.watch(provider.notifier),
+            model: ref.watch(provider),
+          );
+        },
       );
 
   Widget _buildHobbies() => Consumer(
@@ -122,6 +140,14 @@ class _AppState extends State<App> {
               destinations: <NavigationDestination>[
                 const NavigationDestination(
                   icon: Icon(
+                    Icons.list,
+                    size: 24,
+                    color: cvColor,
+                  ),
+                  label: 'CV',
+                ),
+                const NavigationDestination(
+                  icon: Icon(
                     Icons.home,
                     color: portfolioColor,
                   ),
@@ -155,28 +181,35 @@ class _AppState extends State<App> {
                   navigationService.pop();
                 }
                 return switch (index) {
-                  0 => optionOf(portfolioKey.currentContext).fold(
+                  0 => optionOf(cvKey.currentContext).fold(
                       () {},
                       (final BuildContext context) => Scrollable.ensureVisible(
                         context,
                         duration: kThemeAnimationDuration,
                       ),
                     ),
-                  1 => optionOf(youtubeVideosKey.currentContext).fold(
+                  1 => optionOf(portfolioKey.currentContext).fold(
                       () {},
                       (final BuildContext context) => Scrollable.ensureVisible(
                         context,
                         duration: kThemeAnimationDuration,
                       ),
                     ),
-                  2 => optionOf(prsKey.currentContext).fold(
+                  2 => optionOf(youtubeVideosKey.currentContext).fold(
                       () {},
                       (final BuildContext context) => Scrollable.ensureVisible(
                         context,
                         duration: kThemeAnimationDuration,
                       ),
                     ),
-                  3 => optionOf(hobbiesKey.currentContext).fold(
+                  3 => optionOf(prsKey.currentContext).fold(
+                      () {},
+                      (final BuildContext context) => Scrollable.ensureVisible(
+                        context,
+                        duration: kThemeAnimationDuration,
+                      ),
+                    ),
+                  4 => optionOf(hobbiesKey.currentContext).fold(
                       () {},
                       (final BuildContext context) => Scrollable.ensureVisible(
                         context,
@@ -215,13 +248,18 @@ class _AppState extends State<App> {
     Either<Object, double> youtubeVideosYOffset =
         findWidgetOffset(globalKey: youtubeVideosKey);
     Either<Object, double> prsYOffset = findWidgetOffset(globalKey: prsKey);
+    Either<Object, double> portfolioYOffset =
+        findWidgetOffset(globalKey: portfolioKey);
     if (hobbiesYOffset.toOption().getOrElse(() => double.infinity) <= 0) {
-      return 3;
+      return 4;
     } else if (prsYOffset.toOption().getOrElse(() => double.infinity) <= 0) {
-      return 2;
+      return 3;
     } else if (youtubeVideosYOffset
             .toOption()
             .getOrElse(() => double.infinity) <=
+        0) {
+      return 2;
+    } else if (portfolioYOffset.toOption().getOrElse(() => double.infinity) <=
         0) {
       return 1;
     } else {

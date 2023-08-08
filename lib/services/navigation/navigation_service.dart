@@ -1,6 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:fpdart/fpdart.dart';
 import 'package:goddchen_cv/constants.dart';
+import 'package:goddchen_cv/cv/cv_navigation_service.dart';
 import 'package:goddchen_cv/github_prs/github_prs_navigation_service.dart';
 import 'package:goddchen_cv/hobbies/hobbies_navigation_service.dart';
 import 'package:goddchen_cv/main_navigation_service.dart';
@@ -17,6 +18,7 @@ NavigationServiceAggregator navigationService(final _) =>
 
 abstract interface class NavigationServiceAggregator
     implements
+        CvNavigationService,
         GithubPrsNavigationService,
         HobbiesNavigationService,
         MainNavigationService,
