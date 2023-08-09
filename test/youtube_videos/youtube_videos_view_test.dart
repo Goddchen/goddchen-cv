@@ -25,7 +25,7 @@ void main() {
           controller: controller,
           model: modelOverride.getOrElse(
             () => YoutubeVideosModel(
-              videos: right(
+              items: right(
                 some(
                   <YoutubeVideosModelVideo>[
                     YoutubeVideosModelVideo(
@@ -88,7 +88,7 @@ void main() {
         createTestWidget(
           modelOverride: some(
             YoutubeVideosModel(
-              videos: right(
+              items: right(
                 some(gridViewCardsVariants.currentValue!.inputVideos),
               ),
             ),
@@ -112,7 +112,7 @@ void main() {
 
       await widgetTester.tap(find.byType(Card).first);
 
-      verify(controller.openVideo(video: anyNamed('video'))).called(1);
+      verify(controller.openItem(item: anyNamed('item'))).called(1);
     },
   );
 }

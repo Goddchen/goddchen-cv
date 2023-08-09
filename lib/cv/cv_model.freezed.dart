@@ -134,7 +134,7 @@ abstract class _CvModel implements CvModel {
 mixin _$CvModelItem {
   Option<String> get description => throw _privateConstructorUsedError;
   DateTime get from => throw _privateConstructorUsedError;
-  Option<Uri> get link => throw _privateConstructorUsedError;
+  Uri get link => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
   DateTime get until => throw _privateConstructorUsedError;
 
@@ -152,7 +152,7 @@ abstract class $CvModelItemCopyWith<$Res> {
   $Res call(
       {Option<String> description,
       DateTime from,
-      Option<Uri> link,
+      Uri link,
       String title,
       DateTime until});
 }
@@ -188,7 +188,7 @@ class _$CvModelItemCopyWithImpl<$Res, $Val extends CvModelItem>
       link: null == link
           ? _value.link
           : link // ignore: cast_nullable_to_non_nullable
-              as Option<Uri>,
+              as Uri,
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -212,7 +212,7 @@ abstract class _$$_CvModelItemCopyWith<$Res>
   $Res call(
       {Option<String> description,
       DateTime from,
-      Option<Uri> link,
+      Uri link,
       String title,
       DateTime until});
 }
@@ -246,7 +246,7 @@ class __$$_CvModelItemCopyWithImpl<$Res>
       link: null == link
           ? _value.link
           : link // ignore: cast_nullable_to_non_nullable
-              as Option<Uri>,
+              as Uri,
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -274,7 +274,7 @@ class _$_CvModelItem implements _CvModelItem {
   @override
   final DateTime from;
   @override
-  final Option<Uri> link;
+  final Uri link;
   @override
   final String title;
   @override
@@ -313,7 +313,7 @@ abstract class _CvModelItem implements CvModelItem {
   const factory _CvModelItem(
       {required final Option<String> description,
       required final DateTime from,
-      required final Option<Uri> link,
+      required final Uri link,
       required final String title,
       required final DateTime until}) = _$_CvModelItem;
 
@@ -322,7 +322,7 @@ abstract class _CvModelItem implements CvModelItem {
   @override
   DateTime get from;
   @override
-  Option<Uri> get link;
+  Uri get link;
   @override
   String get title;
   @override

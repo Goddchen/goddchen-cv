@@ -1,50 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:fpdart/fpdart.dart';
-import 'package:goddchen_cv/common.dart';
 import 'package:goddchen_cv/constants.dart';
-import 'package:goddchen_cv/mvc/mvc_view.dart';
-import 'package:goddchen_cv/widgets/section.dart';
 import 'package:goddchen_cv/youtube_videos/youtube_videos_controller.dart';
 import 'package:goddchen_cv/youtube_videos/youtube_videos_model.dart';
+import 'package:goddchen_cv/grid/grid_view.dart' as grid_view;
 
-class YoutubeVideosView
-    extends MvcView<YoutubeVideosModel, YoutubeVideosController> {
-  const YoutubeVideosView({
+class YoutubeVideosView extends grid_view.GridView<YoutubeVideosModel,
+    YoutubeVideosController, YoutubeVideosModelVideo> {
+  YoutubeVideosView({
     super.key,
     required super.controller,
     required super.model,
-  });
-
-  @override
-  Widget build(final BuildContext context) => Section(
-        seedColor: youtubeColor,
-        title: 'Youtube Videos',
-        child: model.videos.build(
-          dataBuilder: (final List<YoutubeVideosModelVideo> data) =>
-              GridView.extent(
-            childAspectRatio: gridViewChildAspectRatio,
-            crossAxisSpacing: gridViewHorizontalSpacing,
-            mainAxisSpacing: gridViewVerticalSpacing,
-            maxCrossAxisExtent: gridViewMaxExtent,
-            physics: const NeverScrollableScrollPhysics(),
-            shrinkWrap: true,
-            children: data
-                .map(
-                  (final YoutubeVideosModelVideo video) => _YoutubeVideo(
-                    controller: controller,
-                    video: video,
-                  ),
-                )
-                .toList(),
+  }) : super(
+          itemBuilder: some(
+            (final YoutubeVideosModelVideo item) =>
+                _YoutubeVideo(controller: controller, video: item),
           ),
-          errorBuilder: (final _) => const Center(
-            child: Text('Error getting Youtube videos'),
-          ),
-          loadingBuilder: () => const Center(
-            child: CircularProgressIndicator(),
-          ),
-        ),
-      );
+          seedColor: youtubeColor,
+          title: 'Youtube Videos',
+        );
 }
 
 class _YoutubeVideo extends StatelessWidget {
@@ -93,7 +67,7 @@ class _YoutubeVideo extends StatelessWidget {
                 child: Material(
                   type: MaterialType.transparency,
                   child: InkWell(
-                    onTap: () => _controller.openVideo(video: _video),
+                    onTap: () => _controller.openItem(item: _video),
                     child: Padding(
                       padding: const EdgeInsets.all(16),
                       child: Text(

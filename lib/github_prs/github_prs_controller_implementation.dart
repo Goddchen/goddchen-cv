@@ -24,9 +24,9 @@ class GithubPrsControllerImplementation
             .toList(),
       )
       .match(
-        (final Object error) => state = state.copyWith(prs: left(error)),
+        (final Object error) => state = state.copyWith(items: left(error)),
         (final List<GithubPrsModelPr> prs) =>
-            state = state.copyWith(prs: right(some(prs))),
+            state = state.copyWith(items: right(some(prs))),
       );
 
   @override
@@ -35,10 +35,10 @@ class GithubPrsControllerImplementation
     required final GithubPrsNavigationService navigationService,
   }) {
     scheduleMicrotask(_initTask.run);
-    return GithubPrsModel(prs: right(none()));
+    return GithubPrsModel(items: right(none()));
   }
 
   @override
-  void openPr({required final GithubPrsModelPr pr}) =>
-      navigationService.openUri(uri: pr.link);
+  void openItem({required final GithubPrsModelPr item}) =>
+      navigationService.openUri(uri: item.link);
 }

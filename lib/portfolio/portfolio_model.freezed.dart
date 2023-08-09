@@ -16,7 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$PortfolioModel {
-  Either<Object, Option<List<PortfolioModelProject>>> get projects =>
+  Either<Object, Option<List<PortfolioModelProject>>> get items =>
       throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -30,7 +30,7 @@ abstract class $PortfolioModelCopyWith<$Res> {
           PortfolioModel value, $Res Function(PortfolioModel) then) =
       _$PortfolioModelCopyWithImpl<$Res, PortfolioModel>;
   @useResult
-  $Res call({Either<Object, Option<List<PortfolioModelProject>>> projects});
+  $Res call({Either<Object, Option<List<PortfolioModelProject>>> items});
 }
 
 /// @nodoc
@@ -46,12 +46,12 @@ class _$PortfolioModelCopyWithImpl<$Res, $Val extends PortfolioModel>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? projects = null,
+    Object? items = null,
   }) {
     return _then(_value.copyWith(
-      projects: null == projects
-          ? _value.projects
-          : projects // ignore: cast_nullable_to_non_nullable
+      items: null == items
+          ? _value.items
+          : items // ignore: cast_nullable_to_non_nullable
               as Either<Object, Option<List<PortfolioModelProject>>>,
     ) as $Val);
   }
@@ -65,7 +65,7 @@ abstract class _$$_PortfolioModelCopyWith<$Res>
       __$$_PortfolioModelCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Either<Object, Option<List<PortfolioModelProject>>> projects});
+  $Res call({Either<Object, Option<List<PortfolioModelProject>>> items});
 }
 
 /// @nodoc
@@ -79,12 +79,12 @@ class __$$_PortfolioModelCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? projects = null,
+    Object? items = null,
   }) {
     return _then(_$_PortfolioModel(
-      projects: null == projects
-          ? _value.projects
-          : projects // ignore: cast_nullable_to_non_nullable
+      items: null == items
+          ? _value.items
+          : items // ignore: cast_nullable_to_non_nullable
               as Either<Object, Option<List<PortfolioModelProject>>>,
     ));
   }
@@ -93,14 +93,14 @@ class __$$_PortfolioModelCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_PortfolioModel implements _PortfolioModel {
-  const _$_PortfolioModel({required this.projects});
+  const _$_PortfolioModel({required this.items});
 
   @override
-  final Either<Object, Option<List<PortfolioModelProject>>> projects;
+  final Either<Object, Option<List<PortfolioModelProject>>> items;
 
   @override
   String toString() {
-    return 'PortfolioModel(projects: $projects)';
+    return 'PortfolioModel(items: $items)';
   }
 
   @override
@@ -108,12 +108,11 @@ class _$_PortfolioModel implements _PortfolioModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_PortfolioModel &&
-            (identical(other.projects, projects) ||
-                other.projects == projects));
+            (identical(other.items, items) || other.items == items));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, projects);
+  int get hashCode => Object.hash(runtimeType, items);
 
   @JsonKey(ignore: true)
   @override
@@ -125,10 +124,10 @@ class _$_PortfolioModel implements _PortfolioModel {
 abstract class _PortfolioModel implements PortfolioModel {
   const factory _PortfolioModel(
       {required final Either<Object, Option<List<PortfolioModelProject>>>
-          projects}) = _$_PortfolioModel;
+          items}) = _$_PortfolioModel;
 
   @override
-  Either<Object, Option<List<PortfolioModelProject>>> get projects;
+  Either<Object, Option<List<PortfolioModelProject>>> get items;
   @override
   @JsonKey(ignore: true)
   _$$_PortfolioModelCopyWith<_$_PortfolioModel> get copyWith =>

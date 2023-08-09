@@ -7,17 +7,22 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:fpdart/fpdart.dart' hide State;
 import 'package:goddchen_cv/common.dart';
 import 'package:goddchen_cv/constants.dart';
+import 'package:goddchen_cv/cv/cv_controller.dart';
 import 'package:goddchen_cv/cv/cv_controller_implementation.dart';
-import 'package:goddchen_cv/cv/cv_view.dart';
+import 'package:goddchen_cv/cv/cv_model.dart';
 import 'package:goddchen_cv/flavors.dart';
 import 'package:goddchen_cv/gen/assets.gen.dart';
+import 'package:goddchen_cv/github_prs/github_prs_controller.dart';
 import 'package:goddchen_cv/github_prs/github_prs_controller_implementation.dart';
-import 'package:goddchen_cv/github_prs/github_prs_view.dart';
+import 'package:goddchen_cv/github_prs/github_prs_model.dart';
+import 'package:goddchen_cv/grid/grid_view.dart' as grid_view;
+import 'package:goddchen_cv/hobbies/hobbies_controller.dart';
 import 'package:goddchen_cv/hobbies/hobbies_controller_implemenation.dart';
-import 'package:goddchen_cv/hobbies/hobbies_view.dart';
+import 'package:goddchen_cv/hobbies/hobbies_model.dart';
 import 'package:goddchen_cv/main_navigation_service.dart';
+import 'package:goddchen_cv/portfolio/portfolio_controller.dart';
 import 'package:goddchen_cv/portfolio/portfolio_controller_implementation.dart';
-import 'package:goddchen_cv/portfolio/portfolio_view.dart';
+import 'package:goddchen_cv/portfolio/portfolio_model.dart';
 import 'package:goddchen_cv/services/data/data_service.dart';
 import 'package:goddchen_cv/services/navigation/navigation_service.dart';
 import 'package:goddchen_cv/youtube_videos/youtube_videos_controller_implementation.dart';
@@ -71,7 +76,9 @@ class _AppState extends State<App> {
             dataService: ref.watch(dataServiceProvider),
             navigationService: ref.watch(navigationServiceProvider),
           );
-          return CvView(
+          return grid_view.GridView<CvModel, CvController, CvModelItem>(
+            seedColor: cvColor,
+            title: 'CV',
             controller: ref.watch(provider.notifier),
             model: ref.watch(provider),
           );
@@ -86,7 +93,10 @@ class _AppState extends State<App> {
             dataService: ref.watch(dataServiceProvider),
             navigationService: ref.watch(navigationServiceProvider),
           );
-          return HobbiesView(
+          return grid_view.GridView<HobbiesModel, HobbiesController,
+              HobbiesModelHobby>(
+            seedColor: hobbiesColor,
+            title: 'Hobbies',
             controller: ref.watch(provider.notifier),
             model: ref.watch(provider),
           );
@@ -101,7 +111,10 @@ class _AppState extends State<App> {
             dataService: ref.watch(dataServiceProvider),
             navigationService: ref.watch(navigationServiceProvider),
           );
-          return GithubPrsView(
+          return grid_view.GridView<GithubPrsModel, GithubPrsController,
+              GithubPrsModelPr>(
+            seedColor: githubColor,
+            title: 'Open Source',
             controller: ref.watch(provider.notifier),
             model: ref.watch(provider),
           );
@@ -116,7 +129,10 @@ class _AppState extends State<App> {
             dataService: ref.watch(dataServiceProvider),
             navigationService: ref.watch(navigationServiceProvider),
           );
-          return PortfolioView(
+          return grid_view.GridView<PortfolioModel, PortfolioController,
+              PortfolioModelProject>(
+            seedColor: portfolioColor,
+            title: 'Portfolio',
             controller: ref.watch(provider.notifier),
             model: ref.watch(provider),
           );

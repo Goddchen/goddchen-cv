@@ -3,6 +3,7 @@ include: package:flutter_lints/flutter.yaml
 analyzer:
   errors:
     always_specify_types: error
+    always_use_package_imports: error
     prefer_final_parameters: error
     require_trailing_commas: error
     sort_pub_dependencies: error
@@ -13,6 +14,7 @@ analyzer:
 linter:
   rules:
     - always_specify_types
+    - always_use_package_imports
     - prefer_final_parameters
     - require_trailing_commas
     - sort_pub_dependencies

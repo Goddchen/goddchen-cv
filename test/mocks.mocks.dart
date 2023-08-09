@@ -112,16 +112,16 @@ class MockDataServiceAggregator extends _i1.Mock
             ),
           ) as _i2.TaskEither<Object, List<_i9.PortfolioDataServiceProject>>);
   @override
-  _i2.TaskEither<Object,
-      List<_i10.YoutubeVideosDataServiceVideo>> get videosTask => (super
-          .noSuchMethod(
-        Invocation.getter(#videosTask),
-        returnValue:
-            _FakeTaskEither_0<Object, List<_i10.YoutubeVideosDataServiceVideo>>(
-          this,
-          Invocation.getter(#videosTask),
-        ),
-      ) as _i2.TaskEither<Object, List<_i10.YoutubeVideosDataServiceVideo>>);
+  _i2.TaskEither<Object, List<_i10.YoutubeVideosDataServiceVideo>>
+      get videosTask => (super.noSuchMethod(
+            Invocation.getter(#videosTask),
+            returnValue: _FakeTaskEither_0<Object,
+                List<_i10.YoutubeVideosDataServiceVideo>>(
+              this,
+              Invocation.getter(#videosTask),
+            ),
+          ) as _i2
+              .TaskEither<Object, List<_i10.YoutubeVideosDataServiceVideo>>);
 }
 
 /// A class which mocks [HobbiesController].
@@ -133,12 +133,11 @@ class MockHobbiesController extends _i1.Mock implements _i11.HobbiesController {
   }
 
   @override
-  void openHobby({required _i12.HobbiesModelHobby? hobby}) =>
-      super.noSuchMethod(
+  void openItem({required _i12.HobbiesModelHobby? item}) => super.noSuchMethod(
         Invocation.method(
-          #openHobby,
+          #openItem,
           [],
-          {#hobby: hobby},
+          {#item: item},
         ),
         returnValueForMissingStub: null,
       );
@@ -190,12 +189,12 @@ class MockYoutubeVideosController extends _i1.Mock
   }
 
   @override
-  void openVideo({required _i15.YoutubeVideosModelVideo? video}) =>
+  void openItem({required _i15.YoutubeVideosModelVideo? item}) =>
       super.noSuchMethod(
         Invocation.method(
-          #openVideo,
+          #openItem,
           [],
-          {#video: video},
+          {#item: item},
         ),
         returnValueForMissingStub: null,
       );
