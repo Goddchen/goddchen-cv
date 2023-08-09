@@ -32,8 +32,8 @@ void main() {
 
   test('openVideo(...) calls service', () {
     final Uri testLink = Uri.parse('test');
-    createTestController().openHobby(
-      hobby: HobbiesModelHobby(
+    createTestController().openItem(
+      item: HobbiesModelHobby(
         link: testLink,
         title: 'Test',
       ),

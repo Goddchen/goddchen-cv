@@ -32,8 +32,8 @@ void main() {
 
   test('openVideo(...) calls service', () {
     final Uri testLink = Uri.parse('test');
-    createTestController().openVideo(
-      video: YoutubeVideosModelVideo(
+    createTestController().openItem(
+      item: YoutubeVideosModelVideo(
         id: 'test',
         imageAssetPath: none(),
         link: testLink,

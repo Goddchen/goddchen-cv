@@ -19,7 +19,8 @@ class CvControllerImplementation extends _$CvControllerImplementation
               (final CvDataServiceItem item) => CvModelItem(
                 description: item.description,
                 from: item.from,
-                link: item.link,
+                link: item.link
+                    .getOrElse(() => Uri.parse('https://www.goddchen.de')),
                 title: item.title,
                 until: item.until,
               ),
@@ -42,8 +43,6 @@ class CvControllerImplementation extends _$CvControllerImplementation
   }
 
   @override
-  void openItem({required final CvModelItem item}) => item.link.fold(
-        () {},
-        (final Uri link) => navigationService.openUri(uri: link),
-      );
+  void openItem({required final CvModelItem item}) =>
+      navigationService.openUri(uri: item.link);
 }

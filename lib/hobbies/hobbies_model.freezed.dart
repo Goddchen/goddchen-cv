@@ -16,7 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$HobbiesModel {
-  Either<Object, Option<List<HobbiesModelHobby>>> get hobbies =>
+  Either<Object, Option<List<HobbiesModelHobby>>> get items =>
       throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -30,7 +30,7 @@ abstract class $HobbiesModelCopyWith<$Res> {
           HobbiesModel value, $Res Function(HobbiesModel) then) =
       _$HobbiesModelCopyWithImpl<$Res, HobbiesModel>;
   @useResult
-  $Res call({Either<Object, Option<List<HobbiesModelHobby>>> hobbies});
+  $Res call({Either<Object, Option<List<HobbiesModelHobby>>> items});
 }
 
 /// @nodoc
@@ -46,12 +46,12 @@ class _$HobbiesModelCopyWithImpl<$Res, $Val extends HobbiesModel>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? hobbies = null,
+    Object? items = null,
   }) {
     return _then(_value.copyWith(
-      hobbies: null == hobbies
-          ? _value.hobbies
-          : hobbies // ignore: cast_nullable_to_non_nullable
+      items: null == items
+          ? _value.items
+          : items // ignore: cast_nullable_to_non_nullable
               as Either<Object, Option<List<HobbiesModelHobby>>>,
     ) as $Val);
   }
@@ -65,7 +65,7 @@ abstract class _$$_HobbiesModelCopyWith<$Res>
       __$$_HobbiesModelCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Either<Object, Option<List<HobbiesModelHobby>>> hobbies});
+  $Res call({Either<Object, Option<List<HobbiesModelHobby>>> items});
 }
 
 /// @nodoc
@@ -79,12 +79,12 @@ class __$$_HobbiesModelCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? hobbies = null,
+    Object? items = null,
   }) {
     return _then(_$_HobbiesModel(
-      hobbies: null == hobbies
-          ? _value.hobbies
-          : hobbies // ignore: cast_nullable_to_non_nullable
+      items: null == items
+          ? _value.items
+          : items // ignore: cast_nullable_to_non_nullable
               as Either<Object, Option<List<HobbiesModelHobby>>>,
     ));
   }
@@ -93,14 +93,14 @@ class __$$_HobbiesModelCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_HobbiesModel implements _HobbiesModel {
-  const _$_HobbiesModel({required this.hobbies});
+  const _$_HobbiesModel({required this.items});
 
   @override
-  final Either<Object, Option<List<HobbiesModelHobby>>> hobbies;
+  final Either<Object, Option<List<HobbiesModelHobby>>> items;
 
   @override
   String toString() {
-    return 'HobbiesModel(hobbies: $hobbies)';
+    return 'HobbiesModel(items: $items)';
   }
 
   @override
@@ -108,11 +108,11 @@ class _$_HobbiesModel implements _HobbiesModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_HobbiesModel &&
-            (identical(other.hobbies, hobbies) || other.hobbies == hobbies));
+            (identical(other.items, items) || other.items == items));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, hobbies);
+  int get hashCode => Object.hash(runtimeType, items);
 
   @JsonKey(ignore: true)
   @override
@@ -124,10 +124,10 @@ class _$_HobbiesModel implements _HobbiesModel {
 abstract class _HobbiesModel implements HobbiesModel {
   const factory _HobbiesModel(
       {required final Either<Object, Option<List<HobbiesModelHobby>>>
-          hobbies}) = _$_HobbiesModel;
+          items}) = _$_HobbiesModel;
 
   @override
-  Either<Object, Option<List<HobbiesModelHobby>>> get hobbies;
+  Either<Object, Option<List<HobbiesModelHobby>>> get items;
   @override
   @JsonKey(ignore: true)
   _$$_HobbiesModelCopyWith<_$_HobbiesModel> get copyWith =>

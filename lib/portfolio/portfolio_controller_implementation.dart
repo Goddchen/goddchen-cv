@@ -26,9 +26,9 @@ class PortfolioControllerImplementation
             .toList(),
       )
       .match(
-        (final Object error) => state = state.copyWith(projects: left(error)),
+        (final Object error) => state = state.copyWith(items: left(error)),
         (final List<PortfolioModelProject> projects) =>
-            state = state.copyWith(projects: right(some(projects))),
+            state = state.copyWith(items: right(some(projects))),
       );
 
   @override
@@ -37,10 +37,10 @@ class PortfolioControllerImplementation
     required final PortfolioNavigationService navigationService,
   }) {
     scheduleMicrotask(_initTask.run);
-    return PortfolioModel(projects: right(none()));
+    return PortfolioModel(items: right(none()));
   }
 
   @override
-  void openProject({required final PortfolioModelProject project}) =>
-      navigationService.openUri(uri: project.link);
+  void openItem({required final PortfolioModelProject item}) =>
+      navigationService.openUri(uri: item.link);
 }

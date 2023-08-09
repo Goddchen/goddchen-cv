@@ -28,9 +28,9 @@ class YoutubeVideosControllerImplementation
             .toList(),
       )
       .match(
-        (final Object error) => state = state.copyWith(videos: left(error)),
+        (final Object error) => state = state.copyWith(items: left(error)),
         (final List<YoutubeVideosModelVideo> videos) =>
-            state = state.copyWith(videos: right(some(videos))),
+            state = state.copyWith(items: right(some(videos))),
       );
 
   @override
@@ -39,10 +39,10 @@ class YoutubeVideosControllerImplementation
     required final YoutubeVideosDataService dataService,
   }) {
     scheduleMicrotask(_initTask.run);
-    return YoutubeVideosModel(videos: right(none()));
+    return YoutubeVideosModel(items: right(none()));
   }
 
   @override
-  void openVideo({required final YoutubeVideosModelVideo video}) =>
-      navigationService.openUri(uri: video.link);
+  void openItem({required final YoutubeVideosModelVideo item}) =>
+      navigationService.openUri(uri: item.link);
 }

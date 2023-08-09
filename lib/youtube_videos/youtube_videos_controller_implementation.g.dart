@@ -7,7 +7,7 @@ part of 'youtube_videos_controller_implementation.dart';
 // **************************************************************************
 
 String _$youtubeVideosControllerImplementationHash() =>
-    r'bd9b5ca48c3e803a61c0c5ff26bc356d58df7efd';
+    r'da7d1d8dfc4bf83be92a3df32d9f93f3a89c2873';
 
 /// Copied from Dart SDK
 class _SystemHash {

@@ -16,7 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$GithubPrsModel {
-  Either<Object, Option<List<GithubPrsModelPr>>> get prs =>
+  Either<Object, Option<List<GithubPrsModelPr>>> get items =>
       throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -30,7 +30,7 @@ abstract class $GithubPrsModelCopyWith<$Res> {
           GithubPrsModel value, $Res Function(GithubPrsModel) then) =
       _$GithubPrsModelCopyWithImpl<$Res, GithubPrsModel>;
   @useResult
-  $Res call({Either<Object, Option<List<GithubPrsModelPr>>> prs});
+  $Res call({Either<Object, Option<List<GithubPrsModelPr>>> items});
 }
 
 /// @nodoc
@@ -46,12 +46,12 @@ class _$GithubPrsModelCopyWithImpl<$Res, $Val extends GithubPrsModel>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? prs = null,
+    Object? items = null,
   }) {
     return _then(_value.copyWith(
-      prs: null == prs
-          ? _value.prs
-          : prs // ignore: cast_nullable_to_non_nullable
+      items: null == items
+          ? _value.items
+          : items // ignore: cast_nullable_to_non_nullable
               as Either<Object, Option<List<GithubPrsModelPr>>>,
     ) as $Val);
   }
@@ -65,7 +65,7 @@ abstract class _$$_GithubPrsModelCopyWith<$Res>
       __$$_GithubPrsModelCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Either<Object, Option<List<GithubPrsModelPr>>> prs});
+  $Res call({Either<Object, Option<List<GithubPrsModelPr>>> items});
 }
 
 /// @nodoc
@@ -79,12 +79,12 @@ class __$$_GithubPrsModelCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? prs = null,
+    Object? items = null,
   }) {
     return _then(_$_GithubPrsModel(
-      prs: null == prs
-          ? _value.prs
-          : prs // ignore: cast_nullable_to_non_nullable
+      items: null == items
+          ? _value.items
+          : items // ignore: cast_nullable_to_non_nullable
               as Either<Object, Option<List<GithubPrsModelPr>>>,
     ));
   }
@@ -93,14 +93,14 @@ class __$$_GithubPrsModelCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_GithubPrsModel implements _GithubPrsModel {
-  const _$_GithubPrsModel({required this.prs});
+  const _$_GithubPrsModel({required this.items});
 
   @override
-  final Either<Object, Option<List<GithubPrsModelPr>>> prs;
+  final Either<Object, Option<List<GithubPrsModelPr>>> items;
 
   @override
   String toString() {
-    return 'GithubPrsModel(prs: $prs)';
+    return 'GithubPrsModel(items: $items)';
   }
 
   @override
@@ -108,11 +108,11 @@ class _$_GithubPrsModel implements _GithubPrsModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_GithubPrsModel &&
-            (identical(other.prs, prs) || other.prs == prs));
+            (identical(other.items, items) || other.items == items));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, prs);
+  int get hashCode => Object.hash(runtimeType, items);
 
   @JsonKey(ignore: true)
   @override
@@ -123,11 +123,11 @@ class _$_GithubPrsModel implements _GithubPrsModel {
 
 abstract class _GithubPrsModel implements GithubPrsModel {
   const factory _GithubPrsModel(
-          {required final Either<Object, Option<List<GithubPrsModelPr>>> prs}) =
-      _$_GithubPrsModel;
+      {required final Either<Object, Option<List<GithubPrsModelPr>>>
+          items}) = _$_GithubPrsModel;
 
   @override
-  Either<Object, Option<List<GithubPrsModelPr>>> get prs;
+  Either<Object, Option<List<GithubPrsModelPr>>> get items;
   @override
   @JsonKey(ignore: true)
   _$$_GithubPrsModelCopyWith<_$_GithubPrsModel> get copyWith =>

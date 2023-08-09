@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:fpdart/fpdart.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:goddchen_cv/grid/grid_view.dart' as grid_view;
+import 'package:goddchen_cv/hobbies/hobbies_controller.dart';
 import 'package:goddchen_cv/hobbies/hobbies_model.dart';
-import 'package:goddchen_cv/hobbies/hobbies_view.dart';
 import 'package:mockito/mockito.dart';
 
 import '../mocks.mocks.dart';
@@ -21,11 +22,14 @@ void main() {
     final Option<HobbiesModel> modelOverride = const None(),
   }) =>
       MaterialApp(
-        home: HobbiesView(
+        home: grid_view.GridView<HobbiesModel, HobbiesController,
+            HobbiesModelHobby>(
+          seedColor: Colors.green,
+          title: 'Test',
           controller: controller,
           model: modelOverride.getOrElse(
             () => HobbiesModel(
-              hobbies: right(
+              items: right(
                 some(
                   <HobbiesModelHobby>[
                     HobbiesModelHobby(
@@ -80,7 +84,7 @@ void main() {
         createTestWidget(
           modelOverride: some(
             HobbiesModel(
-              hobbies: right(
+              items: right(
                 some(gridViewCardsVariants.currentValue!.inputHobbies),
               ),
             ),
@@ -104,7 +108,7 @@ void main() {
 
       await widgetTester.tap(find.byType(Card).first);
 
-      verify(controller.openHobby(hobby: anyNamed('hobby'))).called(1);
+      verify(controller.openItem(item: anyNamed('item'))).called(1);
     },
   );
 }

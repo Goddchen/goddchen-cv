@@ -24,9 +24,9 @@ class HobbiesControllerImplementation extends _$HobbiesControllerImplementation
             .toList(),
       )
       .match(
-        (final Object error) => state = state.copyWith(hobbies: left(error)),
+        (final Object error) => state = state.copyWith(items: left(error)),
         (final List<HobbiesModelHobby> hobbies) =>
-            state = state.copyWith(hobbies: right(some(hobbies))),
+            state = state.copyWith(items: right(some(hobbies))),
       );
 
   @override
@@ -35,10 +35,10 @@ class HobbiesControllerImplementation extends _$HobbiesControllerImplementation
     required final HobbiesNavigationService navigationService,
   }) {
     scheduleMicrotask(_initTask.run);
-    return HobbiesModel(hobbies: right(none()));
+    return HobbiesModel(items: right(none()));
   }
 
   @override
-  void openHobby({required final HobbiesModelHobby hobby}) =>
-      navigationService.openUri(uri: hobby.link);
+  void openItem({required final HobbiesModelHobby item}) =>
+      navigationService.openUri(uri: item.link);
 }
