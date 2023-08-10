@@ -112,16 +112,16 @@ class MockDataServiceAggregator extends _i1.Mock
             ),
           ) as _i2.TaskEither<Object, List<_i9.PortfolioDataServiceProject>>);
   @override
-  _i2.TaskEither<Object, List<_i10.YoutubeVideosDataServiceVideo>>
-      get videosTask => (super.noSuchMethod(
-            Invocation.getter(#videosTask),
-            returnValue: _FakeTaskEither_0<Object,
-                List<_i10.YoutubeVideosDataServiceVideo>>(
-              this,
-              Invocation.getter(#videosTask),
-            ),
-          ) as _i2
-              .TaskEither<Object, List<_i10.YoutubeVideosDataServiceVideo>>);
+  _i2.TaskEither<Object,
+      List<_i10.YoutubeVideosDataServiceVideo>> get videosTask => (super
+          .noSuchMethod(
+        Invocation.getter(#videosTask),
+        returnValue:
+            _FakeTaskEither_0<Object, List<_i10.YoutubeVideosDataServiceVideo>>(
+          this,
+          Invocation.getter(#videosTask),
+        ),
+      ) as _i2.TaskEither<Object, List<_i10.YoutubeVideosDataServiceVideo>>);
 }
 
 /// A class which mocks [HobbiesController].
