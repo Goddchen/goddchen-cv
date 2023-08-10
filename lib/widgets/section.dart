@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fpdart/fpdart.dart';
+import 'package:goddchen_cv/constants.dart';
 
 class Section extends StatelessWidget {
   final String _title;
@@ -24,20 +25,51 @@ class Section extends StatelessWidget {
         ),
         child: Builder(
           builder: (final BuildContext context) {
+            final Color primaryContainer =
+                Theme.of(context).colorScheme.primaryContainer;
             return Column(
               children: <Widget>[
-                Text(
-                  _title,
-                  style: optionOf(Theme.of(context).textTheme.displayMedium)
-                      .map(
-                        (final TextStyle textStyle) => textStyle.copyWith(
-                          color: Theme.of(context).colorScheme.primary,
-                        ),
-                      )
-                      .toNullable(),
+                Container(
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      begin: Alignment.topCenter,
+                      colors: <Color>[
+                        primaryContainer,
+                        primaryContainer.withOpacity(0.5),
+                        primaryContainer.withOpacity(0),
+                      ],
+                      stops: const <double>[
+                        0.0,
+                        0.1,
+                        1.0,
+                      ],
+                      end: Alignment.bottomCenter,
+                    ),
+                  ),
+                  height: 200,
+                  width: double.infinity,
+                  child: Center(
+                    child: Text(
+                      _title,
+                      style: optionOf(Theme.of(context).textTheme.displayMedium)
+                          .map(
+                            (final TextStyle textStyle) => textStyle.copyWith(
+                              color: Theme.of(context).colorScheme.primary,
+                            ),
+                          )
+                          .toNullable(),
+                    ),
+                  ),
                 ),
                 const SizedBox(height: 16),
-                _child,
+                Padding(
+                  padding: EdgeInsets.only(
+                    left: pagePadding.left,
+                    right: pagePadding.right,
+                  ),
+                  child: _child,
+                ),
+                const SizedBox(height: 16),
               ],
             );
           },
