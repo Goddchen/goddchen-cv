@@ -56,7 +56,6 @@ class _AppState extends State<App> {
       );
 
   Widget _buildBody() => SingleChildScrollView(
-        padding: const EdgeInsets.all(16),
         child: Column(
           children: <Widget>[
             _buildCv(),
