@@ -153,11 +153,20 @@ class MockNavigationServiceAggregator extends _i1.Mock
   }
 
   @override
-  void openUri({required Uri? uri}) => super.noSuchMethod(
+  void goTo({required Uri? route}) => super.noSuchMethod(
         Invocation.method(
-          #openUri,
+          #goTo,
           [],
-          {#uri: uri},
+          {#route: route},
+        ),
+        returnValueForMissingStub: null,
+      );
+  @override
+  void openLink({required Uri? link}) => super.noSuchMethod(
+        Invocation.method(
+          #openLink,
+          [],
+          {#link: link},
         ),
         returnValueForMissingStub: null,
       );

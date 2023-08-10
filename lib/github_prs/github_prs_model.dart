@@ -17,7 +17,7 @@ class GithubPrsModel
 @freezed
 class GithubPrsModelPr with _$GithubPrsModelPr implements GridModelItem {
   const factory GithubPrsModelPr({
-    required final Uri link,
+    required final Option<GridModelItemAction> action,
     required final String title,
   }) = _GithubPrsModelPr;
 }

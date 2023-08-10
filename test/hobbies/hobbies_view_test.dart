@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:fpdart/fpdart.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:goddchen_cv/grid/grid_model.dart';
 import 'package:goddchen_cv/grid/grid_view.dart' as grid_view;
 import 'package:goddchen_cv/hobbies/hobbies_controller.dart';
 import 'package:goddchen_cv/hobbies/hobbies_model.dart';
@@ -33,7 +34,7 @@ void main() {
                 some(
                   <HobbiesModelHobby>[
                     HobbiesModelHobby(
-                      link: Uri(),
+                      action: some(GridModelItemAction.link(link: Uri())),
                       title: 'Test',
                     ),
                   ],
@@ -55,7 +56,7 @@ void main() {
         expectedNumberOfCardWidgets: 1,
         inputHobbies: <HobbiesModelHobby>[
           HobbiesModelHobby(
-            link: Uri(),
+            action: some(GridModelItemAction.link(link: Uri())),
             title: 'Test',
           ),
         ],
@@ -64,11 +65,11 @@ void main() {
         expectedNumberOfCardWidgets: 2,
         inputHobbies: <HobbiesModelHobby>[
           HobbiesModelHobby(
-            link: Uri(),
+            action: some(GridModelItemAction.link(link: Uri())),
             title: 'Test',
           ),
           HobbiesModelHobby(
-            link: Uri(),
+            action: some(GridModelItemAction.link(link: Uri())),
             title: 'Test',
           ),
         ],

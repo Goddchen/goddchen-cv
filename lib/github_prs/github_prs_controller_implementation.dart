@@ -5,6 +5,7 @@ import 'package:goddchen_cv/github_prs/github_prs_controller.dart';
 import 'package:goddchen_cv/github_prs/github_prs_data_service.dart';
 import 'package:goddchen_cv/github_prs/github_prs_model.dart';
 import 'package:goddchen_cv/github_prs/github_prs_navigation_service.dart';
+import 'package:goddchen_cv/grid/grid_model.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'github_prs_controller_implementation.g.dart';
@@ -17,7 +18,7 @@ class GithubPrsControllerImplementation
         (final List<GithubPrsDataServicePr> prs) => prs
             .map(
               (final GithubPrsDataServicePr pr) => GithubPrsModelPr(
-                link: pr.link,
+                action: some(GridModelItemAction.link(link: pr.link)),
                 title: pr.title,
               ),
             )
@@ -39,6 +40,11 @@ class GithubPrsControllerImplementation
   }
 
   @override
-  void openItem({required final GithubPrsModelPr item}) =>
-      navigationService.openUri(uri: item.link);
+  void openItem({required final GithubPrsModelPr item}) => item.action.fold(
+        () {},
+        (final GridModelItemAction action) => action.when(
+          link: (final Uri link) => navigationService.openLink(link: link),
+          route: (final Uri route) => navigationService.goTo(route: route),
+        ),
+      );
 }

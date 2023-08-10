@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:fpdart/fpdart.dart';
+import 'package:goddchen_cv/grid/grid_model.dart';
 import 'package:goddchen_cv/youtube_videos/youtube_videos_controller.dart';
 import 'package:goddchen_cv/youtube_videos/youtube_videos_data_service.dart';
 import 'package:goddchen_cv/youtube_videos/youtube_videos_model.dart';
@@ -19,9 +20,15 @@ class YoutubeVideosControllerImplementation
             .map(
               (final YoutubeVideosDataServiceVideo video) =>
                   YoutubeVideosModelVideo(
+                action: some(
+                  GridModelItemAction.link(
+                    link: Uri.parse(
+                      'https://www.youtube.com/watch?v=${video.id}',
+                    ),
+                  ),
+                ),
                 id: video.id,
                 imageAssetPath: video.imageAssetPath,
-                link: Uri.parse('https://www.youtube.com/watch?v=${video.id}'),
                 title: video.title,
               ),
             )
@@ -44,5 +51,11 @@ class YoutubeVideosControllerImplementation
 
   @override
   void openItem({required final YoutubeVideosModelVideo item}) =>
-      navigationService.openUri(uri: item.link);
+      item.action.fold(
+        () {},
+        (final GridModelItemAction action) => action.when(
+          link: (final Uri link) => navigationService.openLink(link: link),
+          route: (final Uri route) => navigationService.goTo(route: route),
+        ),
+      );
 }

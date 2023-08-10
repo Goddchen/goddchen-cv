@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:fpdart/fpdart.dart';
+import 'package:goddchen_cv/grid/grid_model.dart';
 import 'package:goddchen_cv/hobbies/hobbies_controller.dart';
 import 'package:goddchen_cv/hobbies/hobbies_data_service.dart';
 import 'package:goddchen_cv/hobbies/hobbies_model.dart';
@@ -17,7 +18,7 @@ class HobbiesControllerImplementation extends _$HobbiesControllerImplementation
         (final List<HobbiesDataServiceHobby> hobbies) => hobbies
             .map(
               (final HobbiesDataServiceHobby hobby) => HobbiesModelHobby(
-                link: hobby.link,
+                action: some(GridModelItemAction.link(link: hobby.link)),
                 title: hobby.title,
               ),
             )
@@ -39,6 +40,11 @@ class HobbiesControllerImplementation extends _$HobbiesControllerImplementation
   }
 
   @override
-  void openItem({required final HobbiesModelHobby item}) =>
-      navigationService.openUri(uri: item.link);
+  void openItem({required final HobbiesModelHobby item}) => item.action.fold(
+        () {},
+        (final GridModelItemAction action) => action.when(
+          link: (final Uri link) => navigationService.openLink(link: link),
+          route: (final Uri route) => navigationService.goTo(route: route),
+        ),
+      );
 }

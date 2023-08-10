@@ -6,12 +6,12 @@ part of 'navigation_service.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$navigationServiceHash() => r'784b9f130ee3601ff9ec946aba385b5507f4d5e1';
+String _$navigationServiceHash() => r'4df9272b1ee63b66972a1e647cb595a20fee7e43';
 
 /// See also [navigationService].
 @ProviderFor(navigationService)
 final navigationServiceProvider =
-    AutoDisposeProvider<NavigationServiceAggregator>.internal(
+    Provider<NavigationServiceAggregator>.internal(
   navigationService,
   name: r'navigationServiceProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
@@ -21,6 +21,5 @@ final navigationServiceProvider =
   allTransitiveDependencies: null,
 );
 
-typedef NavigationServiceRef
-    = AutoDisposeProviderRef<NavigationServiceAggregator>;
+typedef NavigationServiceRef = ProviderRef<NavigationServiceAggregator>;
 // ignore_for_file: unnecessary_raw_strings, subtype_of_sealed_class, invalid_use_of_internal_member, do_not_use_environment, prefer_const_constructors, public_member_api_docs, avoid_private_typedef_functions

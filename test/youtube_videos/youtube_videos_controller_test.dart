@@ -1,6 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:fpdart/fpdart.dart';
+import 'package:goddchen_cv/grid/grid_model.dart';
 import 'package:goddchen_cv/youtube_videos/youtube_videos_controller_implementation.dart';
 import 'package:goddchen_cv/youtube_videos/youtube_videos_data_service.dart';
 import 'package:goddchen_cv/youtube_videos/youtube_videos_model.dart';
@@ -34,14 +35,14 @@ void main() {
     final Uri testLink = Uri.parse('test');
     createTestController().openItem(
       item: YoutubeVideosModelVideo(
+        action: some(GridModelItemAction.link(link: testLink)),
         id: 'test',
         imageAssetPath: none(),
-        link: testLink,
         title: 'Test',
       ),
     );
     verify(
-      navigationService.openUri(uri: testLink),
+      navigationService.openLink(link: testLink),
     ).called(1);
   });
 

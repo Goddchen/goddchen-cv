@@ -136,7 +136,7 @@ abstract class _HobbiesModel implements HobbiesModel {
 
 /// @nodoc
 mixin _$HobbiesModelHobby {
-  Uri get link => throw _privateConstructorUsedError;
+  Option<GridModelItemAction> get action => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -150,7 +150,7 @@ abstract class $HobbiesModelHobbyCopyWith<$Res> {
           HobbiesModelHobby value, $Res Function(HobbiesModelHobby) then) =
       _$HobbiesModelHobbyCopyWithImpl<$Res, HobbiesModelHobby>;
   @useResult
-  $Res call({Uri link, String title});
+  $Res call({Option<GridModelItemAction> action, String title});
 }
 
 /// @nodoc
@@ -166,14 +166,14 @@ class _$HobbiesModelHobbyCopyWithImpl<$Res, $Val extends HobbiesModelHobby>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? link = null,
+    Object? action = null,
     Object? title = null,
   }) {
     return _then(_value.copyWith(
-      link: null == link
-          ? _value.link
-          : link // ignore: cast_nullable_to_non_nullable
-              as Uri,
+      action: null == action
+          ? _value.action
+          : action // ignore: cast_nullable_to_non_nullable
+              as Option<GridModelItemAction>,
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -190,7 +190,7 @@ abstract class _$$_HobbiesModelHobbyCopyWith<$Res>
       __$$_HobbiesModelHobbyCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Uri link, String title});
+  $Res call({Option<GridModelItemAction> action, String title});
 }
 
 /// @nodoc
@@ -204,14 +204,14 @@ class __$$_HobbiesModelHobbyCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? link = null,
+    Object? action = null,
     Object? title = null,
   }) {
     return _then(_$_HobbiesModelHobby(
-      link: null == link
-          ? _value.link
-          : link // ignore: cast_nullable_to_non_nullable
-              as Uri,
+      action: null == action
+          ? _value.action
+          : action // ignore: cast_nullable_to_non_nullable
+              as Option<GridModelItemAction>,
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -223,16 +223,16 @@ class __$$_HobbiesModelHobbyCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_HobbiesModelHobby implements _HobbiesModelHobby {
-  const _$_HobbiesModelHobby({required this.link, required this.title});
+  const _$_HobbiesModelHobby({required this.action, required this.title});
 
   @override
-  final Uri link;
+  final Option<GridModelItemAction> action;
   @override
   final String title;
 
   @override
   String toString() {
-    return 'HobbiesModelHobby(link: $link, title: $title)';
+    return 'HobbiesModelHobby(action: $action, title: $title)';
   }
 
   @override
@@ -240,12 +240,12 @@ class _$_HobbiesModelHobby implements _HobbiesModelHobby {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_HobbiesModelHobby &&
-            (identical(other.link, link) || other.link == link) &&
+            (identical(other.action, action) || other.action == action) &&
             (identical(other.title, title) || other.title == title));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, link, title);
+  int get hashCode => Object.hash(runtimeType, action, title);
 
   @JsonKey(ignore: true)
   @override
@@ -257,11 +257,11 @@ class _$_HobbiesModelHobby implements _HobbiesModelHobby {
 
 abstract class _HobbiesModelHobby implements HobbiesModelHobby {
   const factory _HobbiesModelHobby(
-      {required final Uri link,
+      {required final Option<GridModelItemAction> action,
       required final String title}) = _$_HobbiesModelHobby;
 
   @override
-  Uri get link;
+  Option<GridModelItemAction> get action;
   @override
   String get title;
   @override

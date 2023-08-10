@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:fpdart/fpdart.dart';
+import 'package:goddchen_cv/grid/grid_model.dart';
 import 'package:goddchen_cv/portfolio/portfolio_controller.dart';
 import 'package:goddchen_cv/portfolio/portfolio_data_service.dart';
 import 'package:goddchen_cv/portfolio/portfolio_model.dart';
@@ -18,8 +19,8 @@ class PortfolioControllerImplementation
             .map(
               (final PortfolioDataServiceProject project) =>
                   PortfolioModelProject(
+                action: some(GridModelItemAction.link(link: project.link)),
                 description: project.description,
-                link: project.link,
                 title: project.title,
               ),
             )
@@ -42,5 +43,11 @@ class PortfolioControllerImplementation
 
   @override
   void openItem({required final PortfolioModelProject item}) =>
-      navigationService.openUri(uri: item.link);
+      item.action.fold(
+        () {},
+        (final GridModelItemAction action) => action.when(
+          link: (final Uri link) => navigationService.openLink(link: link),
+          route: (final Uri route) => navigationService.goTo(route: route),
+        ),
+      );
 }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:fpdart/fpdart.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:goddchen_cv/grid/grid_model.dart';
 import 'package:goddchen_cv/youtube_videos/youtube_videos_model.dart';
 import 'package:goddchen_cv/youtube_videos/youtube_videos_view.dart';
 import 'package:mockito/mockito.dart';
@@ -29,9 +30,9 @@ void main() {
                 some(
                   <YoutubeVideosModelVideo>[
                     YoutubeVideosModelVideo(
+                      action: some(GridModelItemAction.link(link: Uri())),
                       id: 'test',
                       imageAssetPath: none(),
-                      link: Uri(),
                       title: 'Test',
                     ),
                   ],
@@ -53,9 +54,9 @@ void main() {
         expectedNumberOfCardWidgets: 1,
         inputVideos: <YoutubeVideosModelVideo>[
           YoutubeVideosModelVideo(
+            action: some(GridModelItemAction.link(link: Uri())),
             id: 'test',
             imageAssetPath: none(),
-            link: Uri(),
             title: 'Test',
           ),
         ],
@@ -64,15 +65,15 @@ void main() {
         expectedNumberOfCardWidgets: 2,
         inputVideos: <YoutubeVideosModelVideo>[
           YoutubeVideosModelVideo(
+            action: some(GridModelItemAction.link(link: Uri())),
             id: 'test',
             imageAssetPath: none(),
-            link: Uri(),
             title: 'Test',
           ),
           YoutubeVideosModelVideo(
+            action: some(GridModelItemAction.link(link: Uri())),
             id: 'test',
             imageAssetPath: none(),
-            link: Uri(),
             title: 'Test',
           ),
         ],
