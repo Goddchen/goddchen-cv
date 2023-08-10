@@ -34,6 +34,8 @@ class Main extends StatefulWidget {
 }
 
 class _MainState extends State<Main> {
+  int _selectedIndex = 0;
+
   @override
   Widget build(final BuildContext context) =>
       F.appFlavor == Flavor.develop || kDebugMode
@@ -134,7 +136,12 @@ class _MainState extends State<Main> {
               ref.watch(navigationServiceProvider);
           return NotificationListener<ScrollNotification>(
             onNotification: (final ScrollNotification notification) {
-              setState(() {});
+              int calculatedIndex = _calculateSelectedIndex(context: context);
+              if (calculatedIndex != _selectedIndex) {
+                setState(() {
+                  _selectedIndex = calculatedIndex;
+                });
+              }
               return false;
             },
             child: AdaptiveScaffold(
@@ -185,6 +192,9 @@ class _MainState extends State<Main> {
                 if (navigationService.canPop()) {
                   navigationService.pop();
                 }
+                setState(() {
+                  _selectedIndex = index;
+                });
                 return switch (index) {
                   0 => optionOf(cvKey.currentContext).fold(
                       () {},
