@@ -9,7 +9,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'data_service.g.dart';
 
-@riverpod
+@Riverpod(keepAlive: true)
 DataServiceAggregator dataService(final _) => DataServiceImplementation();
 
 abstract interface class DataServiceAggregator

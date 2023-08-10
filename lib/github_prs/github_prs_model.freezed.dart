@@ -136,7 +136,7 @@ abstract class _GithubPrsModel implements GithubPrsModel {
 
 /// @nodoc
 mixin _$GithubPrsModelPr {
-  Uri get link => throw _privateConstructorUsedError;
+  Option<GridModelItemAction> get action => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -150,7 +150,7 @@ abstract class $GithubPrsModelPrCopyWith<$Res> {
           GithubPrsModelPr value, $Res Function(GithubPrsModelPr) then) =
       _$GithubPrsModelPrCopyWithImpl<$Res, GithubPrsModelPr>;
   @useResult
-  $Res call({Uri link, String title});
+  $Res call({Option<GridModelItemAction> action, String title});
 }
 
 /// @nodoc
@@ -166,14 +166,14 @@ class _$GithubPrsModelPrCopyWithImpl<$Res, $Val extends GithubPrsModelPr>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? link = null,
+    Object? action = null,
     Object? title = null,
   }) {
     return _then(_value.copyWith(
-      link: null == link
-          ? _value.link
-          : link // ignore: cast_nullable_to_non_nullable
-              as Uri,
+      action: null == action
+          ? _value.action
+          : action // ignore: cast_nullable_to_non_nullable
+              as Option<GridModelItemAction>,
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -190,7 +190,7 @@ abstract class _$$_GithubPrsModelPrCopyWith<$Res>
       __$$_GithubPrsModelPrCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Uri link, String title});
+  $Res call({Option<GridModelItemAction> action, String title});
 }
 
 /// @nodoc
@@ -204,14 +204,14 @@ class __$$_GithubPrsModelPrCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? link = null,
+    Object? action = null,
     Object? title = null,
   }) {
     return _then(_$_GithubPrsModelPr(
-      link: null == link
-          ? _value.link
-          : link // ignore: cast_nullable_to_non_nullable
-              as Uri,
+      action: null == action
+          ? _value.action
+          : action // ignore: cast_nullable_to_non_nullable
+              as Option<GridModelItemAction>,
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -223,16 +223,16 @@ class __$$_GithubPrsModelPrCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_GithubPrsModelPr implements _GithubPrsModelPr {
-  const _$_GithubPrsModelPr({required this.link, required this.title});
+  const _$_GithubPrsModelPr({required this.action, required this.title});
 
   @override
-  final Uri link;
+  final Option<GridModelItemAction> action;
   @override
   final String title;
 
   @override
   String toString() {
-    return 'GithubPrsModelPr(link: $link, title: $title)';
+    return 'GithubPrsModelPr(action: $action, title: $title)';
   }
 
   @override
@@ -240,12 +240,12 @@ class _$_GithubPrsModelPr implements _GithubPrsModelPr {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_GithubPrsModelPr &&
-            (identical(other.link, link) || other.link == link) &&
+            (identical(other.action, action) || other.action == action) &&
             (identical(other.title, title) || other.title == title));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, link, title);
+  int get hashCode => Object.hash(runtimeType, action, title);
 
   @JsonKey(ignore: true)
   @override
@@ -256,11 +256,11 @@ class _$_GithubPrsModelPr implements _GithubPrsModelPr {
 
 abstract class _GithubPrsModelPr implements GithubPrsModelPr {
   const factory _GithubPrsModelPr(
-      {required final Uri link,
+      {required final Option<GridModelItemAction> action,
       required final String title}) = _$_GithubPrsModelPr;
 
   @override
-  Uri get link;
+  Option<GridModelItemAction> get action;
   @override
   String get title;
   @override

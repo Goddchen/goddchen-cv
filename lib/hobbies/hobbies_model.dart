@@ -15,7 +15,7 @@ class HobbiesModel with _$HobbiesModel implements GridModel<HobbiesModelHobby> {
 @freezed
 class HobbiesModelHobby with _$HobbiesModelHobby implements GridModelItem {
   const factory HobbiesModelHobby({
-    required final Uri link,
+    required final Option<GridModelItemAction> action,
     required final String title,
   }) = _HobbiesModelHobby;
 }

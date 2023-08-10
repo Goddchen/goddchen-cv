@@ -15,9 +15,9 @@ class CvModel with _$CvModel implements GridModel<CvModelItem> {
 @freezed
 class CvModelItem with _$CvModelItem implements GridModelItem {
   const factory CvModelItem({
+    required final Option<GridModelItemAction> action,
     required final Option<String> description,
     required final DateTime from,
-    required final Uri link,
     required final String title,
     required final DateTime until,
   }) = _CvModelItem;

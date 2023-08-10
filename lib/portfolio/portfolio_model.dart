@@ -19,8 +19,8 @@ class PortfolioModelProject
     with _$PortfolioModelProject
     implements GridModelItem {
   const factory PortfolioModelProject({
+    required final Option<GridModelItemAction> action,
     required final String description,
-    required final Uri link,
     required final String title,
   }) = _PortfolioModelProject;
 }

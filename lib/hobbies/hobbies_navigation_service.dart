@@ -1,3 +1,4 @@
 abstract interface class HobbiesNavigationService {
-  void openUri({required final Uri uri});
+  void goTo({required final Uri route});
+  void openLink({required final Uri link});
 }

@@ -132,9 +132,9 @@ abstract class _CvModel implements CvModel {
 
 /// @nodoc
 mixin _$CvModelItem {
+  Option<GridModelItemAction> get action => throw _privateConstructorUsedError;
   Option<String> get description => throw _privateConstructorUsedError;
   DateTime get from => throw _privateConstructorUsedError;
-  Uri get link => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
   DateTime get until => throw _privateConstructorUsedError;
 
@@ -150,9 +150,9 @@ abstract class $CvModelItemCopyWith<$Res> {
       _$CvModelItemCopyWithImpl<$Res, CvModelItem>;
   @useResult
   $Res call(
-      {Option<String> description,
+      {Option<GridModelItemAction> action,
+      Option<String> description,
       DateTime from,
-      Uri link,
       String title,
       DateTime until});
 }
@@ -170,13 +170,17 @@ class _$CvModelItemCopyWithImpl<$Res, $Val extends CvModelItem>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? action = null,
     Object? description = null,
     Object? from = null,
-    Object? link = null,
     Object? title = null,
     Object? until = null,
   }) {
     return _then(_value.copyWith(
+      action: null == action
+          ? _value.action
+          : action // ignore: cast_nullable_to_non_nullable
+              as Option<GridModelItemAction>,
       description: null == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
@@ -185,10 +189,6 @@ class _$CvModelItemCopyWithImpl<$Res, $Val extends CvModelItem>
           ? _value.from
           : from // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      link: null == link
-          ? _value.link
-          : link // ignore: cast_nullable_to_non_nullable
-              as Uri,
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -210,9 +210,9 @@ abstract class _$$_CvModelItemCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {Option<String> description,
+      {Option<GridModelItemAction> action,
+      Option<String> description,
       DateTime from,
-      Uri link,
       String title,
       DateTime until});
 }
@@ -228,13 +228,17 @@ class __$$_CvModelItemCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? action = null,
     Object? description = null,
     Object? from = null,
-    Object? link = null,
     Object? title = null,
     Object? until = null,
   }) {
     return _then(_$_CvModelItem(
+      action: null == action
+          ? _value.action
+          : action // ignore: cast_nullable_to_non_nullable
+              as Option<GridModelItemAction>,
       description: null == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
@@ -243,10 +247,6 @@ class __$$_CvModelItemCopyWithImpl<$Res>
           ? _value.from
           : from // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      link: null == link
-          ? _value.link
-          : link // ignore: cast_nullable_to_non_nullable
-              as Uri,
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -263,18 +263,18 @@ class __$$_CvModelItemCopyWithImpl<$Res>
 
 class _$_CvModelItem implements _CvModelItem {
   const _$_CvModelItem(
-      {required this.description,
+      {required this.action,
+      required this.description,
       required this.from,
-      required this.link,
       required this.title,
       required this.until});
 
   @override
+  final Option<GridModelItemAction> action;
+  @override
   final Option<String> description;
   @override
   final DateTime from;
-  @override
-  final Uri link;
   @override
   final String title;
   @override
@@ -282,7 +282,7 @@ class _$_CvModelItem implements _CvModelItem {
 
   @override
   String toString() {
-    return 'CvModelItem(description: $description, from: $from, link: $link, title: $title, until: $until)';
+    return 'CvModelItem(action: $action, description: $description, from: $from, title: $title, until: $until)';
   }
 
   @override
@@ -290,17 +290,17 @@ class _$_CvModelItem implements _CvModelItem {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_CvModelItem &&
+            (identical(other.action, action) || other.action == action) &&
             (identical(other.description, description) ||
                 other.description == description) &&
             (identical(other.from, from) || other.from == from) &&
-            (identical(other.link, link) || other.link == link) &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.until, until) || other.until == until));
   }
 
   @override
   int get hashCode =>
-      Object.hash(runtimeType, description, from, link, title, until);
+      Object.hash(runtimeType, action, description, from, title, until);
 
   @JsonKey(ignore: true)
   @override
@@ -311,18 +311,18 @@ class _$_CvModelItem implements _CvModelItem {
 
 abstract class _CvModelItem implements CvModelItem {
   const factory _CvModelItem(
-      {required final Option<String> description,
+      {required final Option<GridModelItemAction> action,
+      required final Option<String> description,
       required final DateTime from,
-      required final Uri link,
       required final String title,
       required final DateTime until}) = _$_CvModelItem;
 
   @override
+  Option<GridModelItemAction> get action;
+  @override
   Option<String> get description;
   @override
   DateTime get from;
-  @override
-  Uri get link;
   @override
   String get title;
   @override

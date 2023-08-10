@@ -5,6 +5,7 @@ import 'package:goddchen_cv/cv/cv_controller.dart';
 import 'package:goddchen_cv/cv/cv_data_service.dart';
 import 'package:goddchen_cv/cv/cv_model.dart';
 import 'package:goddchen_cv/cv/cv_navigation_service.dart';
+import 'package:goddchen_cv/grid/grid_model.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'cv_controller_implementation.g.dart';
@@ -19,8 +20,11 @@ class CvControllerImplementation extends _$CvControllerImplementation
               (final CvDataServiceItem item) => CvModelItem(
                 description: item.description,
                 from: item.from,
-                link: item.link
-                    .getOrElse(() => Uri.parse('https://www.goddchen.de')),
+                action: some(
+                  GridModelItemAction.link(
+                    link: Uri.parse('https://www.goddchen.de'),
+                  ),
+                ),
                 title: item.title,
                 until: item.until,
               ),
@@ -43,6 +47,11 @@ class CvControllerImplementation extends _$CvControllerImplementation
   }
 
   @override
-  void openItem({required final CvModelItem item}) =>
-      navigationService.openUri(uri: item.link);
+  void openItem({required final CvModelItem item}) => item.action.fold(
+        () {},
+        (final GridModelItemAction action) => action.when(
+          link: (final Uri link) => navigationService.openLink(link: link),
+          route: (final Uri route) => navigationService.goTo(route: route),
+        ),
+      );
 }

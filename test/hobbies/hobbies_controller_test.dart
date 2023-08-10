@@ -1,6 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:fpdart/fpdart.dart';
+import 'package:goddchen_cv/grid/grid_model.dart';
 import 'package:goddchen_cv/hobbies/hobbies_controller_implemenation.dart';
 import 'package:goddchen_cv/hobbies/hobbies_data_service.dart';
 import 'package:goddchen_cv/hobbies/hobbies_model.dart';
@@ -34,12 +35,12 @@ void main() {
     final Uri testLink = Uri.parse('test');
     createTestController().openItem(
       item: HobbiesModelHobby(
-        link: testLink,
+        action: some(GridModelItemAction.link(link: testLink)),
         title: 'Test',
       ),
     );
     verify(
-      navigationService.openUri(uri: testLink),
+      navigationService.openLink(link: testLink),
     ).called(1);
   });
 

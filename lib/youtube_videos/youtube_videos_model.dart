@@ -19,9 +19,9 @@ class YoutubeVideosModelVideo
     with _$YoutubeVideosModelVideo
     implements GridModelItem {
   const factory YoutubeVideosModelVideo({
+    required final Option<GridModelItemAction> action,
     required final String id,
     required final Option<String> imageAssetPath,
-    required final Uri link,
     required final String title,
   }) = _YoutubeVideosModelVideo;
 }

@@ -1,23 +1,23 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'data_service.dart';
+part of 'go_router.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$dataServiceHash() => r'4ab9942d5e875ceefc52990166c183022f723011';
+String _$goRouterHash() => r'499458865e04b1d2f67f14821950a400c46f5efb';
 
-/// See also [dataService].
-@ProviderFor(dataService)
-final dataServiceProvider = Provider<DataServiceAggregator>.internal(
-  dataService,
-  name: r'dataServiceProvider',
+/// See also [goRouter].
+@ProviderFor(goRouter)
+final goRouterProvider = Provider<GoRouter>.internal(
+  goRouter,
+  name: r'goRouterProvider',
   debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$dataServiceHash,
+      const bool.fromEnvironment('dart.vm.product') ? null : _$goRouterHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
-typedef DataServiceRef = ProviderRef<DataServiceAggregator>;
+typedef GoRouterRef = ProviderRef<GoRouter>;
 // ignore_for_file: unnecessary_raw_strings, subtype_of_sealed_class, invalid_use_of_internal_member, do_not_use_environment, prefer_const_constructors, public_member_api_docs, avoid_private_typedef_functions
