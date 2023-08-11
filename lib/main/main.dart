@@ -47,7 +47,10 @@ class _MainState extends State<Main> {
           : _buildScaffold();
 
   Widget _buildBody() => SingleChildScrollView(
-        padding: const EdgeInsets.all(16),
+        padding: EdgeInsets.only(
+          bottom: pagePadding.bottom,
+          top: pagePadding.top,
+        ),
         child: Column(
           children: <Widget>[
             _buildCv(),
