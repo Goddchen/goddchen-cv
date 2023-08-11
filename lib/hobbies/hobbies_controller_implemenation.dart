@@ -18,7 +18,14 @@ class HobbiesControllerImplementation extends _$HobbiesControllerImplementation
         (final List<HobbiesDataServiceHobby> hobbies) => hobbies
             .map(
               (final HobbiesDataServiceHobby hobby) => HobbiesModelHobby(
-                action: some(GridModelItemAction.link(link: hobby.link)),
+                action: some(
+                  hobby.action.map(
+                    link: (final HobbiesDataServiceHobbyActionLink link) =>
+                        GridModelItemAction.link(link: link.link),
+                    route: (final HobbiesDataServiceHobbyActionRoute route) =>
+                        GridModelItemAction.route(route: route.route),
+                  ),
+                ),
                 title: hobby.title,
               ),
             )
@@ -44,7 +51,7 @@ class HobbiesControllerImplementation extends _$HobbiesControllerImplementation
         () {},
         (final GridModelItemAction action) => action.when(
           link: (final Uri link) => navigationService.openLink(link: link),
-          route: (final Uri route) => navigationService.goTo(route: route),
+          route: (final Uri route) => navigationService.push(route: route),
         ),
       );
 }

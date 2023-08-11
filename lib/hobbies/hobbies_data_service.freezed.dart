@@ -16,7 +16,8 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$HobbiesDataServiceHobby {
-  Uri get link => throw _privateConstructorUsedError;
+  HobbiesDataServiceHobbyAction get action =>
+      throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -30,7 +31,9 @@ abstract class $HobbiesDataServiceHobbyCopyWith<$Res> {
           $Res Function(HobbiesDataServiceHobby) then) =
       _$HobbiesDataServiceHobbyCopyWithImpl<$Res, HobbiesDataServiceHobby>;
   @useResult
-  $Res call({Uri link, String title});
+  $Res call({HobbiesDataServiceHobbyAction action, String title});
+
+  $HobbiesDataServiceHobbyActionCopyWith<$Res> get action;
 }
 
 /// @nodoc
@@ -47,19 +50,27 @@ class _$HobbiesDataServiceHobbyCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? link = null,
+    Object? action = null,
     Object? title = null,
   }) {
     return _then(_value.copyWith(
-      link: null == link
-          ? _value.link
-          : link // ignore: cast_nullable_to_non_nullable
-              as Uri,
+      action: null == action
+          ? _value.action
+          : action // ignore: cast_nullable_to_non_nullable
+              as HobbiesDataServiceHobbyAction,
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $HobbiesDataServiceHobbyActionCopyWith<$Res> get action {
+    return $HobbiesDataServiceHobbyActionCopyWith<$Res>(_value.action, (value) {
+      return _then(_value.copyWith(action: value) as $Val);
+    });
   }
 }
 
@@ -71,7 +82,10 @@ abstract class _$$_HobbiesDataServiceHobbyCopyWith<$Res>
       __$$_HobbiesDataServiceHobbyCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Uri link, String title});
+  $Res call({HobbiesDataServiceHobbyAction action, String title});
+
+  @override
+  $HobbiesDataServiceHobbyActionCopyWith<$Res> get action;
 }
 
 /// @nodoc
@@ -86,14 +100,14 @@ class __$$_HobbiesDataServiceHobbyCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? link = null,
+    Object? action = null,
     Object? title = null,
   }) {
     return _then(_$_HobbiesDataServiceHobby(
-      link: null == link
-          ? _value.link
-          : link // ignore: cast_nullable_to_non_nullable
-              as Uri,
+      action: null == action
+          ? _value.action
+          : action // ignore: cast_nullable_to_non_nullable
+              as HobbiesDataServiceHobbyAction,
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -105,16 +119,16 @@ class __$$_HobbiesDataServiceHobbyCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_HobbiesDataServiceHobby implements _HobbiesDataServiceHobby {
-  const _$_HobbiesDataServiceHobby({required this.link, required this.title});
+  const _$_HobbiesDataServiceHobby({required this.action, required this.title});
 
   @override
-  final Uri link;
+  final HobbiesDataServiceHobbyAction action;
   @override
   final String title;
 
   @override
   String toString() {
-    return 'HobbiesDataServiceHobby(link: $link, title: $title)';
+    return 'HobbiesDataServiceHobby(action: $action, title: $title)';
   }
 
   @override
@@ -122,12 +136,12 @@ class _$_HobbiesDataServiceHobby implements _HobbiesDataServiceHobby {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_HobbiesDataServiceHobby &&
-            (identical(other.link, link) || other.link == link) &&
+            (identical(other.action, action) || other.action == action) &&
             (identical(other.title, title) || other.title == title));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, link, title);
+  int get hashCode => Object.hash(runtimeType, action, title);
 
   @JsonKey(ignore: true)
   @override
@@ -140,15 +154,362 @@ class _$_HobbiesDataServiceHobby implements _HobbiesDataServiceHobby {
 
 abstract class _HobbiesDataServiceHobby implements HobbiesDataServiceHobby {
   const factory _HobbiesDataServiceHobby(
-      {required final Uri link,
+      {required final HobbiesDataServiceHobbyAction action,
       required final String title}) = _$_HobbiesDataServiceHobby;
 
   @override
-  Uri get link;
+  HobbiesDataServiceHobbyAction get action;
   @override
   String get title;
   @override
   @JsonKey(ignore: true)
   _$$_HobbiesDataServiceHobbyCopyWith<_$_HobbiesDataServiceHobby>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+mixin _$HobbiesDataServiceHobbyAction {
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Uri link) link,
+    required TResult Function(Uri route) route,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(Uri link)? link,
+    TResult? Function(Uri route)? route,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Uri link)? link,
+    TResult Function(Uri route)? route,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(HobbiesDataServiceHobbyActionLink value) link,
+    required TResult Function(HobbiesDataServiceHobbyActionRoute value) route,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(HobbiesDataServiceHobbyActionLink value)? link,
+    TResult? Function(HobbiesDataServiceHobbyActionRoute value)? route,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(HobbiesDataServiceHobbyActionLink value)? link,
+    TResult Function(HobbiesDataServiceHobbyActionRoute value)? route,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $HobbiesDataServiceHobbyActionCopyWith<$Res> {
+  factory $HobbiesDataServiceHobbyActionCopyWith(
+          HobbiesDataServiceHobbyAction value,
+          $Res Function(HobbiesDataServiceHobbyAction) then) =
+      _$HobbiesDataServiceHobbyActionCopyWithImpl<$Res,
+          HobbiesDataServiceHobbyAction>;
+}
+
+/// @nodoc
+class _$HobbiesDataServiceHobbyActionCopyWithImpl<$Res,
+        $Val extends HobbiesDataServiceHobbyAction>
+    implements $HobbiesDataServiceHobbyActionCopyWith<$Res> {
+  _$HobbiesDataServiceHobbyActionCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+}
+
+/// @nodoc
+abstract class _$$HobbiesDataServiceHobbyActionLinkCopyWith<$Res> {
+  factory _$$HobbiesDataServiceHobbyActionLinkCopyWith(
+          _$HobbiesDataServiceHobbyActionLink value,
+          $Res Function(_$HobbiesDataServiceHobbyActionLink) then) =
+      __$$HobbiesDataServiceHobbyActionLinkCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Uri link});
+}
+
+/// @nodoc
+class __$$HobbiesDataServiceHobbyActionLinkCopyWithImpl<$Res>
+    extends _$HobbiesDataServiceHobbyActionCopyWithImpl<$Res,
+        _$HobbiesDataServiceHobbyActionLink>
+    implements _$$HobbiesDataServiceHobbyActionLinkCopyWith<$Res> {
+  __$$HobbiesDataServiceHobbyActionLinkCopyWithImpl(
+      _$HobbiesDataServiceHobbyActionLink _value,
+      $Res Function(_$HobbiesDataServiceHobbyActionLink) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? link = null,
+  }) {
+    return _then(_$HobbiesDataServiceHobbyActionLink(
+      link: null == link
+          ? _value.link
+          : link // ignore: cast_nullable_to_non_nullable
+              as Uri,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$HobbiesDataServiceHobbyActionLink
+    implements HobbiesDataServiceHobbyActionLink {
+  const _$HobbiesDataServiceHobbyActionLink({required this.link});
+
+  @override
+  final Uri link;
+
+  @override
+  String toString() {
+    return 'HobbiesDataServiceHobbyAction.link(link: $link)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$HobbiesDataServiceHobbyActionLink &&
+            (identical(other.link, link) || other.link == link));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, link);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$HobbiesDataServiceHobbyActionLinkCopyWith<
+          _$HobbiesDataServiceHobbyActionLink>
+      get copyWith => __$$HobbiesDataServiceHobbyActionLinkCopyWithImpl<
+          _$HobbiesDataServiceHobbyActionLink>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Uri link) link,
+    required TResult Function(Uri route) route,
+  }) {
+    return link(this.link);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(Uri link)? link,
+    TResult? Function(Uri route)? route,
+  }) {
+    return link?.call(this.link);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Uri link)? link,
+    TResult Function(Uri route)? route,
+    required TResult orElse(),
+  }) {
+    if (link != null) {
+      return link(this.link);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(HobbiesDataServiceHobbyActionLink value) link,
+    required TResult Function(HobbiesDataServiceHobbyActionRoute value) route,
+  }) {
+    return link(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(HobbiesDataServiceHobbyActionLink value)? link,
+    TResult? Function(HobbiesDataServiceHobbyActionRoute value)? route,
+  }) {
+    return link?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(HobbiesDataServiceHobbyActionLink value)? link,
+    TResult Function(HobbiesDataServiceHobbyActionRoute value)? route,
+    required TResult orElse(),
+  }) {
+    if (link != null) {
+      return link(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class HobbiesDataServiceHobbyActionLink
+    implements HobbiesDataServiceHobbyAction {
+  const factory HobbiesDataServiceHobbyActionLink({required final Uri link}) =
+      _$HobbiesDataServiceHobbyActionLink;
+
+  Uri get link;
+  @JsonKey(ignore: true)
+  _$$HobbiesDataServiceHobbyActionLinkCopyWith<
+          _$HobbiesDataServiceHobbyActionLink>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$HobbiesDataServiceHobbyActionRouteCopyWith<$Res> {
+  factory _$$HobbiesDataServiceHobbyActionRouteCopyWith(
+          _$HobbiesDataServiceHobbyActionRoute value,
+          $Res Function(_$HobbiesDataServiceHobbyActionRoute) then) =
+      __$$HobbiesDataServiceHobbyActionRouteCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Uri route});
+}
+
+/// @nodoc
+class __$$HobbiesDataServiceHobbyActionRouteCopyWithImpl<$Res>
+    extends _$HobbiesDataServiceHobbyActionCopyWithImpl<$Res,
+        _$HobbiesDataServiceHobbyActionRoute>
+    implements _$$HobbiesDataServiceHobbyActionRouteCopyWith<$Res> {
+  __$$HobbiesDataServiceHobbyActionRouteCopyWithImpl(
+      _$HobbiesDataServiceHobbyActionRoute _value,
+      $Res Function(_$HobbiesDataServiceHobbyActionRoute) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? route = null,
+  }) {
+    return _then(_$HobbiesDataServiceHobbyActionRoute(
+      route: null == route
+          ? _value.route
+          : route // ignore: cast_nullable_to_non_nullable
+              as Uri,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$HobbiesDataServiceHobbyActionRoute
+    implements HobbiesDataServiceHobbyActionRoute {
+  const _$HobbiesDataServiceHobbyActionRoute({required this.route});
+
+  @override
+  final Uri route;
+
+  @override
+  String toString() {
+    return 'HobbiesDataServiceHobbyAction.route(route: $route)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$HobbiesDataServiceHobbyActionRoute &&
+            (identical(other.route, route) || other.route == route));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, route);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$HobbiesDataServiceHobbyActionRouteCopyWith<
+          _$HobbiesDataServiceHobbyActionRoute>
+      get copyWith => __$$HobbiesDataServiceHobbyActionRouteCopyWithImpl<
+          _$HobbiesDataServiceHobbyActionRoute>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Uri link) link,
+    required TResult Function(Uri route) route,
+  }) {
+    return route(this.route);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(Uri link)? link,
+    TResult? Function(Uri route)? route,
+  }) {
+    return route?.call(this.route);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Uri link)? link,
+    TResult Function(Uri route)? route,
+    required TResult orElse(),
+  }) {
+    if (route != null) {
+      return route(this.route);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(HobbiesDataServiceHobbyActionLink value) link,
+    required TResult Function(HobbiesDataServiceHobbyActionRoute value) route,
+  }) {
+    return route(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(HobbiesDataServiceHobbyActionLink value)? link,
+    TResult? Function(HobbiesDataServiceHobbyActionRoute value)? route,
+  }) {
+    return route?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(HobbiesDataServiceHobbyActionLink value)? link,
+    TResult Function(HobbiesDataServiceHobbyActionRoute value)? route,
+    required TResult orElse(),
+  }) {
+    if (route != null) {
+      return route(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class HobbiesDataServiceHobbyActionRoute
+    implements HobbiesDataServiceHobbyAction {
+  const factory HobbiesDataServiceHobbyActionRoute({required final Uri route}) =
+      _$HobbiesDataServiceHobbyActionRoute;
+
+  Uri get route;
+  @JsonKey(ignore: true)
+  _$$HobbiesDataServiceHobbyActionRouteCopyWith<
+          _$HobbiesDataServiceHobbyActionRoute>
       get copyWith => throw _privateConstructorUsedError;
 }

@@ -153,9 +153,9 @@ class MockNavigationServiceAggregator extends _i1.Mock
   }
 
   @override
-  void goTo({required Uri? route}) => super.noSuchMethod(
+  void push({required Uri? route}) => super.noSuchMethod(
         Invocation.method(
-          #goTo,
+          #push,
           [],
           {#route: route},
         ),
