@@ -17,6 +17,7 @@ class CvModelItem with _$CvModelItem implements GridModelItem {
   const factory CvModelItem({
     required final Option<GridModelItemAction> action,
     required final Option<String> description,
+    @Default(None()) final Option<String> imageAssetPath,
     required final DateTime from,
     required final String title,
     required final DateTime until,

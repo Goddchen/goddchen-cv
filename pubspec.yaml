@@ -9,6 +9,7 @@ environment:
 
 dependencies:
   dio: ^5.3.2
+  easy_image_viewer: ^1.2.1
   flutter:
     sdk: flutter
   flutter_adaptive_scaffold: ^0.1.6
@@ -39,6 +40,7 @@ flutter:
   assets:
     - assets/icons/github/
     - assets/icons/youtube/
+    - assets/images/hobbies/igp/
     - assets/images/youtube/
   uses-material-design: true
 

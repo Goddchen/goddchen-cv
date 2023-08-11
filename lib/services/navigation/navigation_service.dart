@@ -26,7 +26,10 @@ class GoRouterNavigationService implements NavigationServiceAggregator {
   bool canPop() => _goRouter.canPop();
 
   @override
-  void goTo({required final Uri route}) => _goRouter.go(route.toString());
+  void push({required final Uri route}) {
+    _goRouter.push(route.toString());
+    _goRouter.refresh();
+  }
 
   @override
   void openLink({required final Uri link}) => launchUrl(

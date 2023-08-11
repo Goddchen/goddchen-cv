@@ -51,7 +51,7 @@ class CvControllerImplementation extends _$CvControllerImplementation
         () {},
         (final GridModelItemAction action) => action.when(
           link: (final Uri link) => navigationService.openLink(link: link),
-          route: (final Uri route) => navigationService.goTo(route: route),
+          route: (final Uri route) => navigationService.push(route: route),
         ),
       );
 }

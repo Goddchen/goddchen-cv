@@ -138,6 +138,7 @@ abstract class _PortfolioModel implements PortfolioModel {
 mixin _$PortfolioModelProject {
   Option<GridModelItemAction> get action => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
+  Option<String> get imageAssetPath => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -152,7 +153,10 @@ abstract class $PortfolioModelProjectCopyWith<$Res> {
       _$PortfolioModelProjectCopyWithImpl<$Res, PortfolioModelProject>;
   @useResult
   $Res call(
-      {Option<GridModelItemAction> action, String description, String title});
+      {Option<GridModelItemAction> action,
+      String description,
+      Option<String> imageAssetPath,
+      String title});
 }
 
 /// @nodoc
@@ -171,6 +175,7 @@ class _$PortfolioModelProjectCopyWithImpl<$Res,
   $Res call({
     Object? action = null,
     Object? description = null,
+    Object? imageAssetPath = null,
     Object? title = null,
   }) {
     return _then(_value.copyWith(
@@ -182,6 +187,10 @@ class _$PortfolioModelProjectCopyWithImpl<$Res,
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
+      imageAssetPath: null == imageAssetPath
+          ? _value.imageAssetPath
+          : imageAssetPath // ignore: cast_nullable_to_non_nullable
+              as Option<String>,
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -199,7 +208,10 @@ abstract class _$$_PortfolioModelProjectCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {Option<GridModelItemAction> action, String description, String title});
+      {Option<GridModelItemAction> action,
+      String description,
+      Option<String> imageAssetPath,
+      String title});
 }
 
 /// @nodoc
@@ -215,6 +227,7 @@ class __$$_PortfolioModelProjectCopyWithImpl<$Res>
   $Res call({
     Object? action = null,
     Object? description = null,
+    Object? imageAssetPath = null,
     Object? title = null,
   }) {
     return _then(_$_PortfolioModelProject(
@@ -226,6 +239,10 @@ class __$$_PortfolioModelProjectCopyWithImpl<$Res>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
+      imageAssetPath: null == imageAssetPath
+          ? _value.imageAssetPath
+          : imageAssetPath // ignore: cast_nullable_to_non_nullable
+              as Option<String>,
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -238,18 +255,24 @@ class __$$_PortfolioModelProjectCopyWithImpl<$Res>
 
 class _$_PortfolioModelProject implements _PortfolioModelProject {
   const _$_PortfolioModelProject(
-      {required this.action, required this.description, required this.title});
+      {required this.action,
+      required this.description,
+      this.imageAssetPath = const None(),
+      required this.title});
 
   @override
   final Option<GridModelItemAction> action;
   @override
   final String description;
   @override
+  @JsonKey()
+  final Option<String> imageAssetPath;
+  @override
   final String title;
 
   @override
   String toString() {
-    return 'PortfolioModelProject(action: $action, description: $description, title: $title)';
+    return 'PortfolioModelProject(action: $action, description: $description, imageAssetPath: $imageAssetPath, title: $title)';
   }
 
   @override
@@ -260,11 +283,14 @@ class _$_PortfolioModelProject implements _PortfolioModelProject {
             (identical(other.action, action) || other.action == action) &&
             (identical(other.description, description) ||
                 other.description == description) &&
+            (identical(other.imageAssetPath, imageAssetPath) ||
+                other.imageAssetPath == imageAssetPath) &&
             (identical(other.title, title) || other.title == title));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, action, description, title);
+  int get hashCode =>
+      Object.hash(runtimeType, action, description, imageAssetPath, title);
 
   @JsonKey(ignore: true)
   @override
@@ -278,12 +304,15 @@ abstract class _PortfolioModelProject implements PortfolioModelProject {
   const factory _PortfolioModelProject(
       {required final Option<GridModelItemAction> action,
       required final String description,
+      final Option<String> imageAssetPath,
       required final String title}) = _$_PortfolioModelProject;
 
   @override
   Option<GridModelItemAction> get action;
   @override
   String get description;
+  @override
+  Option<String> get imageAssetPath;
   @override
   String get title;
   @override

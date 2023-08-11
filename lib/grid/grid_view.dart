@@ -68,34 +68,93 @@ class _Item extends StatelessWidget {
         _item = item;
 
   @override
-  Widget build(final BuildContext context) => Card(
-        color: Theme.of(context).colorScheme.surfaceVariant,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-        child: Material(
-          type: MaterialType.transparency,
-          child: InkWell(
-            customBorder: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(16),
-            ),
-            onTap: () => _controller.openItem(item: _item),
-            child: Padding(
-              padding: const EdgeInsets.all(16),
-              child: ClipRRect(
+  Widget build(final BuildContext context) => _item.imageAssetPath.fold(
+        () => Card(
+          color: Theme.of(context).colorScheme.surfaceVariant,
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+          child: Material(
+            type: MaterialType.transparency,
+            child: InkWell(
+              customBorder: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(16),
-                child: Center(
-                  child: Stack(
-                    children: <Widget>[
-                      Align(
-                        alignment: Alignment.topCenter,
-                        child: Text(
-                          _item.title,
-                          style: Theme.of(context).textTheme.titleLarge,
+              ),
+              onTap: () => _controller.openItem(item: _item),
+              child: Padding(
+                padding: const EdgeInsets.all(16),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(16),
+                  child: Center(
+                    child: Stack(
+                      children: <Widget>[
+                        Align(
+                          alignment: Alignment.topCenter,
+                          child: Text(
+                            _item.title,
+                            style: Theme.of(context).textTheme.titleLarge,
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
               ),
+            ),
+          ),
+        ),
+        (final String imageAssetPath) => Card(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(16),
+          ),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(16),
+            child: Stack(
+              children: <Widget>[
+                Positioned.fill(
+                  child: DecoratedBox(
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        fit: BoxFit.cover,
+                        image: AssetImage(imageAssetPath),
+                      ),
+                    ),
+                  ),
+                ),
+                Positioned.fill(
+                  child: ColoredBox(
+                    color: Theme.of(context)
+                        .colorScheme
+                        .surfaceVariant
+                        .withOpacity(0.7),
+                  ),
+                ),
+                Positioned.fill(
+                  child: Material(
+                    type: MaterialType.transparency,
+                    child: InkWell(
+                      onTap: () => _controller.openItem(item: _item),
+                      child: Padding(
+                        padding: const EdgeInsets.all(16),
+                        child: Text(
+                          _item.title,
+                          textAlign: TextAlign.center,
+                          style:
+                              optionOf(Theme.of(context).textTheme.titleLarge)
+                                  .map(
+                                    (final TextStyle textStyle) =>
+                                        textStyle.copyWith(
+                                      color: Theme.of(context)
+                                          .colorScheme
+                                          .onSurfaceVariant,
+                                    ),
+                                  )
+                                  .toNullable(),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
         ),

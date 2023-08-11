@@ -10,7 +10,17 @@ abstract interface class HobbiesDataService {
 @freezed
 class HobbiesDataServiceHobby with _$HobbiesDataServiceHobby {
   const factory HobbiesDataServiceHobby({
-    required final Uri link,
+    required final HobbiesDataServiceHobbyAction action,
+    @Default(None()) final Option<String> imageAssetPath,
     required final String title,
   }) = _HobbiesDataServiceHobby;
+}
+
+@freezed
+class HobbiesDataServiceHobbyAction with _$HobbiesDataServiceHobbyAction {
+  const factory HobbiesDataServiceHobbyAction.link({required final Uri link}) =
+      HobbiesDataServiceHobbyActionLink;
+  const factory HobbiesDataServiceHobbyAction.route({
+    required final Uri route,
+  }) = HobbiesDataServiceHobbyActionRoute;
 }

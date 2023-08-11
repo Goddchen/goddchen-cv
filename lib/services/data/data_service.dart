@@ -4,6 +4,7 @@ import 'package:goddchen_cv/gen/assets.gen.dart';
 import 'package:goddchen_cv/github_prs/github_prs_data_service.dart';
 import 'package:goddchen_cv/hobbies/hobbies_data_service.dart';
 import 'package:goddchen_cv/portfolio/portfolio_data_service.dart';
+import 'package:goddchen_cv/services/navigation/routes.dart';
 import 'package:goddchen_cv/youtube_videos/youtube_videos_data_service.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
@@ -40,8 +41,9 @@ class DataServiceImplementation implements DataServiceAggregator {
       TaskEither<Object, List<HobbiesDataServiceHobby>>.of(
         <HobbiesDataServiceHobby>[
           HobbiesDataServiceHobby(
-            link: Uri.parse('https://www.goddchen.de'),
-            title: 'Website',
+            action: HobbiesDataServiceHobbyAction.route(route: igpRoute),
+            imageAssetPath: some(Assets.images.hobbies.igp.title.path),
+            title: 'Dog Sport: IGP',
           ),
         ],
       );
