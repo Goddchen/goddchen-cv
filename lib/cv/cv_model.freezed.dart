@@ -134,6 +134,7 @@ abstract class _CvModel implements CvModel {
 mixin _$CvModelItem {
   Option<GridModelItemAction> get action => throw _privateConstructorUsedError;
   Option<String> get description => throw _privateConstructorUsedError;
+  Option<String> get imageAssetPath => throw _privateConstructorUsedError;
   DateTime get from => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
   DateTime get until => throw _privateConstructorUsedError;
@@ -152,6 +153,7 @@ abstract class $CvModelItemCopyWith<$Res> {
   $Res call(
       {Option<GridModelItemAction> action,
       Option<String> description,
+      Option<String> imageAssetPath,
       DateTime from,
       String title,
       DateTime until});
@@ -172,6 +174,7 @@ class _$CvModelItemCopyWithImpl<$Res, $Val extends CvModelItem>
   $Res call({
     Object? action = null,
     Object? description = null,
+    Object? imageAssetPath = null,
     Object? from = null,
     Object? title = null,
     Object? until = null,
@@ -184,6 +187,10 @@ class _$CvModelItemCopyWithImpl<$Res, $Val extends CvModelItem>
       description: null == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
+              as Option<String>,
+      imageAssetPath: null == imageAssetPath
+          ? _value.imageAssetPath
+          : imageAssetPath // ignore: cast_nullable_to_non_nullable
               as Option<String>,
       from: null == from
           ? _value.from
@@ -212,6 +219,7 @@ abstract class _$$_CvModelItemCopyWith<$Res>
   $Res call(
       {Option<GridModelItemAction> action,
       Option<String> description,
+      Option<String> imageAssetPath,
       DateTime from,
       String title,
       DateTime until});
@@ -230,6 +238,7 @@ class __$$_CvModelItemCopyWithImpl<$Res>
   $Res call({
     Object? action = null,
     Object? description = null,
+    Object? imageAssetPath = null,
     Object? from = null,
     Object? title = null,
     Object? until = null,
@@ -242,6 +251,10 @@ class __$$_CvModelItemCopyWithImpl<$Res>
       description: null == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
+              as Option<String>,
+      imageAssetPath: null == imageAssetPath
+          ? _value.imageAssetPath
+          : imageAssetPath // ignore: cast_nullable_to_non_nullable
               as Option<String>,
       from: null == from
           ? _value.from
@@ -265,6 +278,7 @@ class _$_CvModelItem implements _CvModelItem {
   const _$_CvModelItem(
       {required this.action,
       required this.description,
+      this.imageAssetPath = const None(),
       required this.from,
       required this.title,
       required this.until});
@@ -274,6 +288,9 @@ class _$_CvModelItem implements _CvModelItem {
   @override
   final Option<String> description;
   @override
+  @JsonKey()
+  final Option<String> imageAssetPath;
+  @override
   final DateTime from;
   @override
   final String title;
@@ -282,7 +299,7 @@ class _$_CvModelItem implements _CvModelItem {
 
   @override
   String toString() {
-    return 'CvModelItem(action: $action, description: $description, from: $from, title: $title, until: $until)';
+    return 'CvModelItem(action: $action, description: $description, imageAssetPath: $imageAssetPath, from: $from, title: $title, until: $until)';
   }
 
   @override
@@ -293,14 +310,16 @@ class _$_CvModelItem implements _CvModelItem {
             (identical(other.action, action) || other.action == action) &&
             (identical(other.description, description) ||
                 other.description == description) &&
+            (identical(other.imageAssetPath, imageAssetPath) ||
+                other.imageAssetPath == imageAssetPath) &&
             (identical(other.from, from) || other.from == from) &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.until, until) || other.until == until));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, action, description, from, title, until);
+  int get hashCode => Object.hash(
+      runtimeType, action, description, imageAssetPath, from, title, until);
 
   @JsonKey(ignore: true)
   @override
@@ -313,6 +332,7 @@ abstract class _CvModelItem implements CvModelItem {
   const factory _CvModelItem(
       {required final Option<GridModelItemAction> action,
       required final Option<String> description,
+      final Option<String> imageAssetPath,
       required final DateTime from,
       required final String title,
       required final DateTime until}) = _$_CvModelItem;
@@ -321,6 +341,8 @@ abstract class _CvModelItem implements CvModelItem {
   Option<GridModelItemAction> get action;
   @override
   Option<String> get description;
+  @override
+  Option<String> get imageAssetPath;
   @override
   DateTime get from;
   @override

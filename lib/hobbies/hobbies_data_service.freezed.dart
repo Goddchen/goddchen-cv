@@ -18,6 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$HobbiesDataServiceHobby {
   HobbiesDataServiceHobbyAction get action =>
       throw _privateConstructorUsedError;
+  Option<String> get imageAssetPath => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -31,7 +32,10 @@ abstract class $HobbiesDataServiceHobbyCopyWith<$Res> {
           $Res Function(HobbiesDataServiceHobby) then) =
       _$HobbiesDataServiceHobbyCopyWithImpl<$Res, HobbiesDataServiceHobby>;
   @useResult
-  $Res call({HobbiesDataServiceHobbyAction action, String title});
+  $Res call(
+      {HobbiesDataServiceHobbyAction action,
+      Option<String> imageAssetPath,
+      String title});
 
   $HobbiesDataServiceHobbyActionCopyWith<$Res> get action;
 }
@@ -51,6 +55,7 @@ class _$HobbiesDataServiceHobbyCopyWithImpl<$Res,
   @override
   $Res call({
     Object? action = null,
+    Object? imageAssetPath = null,
     Object? title = null,
   }) {
     return _then(_value.copyWith(
@@ -58,6 +63,10 @@ class _$HobbiesDataServiceHobbyCopyWithImpl<$Res,
           ? _value.action
           : action // ignore: cast_nullable_to_non_nullable
               as HobbiesDataServiceHobbyAction,
+      imageAssetPath: null == imageAssetPath
+          ? _value.imageAssetPath
+          : imageAssetPath // ignore: cast_nullable_to_non_nullable
+              as Option<String>,
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -82,7 +91,10 @@ abstract class _$$_HobbiesDataServiceHobbyCopyWith<$Res>
       __$$_HobbiesDataServiceHobbyCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({HobbiesDataServiceHobbyAction action, String title});
+  $Res call(
+      {HobbiesDataServiceHobbyAction action,
+      Option<String> imageAssetPath,
+      String title});
 
   @override
   $HobbiesDataServiceHobbyActionCopyWith<$Res> get action;
@@ -101,6 +113,7 @@ class __$$_HobbiesDataServiceHobbyCopyWithImpl<$Res>
   @override
   $Res call({
     Object? action = null,
+    Object? imageAssetPath = null,
     Object? title = null,
   }) {
     return _then(_$_HobbiesDataServiceHobby(
@@ -108,6 +121,10 @@ class __$$_HobbiesDataServiceHobbyCopyWithImpl<$Res>
           ? _value.action
           : action // ignore: cast_nullable_to_non_nullable
               as HobbiesDataServiceHobbyAction,
+      imageAssetPath: null == imageAssetPath
+          ? _value.imageAssetPath
+          : imageAssetPath // ignore: cast_nullable_to_non_nullable
+              as Option<String>,
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -119,16 +136,22 @@ class __$$_HobbiesDataServiceHobbyCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_HobbiesDataServiceHobby implements _HobbiesDataServiceHobby {
-  const _$_HobbiesDataServiceHobby({required this.action, required this.title});
+  const _$_HobbiesDataServiceHobby(
+      {required this.action,
+      this.imageAssetPath = const None(),
+      required this.title});
 
   @override
   final HobbiesDataServiceHobbyAction action;
+  @override
+  @JsonKey()
+  final Option<String> imageAssetPath;
   @override
   final String title;
 
   @override
   String toString() {
-    return 'HobbiesDataServiceHobby(action: $action, title: $title)';
+    return 'HobbiesDataServiceHobby(action: $action, imageAssetPath: $imageAssetPath, title: $title)';
   }
 
   @override
@@ -137,11 +160,13 @@ class _$_HobbiesDataServiceHobby implements _HobbiesDataServiceHobby {
         (other.runtimeType == runtimeType &&
             other is _$_HobbiesDataServiceHobby &&
             (identical(other.action, action) || other.action == action) &&
+            (identical(other.imageAssetPath, imageAssetPath) ||
+                other.imageAssetPath == imageAssetPath) &&
             (identical(other.title, title) || other.title == title));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, action, title);
+  int get hashCode => Object.hash(runtimeType, action, imageAssetPath, title);
 
   @JsonKey(ignore: true)
   @override
@@ -155,10 +180,13 @@ class _$_HobbiesDataServiceHobby implements _HobbiesDataServiceHobby {
 abstract class _HobbiesDataServiceHobby implements HobbiesDataServiceHobby {
   const factory _HobbiesDataServiceHobby(
       {required final HobbiesDataServiceHobbyAction action,
+      final Option<String> imageAssetPath,
       required final String title}) = _$_HobbiesDataServiceHobby;
 
   @override
   HobbiesDataServiceHobbyAction get action;
+  @override
+  Option<String> get imageAssetPath;
   @override
   String get title;
   @override

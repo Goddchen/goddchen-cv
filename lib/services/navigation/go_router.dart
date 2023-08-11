@@ -15,7 +15,7 @@ GoRouter goRouter(final _) => GoRouter(
         ),
         GoRoute(
           builder: (final _, final __) => const IgpView(),
-          path: schutzdienstRoute.toString(),
+          path: igpRoute.toString(),
         ),
       ],
     );

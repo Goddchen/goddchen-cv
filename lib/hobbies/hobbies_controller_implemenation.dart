@@ -26,6 +26,7 @@ class HobbiesControllerImplementation extends _$HobbiesControllerImplementation
                         GridModelItemAction.route(route: route.route),
                   ),
                 ),
+                imageAssetPath: hobby.imageAssetPath,
                 title: hobby.title,
               ),
             )

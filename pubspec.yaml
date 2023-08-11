@@ -39,6 +39,7 @@ flutter:
   assets:
     - assets/icons/github/
     - assets/icons/youtube/
+    - assets/images/hobbies/igp/
     - assets/images/youtube/
   uses-material-design: true
 

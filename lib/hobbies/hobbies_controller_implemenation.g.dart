@@ -7,7 +7,7 @@ part of 'hobbies_controller_implemenation.dart';
 // **************************************************************************
 
 String _$hobbiesControllerImplementationHash() =>
-    r'c390dd155726b446998639a02e32137d6f1537ec';
+    r'e27ac66438861350804e88d16928615f5b8856e6';
 
 /// Copied from Dart SDK
 class _SystemHash {

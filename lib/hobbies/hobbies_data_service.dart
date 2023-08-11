@@ -11,6 +11,7 @@ abstract interface class HobbiesDataService {
 class HobbiesDataServiceHobby with _$HobbiesDataServiceHobby {
   const factory HobbiesDataServiceHobby({
     required final HobbiesDataServiceHobbyAction action,
+    @Default(None()) final Option<String> imageAssetPath,
     required final String title,
   }) = _HobbiesDataServiceHobby;
 }

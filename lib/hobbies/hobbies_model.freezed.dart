@@ -137,6 +137,7 @@ abstract class _HobbiesModel implements HobbiesModel {
 /// @nodoc
 mixin _$HobbiesModelHobby {
   Option<GridModelItemAction> get action => throw _privateConstructorUsedError;
+  Option<String> get imageAssetPath => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -150,7 +151,10 @@ abstract class $HobbiesModelHobbyCopyWith<$Res> {
           HobbiesModelHobby value, $Res Function(HobbiesModelHobby) then) =
       _$HobbiesModelHobbyCopyWithImpl<$Res, HobbiesModelHobby>;
   @useResult
-  $Res call({Option<GridModelItemAction> action, String title});
+  $Res call(
+      {Option<GridModelItemAction> action,
+      Option<String> imageAssetPath,
+      String title});
 }
 
 /// @nodoc
@@ -167,6 +171,7 @@ class _$HobbiesModelHobbyCopyWithImpl<$Res, $Val extends HobbiesModelHobby>
   @override
   $Res call({
     Object? action = null,
+    Object? imageAssetPath = null,
     Object? title = null,
   }) {
     return _then(_value.copyWith(
@@ -174,6 +179,10 @@ class _$HobbiesModelHobbyCopyWithImpl<$Res, $Val extends HobbiesModelHobby>
           ? _value.action
           : action // ignore: cast_nullable_to_non_nullable
               as Option<GridModelItemAction>,
+      imageAssetPath: null == imageAssetPath
+          ? _value.imageAssetPath
+          : imageAssetPath // ignore: cast_nullable_to_non_nullable
+              as Option<String>,
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -190,7 +199,10 @@ abstract class _$$_HobbiesModelHobbyCopyWith<$Res>
       __$$_HobbiesModelHobbyCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Option<GridModelItemAction> action, String title});
+  $Res call(
+      {Option<GridModelItemAction> action,
+      Option<String> imageAssetPath,
+      String title});
 }
 
 /// @nodoc
@@ -205,6 +217,7 @@ class __$$_HobbiesModelHobbyCopyWithImpl<$Res>
   @override
   $Res call({
     Object? action = null,
+    Object? imageAssetPath = null,
     Object? title = null,
   }) {
     return _then(_$_HobbiesModelHobby(
@@ -212,6 +225,10 @@ class __$$_HobbiesModelHobbyCopyWithImpl<$Res>
           ? _value.action
           : action // ignore: cast_nullable_to_non_nullable
               as Option<GridModelItemAction>,
+      imageAssetPath: null == imageAssetPath
+          ? _value.imageAssetPath
+          : imageAssetPath // ignore: cast_nullable_to_non_nullable
+              as Option<String>,
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -223,16 +240,22 @@ class __$$_HobbiesModelHobbyCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_HobbiesModelHobby implements _HobbiesModelHobby {
-  const _$_HobbiesModelHobby({required this.action, required this.title});
+  const _$_HobbiesModelHobby(
+      {required this.action,
+      this.imageAssetPath = const None(),
+      required this.title});
 
   @override
   final Option<GridModelItemAction> action;
+  @override
+  @JsonKey()
+  final Option<String> imageAssetPath;
   @override
   final String title;
 
   @override
   String toString() {
-    return 'HobbiesModelHobby(action: $action, title: $title)';
+    return 'HobbiesModelHobby(action: $action, imageAssetPath: $imageAssetPath, title: $title)';
   }
 
   @override
@@ -241,11 +264,13 @@ class _$_HobbiesModelHobby implements _HobbiesModelHobby {
         (other.runtimeType == runtimeType &&
             other is _$_HobbiesModelHobby &&
             (identical(other.action, action) || other.action == action) &&
+            (identical(other.imageAssetPath, imageAssetPath) ||
+                other.imageAssetPath == imageAssetPath) &&
             (identical(other.title, title) || other.title == title));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, action, title);
+  int get hashCode => Object.hash(runtimeType, action, imageAssetPath, title);
 
   @JsonKey(ignore: true)
   @override
@@ -258,10 +283,13 @@ class _$_HobbiesModelHobby implements _HobbiesModelHobby {
 abstract class _HobbiesModelHobby implements HobbiesModelHobby {
   const factory _HobbiesModelHobby(
       {required final Option<GridModelItemAction> action,
+      final Option<String> imageAssetPath,
       required final String title}) = _$_HobbiesModelHobby;
 
   @override
   Option<GridModelItemAction> get action;
+  @override
+  Option<String> get imageAssetPath;
   @override
   String get title;
   @override

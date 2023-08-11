@@ -21,6 +21,7 @@ class $AssetsIconsGen {
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
+  $AssetsImagesHobbiesGen get hobbies => const $AssetsImagesHobbiesGen();
   $AssetsImagesYoutubeGen get youtube => const $AssetsImagesYoutubeGen();
 }
 
@@ -43,6 +44,12 @@ class $AssetsIconsYoutubeGen {
 
   /// List of all assets
   List<SvgGenImage> get values => [logo];
+}
+
+class $AssetsImagesHobbiesGen {
+  const $AssetsImagesHobbiesGen();
+
+  $AssetsImagesHobbiesIgpGen get igp => const $AssetsImagesHobbiesIgpGen();
 }
 
 class $AssetsImagesYoutubeGen {
@@ -90,6 +97,84 @@ class $AssetsImagesYoutubeGen {
         thumbnailNYJmXDPSn8Q,
         thumbnailRAHYQIeo8G,
         thumbnailXXHQBqlNkI
+      ];
+}
+
+class $AssetsImagesHobbiesIgpGen {
+  const $AssetsImagesHobbiesIgpGen();
+
+  /// File path: assets/images/hobbies/igp/image_1.jpg
+  AssetGenImage get image1 =>
+      const AssetGenImage('assets/images/hobbies/igp/image_1.jpg');
+
+  /// File path: assets/images/hobbies/igp/image_10.jpg
+  AssetGenImage get image10 =>
+      const AssetGenImage('assets/images/hobbies/igp/image_10.jpg');
+
+  /// File path: assets/images/hobbies/igp/image_11.jpg
+  AssetGenImage get image11 =>
+      const AssetGenImage('assets/images/hobbies/igp/image_11.jpg');
+
+  /// File path: assets/images/hobbies/igp/image_12.jpg
+  AssetGenImage get image12 =>
+      const AssetGenImage('assets/images/hobbies/igp/image_12.jpg');
+
+  /// File path: assets/images/hobbies/igp/image_13.jpg
+  AssetGenImage get image13 =>
+      const AssetGenImage('assets/images/hobbies/igp/image_13.jpg');
+
+  /// File path: assets/images/hobbies/igp/image_2.jpg
+  AssetGenImage get image2 =>
+      const AssetGenImage('assets/images/hobbies/igp/image_2.jpg');
+
+  /// File path: assets/images/hobbies/igp/image_3.jpg
+  AssetGenImage get image3 =>
+      const AssetGenImage('assets/images/hobbies/igp/image_3.jpg');
+
+  /// File path: assets/images/hobbies/igp/image_4.jpg
+  AssetGenImage get image4 =>
+      const AssetGenImage('assets/images/hobbies/igp/image_4.jpg');
+
+  /// File path: assets/images/hobbies/igp/image_5.jpg
+  AssetGenImage get image5 =>
+      const AssetGenImage('assets/images/hobbies/igp/image_5.jpg');
+
+  /// File path: assets/images/hobbies/igp/image_6.jpg
+  AssetGenImage get image6 =>
+      const AssetGenImage('assets/images/hobbies/igp/image_6.jpg');
+
+  /// File path: assets/images/hobbies/igp/image_7.jpg
+  AssetGenImage get image7 =>
+      const AssetGenImage('assets/images/hobbies/igp/image_7.jpg');
+
+  /// File path: assets/images/hobbies/igp/image_8.jpg
+  AssetGenImage get image8 =>
+      const AssetGenImage('assets/images/hobbies/igp/image_8.jpg');
+
+  /// File path: assets/images/hobbies/igp/image_9.jpg
+  AssetGenImage get image9 =>
+      const AssetGenImage('assets/images/hobbies/igp/image_9.jpg');
+
+  /// File path: assets/images/hobbies/igp/title.jpg
+  AssetGenImage get title =>
+      const AssetGenImage('assets/images/hobbies/igp/title.jpg');
+
+  /// List of all assets
+  List<AssetGenImage> get values => [
+        image1,
+        image10,
+        image11,
+        image12,
+        image13,
+        image2,
+        image3,
+        image4,
+        image5,
+        image6,
+        image7,
+        image8,
+        image9,
+        title
       ];
 }
 

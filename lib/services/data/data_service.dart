@@ -41,8 +41,8 @@ class DataServiceImplementation implements DataServiceAggregator {
       TaskEither<Object, List<HobbiesDataServiceHobby>>.of(
         <HobbiesDataServiceHobby>[
           HobbiesDataServiceHobby(
-            action:
-                HobbiesDataServiceHobbyAction.route(route: schutzdienstRoute),
+            action: HobbiesDataServiceHobbyAction.route(route: igpRoute),
+            imageAssetPath: some(Assets.images.hobbies.igp.title.path),
             title: 'Dog Sport: IGP',
           ),
         ],
