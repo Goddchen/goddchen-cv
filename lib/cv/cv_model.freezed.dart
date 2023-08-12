@@ -137,7 +137,7 @@ mixin _$CvModelItem {
   Option<String> get imageAssetPath => throw _privateConstructorUsedError;
   DateTime get from => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
-  DateTime get until => throw _privateConstructorUsedError;
+  Option<DateTime> get until => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $CvModelItemCopyWith<CvModelItem> get copyWith =>
@@ -156,7 +156,7 @@ abstract class $CvModelItemCopyWith<$Res> {
       Option<String> imageAssetPath,
       DateTime from,
       String title,
-      DateTime until});
+      Option<DateTime> until});
 }
 
 /// @nodoc
@@ -203,7 +203,7 @@ class _$CvModelItemCopyWithImpl<$Res, $Val extends CvModelItem>
       until: null == until
           ? _value.until
           : until // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as Option<DateTime>,
     ) as $Val);
   }
 }
@@ -222,7 +222,7 @@ abstract class _$$_CvModelItemCopyWith<$Res>
       Option<String> imageAssetPath,
       DateTime from,
       String title,
-      DateTime until});
+      Option<DateTime> until});
 }
 
 /// @nodoc
@@ -267,7 +267,7 @@ class __$$_CvModelItemCopyWithImpl<$Res>
       until: null == until
           ? _value.until
           : until // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as Option<DateTime>,
     ));
   }
 }
@@ -295,7 +295,7 @@ class _$_CvModelItem implements _CvModelItem {
   @override
   final String title;
   @override
-  final DateTime until;
+  final Option<DateTime> until;
 
   @override
   String toString() {
@@ -335,7 +335,7 @@ abstract class _CvModelItem implements CvModelItem {
       final Option<String> imageAssetPath,
       required final DateTime from,
       required final String title,
-      required final DateTime until}) = _$_CvModelItem;
+      required final Option<DateTime> until}) = _$_CvModelItem;
 
   @override
   Option<GridModelItemAction> get action;
@@ -348,7 +348,7 @@ abstract class _CvModelItem implements CvModelItem {
   @override
   String get title;
   @override
-  DateTime get until;
+  Option<DateTime> get until;
   @override
   @JsonKey(ignore: true)
   _$$_CvModelItemCopyWith<_$_CvModelItem> get copyWith =>

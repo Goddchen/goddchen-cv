@@ -20,6 +20,6 @@ class CvModelItem with _$CvModelItem implements GridModelItem {
     @Default(None()) final Option<String> imageAssetPath,
     required final DateTime from,
     required final String title,
-    required final DateTime until,
+    required final Option<DateTime> until,
   }) = _CvModelItem;
 }

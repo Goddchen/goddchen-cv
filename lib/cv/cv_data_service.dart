@@ -14,6 +14,6 @@ class CvDataServiceItem with _$CvDataServiceItem {
     required final DateTime from,
     required final Option<Uri> link,
     required final String title,
-    required final DateTime until,
+    required final Option<DateTime> until,
   }) = _CvDataServiceItem;
 }
