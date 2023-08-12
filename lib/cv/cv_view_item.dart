@@ -22,6 +22,7 @@ class CvViewItem extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Flexible(
                     fit: FlexFit.tight,
@@ -44,7 +45,9 @@ class CvViewItem extends StatelessWidget {
                   ),
                   const SizedBox(width: 8),
                   Text(
-                    '${_dateFormat.format(_item.from)} - ${_dateFormat.format(_item.until)}',
+                    '${_dateFormat.format(_item.from)}'
+                    ' - '
+                    '${_item.until.fold(() => 'today', (final DateTime until) => _dateFormat.format(until))}',
                     style: Theme.of(context).textTheme.bodyMedium,
                   ),
                 ],

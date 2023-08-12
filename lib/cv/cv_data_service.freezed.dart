@@ -20,7 +20,7 @@ mixin _$CvDataServiceItem {
   DateTime get from => throw _privateConstructorUsedError;
   Option<Uri> get link => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
-  DateTime get until => throw _privateConstructorUsedError;
+  Option<DateTime> get until => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $CvDataServiceItemCopyWith<CvDataServiceItem> get copyWith =>
@@ -38,7 +38,7 @@ abstract class $CvDataServiceItemCopyWith<$Res> {
       DateTime from,
       Option<Uri> link,
       String title,
-      DateTime until});
+      Option<DateTime> until});
 }
 
 /// @nodoc
@@ -80,7 +80,7 @@ class _$CvDataServiceItemCopyWithImpl<$Res, $Val extends CvDataServiceItem>
       until: null == until
           ? _value.until
           : until // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as Option<DateTime>,
     ) as $Val);
   }
 }
@@ -98,7 +98,7 @@ abstract class _$$_CvDataServiceItemCopyWith<$Res>
       DateTime from,
       Option<Uri> link,
       String title,
-      DateTime until});
+      Option<DateTime> until});
 }
 
 /// @nodoc
@@ -138,7 +138,7 @@ class __$$_CvDataServiceItemCopyWithImpl<$Res>
       until: null == until
           ? _value.until
           : until // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as Option<DateTime>,
     ));
   }
 }
@@ -162,7 +162,7 @@ class _$_CvDataServiceItem implements _CvDataServiceItem {
   @override
   final String title;
   @override
-  final DateTime until;
+  final Option<DateTime> until;
 
   @override
   String toString() {
@@ -200,7 +200,7 @@ abstract class _CvDataServiceItem implements CvDataServiceItem {
       required final DateTime from,
       required final Option<Uri> link,
       required final String title,
-      required final DateTime until}) = _$_CvDataServiceItem;
+      required final Option<DateTime> until}) = _$_CvDataServiceItem;
 
   @override
   Option<String> get description;
@@ -211,7 +211,7 @@ abstract class _CvDataServiceItem implements CvDataServiceItem {
   @override
   String get title;
   @override
-  DateTime get until;
+  Option<DateTime> get until;
   @override
   @JsonKey(ignore: true)
   _$$_CvDataServiceItemCopyWith<_$_CvDataServiceItem> get copyWith =>
