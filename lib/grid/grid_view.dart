@@ -10,18 +10,25 @@ import 'package:flutter/widgets.dart' as grid_view;
 
 class GridView<M extends GridModel<I>, C extends GridController<GridModelItem>,
     I extends GridModelItem> extends MvcView<M, C> {
+  final double _childAspectRatio;
   final Option<Widget Function(I item)> _itemBuilder;
+  final double _maxExtent;
   final Color _seedColor;
   final String _title;
 
-  const GridView({
+  GridView({
     super.key,
+    final Option<double> childAspectRatio = const None(),
+    required super.controller,
     final Option<Widget Function(I item)> itemBuilder = const None(),
+    final Option<double> maxExtent = const None(),
+    required super.model,
     required final Color seedColor,
     required final String title,
-    required super.controller,
-    required super.model,
-  })  : _itemBuilder = itemBuilder,
+  })  : _childAspectRatio =
+            childAspectRatio.getOrElse(() => gridViewChildAspectRatio),
+        _itemBuilder = itemBuilder,
+        _maxExtent = maxExtent.getOrElse(() => gridViewMaxExtent),
         _seedColor = seedColor,
         _title = title;
 
@@ -31,10 +38,10 @@ class GridView<M extends GridModel<I>, C extends GridController<GridModelItem>,
         title: _title,
         child: model.items.build(
           dataBuilder: (final List<I> data) => grid_view.GridView.extent(
-            childAspectRatio: gridViewChildAspectRatio,
+            childAspectRatio: _childAspectRatio,
             crossAxisSpacing: gridViewHorizontalSpacing,
             mainAxisSpacing: gridViewVerticalSpacing,
-            maxCrossAxisExtent: gridViewMaxExtent,
+            maxCrossAxisExtent: _maxExtent,
             physics: const NeverScrollableScrollPhysics(),
             shrinkWrap: true,
             children: data

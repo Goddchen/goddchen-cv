@@ -30,7 +30,7 @@ class DataServiceImplementation implements DataServiceAggregator {
             description: some('Description'),
             from: DateTime(2023, 1, 1),
             link: some(Uri.parse('https://www.goddchen.de')),
-            title: 'Title',
+            title: 'Title Title Title Title Title Title ',
             until: DateTime(2023, 8, 1),
           ),
         ],

@@ -8,6 +8,7 @@ import 'package:goddchen_cv/constants.dart';
 import 'package:goddchen_cv/cv/cv_controller.dart';
 import 'package:goddchen_cv/cv/cv_controller_implementation.dart';
 import 'package:goddchen_cv/cv/cv_model.dart';
+import 'package:goddchen_cv/cv/cv_view_item.dart';
 import 'package:goddchen_cv/flavors.dart';
 import 'package:goddchen_cv/gen/assets.gen.dart';
 import 'package:goddchen_cv/github_prs/github_prs_controller.dart';
@@ -23,8 +24,9 @@ import 'package:goddchen_cv/portfolio/portfolio_controller_implementation.dart';
 import 'package:goddchen_cv/portfolio/portfolio_model.dart';
 import 'package:goddchen_cv/services/data/data_service.dart';
 import 'package:goddchen_cv/services/navigation/navigation_service.dart';
+import 'package:goddchen_cv/youtube_videos/youtube_videos_controller.dart';
 import 'package:goddchen_cv/youtube_videos/youtube_videos_controller_implementation.dart';
-import 'package:goddchen_cv/youtube_videos/youtube_videos_view.dart';
+import 'package:goddchen_cv/youtube_videos/youtube_videos_model.dart';
 
 class Main extends StatefulWidget {
   const Main({super.key});
@@ -70,11 +72,19 @@ class _MainState extends State<Main> {
             dataService: ref.watch(dataServiceProvider),
             navigationService: ref.watch(navigationServiceProvider),
           );
-          return grid_view.GridView<CvModel, CvController, CvModelItem>(
-            seedColor: cvColor,
-            title: 'CV',
-            controller: ref.watch(provider.notifier),
-            model: ref.watch(provider),
+          return LayoutBuilder(
+            builder: (final _, final BoxConstraints constraints) {
+              return grid_view.GridView<CvModel, CvController, CvModelItem>(
+                childAspectRatio: some(constraints.maxWidth / 160),
+                controller: ref.watch(provider.notifier),
+                itemBuilder:
+                    some((final CvModelItem item) => CvViewItem(item: item)),
+                model: ref.watch(provider),
+                maxExtent: some(double.infinity),
+                seedColor: cvColor,
+                title: 'CV',
+              );
+            },
           );
         },
       );
@@ -173,7 +183,7 @@ class _MainState extends State<Main> {
                     height: 24,
                     width: 24,
                   ),
-                  label: 'Youtube Videos',
+                  label: 'Youtube',
                 ),
                 NavigationDestination(
                   icon: Assets.icons.github.pullRequest.svg(
@@ -251,7 +261,10 @@ class _MainState extends State<Main> {
             dataService: ref.watch(dataServiceProvider),
             navigationService: ref.watch(navigationServiceProvider),
           );
-          return YoutubeVideosView(
+          return grid_view.GridView<YoutubeVideosModel, YoutubeVideosController,
+              YoutubeVideosModelVideo>(
+            seedColor: youtubeColor,
+            title: 'Youtube',
             controller: ref.watch(provider.notifier),
             model: ref.watch(provider),
           );
