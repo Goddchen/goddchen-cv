@@ -25,6 +25,19 @@ class $AssetsImagesGen {
   $AssetsImagesYoutubeGen get youtube => const $AssetsImagesYoutubeGen();
 }
 
+class $AssetsTranslationsGen {
+  const $AssetsTranslationsGen();
+
+  /// File path: assets/translations/de.json
+  String get de => 'assets/translations/de.json';
+
+  /// File path: assets/translations/en.json
+  String get en => 'assets/translations/en.json';
+
+  /// List of all assets
+  List<String> get values => [de, en];
+}
+
 class $AssetsIconsGithubGen {
   const $AssetsIconsGithubGen();
 
@@ -183,6 +196,7 @@ class Assets {
 
   static const $AssetsIconsGen icons = $AssetsIconsGen();
   static const $AssetsImagesGen images = $AssetsImagesGen();
+  static const $AssetsTranslationsGen translations = $AssetsTranslationsGen();
 }
 
 class AssetGenImage {

@@ -1,0 +1,26 @@
+{
+    "navigation": {
+        "cv": "CV",
+        "hobbies": "Hobbies",
+        "portfolio": "Portfolio",
+        "prs": "PRs",
+        "youtube": "Youtube"
+    },
+    "sections": {
+        "cv": {
+            "title": "CV"
+        },
+        "hobbies": {
+            "title": "Hobbies"
+        },
+        "portfolio": {
+            "title": "Portfolio"
+        },
+        "prs": {
+            "title": "Merged PRs"
+        },
+        "youtube": {
+            "title": "Youtube"
+        }
+    }
+}

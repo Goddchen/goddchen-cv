@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_adaptive_scaffold/flutter_adaptive_scaffold.dart';
@@ -11,6 +12,7 @@ import 'package:goddchen_cv/cv/cv_model.dart';
 import 'package:goddchen_cv/cv/cv_view_item.dart';
 import 'package:goddchen_cv/flavors.dart';
 import 'package:goddchen_cv/gen/assets.gen.dart';
+import 'package:goddchen_cv/generated/locale_keys.g.dart';
 import 'package:goddchen_cv/github_prs/github_prs_controller.dart';
 import 'package:goddchen_cv/github_prs/github_prs_controller_implementation.dart';
 import 'package:goddchen_cv/github_prs/github_prs_model.dart';
@@ -82,7 +84,7 @@ class _MainState extends State<Main> {
                 model: ref.watch(provider),
                 maxExtent: some(double.infinity),
                 seedColor: cvColor,
-                title: 'CV',
+                title: LocaleKeys.sections_cv_title.tr(),
               );
             },
           );
@@ -100,7 +102,7 @@ class _MainState extends State<Main> {
           return grid_view.GridView<HobbiesModel, HobbiesController,
               HobbiesModelHobby>(
             seedColor: hobbiesColor,
-            title: 'Hobbies',
+            title: LocaleKeys.sections_hobbies_title.tr(),
             controller: ref.watch(provider.notifier),
             model: ref.watch(provider),
           );
@@ -118,7 +120,7 @@ class _MainState extends State<Main> {
           return grid_view.GridView<GithubPrsModel, GithubPrsController,
               GithubPrsModelPr>(
             seedColor: githubColor,
-            title: 'Open Source',
+            title: LocaleKeys.sections_prs_title.tr(),
             controller: ref.watch(provider.notifier),
             model: ref.watch(provider),
           );
@@ -138,7 +140,7 @@ class _MainState extends State<Main> {
             controller: ref.watch(provider.notifier),
             model: ref.watch(provider),
             seedColor: portfolioColor,
-            title: 'Portfolio',
+            title: LocaleKeys.sections_portfolio_title.tr(),
           );
         },
       );
@@ -163,42 +165,42 @@ class _MainState extends State<Main> {
               ),
               body: (final _) => _buildBody(),
               destinations: <NavigationDestination>[
-                const NavigationDestination(
-                  icon: Icon(
+                NavigationDestination(
+                  icon: const Icon(
                     Icons.list,
                     size: 24,
                     color: cvColor,
                   ),
-                  label: 'CV',
+                  label: LocaleKeys.navigation_cv.tr(),
                 ),
-                const NavigationDestination(
-                  icon: Icon(
+                NavigationDestination(
+                  icon: const Icon(
                     Icons.home,
                     color: portfolioColor,
                   ),
-                  label: 'Portfolio',
+                  label: LocaleKeys.navigation_portfolio.tr(),
                 ),
                 NavigationDestination(
                   icon: Assets.icons.youtube.logo.svg(
                     height: 24,
                     width: 24,
                   ),
-                  label: 'Youtube',
+                  label: LocaleKeys.navigation_youtube.tr(),
                 ),
                 NavigationDestination(
                   icon: Assets.icons.github.pullRequest.svg(
                     height: 24,
                     width: 24,
                   ),
-                  label: 'PRs',
+                  label: LocaleKeys.navigation_prs.tr(),
                 ),
-                const NavigationDestination(
-                  icon: Icon(
+                NavigationDestination(
+                  icon: const Icon(
                     Icons.favorite,
                     size: 24,
                     color: hobbiesColor,
                   ),
-                  label: 'Hobbies',
+                  label: LocaleKeys.navigation_hobbies.tr(),
                 ),
               ],
               onSelectedIndexChange: (final int index) {
@@ -264,7 +266,7 @@ class _MainState extends State<Main> {
           return grid_view.GridView<YoutubeVideosModel, YoutubeVideosController,
               YoutubeVideosModelVideo>(
             seedColor: youtubeColor,
-            title: 'Youtube',
+            title: LocaleKeys.sections_youtube_title.tr(),
             controller: ref.watch(provider.notifier),
             model: ref.watch(provider),
           );
