@@ -16,6 +16,7 @@ class HobbiesModel with _$HobbiesModel implements GridModel<HobbiesModelHobby> {
 class HobbiesModelHobby with _$HobbiesModelHobby implements GridModelItem {
   const factory HobbiesModelHobby({
     required final Option<GridModelItemAction> action,
+    @Default(None()) final Option<String> description,
     @Default(None()) final Option<String> imageAssetPath,
     required final String title,
   }) = _HobbiesModelHobby;

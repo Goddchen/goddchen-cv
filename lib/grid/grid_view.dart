@@ -101,6 +101,18 @@ class _Item extends StatelessWidget {
                             style: Theme.of(context).textTheme.titleLarge,
                           ),
                         ),
+                        ..._item.description.fold(
+                          () => <Widget>[],
+                          (final String description) => <Widget>[
+                            Align(
+                              child: Text(
+                                description,
+                                style: Theme.of(context).textTheme.bodyMedium,
+                                textAlign: TextAlign.center,
+                              ),
+                            )
+                          ],
+                        ),
                       ],
                     ),
                   ),
@@ -142,11 +154,14 @@ class _Item extends StatelessWidget {
                       onTap: () => _controller.openItem(item: _item),
                       child: Padding(
                         padding: const EdgeInsets.all(16),
-                        child: Text(
-                          _item.title,
-                          textAlign: TextAlign.center,
-                          style:
-                              optionOf(Theme.of(context).textTheme.titleLarge)
+                        child: Column(
+                          children: <Widget>[
+                            Text(
+                              _item.title,
+                              textAlign: TextAlign.center,
+                              style: optionOf(
+                                Theme.of(context).textTheme.titleLarge,
+                              )
                                   .map(
                                     (final TextStyle textStyle) =>
                                         textStyle.copyWith(
@@ -156,6 +171,17 @@ class _Item extends StatelessWidget {
                                     ),
                                   )
                                   .toNullable(),
+                            ),
+                            ..._item.description.fold(
+                              () => <Widget>[],
+                              (final String description) => <Widget>[
+                                Text(
+                                  description,
+                                  style: Theme.of(context).textTheme.bodyMedium,
+                                )
+                              ],
+                            ),
+                          ],
                         ),
                       ),
                     ),

@@ -20,7 +20,7 @@ class PortfolioModelProject
     implements GridModelItem {
   const factory PortfolioModelProject({
     required final Option<GridModelItemAction> action,
-    required final String description,
+    @Default(None()) final Option<String> description,
     @Default(None()) final Option<String> imageAssetPath,
     required final String title,
   }) = _PortfolioModelProject;

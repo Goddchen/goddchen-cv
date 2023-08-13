@@ -137,7 +137,7 @@ abstract class _PortfolioModel implements PortfolioModel {
 /// @nodoc
 mixin _$PortfolioModelProject {
   Option<GridModelItemAction> get action => throw _privateConstructorUsedError;
-  String get description => throw _privateConstructorUsedError;
+  Option<String> get description => throw _privateConstructorUsedError;
   Option<String> get imageAssetPath => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
 
@@ -154,7 +154,7 @@ abstract class $PortfolioModelProjectCopyWith<$Res> {
   @useResult
   $Res call(
       {Option<GridModelItemAction> action,
-      String description,
+      Option<String> description,
       Option<String> imageAssetPath,
       String title});
 }
@@ -186,7 +186,7 @@ class _$PortfolioModelProjectCopyWithImpl<$Res,
       description: null == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
-              as String,
+              as Option<String>,
       imageAssetPath: null == imageAssetPath
           ? _value.imageAssetPath
           : imageAssetPath // ignore: cast_nullable_to_non_nullable
@@ -209,7 +209,7 @@ abstract class _$$_PortfolioModelProjectCopyWith<$Res>
   @useResult
   $Res call(
       {Option<GridModelItemAction> action,
-      String description,
+      Option<String> description,
       Option<String> imageAssetPath,
       String title});
 }
@@ -238,7 +238,7 @@ class __$$_PortfolioModelProjectCopyWithImpl<$Res>
       description: null == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
-              as String,
+              as Option<String>,
       imageAssetPath: null == imageAssetPath
           ? _value.imageAssetPath
           : imageAssetPath // ignore: cast_nullable_to_non_nullable
@@ -256,14 +256,15 @@ class __$$_PortfolioModelProjectCopyWithImpl<$Res>
 class _$_PortfolioModelProject implements _PortfolioModelProject {
   const _$_PortfolioModelProject(
       {required this.action,
-      required this.description,
+      this.description = const None(),
       this.imageAssetPath = const None(),
       required this.title});
 
   @override
   final Option<GridModelItemAction> action;
   @override
-  final String description;
+  @JsonKey()
+  final Option<String> description;
   @override
   @JsonKey()
   final Option<String> imageAssetPath;
@@ -303,14 +304,14 @@ class _$_PortfolioModelProject implements _PortfolioModelProject {
 abstract class _PortfolioModelProject implements PortfolioModelProject {
   const factory _PortfolioModelProject(
       {required final Option<GridModelItemAction> action,
-      required final String description,
+      final Option<String> description,
       final Option<String> imageAssetPath,
       required final String title}) = _$_PortfolioModelProject;
 
   @override
   Option<GridModelItemAction> get action;
   @override
-  String get description;
+  Option<String> get description;
   @override
   Option<String> get imageAssetPath;
   @override
