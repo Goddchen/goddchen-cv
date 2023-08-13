@@ -54,9 +54,28 @@ class DataServiceImplementation implements DataServiceAggregator {
         <PortfolioDataServiceProject>[
           PortfolioDataServiceProject(
             description:
-                'Dart package with implementation for RFB (VNC) protocol.',
+                'Implementation of The Remote Framebuffer Protocol (RFC 6143, aka VNC protocol).',
             link: Uri.parse('https://pub.dev/packages/dart_rfb'),
             title: 'dart_rfb',
+          ),
+          PortfolioDataServiceProject(
+            description:
+                'A VNC / Remote Framebuffer / RFC 6143 client purely written in Dart/Flutter.',
+            link: Uri.parse('https://pub.dev/packages/flutter_rfb'),
+            title: 'flutter_rfb',
+          ),
+          PortfolioDataServiceProject(
+            description: 'Listen to Android and iOS logs.',
+            link: Uri.parse(
+              'https://pub.dev/packages/flutter_native_log_handler',
+            ),
+            title: 'flutter_native_log_handler ',
+          ),
+          PortfolioDataServiceProject(
+            description:
+                'Use OpenAI\'s ChatGPT to suggest conventional commit messages for your currently staged changes.',
+            link: Uri.parse('https://pub.dev/packages/gpt_commit_messages'),
+            title: 'gpt_commit_messages ',
           ),
         ],
       );

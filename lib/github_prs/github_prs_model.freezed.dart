@@ -137,6 +137,7 @@ abstract class _GithubPrsModel implements GithubPrsModel {
 /// @nodoc
 mixin _$GithubPrsModelPr {
   Option<GridModelItemAction> get action => throw _privateConstructorUsedError;
+  Option<String> get description => throw _privateConstructorUsedError;
   Option<String> get imageAssetPath => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
 
@@ -153,6 +154,7 @@ abstract class $GithubPrsModelPrCopyWith<$Res> {
   @useResult
   $Res call(
       {Option<GridModelItemAction> action,
+      Option<String> description,
       Option<String> imageAssetPath,
       String title});
 }
@@ -171,6 +173,7 @@ class _$GithubPrsModelPrCopyWithImpl<$Res, $Val extends GithubPrsModelPr>
   @override
   $Res call({
     Object? action = null,
+    Object? description = null,
     Object? imageAssetPath = null,
     Object? title = null,
   }) {
@@ -179,6 +182,10 @@ class _$GithubPrsModelPrCopyWithImpl<$Res, $Val extends GithubPrsModelPr>
           ? _value.action
           : action // ignore: cast_nullable_to_non_nullable
               as Option<GridModelItemAction>,
+      description: null == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as Option<String>,
       imageAssetPath: null == imageAssetPath
           ? _value.imageAssetPath
           : imageAssetPath // ignore: cast_nullable_to_non_nullable
@@ -201,6 +208,7 @@ abstract class _$$_GithubPrsModelPrCopyWith<$Res>
   @useResult
   $Res call(
       {Option<GridModelItemAction> action,
+      Option<String> description,
       Option<String> imageAssetPath,
       String title});
 }
@@ -217,6 +225,7 @@ class __$$_GithubPrsModelPrCopyWithImpl<$Res>
   @override
   $Res call({
     Object? action = null,
+    Object? description = null,
     Object? imageAssetPath = null,
     Object? title = null,
   }) {
@@ -225,6 +234,10 @@ class __$$_GithubPrsModelPrCopyWithImpl<$Res>
           ? _value.action
           : action // ignore: cast_nullable_to_non_nullable
               as Option<GridModelItemAction>,
+      description: null == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as Option<String>,
       imageAssetPath: null == imageAssetPath
           ? _value.imageAssetPath
           : imageAssetPath // ignore: cast_nullable_to_non_nullable
@@ -242,11 +255,15 @@ class __$$_GithubPrsModelPrCopyWithImpl<$Res>
 class _$_GithubPrsModelPr implements _GithubPrsModelPr {
   const _$_GithubPrsModelPr(
       {required this.action,
+      this.description = const None(),
       this.imageAssetPath = const None(),
       required this.title});
 
   @override
   final Option<GridModelItemAction> action;
+  @override
+  @JsonKey()
+  final Option<String> description;
   @override
   @JsonKey()
   final Option<String> imageAssetPath;
@@ -255,7 +272,7 @@ class _$_GithubPrsModelPr implements _GithubPrsModelPr {
 
   @override
   String toString() {
-    return 'GithubPrsModelPr(action: $action, imageAssetPath: $imageAssetPath, title: $title)';
+    return 'GithubPrsModelPr(action: $action, description: $description, imageAssetPath: $imageAssetPath, title: $title)';
   }
 
   @override
@@ -264,13 +281,16 @@ class _$_GithubPrsModelPr implements _GithubPrsModelPr {
         (other.runtimeType == runtimeType &&
             other is _$_GithubPrsModelPr &&
             (identical(other.action, action) || other.action == action) &&
+            (identical(other.description, description) ||
+                other.description == description) &&
             (identical(other.imageAssetPath, imageAssetPath) ||
                 other.imageAssetPath == imageAssetPath) &&
             (identical(other.title, title) || other.title == title));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, action, imageAssetPath, title);
+  int get hashCode =>
+      Object.hash(runtimeType, action, description, imageAssetPath, title);
 
   @JsonKey(ignore: true)
   @override
@@ -282,11 +302,14 @@ class _$_GithubPrsModelPr implements _GithubPrsModelPr {
 abstract class _GithubPrsModelPr implements GithubPrsModelPr {
   const factory _GithubPrsModelPr(
       {required final Option<GridModelItemAction> action,
+      final Option<String> description,
       final Option<String> imageAssetPath,
       required final String title}) = _$_GithubPrsModelPr;
 
   @override
   Option<GridModelItemAction> get action;
+  @override
+  Option<String> get description;
   @override
   Option<String> get imageAssetPath;
   @override

@@ -10,6 +10,7 @@ abstract interface class GridModel<I extends GridModelItem> {
 
 abstract interface class GridModelItem {
   Option<GridModelItemAction> get action;
+  Option<String> get description;
   Option<String> get imageAssetPath;
   String get title;
 }

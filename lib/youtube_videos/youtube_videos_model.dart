@@ -20,6 +20,7 @@ class YoutubeVideosModelVideo
     implements GridModelItem {
   const factory YoutubeVideosModelVideo({
     required final Option<GridModelItemAction> action,
+    @Default(None()) final Option<String> description,
     required final String id,
     required final Option<String> imageAssetPath,
     required final String title,

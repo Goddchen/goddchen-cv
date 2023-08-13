@@ -138,6 +138,7 @@ abstract class _YoutubeVideosModel implements YoutubeVideosModel {
 /// @nodoc
 mixin _$YoutubeVideosModelVideo {
   Option<GridModelItemAction> get action => throw _privateConstructorUsedError;
+  Option<String> get description => throw _privateConstructorUsedError;
   String get id => throw _privateConstructorUsedError;
   Option<String> get imageAssetPath => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
@@ -155,6 +156,7 @@ abstract class $YoutubeVideosModelVideoCopyWith<$Res> {
   @useResult
   $Res call(
       {Option<GridModelItemAction> action,
+      Option<String> description,
       String id,
       Option<String> imageAssetPath,
       String title});
@@ -175,6 +177,7 @@ class _$YoutubeVideosModelVideoCopyWithImpl<$Res,
   @override
   $Res call({
     Object? action = null,
+    Object? description = null,
     Object? id = null,
     Object? imageAssetPath = null,
     Object? title = null,
@@ -184,6 +187,10 @@ class _$YoutubeVideosModelVideoCopyWithImpl<$Res,
           ? _value.action
           : action // ignore: cast_nullable_to_non_nullable
               as Option<GridModelItemAction>,
+      description: null == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as Option<String>,
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -210,6 +217,7 @@ abstract class _$$_YoutubeVideosModelVideoCopyWith<$Res>
   @useResult
   $Res call(
       {Option<GridModelItemAction> action,
+      Option<String> description,
       String id,
       Option<String> imageAssetPath,
       String title});
@@ -228,6 +236,7 @@ class __$$_YoutubeVideosModelVideoCopyWithImpl<$Res>
   @override
   $Res call({
     Object? action = null,
+    Object? description = null,
     Object? id = null,
     Object? imageAssetPath = null,
     Object? title = null,
@@ -237,6 +246,10 @@ class __$$_YoutubeVideosModelVideoCopyWithImpl<$Res>
           ? _value.action
           : action // ignore: cast_nullable_to_non_nullable
               as Option<GridModelItemAction>,
+      description: null == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as Option<String>,
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -258,12 +271,16 @@ class __$$_YoutubeVideosModelVideoCopyWithImpl<$Res>
 class _$_YoutubeVideosModelVideo implements _YoutubeVideosModelVideo {
   const _$_YoutubeVideosModelVideo(
       {required this.action,
+      this.description = const None(),
       required this.id,
       required this.imageAssetPath,
       required this.title});
 
   @override
   final Option<GridModelItemAction> action;
+  @override
+  @JsonKey()
+  final Option<String> description;
   @override
   final String id;
   @override
@@ -273,7 +290,7 @@ class _$_YoutubeVideosModelVideo implements _YoutubeVideosModelVideo {
 
   @override
   String toString() {
-    return 'YoutubeVideosModelVideo(action: $action, id: $id, imageAssetPath: $imageAssetPath, title: $title)';
+    return 'YoutubeVideosModelVideo(action: $action, description: $description, id: $id, imageAssetPath: $imageAssetPath, title: $title)';
   }
 
   @override
@@ -282,6 +299,8 @@ class _$_YoutubeVideosModelVideo implements _YoutubeVideosModelVideo {
         (other.runtimeType == runtimeType &&
             other is _$_YoutubeVideosModelVideo &&
             (identical(other.action, action) || other.action == action) &&
+            (identical(other.description, description) ||
+                other.description == description) &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.imageAssetPath, imageAssetPath) ||
                 other.imageAssetPath == imageAssetPath) &&
@@ -290,7 +309,7 @@ class _$_YoutubeVideosModelVideo implements _YoutubeVideosModelVideo {
 
   @override
   int get hashCode =>
-      Object.hash(runtimeType, action, id, imageAssetPath, title);
+      Object.hash(runtimeType, action, description, id, imageAssetPath, title);
 
   @JsonKey(ignore: true)
   @override
@@ -304,12 +323,15 @@ class _$_YoutubeVideosModelVideo implements _YoutubeVideosModelVideo {
 abstract class _YoutubeVideosModelVideo implements YoutubeVideosModelVideo {
   const factory _YoutubeVideosModelVideo(
       {required final Option<GridModelItemAction> action,
+      final Option<String> description,
       required final String id,
       required final Option<String> imageAssetPath,
       required final String title}) = _$_YoutubeVideosModelVideo;
 
   @override
   Option<GridModelItemAction> get action;
+  @override
+  Option<String> get description;
   @override
   String get id;
   @override

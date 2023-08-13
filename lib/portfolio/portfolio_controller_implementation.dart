@@ -20,7 +20,7 @@ class PortfolioControllerImplementation
               (final PortfolioDataServiceProject project) =>
                   PortfolioModelProject(
                 action: some(GridModelItemAction.link(link: project.link)),
-                description: project.description,
+                description: some(project.description),
                 title: project.title,
               ),
             )

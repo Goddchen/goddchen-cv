@@ -135,10 +135,10 @@ class _MainState extends State<Main> {
           );
           return grid_view.GridView<PortfolioModel, PortfolioController,
               PortfolioModelProject>(
-            seedColor: portfolioColor,
-            title: 'Portfolio',
             controller: ref.watch(provider.notifier),
             model: ref.watch(provider),
+            seedColor: portfolioColor,
+            title: 'Portfolio',
           );
         },
       );
