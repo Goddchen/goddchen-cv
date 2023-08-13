@@ -30,13 +30,6 @@ class DataServiceImplementation implements DataServiceAggregator {
             description: none(),
             from: DateTime(2023, 1, 1),
             link: none(),
-            title: 'Grundschule Blumberg',
-            until: some(DateTime(2023, 8, 1)),
-          ),
-          CvDataServiceItem(
-            description: none(),
-            from: DateTime(2023, 1, 1),
-            link: none(),
             title: 'Realschule Blumberg',
             until: some(DateTime(2023, 8, 1)),
           ),
@@ -66,6 +59,13 @@ class DataServiceImplementation implements DataServiceAggregator {
             from: DateTime(2023, 1, 1),
             link: none(),
             title: 'MSc Informatik - HTWG Konstanz',
+            until: some(DateTime(2023, 8, 1)),
+          ),
+          CvDataServiceItem(
+            description: none(),
+            from: DateTime(2023, 1, 1),
+            link: none(),
+            title: 'Wissenschaftlicher Mitarbeiter - HTWG Konstanz',
             until: some(DateTime(2023, 8, 1)),
           ),
           CvDataServiceItem(
