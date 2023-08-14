@@ -11,6 +11,8 @@ abstract interface class GithubPrsDataService {
 class GithubPrsDataServicePr with _$GithubPrsDataServicePr {
   const factory GithubPrsDataServicePr({
     required final Uri link,
+    required final String repo,
     required final String title,
+    required final String user,
   }) = _GithubPrsDataServicePr;
 }
