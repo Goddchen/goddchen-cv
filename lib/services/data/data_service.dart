@@ -142,45 +142,63 @@ class DataServiceImplementation implements DataServiceAggregator {
         <GithubPrsDataServicePr>[
           GithubPrsDataServicePr(
             link: Uri.parse('https://github.com/mkobuolys/flutter_deck/pull/1'),
+            repo: 'flutter_deck',
             title: 'Add code highlight widget',
+            user: 'mkobuolys',
           ),
           GithubPrsDataServicePr(
             link: Uri.parse('https://github.com/flutter/packages/pull/4341'),
+            repo: 'packages',
             title:
                 'go_router: docs: fix typo in StatefulShellRoute.indexedStack(...) docs',
+            user: 'flutter',
           ),
           GithubPrsDataServicePr(
             link: Uri.parse(
               'https://github.com/gdg-berlin-android/ZeBadge/pull/107',
             ),
+            repo: 'ZeBadge',
             title: 'Run tests on PRs',
+            user: 'gdg-berlin-android',
           ),
           GithubPrsDataServicePr(
             link: Uri.parse(
               'https://github.com/cirruslabs/docker-images-flutter/pull/273',
             ),
+            repo: 'docker-images-flutter',
             title: 'Upgrade to Flutter 3.10.1 and 3.11.0-12.0.pre',
+            user: 'cirruslabs',
           ),
           GithubPrsDataServicePr(
             link: Uri.parse('https://github.com/dart-lang/async/pull/243'),
+            repo: 'async',
             title: 'docs: fix typo in CancelableOperation.fromFuture(...) docs',
+            user: 'dart-lang',
           ),
           GithubPrsDataServicePr(
             link: Uri.parse('https://github.com/flutter/tests/pull/202'),
+            repo: 'tests',
             title: 'add dart_rfb',
+            user: 'flutter',
           ),
           GithubPrsDataServicePr(
             link: Uri.parse('https://github.com/flutter/tests/pull/201'),
+            repo: 'tests',
             title: 'add flutter_rfb',
+            user: 'flutter',
           ),
           GithubPrsDataServicePr(
             link: Uri.parse('https://github.com/flutter/flutter/pull/106511'),
+            repo: 'flutter',
             title: 'Fix typo in painting.TextStyle.merge docs',
+            user: 'flutter',
           ),
           GithubPrsDataServicePr(
             link: Uri.parse('https://github.com/slovnicki/beamer/pull/500'),
+            repo: 'beamer',
             title:
                 'Fix: popToNamed(...), need to break from the while loop when entry found',
+            user: 'slovnicki',
           ),
         ],
       );

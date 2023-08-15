@@ -7,7 +7,7 @@ part of 'github_prs_controller_implementation.dart';
 // **************************************************************************
 
 String _$githubPrsControllerImplementationHash() =>
-    r'94981d7e22effbb4cd87b413d3161b34776d45e1';
+    r'ecff3d52495cb088716f6228f77fe5afbec60a7a';
 
 /// Copied from Dart SDK
 class _SystemHash {

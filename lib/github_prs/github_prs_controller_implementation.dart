@@ -19,7 +19,8 @@ class GithubPrsControllerImplementation
             .map(
               (final GithubPrsDataServicePr pr) => GithubPrsModelPr(
                 action: some(GridModelItemAction.link(link: pr.link)),
-                title: pr.title,
+                description: some(pr.title),
+                title: '${pr.user}/${pr.repo}',
               ),
             )
             .toList(),

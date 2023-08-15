@@ -17,7 +17,9 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$GithubPrsDataServicePr {
   Uri get link => throw _privateConstructorUsedError;
+  String get repo => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
+  String get user => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $GithubPrsDataServicePrCopyWith<GithubPrsDataServicePr> get copyWith =>
@@ -30,7 +32,7 @@ abstract class $GithubPrsDataServicePrCopyWith<$Res> {
           $Res Function(GithubPrsDataServicePr) then) =
       _$GithubPrsDataServicePrCopyWithImpl<$Res, GithubPrsDataServicePr>;
   @useResult
-  $Res call({Uri link, String title});
+  $Res call({Uri link, String repo, String title, String user});
 }
 
 /// @nodoc
@@ -48,16 +50,26 @@ class _$GithubPrsDataServicePrCopyWithImpl<$Res,
   @override
   $Res call({
     Object? link = null,
+    Object? repo = null,
     Object? title = null,
+    Object? user = null,
   }) {
     return _then(_value.copyWith(
       link: null == link
           ? _value.link
           : link // ignore: cast_nullable_to_non_nullable
               as Uri,
+      repo: null == repo
+          ? _value.repo
+          : repo // ignore: cast_nullable_to_non_nullable
+              as String,
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
+              as String,
+      user: null == user
+          ? _value.user
+          : user // ignore: cast_nullable_to_non_nullable
               as String,
     ) as $Val);
   }
@@ -71,7 +83,7 @@ abstract class _$$_GithubPrsDataServicePrCopyWith<$Res>
       __$$_GithubPrsDataServicePrCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Uri link, String title});
+  $Res call({Uri link, String repo, String title, String user});
 }
 
 /// @nodoc
@@ -87,16 +99,26 @@ class __$$_GithubPrsDataServicePrCopyWithImpl<$Res>
   @override
   $Res call({
     Object? link = null,
+    Object? repo = null,
     Object? title = null,
+    Object? user = null,
   }) {
     return _then(_$_GithubPrsDataServicePr(
       link: null == link
           ? _value.link
           : link // ignore: cast_nullable_to_non_nullable
               as Uri,
+      repo: null == repo
+          ? _value.repo
+          : repo // ignore: cast_nullable_to_non_nullable
+              as String,
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
+              as String,
+      user: null == user
+          ? _value.user
+          : user // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -105,16 +127,24 @@ class __$$_GithubPrsDataServicePrCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_GithubPrsDataServicePr implements _GithubPrsDataServicePr {
-  const _$_GithubPrsDataServicePr({required this.link, required this.title});
+  const _$_GithubPrsDataServicePr(
+      {required this.link,
+      required this.repo,
+      required this.title,
+      required this.user});
 
   @override
   final Uri link;
   @override
+  final String repo;
+  @override
   final String title;
+  @override
+  final String user;
 
   @override
   String toString() {
-    return 'GithubPrsDataServicePr(link: $link, title: $title)';
+    return 'GithubPrsDataServicePr(link: $link, repo: $repo, title: $title, user: $user)';
   }
 
   @override
@@ -123,11 +153,13 @@ class _$_GithubPrsDataServicePr implements _GithubPrsDataServicePr {
         (other.runtimeType == runtimeType &&
             other is _$_GithubPrsDataServicePr &&
             (identical(other.link, link) || other.link == link) &&
-            (identical(other.title, title) || other.title == title));
+            (identical(other.repo, repo) || other.repo == repo) &&
+            (identical(other.title, title) || other.title == title) &&
+            (identical(other.user, user) || other.user == user));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, link, title);
+  int get hashCode => Object.hash(runtimeType, link, repo, title, user);
 
   @JsonKey(ignore: true)
   @override
@@ -140,12 +172,18 @@ class _$_GithubPrsDataServicePr implements _GithubPrsDataServicePr {
 abstract class _GithubPrsDataServicePr implements GithubPrsDataServicePr {
   const factory _GithubPrsDataServicePr(
       {required final Uri link,
-      required final String title}) = _$_GithubPrsDataServicePr;
+      required final String repo,
+      required final String title,
+      required final String user}) = _$_GithubPrsDataServicePr;
 
   @override
   Uri get link;
   @override
+  String get repo;
+  @override
   String get title;
+  @override
+  String get user;
   @override
   @JsonKey(ignore: true)
   _$$_GithubPrsDataServicePrCopyWith<_$_GithubPrsDataServicePr> get copyWith =>
