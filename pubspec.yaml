@@ -42,6 +42,7 @@ flutter:
   assets:
     - assets/icons/github/
     - assets/icons/youtube/
+    - assets/images/hobbies/dog-sport/
     - assets/images/hobbies/igp/
     - assets/images/youtube/
     - assets/translations/
