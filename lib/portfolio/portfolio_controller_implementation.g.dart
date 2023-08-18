@@ -7,7 +7,7 @@ part of 'portfolio_controller_implementation.dart';
 // **************************************************************************
 
 String _$portfolioControllerImplementationHash() =>
-    r'e990579301577ce0fa27b6bb5d2805dcd4439d57';
+    r'28912bab8b90763e682038c79ea39fb9938f545e';
 
 /// Copied from Dart SDK
 class _SystemHash {
