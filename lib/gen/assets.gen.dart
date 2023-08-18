@@ -22,6 +22,7 @@ class $AssetsImagesGen {
   const $AssetsImagesGen();
 
   $AssetsImagesHobbiesGen get hobbies => const $AssetsImagesHobbiesGen();
+  $AssetsImagesPortfolioGen get portfolio => const $AssetsImagesPortfolioGen();
   $AssetsImagesYoutubeGen get youtube => const $AssetsImagesYoutubeGen();
 }
 
@@ -63,6 +64,21 @@ class $AssetsImagesHobbiesGen {
   const $AssetsImagesHobbiesGen();
 
   $AssetsImagesHobbiesIgpGen get igp => const $AssetsImagesHobbiesIgpGen();
+}
+
+class $AssetsImagesPortfolioGen {
+  const $AssetsImagesPortfolioGen();
+
+  /// File path: assets/images/portfolio/github.png
+  AssetGenImage get github =>
+      const AssetGenImage('assets/images/portfolio/github.png');
+
+  /// File path: assets/images/portfolio/stack-overflow-badge.png
+  AssetGenImage get stackOverflowBadge =>
+      const AssetGenImage('assets/images/portfolio/stack-overflow-badge.png');
+
+  /// List of all assets
+  List<AssetGenImage> get values => [github, stackOverflowBadge];
 }
 
 class $AssetsImagesYoutubeGen {

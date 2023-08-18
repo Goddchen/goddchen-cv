@@ -109,6 +109,19 @@ class DataServiceImplementation implements DataServiceAggregator {
       TaskEither<Object, List<PortfolioDataServiceProject>>.of(
         <PortfolioDataServiceProject>[
           PortfolioDataServiceProject(
+            description: 'My GitHub profile',
+            imageAssetPath: some(Assets.images.portfolio.github.path),
+            link: Uri.parse('https://github.com/Goddchen'),
+            title: 'GitHub',
+          ),
+          PortfolioDataServiceProject(
+            description: 'My StackOverflow profile',
+            imageAssetPath:
+                some(Assets.images.portfolio.stackOverflowBadge.path),
+            link: Uri.parse('https://stackoverflow.com/users/373138/goddchen'),
+            title: 'StackOverflow',
+          ),
+          PortfolioDataServiceProject(
             description:
                 'Implementation of The Remote Framebuffer Protocol (RFC 6143, aka VNC protocol).',
             link: Uri.parse('https://pub.dev/packages/dart_rfb'),
@@ -125,13 +138,13 @@ class DataServiceImplementation implements DataServiceAggregator {
             link: Uri.parse(
               'https://pub.dev/packages/flutter_native_log_handler',
             ),
-            title: 'flutter_native_log_handler ',
+            title: 'flutter_native_log_handler',
           ),
           PortfolioDataServiceProject(
             description:
                 'Use OpenAI\'s ChatGPT to suggest conventional commit messages for your currently staged changes.',
             link: Uri.parse('https://pub.dev/packages/gpt_commit_messages'),
-            title: 'gpt_commit_messages ',
+            title: 'gpt_commit_messages',
           ),
         ],
       );

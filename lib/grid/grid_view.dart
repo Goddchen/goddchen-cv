@@ -175,10 +175,12 @@ class _Item extends StatelessWidget {
                             ..._item.description.fold(
                               () => <Widget>[],
                               (final String description) => <Widget>[
+                                const Spacer(),
                                 Text(
                                   description,
                                   style: Theme.of(context).textTheme.bodyMedium,
-                                )
+                                ),
+                                const Spacer(),
                               ],
                             ),
                           ],

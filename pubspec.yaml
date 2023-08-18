@@ -43,6 +43,7 @@ flutter:
     - assets/icons/github/
     - assets/icons/youtube/
     - assets/images/hobbies/igp/
+    - assets/images/portfolio/
     - assets/images/youtube/
     - assets/translations/
   uses-material-design: true

@@ -17,6 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$PortfolioDataServiceProject {
   String get description => throw _privateConstructorUsedError;
+  Option<String> get imageAssetPath => throw _privateConstructorUsedError;
   Uri get link => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
 
@@ -33,7 +34,11 @@ abstract class $PortfolioDataServiceProjectCopyWith<$Res> {
       _$PortfolioDataServiceProjectCopyWithImpl<$Res,
           PortfolioDataServiceProject>;
   @useResult
-  $Res call({String description, Uri link, String title});
+  $Res call(
+      {String description,
+      Option<String> imageAssetPath,
+      Uri link,
+      String title});
 }
 
 /// @nodoc
@@ -51,6 +56,7 @@ class _$PortfolioDataServiceProjectCopyWithImpl<$Res,
   @override
   $Res call({
     Object? description = null,
+    Object? imageAssetPath = null,
     Object? link = null,
     Object? title = null,
   }) {
@@ -59,6 +65,10 @@ class _$PortfolioDataServiceProjectCopyWithImpl<$Res,
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
+      imageAssetPath: null == imageAssetPath
+          ? _value.imageAssetPath
+          : imageAssetPath // ignore: cast_nullable_to_non_nullable
+              as Option<String>,
       link: null == link
           ? _value.link
           : link // ignore: cast_nullable_to_non_nullable
@@ -80,7 +90,11 @@ abstract class _$$_PortfolioDataServiceProjectCopyWith<$Res>
       __$$_PortfolioDataServiceProjectCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String description, Uri link, String title});
+  $Res call(
+      {String description,
+      Option<String> imageAssetPath,
+      Uri link,
+      String title});
 }
 
 /// @nodoc
@@ -97,6 +111,7 @@ class __$$_PortfolioDataServiceProjectCopyWithImpl<$Res>
   @override
   $Res call({
     Object? description = null,
+    Object? imageAssetPath = null,
     Object? link = null,
     Object? title = null,
   }) {
@@ -105,6 +120,10 @@ class __$$_PortfolioDataServiceProjectCopyWithImpl<$Res>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
+      imageAssetPath: null == imageAssetPath
+          ? _value.imageAssetPath
+          : imageAssetPath // ignore: cast_nullable_to_non_nullable
+              as Option<String>,
       link: null == link
           ? _value.link
           : link // ignore: cast_nullable_to_non_nullable
@@ -121,10 +140,16 @@ class __$$_PortfolioDataServiceProjectCopyWithImpl<$Res>
 
 class _$_PortfolioDataServiceProject implements _PortfolioDataServiceProject {
   const _$_PortfolioDataServiceProject(
-      {required this.description, required this.link, required this.title});
+      {required this.description,
+      this.imageAssetPath = const None(),
+      required this.link,
+      required this.title});
 
   @override
   final String description;
+  @override
+  @JsonKey()
+  final Option<String> imageAssetPath;
   @override
   final Uri link;
   @override
@@ -132,7 +157,7 @@ class _$_PortfolioDataServiceProject implements _PortfolioDataServiceProject {
 
   @override
   String toString() {
-    return 'PortfolioDataServiceProject(description: $description, link: $link, title: $title)';
+    return 'PortfolioDataServiceProject(description: $description, imageAssetPath: $imageAssetPath, link: $link, title: $title)';
   }
 
   @override
@@ -142,12 +167,15 @@ class _$_PortfolioDataServiceProject implements _PortfolioDataServiceProject {
             other is _$_PortfolioDataServiceProject &&
             (identical(other.description, description) ||
                 other.description == description) &&
+            (identical(other.imageAssetPath, imageAssetPath) ||
+                other.imageAssetPath == imageAssetPath) &&
             (identical(other.link, link) || other.link == link) &&
             (identical(other.title, title) || other.title == title));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, description, link, title);
+  int get hashCode =>
+      Object.hash(runtimeType, description, imageAssetPath, link, title);
 
   @JsonKey(ignore: true)
   @override
@@ -161,11 +189,14 @@ abstract class _PortfolioDataServiceProject
     implements PortfolioDataServiceProject {
   const factory _PortfolioDataServiceProject(
       {required final String description,
+      final Option<String> imageAssetPath,
       required final Uri link,
       required final String title}) = _$_PortfolioDataServiceProject;
 
   @override
   String get description;
+  @override
+  Option<String> get imageAssetPath;
   @override
   Uri get link;
   @override

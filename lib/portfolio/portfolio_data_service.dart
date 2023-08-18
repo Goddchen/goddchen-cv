@@ -11,6 +11,7 @@ abstract interface class PortfolioDataService {
 class PortfolioDataServiceProject with _$PortfolioDataServiceProject {
   const factory PortfolioDataServiceProject({
     required final String description,
+    @Default(None()) final Option<String> imageAssetPath,
     required final Uri link,
     required final String title,
   }) = _PortfolioDataServiceProject;
