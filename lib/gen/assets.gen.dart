@@ -63,6 +63,8 @@ class $AssetsIconsYoutubeGen {
 class $AssetsImagesHobbiesGen {
   const $AssetsImagesHobbiesGen();
 
+  $AssetsImagesHobbiesDogSportGen get dogSport =>
+      const $AssetsImagesHobbiesDogSportGen();
   $AssetsImagesHobbiesIgpGen get igp => const $AssetsImagesHobbiesIgpGen();
 }
 
@@ -127,6 +129,42 @@ class $AssetsImagesYoutubeGen {
         thumbnailRAHYQIeo8G,
         thumbnailXXHQBqlNkI
       ];
+}
+
+class $AssetsImagesHobbiesDogSportGen {
+  const $AssetsImagesHobbiesDogSportGen();
+
+  /// File path: assets/images/hobbies/dog-sport/image1.jpg
+  AssetGenImage get image1 =>
+      const AssetGenImage('assets/images/hobbies/dog-sport/image1.jpg');
+
+  /// File path: assets/images/hobbies/dog-sport/image2.jpg
+  AssetGenImage get image2 =>
+      const AssetGenImage('assets/images/hobbies/dog-sport/image2.jpg');
+
+  /// File path: assets/images/hobbies/dog-sport/image3.jpg
+  AssetGenImage get image3 =>
+      const AssetGenImage('assets/images/hobbies/dog-sport/image3.jpg');
+
+  /// File path: assets/images/hobbies/dog-sport/image4.jpg
+  AssetGenImage get image4 =>
+      const AssetGenImage('assets/images/hobbies/dog-sport/image4.jpg');
+
+  /// File path: assets/images/hobbies/dog-sport/image5.jpg
+  AssetGenImage get image5 =>
+      const AssetGenImage('assets/images/hobbies/dog-sport/image5.jpg');
+
+  /// File path: assets/images/hobbies/dog-sport/image6.jpg
+  AssetGenImage get image6 =>
+      const AssetGenImage('assets/images/hobbies/dog-sport/image6.jpg');
+
+  /// File path: assets/images/hobbies/dog-sport/title.jpg
+  AssetGenImage get title =>
+      const AssetGenImage('assets/images/hobbies/dog-sport/title.jpg');
+
+  /// List of all assets
+  List<AssetGenImage> get values =>
+      [image1, image2, image3, image4, image5, image6, title];
 }
 
 class $AssetsImagesHobbiesIgpGen {
