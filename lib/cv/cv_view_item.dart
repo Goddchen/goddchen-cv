@@ -4,7 +4,7 @@ import 'package:goddchen_cv/cv/cv_model.dart';
 import 'package:intl/intl.dart';
 
 class CvViewItem extends StatelessWidget {
-  final DateFormat _dateFormat = DateFormat.yM();
+  final DateFormat _dateFormat = DateFormat.y();
   final CvModelItem _item;
 
   CvViewItem({
