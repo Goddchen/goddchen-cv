@@ -181,18 +181,18 @@ class _MainState extends State<Main> {
                   label: LocaleKeys.navigation_portfolio.tr(),
                 ),
                 NavigationDestination(
-                  icon: Assets.icons.youtube.logo.svg(
-                    height: 24,
-                    width: 24,
-                  ),
-                  label: LocaleKeys.navigation_youtube.tr(),
-                ),
-                NavigationDestination(
                   icon: Assets.icons.github.pullRequest.svg(
                     height: 24,
                     width: 24,
                   ),
                   label: LocaleKeys.navigation_prs.tr(),
+                ),
+                NavigationDestination(
+                  icon: Assets.icons.youtube.logo.svg(
+                    height: 24,
+                    width: 24,
+                  ),
+                  label: LocaleKeys.navigation_youtube.tr(),
                 ),
                 NavigationDestination(
                   icon: const Icon(
@@ -225,14 +225,14 @@ class _MainState extends State<Main> {
                         duration: kThemeAnimationDuration,
                       ),
                     ),
-                  2 => optionOf(youtubeVideosKey.currentContext).fold(
+                  2 => optionOf(prsKey.currentContext).fold(
                       () {},
                       (final BuildContext context) => Scrollable.ensureVisible(
                         context,
                         duration: kThemeAnimationDuration,
                       ),
                     ),
-                  3 => optionOf(prsKey.currentContext).fold(
+                  3 => optionOf(youtubeVideosKey.currentContext).fold(
                       () {},
                       (final BuildContext context) => Scrollable.ensureVisible(
                         context,
@@ -285,12 +285,12 @@ class _MainState extends State<Main> {
         findWidgetOffset(globalKey: portfolioKey);
     if (hobbiesYOffset.toOption().getOrElse(() => double.infinity) <= 0) {
       return 4;
-    } else if (prsYOffset.toOption().getOrElse(() => double.infinity) <= 0) {
-      return 3;
     } else if (youtubeVideosYOffset
             .toOption()
             .getOrElse(() => double.infinity) <=
         0) {
+      return 3;
+    } else if (prsYOffset.toOption().getOrElse(() => double.infinity) <= 0) {
       return 2;
     } else if (portfolioYOffset.toOption().getOrElse(() => double.infinity) <=
         0) {
