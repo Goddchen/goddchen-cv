@@ -1,3 +1,4 @@
+import 'package:flutter/widgets.dart';
 import 'package:fpdart/fpdart.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:goddchen_cv/common.dart';
@@ -12,6 +13,8 @@ abstract interface class GridModelItem {
   Option<GridModelItemAction> get action;
   Option<String> get description;
   Option<String> get imageAssetPath;
+  BoxFit get imageFit;
+  EdgeInsets get imagePadding;
   String get title;
 }
 

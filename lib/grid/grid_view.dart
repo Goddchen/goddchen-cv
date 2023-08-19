@@ -130,11 +130,14 @@ class _Item extends StatelessWidget {
             child: Stack(
               children: <Widget>[
                 Positioned.fill(
-                  child: DecoratedBox(
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        fit: BoxFit.cover,
-                        image: AssetImage(imageAssetPath),
+                  child: Padding(
+                    padding: _item.imagePadding,
+                    child: DecoratedBox(
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                          fit: _item.imageFit,
+                          image: AssetImage(imageAssetPath),
+                        ),
                       ),
                     ),
                   ),

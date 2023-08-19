@@ -22,6 +22,8 @@ class PortfolioControllerImplementation
                 action: some(GridModelItemAction.link(link: project.link)),
                 description: some(project.description),
                 imageAssetPath: project.imageAssetPath,
+                imageFit: project.imageFit,
+                imagePadding: project.imagePadding,
                 title: project.title,
               ),
             )

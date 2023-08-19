@@ -27,6 +27,8 @@ class HobbiesControllerImplementation extends _$HobbiesControllerImplementation
                   ),
                 ),
                 imageAssetPath: hobby.imageAssetPath,
+                imageFit: hobby.imageFit,
+                imagePadding: hobby.imagePadding,
                 title: hobby.title,
               ),
             )

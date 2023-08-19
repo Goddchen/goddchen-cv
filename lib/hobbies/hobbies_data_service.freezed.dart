@@ -19,6 +19,8 @@ mixin _$HobbiesDataServiceHobby {
   HobbiesDataServiceHobbyAction get action =>
       throw _privateConstructorUsedError;
   Option<String> get imageAssetPath => throw _privateConstructorUsedError;
+  BoxFit get imageFit => throw _privateConstructorUsedError;
+  EdgeInsets get imagePadding => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -35,6 +37,8 @@ abstract class $HobbiesDataServiceHobbyCopyWith<$Res> {
   $Res call(
       {HobbiesDataServiceHobbyAction action,
       Option<String> imageAssetPath,
+      BoxFit imageFit,
+      EdgeInsets imagePadding,
       String title});
 
   $HobbiesDataServiceHobbyActionCopyWith<$Res> get action;
@@ -56,6 +60,8 @@ class _$HobbiesDataServiceHobbyCopyWithImpl<$Res,
   $Res call({
     Object? action = null,
     Object? imageAssetPath = null,
+    Object? imageFit = null,
+    Object? imagePadding = null,
     Object? title = null,
   }) {
     return _then(_value.copyWith(
@@ -67,6 +73,14 @@ class _$HobbiesDataServiceHobbyCopyWithImpl<$Res,
           ? _value.imageAssetPath
           : imageAssetPath // ignore: cast_nullable_to_non_nullable
               as Option<String>,
+      imageFit: null == imageFit
+          ? _value.imageFit
+          : imageFit // ignore: cast_nullable_to_non_nullable
+              as BoxFit,
+      imagePadding: null == imagePadding
+          ? _value.imagePadding
+          : imagePadding // ignore: cast_nullable_to_non_nullable
+              as EdgeInsets,
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -94,6 +108,8 @@ abstract class _$$_HobbiesDataServiceHobbyCopyWith<$Res>
   $Res call(
       {HobbiesDataServiceHobbyAction action,
       Option<String> imageAssetPath,
+      BoxFit imageFit,
+      EdgeInsets imagePadding,
       String title});
 
   @override
@@ -114,6 +130,8 @@ class __$$_HobbiesDataServiceHobbyCopyWithImpl<$Res>
   $Res call({
     Object? action = null,
     Object? imageAssetPath = null,
+    Object? imageFit = null,
+    Object? imagePadding = null,
     Object? title = null,
   }) {
     return _then(_$_HobbiesDataServiceHobby(
@@ -125,6 +143,14 @@ class __$$_HobbiesDataServiceHobbyCopyWithImpl<$Res>
           ? _value.imageAssetPath
           : imageAssetPath // ignore: cast_nullable_to_non_nullable
               as Option<String>,
+      imageFit: null == imageFit
+          ? _value.imageFit
+          : imageFit // ignore: cast_nullable_to_non_nullable
+              as BoxFit,
+      imagePadding: null == imagePadding
+          ? _value.imagePadding
+          : imagePadding // ignore: cast_nullable_to_non_nullable
+              as EdgeInsets,
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -139,6 +165,8 @@ class _$_HobbiesDataServiceHobby implements _HobbiesDataServiceHobby {
   const _$_HobbiesDataServiceHobby(
       {required this.action,
       this.imageAssetPath = const None(),
+      this.imageFit = BoxFit.cover,
+      this.imagePadding = const EdgeInsets.all(0),
       required this.title});
 
   @override
@@ -147,11 +175,17 @@ class _$_HobbiesDataServiceHobby implements _HobbiesDataServiceHobby {
   @JsonKey()
   final Option<String> imageAssetPath;
   @override
+  @JsonKey()
+  final BoxFit imageFit;
+  @override
+  @JsonKey()
+  final EdgeInsets imagePadding;
+  @override
   final String title;
 
   @override
   String toString() {
-    return 'HobbiesDataServiceHobby(action: $action, imageAssetPath: $imageAssetPath, title: $title)';
+    return 'HobbiesDataServiceHobby(action: $action, imageAssetPath: $imageAssetPath, imageFit: $imageFit, imagePadding: $imagePadding, title: $title)';
   }
 
   @override
@@ -162,11 +196,16 @@ class _$_HobbiesDataServiceHobby implements _HobbiesDataServiceHobby {
             (identical(other.action, action) || other.action == action) &&
             (identical(other.imageAssetPath, imageAssetPath) ||
                 other.imageAssetPath == imageAssetPath) &&
+            (identical(other.imageFit, imageFit) ||
+                other.imageFit == imageFit) &&
+            (identical(other.imagePadding, imagePadding) ||
+                other.imagePadding == imagePadding) &&
             (identical(other.title, title) || other.title == title));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, action, imageAssetPath, title);
+  int get hashCode => Object.hash(
+      runtimeType, action, imageAssetPath, imageFit, imagePadding, title);
 
   @JsonKey(ignore: true)
   @override
@@ -181,12 +220,18 @@ abstract class _HobbiesDataServiceHobby implements HobbiesDataServiceHobby {
   const factory _HobbiesDataServiceHobby(
       {required final HobbiesDataServiceHobbyAction action,
       final Option<String> imageAssetPath,
+      final BoxFit imageFit,
+      final EdgeInsets imagePadding,
       required final String title}) = _$_HobbiesDataServiceHobby;
 
   @override
   HobbiesDataServiceHobbyAction get action;
   @override
   Option<String> get imageAssetPath;
+  @override
+  BoxFit get imageFit;
+  @override
+  EdgeInsets get imagePadding;
   @override
   String get title;
   @override

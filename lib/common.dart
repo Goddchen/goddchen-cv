@@ -1,5 +1,28 @@
-import 'package:flutter/widgets.dart';
+import 'package:flutter/gestures.dart';
+import 'package:flutter/material.dart';
 import 'package:fpdart/fpdart.dart';
+
+Widget buildLink({
+  required final String text,
+  required final VoidCallback onTap,
+}) =>
+    Builder(
+      builder: (final BuildContext context) => RichText(
+        text: TextSpan(
+          text: text,
+          style: optionOf(Theme.of(context).textTheme.bodyMedium)
+              .map(
+                (final TextStyle textStyle) => textStyle.copyWith(
+                  color: Colors.blue,
+                  decoration: TextDecoration.underline,
+                ),
+              )
+              .toNullable(),
+          recognizer: TapGestureRecognizer()..onTap = onTap,
+        ),
+        textAlign: TextAlign.center,
+      ),
+    );
 
 Either<Object, double> findWidgetOffset({required final GlobalKey globalKey}) =>
     optionOf(globalKey.currentContext)

@@ -1,3 +1,4 @@
+import 'package:flutter/widgets.dart';
 import 'package:fpdart/fpdart.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -12,6 +13,8 @@ class HobbiesDataServiceHobby with _$HobbiesDataServiceHobby {
   const factory HobbiesDataServiceHobby({
     required final HobbiesDataServiceHobbyAction action,
     @Default(None()) final Option<String> imageAssetPath,
+    @Default(BoxFit.cover) final BoxFit imageFit,
+    @Default(EdgeInsets.all(0)) final EdgeInsets imagePadding,
     required final String title,
   }) = _HobbiesDataServiceHobby;
 }

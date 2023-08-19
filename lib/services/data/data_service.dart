@@ -1,3 +1,4 @@
+import 'package:flutter/widgets.dart';
 import 'package:fpdart/fpdart.dart';
 import 'package:goddchen_cv/cv/cv_data_service.dart';
 import 'package:goddchen_cv/gen/assets.gen.dart';
@@ -106,6 +107,20 @@ class DataServiceImplementation implements DataServiceAggregator {
             imageAssetPath: some(Assets.images.hobbies.igp.title.path),
             title: 'Dog Sport: IGP',
           ),
+          HobbiesDataServiceHobby(
+            action: HobbiesDataServiceHobbyAction.route(route: lolRoute),
+            imageAssetPath: some(Assets.images.hobbies.lol.title.path),
+            imageFit: BoxFit.contain,
+            imagePadding: const EdgeInsets.all(32),
+            title: 'League of Legends',
+          ),
+          HobbiesDataServiceHobby(
+            action: HobbiesDataServiceHobbyAction.route(route: kspRoute),
+            imageAssetPath: some(Assets.images.hobbies.ksp.title.path),
+            imageFit: BoxFit.contain,
+            imagePadding: const EdgeInsets.all(32),
+            title: 'Kerbal Space Program',
+          ),
         ],
       );
 
@@ -116,6 +131,8 @@ class DataServiceImplementation implements DataServiceAggregator {
           PortfolioDataServiceProject(
             description: 'My GitHub profile',
             imageAssetPath: some(Assets.images.portfolio.github.path),
+            imageFit: BoxFit.contain,
+            imagePadding: const EdgeInsets.all(64),
             link: Uri.parse('https://github.com/Goddchen'),
             title: 'GitHub',
           ),
@@ -123,6 +140,8 @@ class DataServiceImplementation implements DataServiceAggregator {
             description: 'My StackOverflow profile',
             imageAssetPath:
                 some(Assets.images.portfolio.stackOverflowBadge.path),
+            imageFit: BoxFit.contain,
+            imagePadding: const EdgeInsets.all(32),
             link: Uri.parse('https://stackoverflow.com/users/373138/goddchen'),
             title: 'StackOverflow',
           ),
