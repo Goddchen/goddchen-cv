@@ -141,6 +141,8 @@ mixin _$YoutubeVideosModelVideo {
   Option<String> get description => throw _privateConstructorUsedError;
   String get id => throw _privateConstructorUsedError;
   Option<String> get imageAssetPath => throw _privateConstructorUsedError;
+  BoxFit get imageFit => throw _privateConstructorUsedError;
+  EdgeInsets get imagePadding => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -159,6 +161,8 @@ abstract class $YoutubeVideosModelVideoCopyWith<$Res> {
       Option<String> description,
       String id,
       Option<String> imageAssetPath,
+      BoxFit imageFit,
+      EdgeInsets imagePadding,
       String title});
 }
 
@@ -180,6 +184,8 @@ class _$YoutubeVideosModelVideoCopyWithImpl<$Res,
     Object? description = null,
     Object? id = null,
     Object? imageAssetPath = null,
+    Object? imageFit = null,
+    Object? imagePadding = null,
     Object? title = null,
   }) {
     return _then(_value.copyWith(
@@ -199,6 +205,14 @@ class _$YoutubeVideosModelVideoCopyWithImpl<$Res,
           ? _value.imageAssetPath
           : imageAssetPath // ignore: cast_nullable_to_non_nullable
               as Option<String>,
+      imageFit: null == imageFit
+          ? _value.imageFit
+          : imageFit // ignore: cast_nullable_to_non_nullable
+              as BoxFit,
+      imagePadding: null == imagePadding
+          ? _value.imagePadding
+          : imagePadding // ignore: cast_nullable_to_non_nullable
+              as EdgeInsets,
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -220,6 +234,8 @@ abstract class _$$_YoutubeVideosModelVideoCopyWith<$Res>
       Option<String> description,
       String id,
       Option<String> imageAssetPath,
+      BoxFit imageFit,
+      EdgeInsets imagePadding,
       String title});
 }
 
@@ -239,6 +255,8 @@ class __$$_YoutubeVideosModelVideoCopyWithImpl<$Res>
     Object? description = null,
     Object? id = null,
     Object? imageAssetPath = null,
+    Object? imageFit = null,
+    Object? imagePadding = null,
     Object? title = null,
   }) {
     return _then(_$_YoutubeVideosModelVideo(
@@ -258,6 +276,14 @@ class __$$_YoutubeVideosModelVideoCopyWithImpl<$Res>
           ? _value.imageAssetPath
           : imageAssetPath // ignore: cast_nullable_to_non_nullable
               as Option<String>,
+      imageFit: null == imageFit
+          ? _value.imageFit
+          : imageFit // ignore: cast_nullable_to_non_nullable
+              as BoxFit,
+      imagePadding: null == imagePadding
+          ? _value.imagePadding
+          : imagePadding // ignore: cast_nullable_to_non_nullable
+              as EdgeInsets,
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -274,6 +300,8 @@ class _$_YoutubeVideosModelVideo implements _YoutubeVideosModelVideo {
       this.description = const None(),
       required this.id,
       required this.imageAssetPath,
+      this.imageFit = BoxFit.cover,
+      this.imagePadding = const EdgeInsets.all(0),
       required this.title});
 
   @override
@@ -286,11 +314,17 @@ class _$_YoutubeVideosModelVideo implements _YoutubeVideosModelVideo {
   @override
   final Option<String> imageAssetPath;
   @override
+  @JsonKey()
+  final BoxFit imageFit;
+  @override
+  @JsonKey()
+  final EdgeInsets imagePadding;
+  @override
   final String title;
 
   @override
   String toString() {
-    return 'YoutubeVideosModelVideo(action: $action, description: $description, id: $id, imageAssetPath: $imageAssetPath, title: $title)';
+    return 'YoutubeVideosModelVideo(action: $action, description: $description, id: $id, imageAssetPath: $imageAssetPath, imageFit: $imageFit, imagePadding: $imagePadding, title: $title)';
   }
 
   @override
@@ -304,12 +338,16 @@ class _$_YoutubeVideosModelVideo implements _YoutubeVideosModelVideo {
             (identical(other.id, id) || other.id == id) &&
             (identical(other.imageAssetPath, imageAssetPath) ||
                 other.imageAssetPath == imageAssetPath) &&
+            (identical(other.imageFit, imageFit) ||
+                other.imageFit == imageFit) &&
+            (identical(other.imagePadding, imagePadding) ||
+                other.imagePadding == imagePadding) &&
             (identical(other.title, title) || other.title == title));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, action, description, id, imageAssetPath, title);
+  int get hashCode => Object.hash(runtimeType, action, description, id,
+      imageAssetPath, imageFit, imagePadding, title);
 
   @JsonKey(ignore: true)
   @override
@@ -326,6 +364,8 @@ abstract class _YoutubeVideosModelVideo implements YoutubeVideosModelVideo {
       final Option<String> description,
       required final String id,
       required final Option<String> imageAssetPath,
+      final BoxFit imageFit,
+      final EdgeInsets imagePadding,
       required final String title}) = _$_YoutubeVideosModelVideo;
 
   @override
@@ -336,6 +376,10 @@ abstract class _YoutubeVideosModelVideo implements YoutubeVideosModelVideo {
   String get id;
   @override
   Option<String> get imageAssetPath;
+  @override
+  BoxFit get imageFit;
+  @override
+  EdgeInsets get imagePadding;
   @override
   String get title;
   @override

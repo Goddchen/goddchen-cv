@@ -66,6 +66,8 @@ class $AssetsImagesHobbiesGen {
   $AssetsImagesHobbiesDogSportGen get dogSport =>
       const $AssetsImagesHobbiesDogSportGen();
   $AssetsImagesHobbiesIgpGen get igp => const $AssetsImagesHobbiesIgpGen();
+  $AssetsImagesHobbiesKspGen get ksp => const $AssetsImagesHobbiesKspGen();
+  $AssetsImagesHobbiesLolGen get lol => const $AssetsImagesHobbiesLolGen();
 }
 
 class $AssetsImagesPortfolioGen {
@@ -243,6 +245,28 @@ class $AssetsImagesHobbiesIgpGen {
         image9,
         title
       ];
+}
+
+class $AssetsImagesHobbiesKspGen {
+  const $AssetsImagesHobbiesKspGen();
+
+  /// File path: assets/images/hobbies/ksp/title.png
+  AssetGenImage get title =>
+      const AssetGenImage('assets/images/hobbies/ksp/title.png');
+
+  /// List of all assets
+  List<AssetGenImage> get values => [title];
+}
+
+class $AssetsImagesHobbiesLolGen {
+  const $AssetsImagesHobbiesLolGen();
+
+  /// File path: assets/images/hobbies/lol/title.png
+  AssetGenImage get title =>
+      const AssetGenImage('assets/images/hobbies/lol/title.png');
+
+  /// List of all assets
+  List<AssetGenImage> get values => [title];
 }
 
 class Assets {

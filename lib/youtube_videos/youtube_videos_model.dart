@@ -1,3 +1,4 @@
+import 'package:flutter/widgets.dart';
 import 'package:fpdart/fpdart.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:goddchen_cv/common.dart';
@@ -23,6 +24,8 @@ class YoutubeVideosModelVideo
     @Default(None()) final Option<String> description,
     required final String id,
     required final Option<String> imageAssetPath,
+    @Default(BoxFit.cover) final BoxFit imageFit,
+    @Default(EdgeInsets.all(0)) final EdgeInsets imagePadding,
     required final String title,
   }) = _YoutubeVideosModelVideo;
 }

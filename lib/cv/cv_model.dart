@@ -1,3 +1,4 @@
+import 'package:flutter/widgets.dart';
 import 'package:fpdart/fpdart.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:goddchen_cv/common.dart';
@@ -18,6 +19,8 @@ class CvModelItem with _$CvModelItem implements GridModelItem {
     required final Option<GridModelItemAction> action,
     required final Option<String> description,
     @Default(None()) final Option<String> imageAssetPath,
+    @Default(BoxFit.cover) final BoxFit imageFit,
+    @Default(EdgeInsets.all(0)) final EdgeInsets imagePadding,
     required final DateTime from,
     required final String title,
     required final Option<DateTime> until,

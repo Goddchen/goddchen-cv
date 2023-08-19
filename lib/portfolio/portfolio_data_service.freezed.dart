@@ -18,6 +18,8 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$PortfolioDataServiceProject {
   String get description => throw _privateConstructorUsedError;
   Option<String> get imageAssetPath => throw _privateConstructorUsedError;
+  BoxFit get imageFit => throw _privateConstructorUsedError;
+  EdgeInsets get imagePadding => throw _privateConstructorUsedError;
   Uri get link => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
 
@@ -37,6 +39,8 @@ abstract class $PortfolioDataServiceProjectCopyWith<$Res> {
   $Res call(
       {String description,
       Option<String> imageAssetPath,
+      BoxFit imageFit,
+      EdgeInsets imagePadding,
       Uri link,
       String title});
 }
@@ -57,6 +61,8 @@ class _$PortfolioDataServiceProjectCopyWithImpl<$Res,
   $Res call({
     Object? description = null,
     Object? imageAssetPath = null,
+    Object? imageFit = null,
+    Object? imagePadding = null,
     Object? link = null,
     Object? title = null,
   }) {
@@ -69,6 +75,14 @@ class _$PortfolioDataServiceProjectCopyWithImpl<$Res,
           ? _value.imageAssetPath
           : imageAssetPath // ignore: cast_nullable_to_non_nullable
               as Option<String>,
+      imageFit: null == imageFit
+          ? _value.imageFit
+          : imageFit // ignore: cast_nullable_to_non_nullable
+              as BoxFit,
+      imagePadding: null == imagePadding
+          ? _value.imagePadding
+          : imagePadding // ignore: cast_nullable_to_non_nullable
+              as EdgeInsets,
       link: null == link
           ? _value.link
           : link // ignore: cast_nullable_to_non_nullable
@@ -93,6 +107,8 @@ abstract class _$$_PortfolioDataServiceProjectCopyWith<$Res>
   $Res call(
       {String description,
       Option<String> imageAssetPath,
+      BoxFit imageFit,
+      EdgeInsets imagePadding,
       Uri link,
       String title});
 }
@@ -112,6 +128,8 @@ class __$$_PortfolioDataServiceProjectCopyWithImpl<$Res>
   $Res call({
     Object? description = null,
     Object? imageAssetPath = null,
+    Object? imageFit = null,
+    Object? imagePadding = null,
     Object? link = null,
     Object? title = null,
   }) {
@@ -124,6 +142,14 @@ class __$$_PortfolioDataServiceProjectCopyWithImpl<$Res>
           ? _value.imageAssetPath
           : imageAssetPath // ignore: cast_nullable_to_non_nullable
               as Option<String>,
+      imageFit: null == imageFit
+          ? _value.imageFit
+          : imageFit // ignore: cast_nullable_to_non_nullable
+              as BoxFit,
+      imagePadding: null == imagePadding
+          ? _value.imagePadding
+          : imagePadding // ignore: cast_nullable_to_non_nullable
+              as EdgeInsets,
       link: null == link
           ? _value.link
           : link // ignore: cast_nullable_to_non_nullable
@@ -142,6 +168,8 @@ class _$_PortfolioDataServiceProject implements _PortfolioDataServiceProject {
   const _$_PortfolioDataServiceProject(
       {required this.description,
       this.imageAssetPath = const None(),
+      this.imageFit = BoxFit.cover,
+      this.imagePadding = const EdgeInsets.all(0),
       required this.link,
       required this.title});
 
@@ -151,13 +179,19 @@ class _$_PortfolioDataServiceProject implements _PortfolioDataServiceProject {
   @JsonKey()
   final Option<String> imageAssetPath;
   @override
+  @JsonKey()
+  final BoxFit imageFit;
+  @override
+  @JsonKey()
+  final EdgeInsets imagePadding;
+  @override
   final Uri link;
   @override
   final String title;
 
   @override
   String toString() {
-    return 'PortfolioDataServiceProject(description: $description, imageAssetPath: $imageAssetPath, link: $link, title: $title)';
+    return 'PortfolioDataServiceProject(description: $description, imageAssetPath: $imageAssetPath, imageFit: $imageFit, imagePadding: $imagePadding, link: $link, title: $title)';
   }
 
   @override
@@ -169,13 +203,17 @@ class _$_PortfolioDataServiceProject implements _PortfolioDataServiceProject {
                 other.description == description) &&
             (identical(other.imageAssetPath, imageAssetPath) ||
                 other.imageAssetPath == imageAssetPath) &&
+            (identical(other.imageFit, imageFit) ||
+                other.imageFit == imageFit) &&
+            (identical(other.imagePadding, imagePadding) ||
+                other.imagePadding == imagePadding) &&
             (identical(other.link, link) || other.link == link) &&
             (identical(other.title, title) || other.title == title));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, description, imageAssetPath, link, title);
+  int get hashCode => Object.hash(runtimeType, description, imageAssetPath,
+      imageFit, imagePadding, link, title);
 
   @JsonKey(ignore: true)
   @override
@@ -190,6 +228,8 @@ abstract class _PortfolioDataServiceProject
   const factory _PortfolioDataServiceProject(
       {required final String description,
       final Option<String> imageAssetPath,
+      final BoxFit imageFit,
+      final EdgeInsets imagePadding,
       required final Uri link,
       required final String title}) = _$_PortfolioDataServiceProject;
 
@@ -197,6 +237,10 @@ abstract class _PortfolioDataServiceProject
   String get description;
   @override
   Option<String> get imageAssetPath;
+  @override
+  BoxFit get imageFit;
+  @override
+  EdgeInsets get imagePadding;
   @override
   Uri get link;
   @override

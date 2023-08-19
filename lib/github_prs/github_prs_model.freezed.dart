@@ -139,6 +139,8 @@ mixin _$GithubPrsModelPr {
   Option<GridModelItemAction> get action => throw _privateConstructorUsedError;
   Option<String> get description => throw _privateConstructorUsedError;
   Option<String> get imageAssetPath => throw _privateConstructorUsedError;
+  BoxFit get imageFit => throw _privateConstructorUsedError;
+  EdgeInsets get imagePadding => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -156,6 +158,8 @@ abstract class $GithubPrsModelPrCopyWith<$Res> {
       {Option<GridModelItemAction> action,
       Option<String> description,
       Option<String> imageAssetPath,
+      BoxFit imageFit,
+      EdgeInsets imagePadding,
       String title});
 }
 
@@ -175,6 +179,8 @@ class _$GithubPrsModelPrCopyWithImpl<$Res, $Val extends GithubPrsModelPr>
     Object? action = null,
     Object? description = null,
     Object? imageAssetPath = null,
+    Object? imageFit = null,
+    Object? imagePadding = null,
     Object? title = null,
   }) {
     return _then(_value.copyWith(
@@ -190,6 +196,14 @@ class _$GithubPrsModelPrCopyWithImpl<$Res, $Val extends GithubPrsModelPr>
           ? _value.imageAssetPath
           : imageAssetPath // ignore: cast_nullable_to_non_nullable
               as Option<String>,
+      imageFit: null == imageFit
+          ? _value.imageFit
+          : imageFit // ignore: cast_nullable_to_non_nullable
+              as BoxFit,
+      imagePadding: null == imagePadding
+          ? _value.imagePadding
+          : imagePadding // ignore: cast_nullable_to_non_nullable
+              as EdgeInsets,
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -210,6 +224,8 @@ abstract class _$$_GithubPrsModelPrCopyWith<$Res>
       {Option<GridModelItemAction> action,
       Option<String> description,
       Option<String> imageAssetPath,
+      BoxFit imageFit,
+      EdgeInsets imagePadding,
       String title});
 }
 
@@ -227,6 +243,8 @@ class __$$_GithubPrsModelPrCopyWithImpl<$Res>
     Object? action = null,
     Object? description = null,
     Object? imageAssetPath = null,
+    Object? imageFit = null,
+    Object? imagePadding = null,
     Object? title = null,
   }) {
     return _then(_$_GithubPrsModelPr(
@@ -242,6 +260,14 @@ class __$$_GithubPrsModelPrCopyWithImpl<$Res>
           ? _value.imageAssetPath
           : imageAssetPath // ignore: cast_nullable_to_non_nullable
               as Option<String>,
+      imageFit: null == imageFit
+          ? _value.imageFit
+          : imageFit // ignore: cast_nullable_to_non_nullable
+              as BoxFit,
+      imagePadding: null == imagePadding
+          ? _value.imagePadding
+          : imagePadding // ignore: cast_nullable_to_non_nullable
+              as EdgeInsets,
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -257,6 +283,8 @@ class _$_GithubPrsModelPr implements _GithubPrsModelPr {
       {required this.action,
       this.description = const None(),
       this.imageAssetPath = const None(),
+      this.imageFit = BoxFit.cover,
+      this.imagePadding = const EdgeInsets.all(0),
       required this.title});
 
   @override
@@ -268,11 +296,17 @@ class _$_GithubPrsModelPr implements _GithubPrsModelPr {
   @JsonKey()
   final Option<String> imageAssetPath;
   @override
+  @JsonKey()
+  final BoxFit imageFit;
+  @override
+  @JsonKey()
+  final EdgeInsets imagePadding;
+  @override
   final String title;
 
   @override
   String toString() {
-    return 'GithubPrsModelPr(action: $action, description: $description, imageAssetPath: $imageAssetPath, title: $title)';
+    return 'GithubPrsModelPr(action: $action, description: $description, imageAssetPath: $imageAssetPath, imageFit: $imageFit, imagePadding: $imagePadding, title: $title)';
   }
 
   @override
@@ -285,12 +319,16 @@ class _$_GithubPrsModelPr implements _GithubPrsModelPr {
                 other.description == description) &&
             (identical(other.imageAssetPath, imageAssetPath) ||
                 other.imageAssetPath == imageAssetPath) &&
+            (identical(other.imageFit, imageFit) ||
+                other.imageFit == imageFit) &&
+            (identical(other.imagePadding, imagePadding) ||
+                other.imagePadding == imagePadding) &&
             (identical(other.title, title) || other.title == title));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, action, description, imageAssetPath, title);
+  int get hashCode => Object.hash(runtimeType, action, description,
+      imageAssetPath, imageFit, imagePadding, title);
 
   @JsonKey(ignore: true)
   @override
@@ -304,6 +342,8 @@ abstract class _GithubPrsModelPr implements GithubPrsModelPr {
       {required final Option<GridModelItemAction> action,
       final Option<String> description,
       final Option<String> imageAssetPath,
+      final BoxFit imageFit,
+      final EdgeInsets imagePadding,
       required final String title}) = _$_GithubPrsModelPr;
 
   @override
@@ -312,6 +352,10 @@ abstract class _GithubPrsModelPr implements GithubPrsModelPr {
   Option<String> get description;
   @override
   Option<String> get imageAssetPath;
+  @override
+  BoxFit get imageFit;
+  @override
+  EdgeInsets get imagePadding;
   @override
   String get title;
   @override
