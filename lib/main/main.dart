@@ -59,8 +59,8 @@ class _MainState extends State<Main> {
           children: <Widget>[
             _buildCv(),
             _buildPortfolio(),
-            _buildYoutubeVideos(),
             _buildGithubPrs(),
+            _buildYoutubeVideos(),
             _buildHobbies(),
           ],
         ),
