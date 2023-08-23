@@ -1,0 +1,73 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "develop Debug",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "debug",
+            "args": [
+                "--flavor",
+                "develop",
+                "--web-renderer",
+                "html"
+            ],
+            "program": "lib/main_develop.dart"
+        },
+        {
+            "name": "develop Profile",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile",
+            "args": [
+                "--flavor",
+                "develop"
+            ],
+            "program": "lib/main_develop.dart"
+        },
+        {
+            "name": "develop Release",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release",
+            "args": [
+                "--flavor",
+                "develop"
+            ],
+            "program": "lib/main_develop.dart"
+        },
+        {
+            "name": "production Debug",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "debug",
+            "args": [
+                "--flavor",
+                "production"
+            ],
+            "program": "lib/main_production.dart"
+        },
+        {
+            "name": "production Profile",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile",
+            "args": [
+                "--flavor",
+                "production"
+            ],
+            "program": "lib/main_production.dart"
+        },
+        {
+            "name": "production Release",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release",
+            "args": [
+                "--flavor",
+                "production"
+            ],
+            "program": "lib/main_production.dart"
+        }
+    ]
+}

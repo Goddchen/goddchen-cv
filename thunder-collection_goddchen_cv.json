@@ -1,0 +1,53 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "goddchen_cv",
+    "dateExported": "2023-08-07T12:04:39.893Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "bdd48048-d312-496b-9883-d254ac8abfbe",
+            "colId": "a7fe336a-3f05-42f7-a7bf-3e70a49d4d56",
+            "containerId": "",
+            "name": "Github: get PR info",
+            "url": "https://api.github.com/repos/mkobuolys/flutter_deck/pulls/1",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2023-08-05T15:20:16.127Z",
+            "modified": "2023-08-05T15:20:54.453Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "927bce52-dc54-4b60-abb4-6c2669018330",
+            "colId": "a7fe336a-3f05-42f7-a7bf-3e70a49d4d56",
+            "containerId": "",
+            "name": "Youtube: get video info",
+            "url": "https://www.googleapis.com/youtube/v3/videos?id=Ks-_Mh1QhMc&key=AIzaSyClujsGzzGH6F-8LnosVEuPZ7_b2Vsu2hI&part=snippet",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2023-08-06T08:40:38.325Z",
+            "modified": "2023-08-06T08:44:08.148Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "id",
+                    "value": "Ks-_Mh1QhMc",
+                    "isPath": false
+                },
+                {
+                    "name": "key",
+                    "value": "AIzaSyClujsGzzGH6F-8LnosVEuPZ7_b2Vsu2hI",
+                    "isPath": false
+                },
+                {
+                    "name": "part",
+                    "value": "snippet",
+                    "isPath": false
+                }
+            ],
+            "tests": []
+        }
+    ]
+}
