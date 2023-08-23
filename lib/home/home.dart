@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_adaptive_scaffold/flutter_adaptive_scaffold.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -20,6 +21,7 @@ import 'package:goddchen_cv/grid/grid_view.dart' as grid_view;
 import 'package:goddchen_cv/hobbies/hobbies_controller.dart';
 import 'package:goddchen_cv/hobbies/hobbies_controller_implemenation.dart';
 import 'package:goddchen_cv/hobbies/hobbies_model.dart';
+import 'package:goddchen_cv/home/home_navigation_service.dart';
 import 'package:goddchen_cv/main_navigation_service.dart';
 import 'package:goddchen_cv/portfolio/portfolio_controller.dart';
 import 'package:goddchen_cv/portfolio/portfolio_controller_implementation.dart';
@@ -29,15 +31,21 @@ import 'package:goddchen_cv/services/navigation/navigation_service.dart';
 import 'package:goddchen_cv/youtube_videos/youtube_videos_controller.dart';
 import 'package:goddchen_cv/youtube_videos/youtube_videos_controller_implementation.dart';
 import 'package:goddchen_cv/youtube_videos/youtube_videos_model.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 
-class Main extends StatefulWidget {
-  const Main({super.key});
+class Home extends StatefulWidget {
+  final HomeNavigationService _navigationService;
+
+  const Home({
+    super.key,
+    required final HomeNavigationService navigationService,
+  }) : _navigationService = navigationService;
 
   @override
-  State<Main> createState() => _MainState();
+  State<Home> createState() => _HomeState();
 }
 
-class _MainState extends State<Main> {
+class _HomeState extends State<Home> {
   int _selectedIndex = 0;
 
   @override
@@ -62,6 +70,59 @@ class _MainState extends State<Main> {
             _buildGithubPrs(),
             _buildYoutubeVideos(),
             _buildHobbies(),
+            _buildFooter(),
+          ],
+        ),
+      );
+
+  Widget _buildFooter() => Builder(
+        builder: (final BuildContext context) => Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            ...optionOf(F.appFlavor).fold(
+              () => <Widget>[],
+              (final Flavor appFlavor) => <Widget>[
+                switch (appFlavor) {
+                  Flavor.develop => const Text('development build'),
+                  Flavor.production => FutureBuilder<PackageInfo>(
+                      future: PackageInfo.fromPlatform(),
+                      builder: (
+                        final _,
+                        final AsyncSnapshot<PackageInfo> snapshot,
+                      ) =>
+                          snapshot.hasData
+                              ? Text('v${snapshot.requireData.version}')
+                              : const SizedBox.square(
+                                  dimension: 16,
+                                  child: CircularProgressIndicator(),
+                                ),
+                    ),
+                },
+              ],
+            ),
+            const SizedBox(width: 4),
+            const Text('-'),
+            const SizedBox(width: 4),
+            RichText(
+              text: TextSpan(
+                recognizer: TapGestureRecognizer()
+                  ..onTap = () => widget._navigationService.openLink(
+                        link: Uri.parse(
+                          'https://github.com/Goddchen/goddchen-cv',
+                        ),
+                      ),
+                style: optionOf(Theme.of(context).textTheme.bodyMedium)
+                    .map(
+                      (final TextStyle textStyle) => textStyle.copyWith(
+                        color: Colors.blue,
+                        decoration: TextDecoration.underline,
+                      ),
+                    )
+                    .toNullable(),
+                text: LocaleKeys.home_view_on_github.tr(),
+              ),
+            ),
           ],
         ),
       );

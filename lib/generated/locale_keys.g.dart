@@ -1,6 +1,8 @@
 // DO NOT EDIT. This is code generated via package:easy_localization/generate.dart
 
 abstract class LocaleKeys {
+  static const home_view_on_github = 'home.view_on_github';
+  static const home = 'home';
   static const navigation_cv = 'navigation.cv';
   static const navigation_hobbies = 'navigation.hobbies';
   static const navigation_portfolio = 'navigation.portfolio';

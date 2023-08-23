@@ -5,7 +5,7 @@ import 'package:goddchen_cv/hobbies/dog_sport/dog_sport_view.dart';
 import 'package:goddchen_cv/hobbies/igp/hobby_igp_view.dart';
 import 'package:goddchen_cv/hobbies/ksp/hobby_ksp_view.dart';
 import 'package:goddchen_cv/hobbies/lol/hobby_lol_view.dart';
-import 'package:goddchen_cv/main/main.dart';
+import 'package:goddchen_cv/home/home.dart';
 import 'package:goddchen_cv/services/navigation/navigation_service.dart';
 import 'package:goddchen_cv/services/navigation/routes.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -19,7 +19,11 @@ GoRouter goRouter(final _) {
     debugLogDiagnostics: kDebugMode,
     routes: <GoRoute>[
       GoRoute(
-        builder: (final _, final __) => const Main(),
+        builder: (final _, final __) => Consumer(
+          builder: (final _, final WidgetRef ref, final ___) => Home(
+            navigationService: ref.watch(navigationServiceProvider),
+          ),
+        ),
         path: '/',
         routes: <GoRoute>[
           GoRoute(

@@ -4,6 +4,7 @@ import 'package:goddchen_cv/github_prs/github_prs_navigation_service.dart';
 import 'package:goddchen_cv/hobbies/hobbies_navigation_service.dart';
 import 'package:goddchen_cv/hobbies/ksp/hobby_ksp_navigation_service.dart';
 import 'package:goddchen_cv/hobbies/lol/hobby_lol_navigation_service.dart';
+import 'package:goddchen_cv/home/home_navigation_service.dart';
 import 'package:goddchen_cv/main_navigation_service.dart';
 import 'package:goddchen_cv/portfolio/portfolio_navigation_service.dart';
 import 'package:goddchen_cv/services/navigation/go_router.dart';
@@ -50,6 +51,7 @@ abstract interface class NavigationServiceAggregator
         HobbiesNavigationService,
         HobbyKspNavigationService,
         HobbyLolNavigationService,
+        HomeNavigationService,
         MainNavigationService,
         PortfolioNavigationService,
         YoutubeVideosNavigationService {}

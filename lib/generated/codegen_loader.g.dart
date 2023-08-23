@@ -15,6 +15,7 @@ class CodegenLoader extends AssetLoader {
   }
 
   static const Map<String, dynamic> de = {
+    "home": {"view_on_github": "Auf GitHub ansehen"},
     "navigation": {
       "cv": "CV",
       "hobbies": "Hobbies",
@@ -31,6 +32,7 @@ class CodegenLoader extends AssetLoader {
     }
   };
   static const Map<String, dynamic> en = {
+    "home": {"view_on_github": "View on GitHub"},
     "navigation": {
       "cv": "CV",
       "hobbies": "Hobbies",
