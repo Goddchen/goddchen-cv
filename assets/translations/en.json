@@ -1,4 +1,7 @@
 {
+    "home": {
+        "view_on_github": "View on GitHub"
+    },
     "navigation": {
         "cv": "CV",
         "hobbies": "Hobbies",

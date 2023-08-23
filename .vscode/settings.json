@@ -1,5 +1,5 @@
 {
-    "dart.sdkPaths": [
-        "./fvm/flutter_sdk/"
+    "dart.flutterSdkPaths": [
+        ".fvm/flutter_sdk"
     ]
 }
