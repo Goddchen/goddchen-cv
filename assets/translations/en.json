@@ -1,4 +1,24 @@
 {
+    "cv": {
+        "bachelor": "BSc Software Engineering",
+        "bachelor_description": "University of Applied Sciences Konstanz",
+        "formigas": "formigas GmbH",
+        "formigas_description": "Senior Software Architect",
+        "freelancer": "Freelander",
+        "freelancer_description": "Android Development",
+        "gymnasium": "Business Highschool",
+        "gymnasium_description": "Donaueschingen",
+        "master": "MSc Informatics",
+        "master_description": "University of Applied Sciences Konstanz",
+        "papierprintit": "papierprintit GmbH",
+        "papierprintit_description": "Mobile Developer - Android",
+        "realschule": "Secondary school",
+        "realschule_description": "Blumberg",
+        "wissenschaftlicher_mitarbeiter": "Scientific assistant",
+        "wissenschaftlicher_mitarbeiter_description": "University of Applied Sciences Konstanz",
+        "zivildienst": "Community service",
+        "zivildienst_description": "Schwarzwald-Baar Hospital Villingen-Schwenningen - IT"
+    },
     "home": {
         "view_on_github": "View on GitHub"
     },

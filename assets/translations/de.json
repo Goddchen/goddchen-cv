@@ -1,4 +1,24 @@
 {
+    "cv": {
+        "bachelor": "BSc Software Engineering",
+        "bachelor_description": "HTWG Konstanz",
+        "formigas": "formigas GmbH",
+        "formigas_description": "Senior Software Architect",
+        "freelancer": "Freelander",
+        "freelancer_description": "Android Development",
+        "gymnasium": "Wirtschaftsgymnasium",
+        "gymnasium_description": "Donaueschingen",
+        "master": "MSc Informatik",
+        "master_description": "HTWG Konstanz",
+        "papierprintit": "papierprintit GmbH",
+        "papierprintit_description": "Mobile Developer - Android",
+        "realschule": "Realschule",
+        "realschule_description": "Blumberg",
+        "wissenschaftlicher_mitarbeiter": "Wissenschaftlicher Mitarbeiter",
+        "wissenschaftlicher_mitarbeiter_description": "Konstanz",
+        "zivildienst": "Zivildienst",
+        "zivildienst_description": "Schwarzwald-Baar Villingen-Schwenningen - IT"
+    },
     "home": {
         "view_on_github": "Auf GitHub ansehen"
     },
