@@ -26,6 +26,24 @@
         "zivildienst": "Community service",
         "zivildienst_description": "Schwarzwald-Baar Hospital Villingen-Schwenningen - IT"
     },
+    "hobbies": {
+        "dog_sport": {
+            "description": "I do a lot of dog sports.\nBack when my dog was still younger, we did a lot of Agility competetively.\nI train the young dog teams in my local dog sport club, where I am also taking the role of vice president.\nCheck out some photos of me during official tests below.",
+            "title": "Dog Sport"
+        },
+        "igp": {
+            "description": "I do a lot of dog sports.\nOne of them is IGP, or in German \"Schutzdienst\".\nIt requires a lot of commitment and training, but is also a lot of fun.\nCheck out some photos of me during official tests below.",
+            "title": "Dog Sport - IGP"
+        },
+        "ksp": {
+            "description": "Kerbal Space Program (2) is a simulation game that let's you build and start rockets.\nIt's got a nice balance between physical accuracy and gaming mechanics.\nThe game also offers a huge collection of mods to modify almost any game aspect.\nI have even developed a mod on my own - for exporting Prometheus metrics of the running game session.",
+            "title": "Kerbal Space Program"
+        },
+        "lol": {
+            "description": "League of Legends by Riot Games is a MOBA (Multiplayer Online Battle Arena) game.\nI have been playing since 2015.\nYou are playing as a team of 5 and I love playing with friends.\nOver the years, even a few of my best real-life friendships have developed through playing this game.",
+            "title": "League of Legends"
+        }
+    },
     "home": {
         "view_on_github": "View on GitHub"
     },

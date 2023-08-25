@@ -1,7 +1,9 @@
 import 'package:easy_image_viewer/easy_image_viewer.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:goddchen_cv/constants.dart';
 import 'package:goddchen_cv/gen/assets.gen.dart';
+import 'package:goddchen_cv/generated/locale_keys.g.dart';
 
 class DogSportView extends StatelessWidget {
   const DogSportView({super.key});
@@ -9,20 +11,17 @@ class DogSportView extends StatelessWidget {
   @override
   Widget build(final BuildContext context) => Scaffold(
         appBar: AppBar(
-          title: const Text('Dog Sport'),
+          title: const Text(LocaleKeys.hobbies_dog_sport_title).tr(),
         ),
         body: SingleChildScrollView(
           padding: pagePadding,
           child: Column(
             children: <Widget>[
               Text(
-                'I do a lot of dog sports.\n'
-                'Back when my dog was still younger, we did a lot of Agility competetively.\n'
-                'I train the young dog teams in my local dog sport club, where I am also taking the role of vice president.\n'
-                'Check out some photos of me during official tests below.',
+                LocaleKeys.hobbies_dog_sport_description,
                 style: Theme.of(context).textTheme.bodyMedium,
                 textAlign: TextAlign.center,
-              ),
+              ).tr(),
               const SizedBox(height: 16),
               _buildImageGrid(),
             ],

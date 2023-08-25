@@ -1,7 +1,9 @@
 import 'package:easy_image_viewer/easy_image_viewer.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:goddchen_cv/constants.dart';
 import 'package:goddchen_cv/gen/assets.gen.dart';
+import 'package:goddchen_cv/generated/locale_keys.g.dart';
 
 class IgpView extends StatelessWidget {
   const IgpView({super.key});
@@ -9,20 +11,17 @@ class IgpView extends StatelessWidget {
   @override
   Widget build(final BuildContext context) => Scaffold(
         appBar: AppBar(
-          title: const Text('Dog Sport: IGP'),
+          title: const Text(LocaleKeys.hobbies_igp_title).tr(),
         ),
         body: SingleChildScrollView(
           padding: pagePadding,
           child: Column(
             children: <Widget>[
               Text(
-                'I do a lot of dog sports.\n'
-                'One of them is IGP, or in German "Schutzdienst".\n'
-                'It requires a lot of commitment and training, but is also a lot of fun.\n'
-                'Check out some photos of me during official tests below.',
+                LocaleKeys.hobbies_igp_description,
                 style: Theme.of(context).textTheme.bodyMedium,
                 textAlign: TextAlign.center,
-              ),
+              ).tr(),
               const SizedBox(height: 16),
               _buildImageGrid(),
             ],

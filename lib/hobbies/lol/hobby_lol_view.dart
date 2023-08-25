@@ -1,8 +1,10 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:fpdart/fpdart.dart';
 import 'package:goddchen_cv/constants.dart';
 import 'package:goddchen_cv/gen/assets.gen.dart';
+import 'package:goddchen_cv/generated/locale_keys.g.dart';
 import 'package:goddchen_cv/hobbies/lol/hobby_lol_navigation_service.dart';
 
 class LolView extends StatelessWidget {
@@ -16,7 +18,7 @@ class LolView extends StatelessWidget {
   @override
   Widget build(final BuildContext context) => Scaffold(
         appBar: AppBar(
-          title: const Text('League of Legends'),
+          title: const Text(LocaleKeys.hobbies_lol_title).tr(),
         ),
         body: SingleChildScrollView(
           padding: pagePadding,
@@ -28,13 +30,10 @@ class LolView extends StatelessWidget {
               ),
               const SizedBox(height: 16),
               Text(
-                'League of Legends by Riot Games is a MOBA (Multiplayer Online Battle Arena) game.\n'
-                'I have been playing since 2015.\n'
-                'You are playing as a team of 5 and I love playing with friends.\n'
-                'Over the years, even a few of my best real-life friendships have developed through playing this game.',
+                LocaleKeys.hobbies_lol_description,
                 style: Theme.of(context).textTheme.bodyMedium,
                 textAlign: TextAlign.center,
-              ),
+              ).tr(),
               const SizedBox(height: 16),
               _buildOpGg(),
               const SizedBox(height: 16),
