@@ -3,6 +3,8 @@
 abstract class LocaleKeys {
   static const cv_bachelor = 'cv.bachelor';
   static const cv_bachelor_description = 'cv.bachelor_description';
+  static const cv_contact_via_email = 'cv.contact_via_email';
+  static const cv_contact_via_phone = 'cv.contact_via_phone';
   static const cv_formigas = 'cv.formigas';
   static const cv_formigas_description = 'cv.formigas_description';
   static const cv_freelancer = 'cv.freelancer';
@@ -11,10 +13,15 @@ abstract class LocaleKeys {
   static const cv_gymnasium_description = 'cv.gymnasium_description';
   static const cv_master = 'cv.master';
   static const cv_master_description = 'cv.master_description';
+  static const cv_me = 'cv.me';
+  static const cv_me_description = 'cv.me_description';
   static const cv_papierprintit = 'cv.papierprintit';
   static const cv_papierprintit_description = 'cv.papierprintit_description';
+  static const cv_programming_languages = 'cv.programming_languages';
   static const cv_realschule = 'cv.realschule';
   static const cv_realschule_description = 'cv.realschule_description';
+  static const cv_software = 'cv.software';
+  static const cv_technologies = 'cv.technologies';
   static const cv_wissenschaftlicher_mitarbeiter =
       'cv.wissenschaftlicher_mitarbeiter';
   static const cv_wissenschaftlicher_mitarbeiter_description =

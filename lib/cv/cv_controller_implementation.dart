@@ -20,10 +20,8 @@ class CvControllerImplementation extends _$CvControllerImplementation
               (final CvDataServiceItem item) => CvModelItem(
                 description: item.description,
                 from: item.from,
-                action: some(
-                  GridModelItemAction.link(
-                    link: Uri.parse('https://www.goddchen.de'),
-                  ),
+                action: item.link.map(
+                  (final Uri link) => GridModelItemAction.link(link: link),
                 ),
                 title: item.title,
                 until: item.until,

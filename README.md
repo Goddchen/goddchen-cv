@@ -14,5 +14,5 @@ fvm dart run easy_localization:generate -S assets/translations/ -f keys -o local
 ### Powershell
 
 ```powershell
-fvm dart run easy_localization:generate -S assets/translations/ ; fvm dart run easy_localization:generate -S assets/translations/ -f keys -o locale_keys.g.dart
+fvm dart run easy_localization:generate -S assets/translations/ ; fvm dart run easy_localization:generate -S assets/translations/ -f keys -o locale_keys.g.dart ; dart format .\lib\ .\test\
 ```
