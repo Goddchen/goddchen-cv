@@ -1,6 +1,6 @@
 // DO NOT EDIT. This is code generated via package:easy_localization/generate.dart
 
-abstract class  LocaleKeys {
+abstract class LocaleKeys {
   static const cv_bachelor = 'cv.bachelor';
   static const cv_bachelor_description = 'cv.bachelor_description';
   static const cv_formigas = 'cv.formigas';
@@ -15,8 +15,10 @@ abstract class  LocaleKeys {
   static const cv_papierprintit_description = 'cv.papierprintit_description';
   static const cv_realschule = 'cv.realschule';
   static const cv_realschule_description = 'cv.realschule_description';
-  static const cv_wissenschaftlicher_mitarbeiter = 'cv.wissenschaftlicher_mitarbeiter';
-  static const cv_wissenschaftlicher_mitarbeiter_description = 'cv.wissenschaftlicher_mitarbeiter_description';
+  static const cv_wissenschaftlicher_mitarbeiter =
+      'cv.wissenschaftlicher_mitarbeiter';
+  static const cv_wissenschaftlicher_mitarbeiter_description =
+      'cv.wissenschaftlicher_mitarbeiter_description';
   static const cv_zivildienst = 'cv.zivildienst';
   static const cv_zivildienst_description = 'cv.zivildienst_description';
   static const cv = 'cv';
@@ -39,5 +41,4 @@ abstract class  LocaleKeys {
   static const sections_youtube_title = 'sections.youtube.title';
   static const sections_youtube = 'sections.youtube';
   static const sections = 'sections';
-
 }
