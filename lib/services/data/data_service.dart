@@ -1,7 +1,9 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/widgets.dart';
 import 'package:fpdart/fpdart.dart';
 import 'package:goddchen_cv/cv/cv_data_service.dart';
 import 'package:goddchen_cv/gen/assets.gen.dart';
+import 'package:goddchen_cv/generated/locale_keys.g.dart';
 import 'package:goddchen_cv/github_prs/github_prs_data_service.dart';
 import 'package:goddchen_cv/hobbies/hobbies_data_service.dart';
 import 'package:goddchen_cv/portfolio/portfolio_data_service.dart';
@@ -28,66 +30,68 @@ class DataServiceImplementation implements DataServiceAggregator {
       TaskEither<Object, List<CvDataServiceItem>>.of(
         <CvDataServiceItem>[
           CvDataServiceItem(
-            description: none(),
+            description: some(LocaleKeys.cv_realschule_description.tr()),
             from: DateTime(1995, 1, 1),
             link: none(),
-            title: 'Realschule Blumberg',
+            title: LocaleKeys.cv_realschule.tr(),
             until: some(DateTime(2001, 8, 1)),
           ),
           CvDataServiceItem(
-            description: none(),
+            description: some(LocaleKeys.cv_gymnasium_description.tr()),
             from: DateTime(2001, 1, 1),
             link: none(),
-            title: 'Wirtschaftsgymansium Donaueschingen',
+            title: LocaleKeys.cv_gymnasium.tr(),
             until: some(DateTime(2004, 1, 1)),
           ),
           CvDataServiceItem(
-            description: some('Klinikum Villingen-Schwenningen - IT'),
+            description: some(LocaleKeys.cv_zivildienst_description.tr()),
             from: DateTime(2004, 1, 1),
             link: none(),
-            title: 'Zivildienst',
+            title: LocaleKeys.cv_zivildienst.tr(),
             until: some(DateTime(2005, 1, 1)),
           ),
           CvDataServiceItem(
-            description: none(),
+            description: some(LocaleKeys.cv_bachelor_description.tr()),
             from: DateTime(2005, 1, 1),
             link: none(),
-            title: 'BSc Software Engineering - HTWG Konstanz',
+            title: LocaleKeys.cv_bachelor.tr(),
             until: some(DateTime(2008, 1, 1)),
           ),
           CvDataServiceItem(
-            description: none(),
+            description: some(LocaleKeys.cv_master_description.tr()),
             from: DateTime(2008, 1, 1),
             link: none(),
-            title: 'MSc Informatik - HTWG Konstanz',
+            title: LocaleKeys.cv_master.tr(),
             until: some(DateTime(2011, 1, 1)),
           ),
           CvDataServiceItem(
-            description: none(),
+            description: some(
+              LocaleKeys.cv_wissenschaftlicher_mitarbeiter_description.tr(),
+            ),
             from: DateTime(2008, 1, 1),
             link: none(),
-            title: 'Wissenschaftlicher Mitarbeiter - HTWG Konstanz',
+            title: LocaleKeys.cv_wissenschaftlicher_mitarbeiter.tr(),
             until: some(DateTime(2011, 1, 1)),
           ),
           CvDataServiceItem(
-            description: none(),
+            description: some(LocaleKeys.cv_freelancer_description.tr()),
             from: DateTime(2010, 1, 1),
             link: none(),
-            title: 'Freelancer - Android Development',
+            title: LocaleKeys.cv_freelancer.tr(),
             until: some(DateTime(2018, 8, 31)),
           ),
           CvDataServiceItem(
-            description: some('Mobile Developer - Android'),
+            description: some(LocaleKeys.cv_papierprintit_description.tr()),
             from: DateTime(2014, 10, 1),
             link: none(),
-            title: 'papierprintit GmbH',
+            title: LocaleKeys.cv_papierprintit.tr(),
             until: some(DateTime(2015, 9, 30)),
           ),
           CvDataServiceItem(
-            description: some('Senior Software Architect'),
+            description: some(LocaleKeys.cv_formigas_description.tr()),
             from: DateTime(2018, 9, 1),
             link: none(),
-            title: 'formigas GmbH',
+            title: LocaleKeys.cv_formigas.tr(),
             until: some(DateTime(2023, 9, 30)),
           ),
         ],

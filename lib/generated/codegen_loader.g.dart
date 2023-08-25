@@ -15,6 +15,26 @@ class CodegenLoader extends AssetLoader {
   }
 
   static const Map<String, dynamic> de = {
+    "cv": {
+      "bachelor": "BSc Software Engineering",
+      "bachelor_description": "HTWG Konstanz",
+      "formigas": "formigas GmbH",
+      "formigas_description": "Senior Software Architekt",
+      "freelancer": "Freelancer",
+      "freelancer_description": "Android Development",
+      "gymnasium": "Wirtschaftsgymnasium",
+      "gymnasium_description": "Donaueschingen",
+      "master": "MSc Informatik",
+      "master_description": "HTWG Konstanz",
+      "papierprintit": "papierprintit GmbH",
+      "papierprintit_description": "Mobile Developer - Android",
+      "realschule": "Realschule",
+      "realschule_description": "Blumberg",
+      "wissenschaftlicher_mitarbeiter": "Wissenschaftlicher Mitarbeiter",
+      "wissenschaftlicher_mitarbeiter_description": "Konstanz",
+      "zivildienst": "Zivildienst",
+      "zivildienst_description": "Schwarzwald-Baar Villingen-Schwenningen - IT"
+    },
     "home": {"view_on_github": "Auf GitHub ansehen"},
     "navigation": {
       "cv": "CV",
@@ -32,6 +52,28 @@ class CodegenLoader extends AssetLoader {
     }
   };
   static const Map<String, dynamic> en = {
+    "cv": {
+      "bachelor": "BSc Software Engineering",
+      "bachelor_description": "University of Applied Sciences Konstanz",
+      "formigas": "formigas GmbH",
+      "formigas_description": "Senior Software Architect",
+      "freelancer": "Freelancer",
+      "freelancer_description": "Android Development",
+      "gymnasium": "Business Highschool",
+      "gymnasium_description": "Donaueschingen",
+      "master": "MSc Informatics",
+      "master_description": "University of Applied Sciences Konstanz",
+      "papierprintit": "papierprintit GmbH",
+      "papierprintit_description": "Mobile Developer - Android",
+      "realschule": "Secondary school",
+      "realschule_description": "Blumberg",
+      "wissenschaftlicher_mitarbeiter": "Scientific assistant",
+      "wissenschaftlicher_mitarbeiter_description":
+          "University of Applied Sciences Konstanz",
+      "zivildienst": "Community service",
+      "zivildienst_description":
+          "Schwarzwald-Baar Hospital Villingen-Schwenningen - IT"
+    },
     "home": {"view_on_github": "View on GitHub"},
     "navigation": {
       "cv": "CV",
