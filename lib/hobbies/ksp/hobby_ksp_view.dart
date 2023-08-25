@@ -1,7 +1,9 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:goddchen_cv/common.dart';
 import 'package:goddchen_cv/constants.dart';
 import 'package:goddchen_cv/gen/assets.gen.dart';
+import 'package:goddchen_cv/generated/locale_keys.g.dart';
 import 'package:goddchen_cv/hobbies/ksp/hobby_ksp_navigation_service.dart';
 
 class KspView extends StatelessWidget {
@@ -15,7 +17,7 @@ class KspView extends StatelessWidget {
   @override
   Widget build(final BuildContext context) => Scaffold(
         appBar: AppBar(
-          title: const Text('Kerbal Space Program'),
+          title: const Text(LocaleKeys.hobbies_ksp_title).tr(),
         ),
         body: SingleChildScrollView(
           padding: pagePadding,
@@ -27,13 +29,10 @@ class KspView extends StatelessWidget {
               ),
               const SizedBox(height: 16),
               Text(
-                'Kerbal Space Program (2) is a simulation game that let\'s you build and start rockets.\n'
-                'It\'s got a nice balance between physical accuracy and gaming mechanics.\n'
-                'The game also offers a huge collection of mods to modify almost any game aspect.\n'
-                'I have even developed a mod on my own - for exporting Prometheus metrics of the running game session.',
+                LocaleKeys.hobbies_ksp_description,
                 style: Theme.of(context).textTheme.bodyMedium,
                 textAlign: TextAlign.center,
-              ),
+              ).tr(),
               const SizedBox(height: 16),
               _buildPrometheusExporter(),
               const SizedBox(height: 16),
