@@ -137,7 +137,7 @@ mixin _$CvModelItem {
   Option<String> get imageAssetPath => throw _privateConstructorUsedError;
   BoxFit get imageFit => throw _privateConstructorUsedError;
   EdgeInsets get imagePadding => throw _privateConstructorUsedError;
-  DateTime get from => throw _privateConstructorUsedError;
+  Option<DateTime> get from => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
   Option<DateTime> get until => throw _privateConstructorUsedError;
 
@@ -158,7 +158,7 @@ abstract class $CvModelItemCopyWith<$Res> {
       Option<String> imageAssetPath,
       BoxFit imageFit,
       EdgeInsets imagePadding,
-      DateTime from,
+      Option<DateTime> from,
       String title,
       Option<DateTime> until});
 }
@@ -209,7 +209,7 @@ class _$CvModelItemCopyWithImpl<$Res, $Val extends CvModelItem>
       from: null == from
           ? _value.from
           : from // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as Option<DateTime>,
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -236,7 +236,7 @@ abstract class _$$_CvModelItemCopyWith<$Res>
       Option<String> imageAssetPath,
       BoxFit imageFit,
       EdgeInsets imagePadding,
-      DateTime from,
+      Option<DateTime> from,
       String title,
       Option<DateTime> until});
 }
@@ -285,7 +285,7 @@ class __$$_CvModelItemCopyWithImpl<$Res>
       from: null == from
           ? _value.from
           : from // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as Option<DateTime>,
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -302,18 +302,20 @@ class __$$_CvModelItemCopyWithImpl<$Res>
 
 class _$_CvModelItem implements _CvModelItem {
   const _$_CvModelItem(
-      {required this.action,
-      required this.description,
+      {this.action = const None(),
+      this.description = const None(),
       this.imageAssetPath = const None(),
       this.imageFit = BoxFit.cover,
       this.imagePadding = const EdgeInsets.all(0),
-      required this.from,
+      this.from = const None(),
       required this.title,
-      required this.until});
+      this.until = const None()});
 
   @override
+  @JsonKey()
   final Option<GridModelItemAction> action;
   @override
+  @JsonKey()
   final Option<String> description;
   @override
   @JsonKey()
@@ -325,10 +327,12 @@ class _$_CvModelItem implements _CvModelItem {
   @JsonKey()
   final EdgeInsets imagePadding;
   @override
-  final DateTime from;
+  @JsonKey()
+  final Option<DateTime> from;
   @override
   final String title;
   @override
+  @JsonKey()
   final Option<DateTime> until;
 
   @override
@@ -368,14 +372,14 @@ class _$_CvModelItem implements _CvModelItem {
 
 abstract class _CvModelItem implements CvModelItem {
   const factory _CvModelItem(
-      {required final Option<GridModelItemAction> action,
-      required final Option<String> description,
+      {final Option<GridModelItemAction> action,
+      final Option<String> description,
       final Option<String> imageAssetPath,
       final BoxFit imageFit,
       final EdgeInsets imagePadding,
-      required final DateTime from,
+      final Option<DateTime> from,
       required final String title,
-      required final Option<DateTime> until}) = _$_CvModelItem;
+      final Option<DateTime> until}) = _$_CvModelItem;
 
   @override
   Option<GridModelItemAction> get action;
@@ -388,7 +392,7 @@ abstract class _CvModelItem implements CvModelItem {
   @override
   EdgeInsets get imagePadding;
   @override
-  DateTime get from;
+  Option<DateTime> get from;
   @override
   String get title;
   @override

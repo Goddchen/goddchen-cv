@@ -140,8 +140,12 @@ class _HomeState extends State<Home> {
               return grid_view.GridView<CvModel, CvController, CvModelItem>(
                 childAspectRatio: some(constraints.maxWidth / 160),
                 controller: ref.watch(provider.notifier),
-                itemBuilder:
-                    some((final CvModelItem item) => CvViewItem(item: item)),
+                itemBuilder: some(
+                  (final CvModelItem item) => CvViewItem(
+                    controller: ref.watch(provider.notifier),
+                    item: item,
+                  ),
+                ),
                 model: ref.watch(provider),
                 maxExtent: some(double.infinity),
                 seedColor: cvColor,

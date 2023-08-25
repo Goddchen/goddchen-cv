@@ -10,10 +10,10 @@ abstract interface class CvDataService {
 @freezed
 class CvDataServiceItem with _$CvDataServiceItem {
   const factory CvDataServiceItem({
-    required final Option<String> description,
-    required final DateTime from,
-    required final Option<Uri> link,
+    @Default(None()) final Option<String> description,
+    @Default(None()) final Option<DateTime> from,
+    @Default(None()) final Option<Uri> link,
     required final String title,
-    required final Option<DateTime> until,
+    @Default(None()) final Option<DateTime> until,
   }) = _CvDataServiceItem;
 }

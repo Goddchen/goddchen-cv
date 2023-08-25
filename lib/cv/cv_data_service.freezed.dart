@@ -17,7 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$CvDataServiceItem {
   Option<String> get description => throw _privateConstructorUsedError;
-  DateTime get from => throw _privateConstructorUsedError;
+  Option<DateTime> get from => throw _privateConstructorUsedError;
   Option<Uri> get link => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
   Option<DateTime> get until => throw _privateConstructorUsedError;
@@ -35,7 +35,7 @@ abstract class $CvDataServiceItemCopyWith<$Res> {
   @useResult
   $Res call(
       {Option<String> description,
-      DateTime from,
+      Option<DateTime> from,
       Option<Uri> link,
       String title,
       Option<DateTime> until});
@@ -68,7 +68,7 @@ class _$CvDataServiceItemCopyWithImpl<$Res, $Val extends CvDataServiceItem>
       from: null == from
           ? _value.from
           : from // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as Option<DateTime>,
       link: null == link
           ? _value.link
           : link // ignore: cast_nullable_to_non_nullable
@@ -95,7 +95,7 @@ abstract class _$$_CvDataServiceItemCopyWith<$Res>
   @useResult
   $Res call(
       {Option<String> description,
-      DateTime from,
+      Option<DateTime> from,
       Option<Uri> link,
       String title,
       Option<DateTime> until});
@@ -126,7 +126,7 @@ class __$$_CvDataServiceItemCopyWithImpl<$Res>
       from: null == from
           ? _value.from
           : from // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as Option<DateTime>,
       link: null == link
           ? _value.link
           : link // ignore: cast_nullable_to_non_nullable
@@ -147,21 +147,25 @@ class __$$_CvDataServiceItemCopyWithImpl<$Res>
 
 class _$_CvDataServiceItem implements _CvDataServiceItem {
   const _$_CvDataServiceItem(
-      {required this.description,
-      required this.from,
-      required this.link,
+      {this.description = const None(),
+      this.from = const None(),
+      this.link = const None(),
       required this.title,
-      required this.until});
+      this.until = const None()});
 
   @override
+  @JsonKey()
   final Option<String> description;
   @override
-  final DateTime from;
+  @JsonKey()
+  final Option<DateTime> from;
   @override
+  @JsonKey()
   final Option<Uri> link;
   @override
   final String title;
   @override
+  @JsonKey()
   final Option<DateTime> until;
 
   @override
@@ -196,16 +200,16 @@ class _$_CvDataServiceItem implements _CvDataServiceItem {
 
 abstract class _CvDataServiceItem implements CvDataServiceItem {
   const factory _CvDataServiceItem(
-      {required final Option<String> description,
-      required final DateTime from,
-      required final Option<Uri> link,
+      {final Option<String> description,
+      final Option<DateTime> from,
+      final Option<Uri> link,
       required final String title,
-      required final Option<DateTime> until}) = _$_CvDataServiceItem;
+      final Option<DateTime> until}) = _$_CvDataServiceItem;
 
   @override
   Option<String> get description;
   @override
-  DateTime get from;
+  Option<DateTime> get from;
   @override
   Option<Uri> get link;
   @override
