@@ -1,4 +1,52 @@
 {
+    "cv": {
+        "bachelor": "BSc Software Engineering",
+        "bachelor_description": "HTWG Konstanz",
+        "contact_via_email": "Kontakt via Email",
+        "contact_via_phone": "Kontakt via Telefon",
+        "flutter_packages": "Flutter Packages",
+        "formigas": "formigas GmbH",
+        "formigas_description": "Senior Software Architekt",
+        "freelancer": "Freelancer",
+        "freelancer_description": "Android Development",
+        "gdg": "GDG Organisator",
+        "gdg_description": "Google Developer Group Bodensee",
+        "gymnasium": "Wirtschaftsgymnasium",
+        "gymnasium_description": "Donaueschingen",
+        "master": "MSc Informatik",
+        "master_description": "HTWG Konstanz",
+        "me": "Martin Liersch",
+        "me_description": "Alter: 38, Familienstand: ledig, Kinder: keine",
+        "papierprintit": "papierprintit GmbH",
+        "papierprintit_description": "Mobile Developer - Android",
+        "programming_languages": "Programmiersprachen",
+        "realschule": "Realschule",
+        "realschule_description": "Blumberg",
+        "software": "Software",
+        "technologies": "Technologien",
+        "wissenschaftlicher_mitarbeiter": "Wissenschaftlicher Mitarbeiter",
+        "wissenschaftlicher_mitarbeiter_description": "Konstanz",
+        "zivildienst": "Zivildienst",
+        "zivildienst_description": "Schwarzwald-Baar Villingen-Schwenningen - IT"
+    },
+    "hobbies": {
+        "dog_sport": {
+            "description": "Ich mache sehr viel Hundesport..\nAls mein Hund noch jünger war, traten wir regelmäßig an Agility Wettkämpfen an.\nIn unserem Hundeverein, bei dem ich zweiter Vorstand bin, übernehme ich auch die Junghunde-Ausbildung.\nUnten sind einige Fotos von uns bei Wettkämpfen zu sehen.",
+            "title": "Hundesport"
+        },
+        "igp": {
+            "description": "Ich mache sehr viel Hundesport.\nUnter anderem IGP, oder auch \"Schutzdienst\" oder \"Schutzhundesport\" genannt.\nEs benötigt eine Menge Ehrgeiz, Konsequenz und Training - macht aber auch sehr viel Spaß.\nUnten sind ein paar Bilder von offiziellen Prüfungen.",
+            "title": "Hundesport - IGP"
+        },
+        "ksp": {
+            "description": "Kerbal Space Program (2) ist ein Simulationsspiel bei dem man Raketen konstruiert und startet.\nEs besitzt eine nette Balance zwischen physikalisch korrekter Simulation und Spielmechaniken.\nFür das Spiel sind unzählige Mods verfügbar.\nIch hab selbst eine Mod für KSP 2 veröffentlicht. Mit dieser lassen sich Metriken der aktuellen Spiele Session für Prometheus exportieren.",
+            "title": "Kerbal Space Program"
+        },
+        "lol": {
+            "description": "League of Legends von Riot Games ist ein MOBA (Multiplayer Online Battle Arena).\nIch spiele dieses Spiel seit 2015.\nMan spielt in einem Team von 5 Spieler*innen und spiele gerne gemeinsam mit Freunden.\nÜber die Jahre habe ich so einige meiner besten Freunde über dieses Spiel kennengelernt.",
+            "title": "League of Legends"
+        }
+    },
     "home": {
         "view_on_github": "Auf GitHub ansehen"
     },

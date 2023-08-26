@@ -1,7 +1,9 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/widgets.dart';
 import 'package:fpdart/fpdart.dart';
 import 'package:goddchen_cv/cv/cv_data_service.dart';
 import 'package:goddchen_cv/gen/assets.gen.dart';
+import 'package:goddchen_cv/generated/locale_keys.g.dart';
 import 'package:goddchen_cv/github_prs/github_prs_data_service.dart';
 import 'package:goddchen_cv/hobbies/hobbies_data_service.dart';
 import 'package:goddchen_cv/portfolio/portfolio_data_service.dart';
@@ -28,66 +30,145 @@ class DataServiceImplementation implements DataServiceAggregator {
       TaskEither<Object, List<CvDataServiceItem>>.of(
         <CvDataServiceItem>[
           CvDataServiceItem(
-            description: none(),
-            from: DateTime(1995, 1, 1),
-            link: none(),
-            title: 'Realschule Blumberg',
+            description: some(LocaleKeys.cv_me_description.tr()),
+            title: LocaleKeys.cv_me.tr(),
+          ),
+          CvDataServiceItem(
+            link: some(Uri.parse('tel:+4917663787245')),
+            title: LocaleKeys.cv_contact_via_phone.tr(),
+          ),
+          CvDataServiceItem(
+            link: some(Uri.parse('mailto:martin.liersch@gmx.de')),
+            title: LocaleKeys.cv_contact_via_email.tr(),
+          ),
+          CvDataServiceItem(
+            description: some(
+              <String>[
+                'Flutter',
+                'Android',
+                'iOS',
+                'fastlane',
+                'REST',
+                'GraphQL',
+                'Spring Boot',
+                'GCP',
+                'AWS',
+                'Git',
+              ].join(', '),
+            ),
+            title: LocaleKeys.cv_technologies.tr(),
+          ),
+          CvDataServiceItem(
+            description: some(
+              <String>[
+                'Dart',
+                'Kotlin',
+                'Java',
+                'C#',
+                'JavaScript',
+                'SQL',
+                'Bash',
+                'Go',
+                'Rust',
+                'HTML',
+              ].join(', '),
+            ),
+            title: LocaleKeys.cv_programming_languages.tr(),
+          ),
+          CvDataServiceItem(
+            description: some(
+              <String>[
+                'riverpod',
+                'dio',
+                'fpdart',
+                'go_router',
+                'beamer',
+                'freezed',
+                'retrofit',
+                'mockito',
+                'bloc',
+                'graphq',
+                'openapi_generator',
+                'hive',
+                'isar',
+                'just_audio',
+                'rxdart',
+              ].join(', '),
+            ),
+            title: LocaleKeys.cv_flutter_packages.tr(),
+          ),
+          CvDataServiceItem(
+            description: some(
+              <String>[
+                'Visual Studio Code',
+                'Android Studio',
+                'Xcode',
+                'Linux',
+                'WSL',
+                'Docker',
+              ].join(', '),
+            ),
+            title: LocaleKeys.cv_software.tr(),
+          ),
+          CvDataServiceItem(
+            description: some(LocaleKeys.cv_realschule_description.tr()),
+            from: some(DateTime(1995, 1, 1)),
+            title: LocaleKeys.cv_realschule.tr(),
             until: some(DateTime(2001, 8, 1)),
           ),
           CvDataServiceItem(
-            description: none(),
-            from: DateTime(2001, 1, 1),
-            link: none(),
-            title: 'Wirtschaftsgymansium Donaueschingen',
+            description: some(LocaleKeys.cv_gymnasium_description.tr()),
+            from: some(DateTime(2001, 1, 1)),
+            title: LocaleKeys.cv_gymnasium.tr(),
             until: some(DateTime(2004, 1, 1)),
           ),
           CvDataServiceItem(
-            description: some('Klinikum Villingen-Schwenningen - IT'),
-            from: DateTime(2004, 1, 1),
-            link: none(),
-            title: 'Zivildienst',
+            description: some(LocaleKeys.cv_zivildienst_description.tr()),
+            from: some(DateTime(2004, 1, 1)),
+            title: LocaleKeys.cv_zivildienst.tr(),
             until: some(DateTime(2005, 1, 1)),
           ),
           CvDataServiceItem(
-            description: none(),
-            from: DateTime(2005, 1, 1),
-            link: none(),
-            title: 'BSc Software Engineering - HTWG Konstanz',
+            description: some(LocaleKeys.cv_bachelor_description.tr()),
+            from: some(DateTime(2005, 1, 1)),
+            title: LocaleKeys.cv_bachelor.tr(),
             until: some(DateTime(2008, 1, 1)),
           ),
           CvDataServiceItem(
-            description: none(),
-            from: DateTime(2008, 1, 1),
-            link: none(),
-            title: 'MSc Informatik - HTWG Konstanz',
+            description: some(LocaleKeys.cv_master_description.tr()),
+            from: some(DateTime(2008, 1, 1)),
+            title: LocaleKeys.cv_master.tr(),
             until: some(DateTime(2011, 1, 1)),
           ),
           CvDataServiceItem(
-            description: none(),
-            from: DateTime(2008, 1, 1),
-            link: none(),
-            title: 'Wissenschaftlicher Mitarbeiter - HTWG Konstanz',
+            description: some(
+              LocaleKeys.cv_wissenschaftlicher_mitarbeiter_description.tr(),
+            ),
+            from: some(DateTime(2008, 1, 1)),
+            title: LocaleKeys.cv_wissenschaftlicher_mitarbeiter.tr(),
             until: some(DateTime(2011, 1, 1)),
           ),
           CvDataServiceItem(
-            description: none(),
-            from: DateTime(2010, 1, 1),
-            link: none(),
-            title: 'Freelancer - Android Development',
+            description: some(LocaleKeys.cv_freelancer_description.tr()),
+            from: some(DateTime(2010, 1, 1)),
+            title: LocaleKeys.cv_freelancer.tr(),
             until: some(DateTime(2018, 8, 31)),
           ),
           CvDataServiceItem(
-            description: some('Mobile Developer - Android'),
-            from: DateTime(2014, 10, 1),
-            link: none(),
-            title: 'papierprintit GmbH',
+            description: some(LocaleKeys.cv_gdg_description.tr()),
+            from: some(DateTime(2013, 1, 1)),
+            title: LocaleKeys.cv_gdg.tr(),
+          ),
+          CvDataServiceItem(
+            description: some(LocaleKeys.cv_papierprintit_description.tr()),
+            from: some(DateTime(2014, 10, 1)),
+            title: LocaleKeys.cv_papierprintit.tr(),
             until: some(DateTime(2015, 9, 30)),
           ),
           CvDataServiceItem(
-            description: some('Senior Software Architect'),
-            from: DateTime(2018, 9, 1),
-            link: none(),
-            title: 'formigas GmbH',
+            description: some(LocaleKeys.cv_formigas_description.tr()),
+            from: some(DateTime(2018, 9, 1)),
+            title: LocaleKeys.cv_formigas.tr(),
             until: some(DateTime(2023, 9, 30)),
           ),
         ],

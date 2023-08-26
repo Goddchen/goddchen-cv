@@ -16,13 +16,13 @@ class CvModel with _$CvModel implements GridModel<CvModelItem> {
 @freezed
 class CvModelItem with _$CvModelItem implements GridModelItem {
   const factory CvModelItem({
-    required final Option<GridModelItemAction> action,
-    required final Option<String> description,
+    @Default(None()) final Option<GridModelItemAction> action,
+    @Default(None()) final Option<String> description,
     @Default(None()) final Option<String> imageAssetPath,
     @Default(BoxFit.cover) final BoxFit imageFit,
     @Default(EdgeInsets.all(0)) final EdgeInsets imagePadding,
-    required final DateTime from,
+    @Default(None()) final Option<DateTime> from,
     required final String title,
-    required final Option<DateTime> until,
+    @Default(None()) final Option<DateTime> until,
   }) = _CvModelItem;
 }
