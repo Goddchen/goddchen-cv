@@ -5,10 +5,13 @@ abstract class LocaleKeys {
   static const cv_bachelor_description = 'cv.bachelor_description';
   static const cv_contact_via_email = 'cv.contact_via_email';
   static const cv_contact_via_phone = 'cv.contact_via_phone';
+  static const cv_flutter_packages = 'cv.flutter_packages';
   static const cv_formigas = 'cv.formigas';
   static const cv_formigas_description = 'cv.formigas_description';
   static const cv_freelancer = 'cv.freelancer';
   static const cv_freelancer_description = 'cv.freelancer_description';
+  static const cv_gdg = 'cv.gdg';
+  static const cv_gdg_description = 'cv.gdg_description';
   static const cv_gymnasium = 'cv.gymnasium';
   static const cv_gymnasium_description = 'cv.gymnasium_description';
   static const cv_master = 'cv.master';

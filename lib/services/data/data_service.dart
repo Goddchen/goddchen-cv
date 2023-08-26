@@ -78,6 +78,28 @@ class DataServiceImplementation implements DataServiceAggregator {
           CvDataServiceItem(
             description: some(
               <String>[
+                'riverpod',
+                'dio',
+                'fpdart',
+                'go_router',
+                'beamer',
+                'freezed',
+                'retrofit',
+                'mockito',
+                'bloc',
+                'graphq',
+                'openapi_generator',
+                'hive',
+                'isar',
+                'just_audio',
+                'rxdart',
+              ].join(', '),
+            ),
+            title: LocaleKeys.cv_flutter_packages.tr(),
+          ),
+          CvDataServiceItem(
+            description: some(
+              <String>[
                 'Visual Studio Code',
                 'Android Studio',
                 'Xcode',
@@ -131,6 +153,11 @@ class DataServiceImplementation implements DataServiceAggregator {
             from: some(DateTime(2010, 1, 1)),
             title: LocaleKeys.cv_freelancer.tr(),
             until: some(DateTime(2018, 8, 31)),
+          ),
+          CvDataServiceItem(
+            description: some(LocaleKeys.cv_gdg_description.tr()),
+            from: some(DateTime(2013, 1, 1)),
+            title: LocaleKeys.cv_gdg.tr(),
           ),
           CvDataServiceItem(
             description: some(LocaleKeys.cv_papierprintit_description.tr()),
