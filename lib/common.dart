@@ -38,12 +38,21 @@ Either<Object, double> findWidgetOffset({required final GlobalKey globalKey}) =>
 
 typedef AsyncResult<T> = Either<Object, Option<T>>;
 
-sealed class AsyncData<T> {}
+sealed class AsyncData<T> {
+  factory AsyncData.data({required final T data}) =>
+      AsyncDataData<T>(data: data);
+  factory AsyncData.error({required final Object error}) =>
+      AsyncDataError<T>(error: error);
+  factory AsyncData.loading() => AsyncDataLoading<T>();
+  AsyncData._();
+}
 
 class AsyncDataData<T> extends AsyncData<T> {
   final T _data;
 
-  AsyncDataData({required final T data}) : _data = data;
+  AsyncDataData({required final T data})
+      : _data = data,
+        super._();
 
   T get data => _data;
 }
@@ -51,12 +60,16 @@ class AsyncDataData<T> extends AsyncData<T> {
 class AsyncDataError<T> extends AsyncData<T> {
   final Object _error;
 
-  AsyncDataError({required final Object error}) : _error = error;
+  AsyncDataError({required final Object error})
+      : _error = error,
+        super._();
 
   Object get error => _error;
 }
 
-class AsyncDataLoading<T> extends AsyncData<T> {}
+class AsyncDataLoading<T> extends AsyncData<T> {
+  AsyncDataLoading() : super._();
+}
 
 extension AsyncResultExtensions<T> on AsyncResult<T> {
   Widget build({

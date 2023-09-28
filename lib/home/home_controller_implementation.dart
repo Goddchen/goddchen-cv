@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:goddchen_cv/common.dart';
 import 'package:goddchen_cv/home/home_controller.dart';
+import 'package:goddchen_cv/home/home_flavor_service.dart';
 import 'package:goddchen_cv/home/home_model.dart';
 import 'package:goddchen_cv/home/home_navigation_service.dart';
 import 'package:goddchen_cv/home/home_package_info_service.dart';
@@ -12,22 +13,31 @@ class HomeControllerImplementation implements HomeController {
   final HomePackageInfoService _packageInfoService;
 
   HomeControllerImplementation({
+    required final HomeFlavorService flavorService,
     required final HomeModel model,
     required final HomeNavigationService navigationService,
     required final HomePackageInfoService packageInfoService,
   })  : _model = model,
         _navigationService = navigationService,
         _packageInfoService = packageInfoService {
-    scheduleMicrotask(
-      _packageInfoService.versionNameTask
-          .match(
-            (final Object error) =>
-                _model.versionName.value = AsyncDataError<String>(error: error),
-            (final String data) =>
-                _model.versionName.value = AsyncDataData<String>(data: data),
-          )
-          .run,
-    );
+    switch (flavorService.homeFlavorServiceFlavor) {
+      case HomeFlavorServiceFlavor.develop:
+        _model.versionName.value =
+            AsyncData<String>.data(data: 'development build');
+        break;
+      case HomeFlavorServiceFlavor.production:
+        scheduleMicrotask(
+          _packageInfoService.versionNameTask
+              .match(
+                (final Object error) => _model.versionName.value =
+                    AsyncData<String>.error(error: error),
+                (final String data) => _model.versionName.value =
+                    AsyncData<String>.data(data: 'v$data'),
+              )
+              .run,
+        );
+        break;
+    }
   }
 
   @override

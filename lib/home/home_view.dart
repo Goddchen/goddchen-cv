@@ -11,7 +11,6 @@ import 'package:goddchen_cv/cv/cv_controller.dart';
 import 'package:goddchen_cv/cv/cv_controller_implementation.dart';
 import 'package:goddchen_cv/cv/cv_model.dart';
 import 'package:goddchen_cv/cv/cv_view_item.dart';
-import 'package:goddchen_cv/flavors.dart';
 import 'package:goddchen_cv/gen/assets.gen.dart';
 import 'package:goddchen_cv/generated/locale_keys.g.dart';
 import 'package:goddchen_cv/github_prs/github_prs_controller.dart';
@@ -22,6 +21,7 @@ import 'package:goddchen_cv/hobbies/hobbies_controller.dart';
 import 'package:goddchen_cv/hobbies/hobbies_controller_implemenation.dart';
 import 'package:goddchen_cv/hobbies/hobbies_model.dart';
 import 'package:goddchen_cv/home/home_controller.dart';
+import 'package:goddchen_cv/home/home_flavor_service.dart';
 import 'package:goddchen_cv/home/home_model.dart';
 import 'package:goddchen_cv/mvc/mvc_view.dart';
 import 'package:goddchen_cv/portfolio/portfolio_controller.dart';
@@ -42,9 +42,9 @@ class HomeView extends MvcView<HomeModel, HomeController> {
 
   @override
   Widget build(final BuildContext context) =>
-      F.appFlavor == Flavor.develop || kDebugMode
+      model.flavor == HomeFlavorServiceFlavor.develop || kDebugMode
           ? Banner(
-              message: F.name,
+              message: model.flavor.name,
               location: BannerLocation.topStart,
               child: _buildScaffold(),
             )
@@ -101,30 +101,21 @@ class HomeView extends MvcView<HomeModel, HomeController> {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            ...optionOf(F.appFlavor).fold(
-              () => <Widget>[],
-              (final Flavor appFlavor) => <Widget>[
-                switch (appFlavor) {
-                  Flavor.develop => const Text('development build'),
-                  Flavor.production =>
-                    ValueListenableBuilder<AsyncData<String>>(
-                      valueListenable: model.versionName,
-                      builder: (
-                        final _,
-                        final AsyncData<String> value,
-                        final ___,
-                      ) =>
-                          switch (value) {
-                        AsyncDataLoading<String> _ => const SizedBox.square(
-                            dimension: 16,
-                            child: CircularProgressIndicator(),
-                          ),
-                        AsyncDataError<String> error => Text('Error: $error'),
-                        AsyncDataData<String> data => Text('v${data.data}'),
-                      },
-                    ),
-                },
-              ],
+            ValueListenableBuilder<AsyncData<String>>(
+              valueListenable: model.versionName,
+              builder: (
+                final _,
+                final AsyncData<String> value,
+                final ___,
+              ) =>
+                  switch (value) {
+                AsyncDataLoading<String> _ => const SizedBox.square(
+                    dimension: 16,
+                    child: CircularProgressIndicator(),
+                  ),
+                AsyncDataError<String> error => Text('Error: $error'),
+                AsyncDataData<String> data => Text(data.data),
+              },
             ),
             const SizedBox(width: 4),
             const Text('-'),
@@ -223,7 +214,7 @@ class HomeView extends MvcView<HomeModel, HomeController> {
           },
           child: AdaptiveScaffold(
             appBar: AppBar(
-              title: Text(F.title),
+              title: Text(model.title),
             ),
             body: (final _) => _buildBody(),
             destinations: <NavigationDestination>[
