@@ -23,6 +23,7 @@ import 'package:goddchen_cv/hobbies/hobbies_controller_implemenation.dart';
 import 'package:goddchen_cv/hobbies/hobbies_model.dart';
 import 'package:goddchen_cv/home/home_controller.dart';
 import 'package:goddchen_cv/home/home_model.dart';
+import 'package:goddchen_cv/mvc/mvc_view.dart';
 import 'package:goddchen_cv/portfolio/portfolio_controller.dart';
 import 'package:goddchen_cv/portfolio/portfolio_controller_implementation.dart';
 import 'package:goddchen_cv/portfolio/portfolio_model.dart';
@@ -32,16 +33,12 @@ import 'package:goddchen_cv/youtube_videos/youtube_videos_controller.dart';
 import 'package:goddchen_cv/youtube_videos/youtube_videos_controller_implementation.dart';
 import 'package:goddchen_cv/youtube_videos/youtube_videos_model.dart';
 
-class HomeView extends StatelessWidget {
-  final HomeController _controller;
-  final HomeModel _model;
-
+class HomeView extends MvcView<HomeModel, HomeController> {
   const HomeView({
     super.key,
-    required final HomeController controller,
-    required final HomeModel model,
-  })  : _controller = controller,
-        _model = model;
+    required super.controller,
+    required super.model,
+  });
 
   @override
   Widget build(final BuildContext context) =>
@@ -111,7 +108,7 @@ class HomeView extends StatelessWidget {
                   Flavor.develop => const Text('development build'),
                   Flavor.production =>
                     ValueListenableBuilder<AsyncData<String>>(
-                      valueListenable: _model.versionName,
+                      valueListenable: model.versionName,
                       builder: (
                         final _,
                         final AsyncData<String> value,
@@ -135,7 +132,7 @@ class HomeView extends StatelessWidget {
             RichText(
               text: TextSpan(
                 recognizer: TapGestureRecognizer()
-                  ..onTap = () => _controller.openLink(
+                  ..onTap = () => controller.openLink(
                         link: Uri.parse(
                           'https://github.com/Goddchen/goddchen-cv',
                         ),
@@ -210,7 +207,7 @@ class HomeView extends StatelessWidget {
       );
 
   Widget _buildScaffold() => ValueListenableBuilder<int>(
-        valueListenable: _model.selectedIndex,
+        valueListenable: model.selectedIndex,
         builder: (
           final BuildContext context,
           final int selectedIndex,
@@ -220,7 +217,7 @@ class HomeView extends StatelessWidget {
           onNotification: (final ScrollNotification notification) {
             int calculatedIndex = _calculateSelectedIndex(context: context);
             if (calculatedIndex != selectedIndex) {
-              _controller.updateCurrentIndex(currentIndex: calculatedIndex);
+              controller.updateCurrentIndex(currentIndex: calculatedIndex);
             }
             return false;
           },
