@@ -269,7 +269,6 @@ class HomeView extends StatelessWidget {
               ),
             ],
             onSelectedIndexChange: (final int index) {
-              _controller.updateCurrentIndex(currentIndex: index);
               return switch (index) {
                 0 => optionOf(cvKey.currentContext).fold(
                     () {},
