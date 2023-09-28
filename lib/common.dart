@@ -38,6 +38,26 @@ Either<Object, double> findWidgetOffset({required final GlobalKey globalKey}) =>
 
 typedef AsyncResult<T> = Either<Object, Option<T>>;
 
+sealed class AsyncData<T> {}
+
+class AsyncDataData<T> extends AsyncData<T> {
+  final T _data;
+
+  AsyncDataData({required final T data}) : _data = data;
+
+  T get data => _data;
+}
+
+class AsyncDataError<T> extends AsyncData<T> {
+  final Object _error;
+
+  AsyncDataError({required final Object error}) : _error = error;
+
+  Object get error => _error;
+}
+
+class AsyncDataLoading<T> extends AsyncData<T> {}
+
 extension AsyncResultExtensions<T> on AsyncResult<T> {
   Widget build({
     required final Widget Function(T data) dataBuilder,

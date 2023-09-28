@@ -3,7 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_adaptive_scaffold/flutter_adaptive_scaffold.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart' hide AsyncData;
 import 'package:fpdart/fpdart.dart' hide State;
 import 'package:goddchen_cv/common.dart';
 import 'package:goddchen_cv/constants.dart';
@@ -21,8 +21,8 @@ import 'package:goddchen_cv/grid/grid_view.dart' as grid_view;
 import 'package:goddchen_cv/hobbies/hobbies_controller.dart';
 import 'package:goddchen_cv/hobbies/hobbies_controller_implemenation.dart';
 import 'package:goddchen_cv/hobbies/hobbies_model.dart';
-import 'package:goddchen_cv/home/home_navigation_service.dart';
-import 'package:goddchen_cv/main_navigation_service.dart';
+import 'package:goddchen_cv/home/home_controller.dart';
+import 'package:goddchen_cv/home/home_model.dart';
 import 'package:goddchen_cv/portfolio/portfolio_controller.dart';
 import 'package:goddchen_cv/portfolio/portfolio_controller_implementation.dart';
 import 'package:goddchen_cv/portfolio/portfolio_model.dart';
@@ -31,22 +31,17 @@ import 'package:goddchen_cv/services/navigation/navigation_service.dart';
 import 'package:goddchen_cv/youtube_videos/youtube_videos_controller.dart';
 import 'package:goddchen_cv/youtube_videos/youtube_videos_controller_implementation.dart';
 import 'package:goddchen_cv/youtube_videos/youtube_videos_model.dart';
-import 'package:package_info_plus/package_info_plus.dart';
 
-class Home extends StatefulWidget {
-  final HomeNavigationService _navigationService;
+class HomeView extends StatelessWidget {
+  final HomeController _controller;
+  final HomeModel _model;
 
-  const Home({
+  const HomeView({
     super.key,
-    required final HomeNavigationService navigationService,
-  }) : _navigationService = navigationService;
-
-  @override
-  State<Home> createState() => _HomeState();
-}
-
-class _HomeState extends State<Home> {
-  int _selectedIndex = 0;
+    required final HomeController controller,
+    required final HomeModel model,
+  })  : _controller = controller,
+        _model = model;
 
   @override
   Widget build(final BuildContext context) =>
@@ -71,58 +66,6 @@ class _HomeState extends State<Home> {
             _buildYoutubeVideos(),
             _buildHobbies(),
             _buildFooter(),
-          ],
-        ),
-      );
-
-  Widget _buildFooter() => Builder(
-        builder: (final BuildContext context) => Row(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            ...optionOf(F.appFlavor).fold(
-              () => <Widget>[],
-              (final Flavor appFlavor) => <Widget>[
-                switch (appFlavor) {
-                  Flavor.develop => const Text('development build'),
-                  Flavor.production => FutureBuilder<PackageInfo>(
-                      future: PackageInfo.fromPlatform(),
-                      builder: (
-                        final _,
-                        final AsyncSnapshot<PackageInfo> snapshot,
-                      ) =>
-                          snapshot.hasData
-                              ? Text('v${snapshot.requireData.version}')
-                              : const SizedBox.square(
-                                  dimension: 16,
-                                  child: CircularProgressIndicator(),
-                                ),
-                    ),
-                },
-              ],
-            ),
-            const SizedBox(width: 4),
-            const Text('-'),
-            const SizedBox(width: 4),
-            RichText(
-              text: TextSpan(
-                recognizer: TapGestureRecognizer()
-                  ..onTap = () => widget._navigationService.openLink(
-                        link: Uri.parse(
-                          'https://github.com/Goddchen/goddchen-cv',
-                        ),
-                      ),
-                style: optionOf(Theme.of(context).textTheme.bodyMedium)
-                    .map(
-                      (final TextStyle textStyle) => textStyle.copyWith(
-                        color: Colors.blue,
-                        decoration: TextDecoration.underline,
-                      ),
-                    )
-                    .toNullable(),
-                text: LocaleKeys.home_view_on_github.tr(),
-              ),
-            ),
           ],
         ),
       );
@@ -156,22 +99,60 @@ class _HomeState extends State<Home> {
         },
       );
 
-  Widget _buildHobbies() => Consumer(
-        key: hobbiesKey,
-        builder: (final _, final WidgetRef ref, final ___) {
-          final HobbiesControllerImplementationProvider provider =
-              hobbiesControllerImplementationProvider(
-            dataService: ref.watch(dataServiceProvider),
-            navigationService: ref.watch(navigationServiceProvider),
-          );
-          return grid_view.GridView<HobbiesModel, HobbiesController,
-              HobbiesModelHobby>(
-            seedColor: hobbiesColor,
-            title: LocaleKeys.sections_hobbies_title.tr(),
-            controller: ref.watch(provider.notifier),
-            model: ref.watch(provider),
-          );
-        },
+  Widget _buildFooter() => Builder(
+        builder: (final BuildContext context) => Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            ...optionOf(F.appFlavor).fold(
+              () => <Widget>[],
+              (final Flavor appFlavor) => <Widget>[
+                switch (appFlavor) {
+                  Flavor.develop => const Text('development build'),
+                  Flavor.production =>
+                    ValueListenableBuilder<AsyncData<String>>(
+                      valueListenable: _model.versionName,
+                      builder: (
+                        final _,
+                        final AsyncData<String> value,
+                        final ___,
+                      ) =>
+                          switch (value) {
+                        AsyncDataLoading<String> _ => const SizedBox.square(
+                            dimension: 16,
+                            child: CircularProgressIndicator(),
+                          ),
+                        AsyncDataError<String> error => Text('Error: $error'),
+                        AsyncDataData<String> data => Text('v${data.data}'),
+                      },
+                    ),
+                },
+              ],
+            ),
+            const SizedBox(width: 4),
+            const Text('-'),
+            const SizedBox(width: 4),
+            RichText(
+              text: TextSpan(
+                recognizer: TapGestureRecognizer()
+                  ..onTap = () => _controller.openLink(
+                        link: Uri.parse(
+                          'https://github.com/Goddchen/goddchen-cv',
+                        ),
+                      ),
+                style: optionOf(Theme.of(context).textTheme.bodyMedium)
+                    .map(
+                      (final TextStyle textStyle) => textStyle.copyWith(
+                        color: Colors.blue,
+                        decoration: TextDecoration.underline,
+                      ),
+                    )
+                    .toNullable(),
+                text: LocaleKeys.home_view_on_github.tr(),
+              ),
+            ),
+          ],
+        ),
       );
 
   Widget _buildGithubPrs() => Consumer(
@@ -186,6 +167,24 @@ class _HomeState extends State<Home> {
               GithubPrsModelPr>(
             seedColor: githubColor,
             title: LocaleKeys.sections_prs_title.tr(),
+            controller: ref.watch(provider.notifier),
+            model: ref.watch(provider),
+          );
+        },
+      );
+
+  Widget _buildHobbies() => Consumer(
+        key: hobbiesKey,
+        builder: (final _, final WidgetRef ref, final ___) {
+          final HobbiesControllerImplementationProvider provider =
+              hobbiesControllerImplementationProvider(
+            dataService: ref.watch(dataServiceProvider),
+            navigationService: ref.watch(navigationServiceProvider),
+          );
+          return grid_view.GridView<HobbiesModel, HobbiesController,
+              HobbiesModelHobby>(
+            seedColor: hobbiesColor,
+            title: LocaleKeys.sections_hobbies_title.tr(),
             controller: ref.watch(provider.notifier),
             model: ref.watch(provider),
           );
@@ -210,114 +209,109 @@ class _HomeState extends State<Home> {
         },
       );
 
-  Widget _buildScaffold() => Consumer(
-        builder: (final BuildContext context, final WidgetRef ref, final ___) {
-          final MainNavigationService navigationService =
-              ref.watch(navigationServiceProvider);
-          return NotificationListener<ScrollNotification>(
-            onNotification: (final ScrollNotification notification) {
-              int calculatedIndex = _calculateSelectedIndex(context: context);
-              if (calculatedIndex != _selectedIndex) {
-                setState(() {
-                  _selectedIndex = calculatedIndex;
-                });
-              }
-              return false;
-            },
-            child: AdaptiveScaffold(
-              appBar: AppBar(
-                title: Text(F.title),
-              ),
-              body: (final _) => _buildBody(),
-              destinations: <NavigationDestination>[
-                NavigationDestination(
-                  icon: const Icon(
-                    Icons.list,
-                    size: 24,
-                    color: cvColor,
-                  ),
-                  label: LocaleKeys.navigation_cv.tr(),
-                ),
-                NavigationDestination(
-                  icon: const Icon(
-                    Icons.home,
-                    color: portfolioColor,
-                  ),
-                  label: LocaleKeys.navigation_portfolio.tr(),
-                ),
-                NavigationDestination(
-                  icon: Assets.icons.github.pullRequest.svg(
-                    height: 24,
-                    width: 24,
-                  ),
-                  label: LocaleKeys.navigation_prs.tr(),
-                ),
-                NavigationDestination(
-                  icon: Assets.icons.youtube.logo.svg(
-                    height: 24,
-                    width: 24,
-                  ),
-                  label: LocaleKeys.navigation_youtube.tr(),
-                ),
-                NavigationDestination(
-                  icon: const Icon(
-                    Icons.favorite,
-                    size: 24,
-                    color: hobbiesColor,
-                  ),
-                  label: LocaleKeys.navigation_hobbies.tr(),
-                ),
-              ],
-              onSelectedIndexChange: (final int index) {
-                if (navigationService.canPop()) {
-                  navigationService.pop();
-                }
-                setState(() {
-                  _selectedIndex = index;
-                });
-                return switch (index) {
-                  0 => optionOf(cvKey.currentContext).fold(
-                      () {},
-                      (final BuildContext context) => Scrollable.ensureVisible(
-                        context,
-                        duration: kThemeAnimationDuration,
-                      ),
-                    ),
-                  1 => optionOf(portfolioKey.currentContext).fold(
-                      () {},
-                      (final BuildContext context) => Scrollable.ensureVisible(
-                        context,
-                        duration: kThemeAnimationDuration,
-                      ),
-                    ),
-                  2 => optionOf(prsKey.currentContext).fold(
-                      () {},
-                      (final BuildContext context) => Scrollable.ensureVisible(
-                        context,
-                        duration: kThemeAnimationDuration,
-                      ),
-                    ),
-                  3 => optionOf(youtubeVideosKey.currentContext).fold(
-                      () {},
-                      (final BuildContext context) => Scrollable.ensureVisible(
-                        context,
-                        duration: kThemeAnimationDuration,
-                      ),
-                    ),
-                  4 => optionOf(hobbiesKey.currentContext).fold(
-                      () {},
-                      (final BuildContext context) => Scrollable.ensureVisible(
-                        context,
-                        duration: kThemeAnimationDuration,
-                      ),
-                    ),
-                  _ => null,
-                };
-              },
-              selectedIndex: _calculateSelectedIndex(context: context),
+  Widget _buildScaffold() => ValueListenableBuilder<int>(
+        valueListenable: _model.selectedIndex,
+        builder: (
+          final BuildContext context,
+          final int selectedIndex,
+          final ___,
+        ) =>
+            NotificationListener<ScrollNotification>(
+          onNotification: (final ScrollNotification notification) {
+            int calculatedIndex = _calculateSelectedIndex(context: context);
+            if (calculatedIndex != selectedIndex) {
+              _controller.updateCurrentIndex(currentIndex: calculatedIndex);
+            }
+            return false;
+          },
+          child: AdaptiveScaffold(
+            appBar: AppBar(
+              title: Text(F.title),
             ),
-          );
-        },
+            body: (final _) => _buildBody(),
+            destinations: <NavigationDestination>[
+              NavigationDestination(
+                icon: const Icon(
+                  Icons.list,
+                  size: 24,
+                  color: cvColor,
+                ),
+                label: LocaleKeys.navigation_cv.tr(),
+              ),
+              NavigationDestination(
+                icon: const Icon(
+                  Icons.home,
+                  color: portfolioColor,
+                ),
+                label: LocaleKeys.navigation_portfolio.tr(),
+              ),
+              NavigationDestination(
+                icon: Assets.icons.github.pullRequest.svg(
+                  height: 24,
+                  width: 24,
+                ),
+                label: LocaleKeys.navigation_prs.tr(),
+              ),
+              NavigationDestination(
+                icon: Assets.icons.youtube.logo.svg(
+                  height: 24,
+                  width: 24,
+                ),
+                label: LocaleKeys.navigation_youtube.tr(),
+              ),
+              NavigationDestination(
+                icon: const Icon(
+                  Icons.favorite,
+                  size: 24,
+                  color: hobbiesColor,
+                ),
+                label: LocaleKeys.navigation_hobbies.tr(),
+              ),
+            ],
+            onSelectedIndexChange: (final int index) {
+              _controller.updateCurrentIndex(currentIndex: index);
+              return switch (index) {
+                0 => optionOf(cvKey.currentContext).fold(
+                    () {},
+                    (final BuildContext context) => Scrollable.ensureVisible(
+                      context,
+                      duration: kThemeAnimationDuration,
+                    ),
+                  ),
+                1 => optionOf(portfolioKey.currentContext).fold(
+                    () {},
+                    (final BuildContext context) => Scrollable.ensureVisible(
+                      context,
+                      duration: kThemeAnimationDuration,
+                    ),
+                  ),
+                2 => optionOf(prsKey.currentContext).fold(
+                    () {},
+                    (final BuildContext context) => Scrollable.ensureVisible(
+                      context,
+                      duration: kThemeAnimationDuration,
+                    ),
+                  ),
+                3 => optionOf(youtubeVideosKey.currentContext).fold(
+                    () {},
+                    (final BuildContext context) => Scrollable.ensureVisible(
+                      context,
+                      duration: kThemeAnimationDuration,
+                    ),
+                  ),
+                4 => optionOf(hobbiesKey.currentContext).fold(
+                    () {},
+                    (final BuildContext context) => Scrollable.ensureVisible(
+                      context,
+                      duration: kThemeAnimationDuration,
+                    ),
+                  ),
+                _ => null,
+              };
+            },
+            selectedIndex: _calculateSelectedIndex(context: context),
+          ),
+        ),
       );
 
   Widget _buildYoutubeVideos() => Consumer(
