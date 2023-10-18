@@ -259,7 +259,8 @@ class DataServiceImplementation implements DataServiceAggregator {
       TaskEither<Object, List<GithubPrsDataServicePr>>.of(
         <GithubPrsDataServicePr>[
           GithubPrsDataServicePr(
-            link: Uri.parse('https://github.com/mkobuolys/flutter_deck/pull/28'),
+            link:
+                Uri.parse('https://github.com/mkobuolys/flutter_deck/pull/28'),
             repo: 'flutter_deck',
             title: 'feat: add optional custom footer text',
             user: 'mkobuolys',
