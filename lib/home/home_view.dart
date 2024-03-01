@@ -1,14 +1,16 @@
+import 'package:causality/causality.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_adaptive_scaffold/flutter_adaptive_scaffold.dart';
+import 'package:flutter_causality/flutter_causality.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart' hide AsyncData;
 import 'package:fpdart/fpdart.dart' hide State;
+import 'package:get_it/get_it.dart';
 import 'package:goddchen_cv/common.dart';
 import 'package:goddchen_cv/constants.dart';
 import 'package:goddchen_cv/cv/cv_controller.dart';
-import 'package:goddchen_cv/cv/cv_controller_implementation.dart';
 import 'package:goddchen_cv/cv/cv_model.dart';
 import 'package:goddchen_cv/cv/cv_view_item.dart';
 import 'package:goddchen_cv/gen/assets.gen.dart';
@@ -27,8 +29,6 @@ import 'package:goddchen_cv/mvc/mvc_view.dart';
 import 'package:goddchen_cv/portfolio/portfolio_controller.dart';
 import 'package:goddchen_cv/portfolio/portfolio_controller_implementation.dart';
 import 'package:goddchen_cv/portfolio/portfolio_model.dart';
-import 'package:goddchen_cv/services/data/data_service.dart';
-import 'package:goddchen_cv/services/navigation/navigation_service.dart';
 import 'package:goddchen_cv/youtube_videos/youtube_videos_controller.dart';
 import 'package:goddchen_cv/youtube_videos/youtube_videos_controller_implementation.dart';
 import 'package:goddchen_cv/youtube_videos/youtube_videos_model.dart';
@@ -67,33 +67,29 @@ class HomeView extends MvcView<HomeModel, HomeController> {
         ),
       );
 
-  Widget _buildCv() => Consumer(
+  Widget _buildCv() => LayoutBuilder(
         key: cvKey,
-        builder: (final _, final WidgetRef ref, final ___) {
-          final CvControllerImplementationProvider provider =
-              cvControllerImplementationProvider(
-            dataService: ref.watch(dataServiceProvider),
-            navigationService: ref.watch(navigationServiceProvider),
-          );
-          return LayoutBuilder(
-            builder: (final _, final BoxConstraints constraints) {
-              return grid_view.GridView<CvModel, CvController, CvModelItem>(
+        builder: (final _, final BoxConstraints constraints) => EffectWidget(
+          builder: (final Cause? cause) => switch (cause) {
+            CvModelUpdatedCause? _ =>
+              grid_view.GridView<CvModel, CvController, CvModelItem>(
                 childAspectRatio: some(constraints.maxWidth / 160),
-                controller: ref.watch(provider.notifier),
+                controller: GetIt.I<CvController>(),
                 itemBuilder: some(
                   (final CvModelItem item) => CvViewItem(
-                    controller: ref.watch(provider.notifier),
+                    controller: GetIt.I<CvController>(),
                     item: item,
                   ),
                 ),
-                model: ref.watch(provider),
+                model: cause?.model ?? CvModel(items: right(none())),
                 maxExtent: some(double.infinity),
                 seedColor: cvColor,
                 title: LocaleKeys.sections_cv_title.tr(),
-              );
-            },
-          );
-        },
+              ),
+            _ => Container(),
+          },
+          observedCauseTypes: const <Type>[CvModelUpdatedCause],
+        ),
       );
 
   Widget _buildFooter() => Builder(
@@ -148,8 +144,8 @@ class HomeView extends MvcView<HomeModel, HomeController> {
         builder: (final _, final WidgetRef ref, final ___) {
           final GithubPrsControllerImplementationProvider provider =
               githubPrsControllerImplementationProvider(
-            dataService: ref.watch(dataServiceProvider),
-            navigationService: ref.watch(navigationServiceProvider),
+            dataService: GetIt.I(),
+            navigationService: GetIt.I(),
           );
           return grid_view.GridView<GithubPrsModel, GithubPrsController,
               GithubPrsModelPr>(
@@ -166,8 +162,8 @@ class HomeView extends MvcView<HomeModel, HomeController> {
         builder: (final _, final WidgetRef ref, final ___) {
           final HobbiesControllerImplementationProvider provider =
               hobbiesControllerImplementationProvider(
-            dataService: ref.watch(dataServiceProvider),
-            navigationService: ref.watch(navigationServiceProvider),
+            dataService: GetIt.I(),
+            navigationService: GetIt.I(),
           );
           return grid_view.GridView<HobbiesModel, HobbiesController,
               HobbiesModelHobby>(
@@ -184,8 +180,8 @@ class HomeView extends MvcView<HomeModel, HomeController> {
         builder: (final _, final WidgetRef ref, final ___) {
           final PortfolioControllerImplementationProvider provider =
               portfolioControllerImplementationProvider(
-            dataService: ref.watch(dataServiceProvider),
-            navigationService: ref.watch(navigationServiceProvider),
+            dataService: GetIt.I(),
+            navigationService: GetIt.I(),
           );
           return grid_view.GridView<PortfolioModel, PortfolioController,
               PortfolioModelProject>(
@@ -306,8 +302,8 @@ class HomeView extends MvcView<HomeModel, HomeController> {
         builder: (final _, final WidgetRef ref, final ___) {
           final YoutubeVideosControllerImplementationProvider provider =
               youtubeVideosControllerImplementationProvider(
-            dataService: ref.watch(dataServiceProvider),
-            navigationService: ref.watch(navigationServiceProvider),
+            dataService: GetIt.I(),
+            navigationService: GetIt.I(),
           );
           return grid_view.GridView<YoutubeVideosModel, YoutubeVideosController,
               YoutubeVideosModelVideo>(

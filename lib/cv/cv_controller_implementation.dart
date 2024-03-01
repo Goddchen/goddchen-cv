@@ -1,19 +1,43 @@
 import 'dart:async';
 
+import 'package:causality/causality.dart';
 import 'package:fpdart/fpdart.dart';
 import 'package:goddchen_cv/cv/cv_controller.dart';
 import 'package:goddchen_cv/cv/cv_data_service.dart';
 import 'package:goddchen_cv/cv/cv_model.dart';
 import 'package:goddchen_cv/cv/cv_navigation_service.dart';
 import 'package:goddchen_cv/grid/grid_model.dart';
-import 'package:riverpod_annotation/riverpod_annotation.dart';
+import 'package:goddchen_cv/main.dart';
 
-part 'cv_controller_implementation.g.dart';
+class CvControllerImplementation implements CvController {
+  final CvDataService _cvDataService;
+  final CvNavigationService _cvNavigationService;
 
-@riverpod
-class CvControllerImplementation extends _$CvControllerImplementation
-    implements CvController {
-  Task<void> get _initTask => dataService.cvItemsTask
+  CvControllerImplementation({
+    required final CvDataService cvDataService,
+    required final CvNavigationService cvNavigationService,
+  })  : _cvDataService = cvDataService,
+        _cvNavigationService = cvNavigationService {
+    causalityUniverse.emit(
+      CvModelUpdatedCause(
+        CvModel(
+          items: right(none()),
+        ),
+      ),
+    );
+    scheduleMicrotask(_initTask.run);
+    causalityUniverse.observe(
+      causeTypes: <Type>[LoadCvCause],
+      effect: Effect((final _) async {
+        await Future<void>.delayed(const Duration(seconds: 1));
+        await _initTask.run();
+        return <Cause>[];
+      }),
+    );
+    causalityUniverse.emit(LoadCvCause());
+  }
+
+  Task<void> get _initTask => _cvDataService.cvItemsTask
       .map(
         (final List<CvDataServiceItem> items) => items
             .map(
@@ -30,26 +54,30 @@ class CvControllerImplementation extends _$CvControllerImplementation
             .toList(),
       )
       .match(
-        (final Object error) => state = state.copyWith(items: left(error)),
-        (final List<CvModelItem> items) =>
-            state = state.copyWith(items: right(some(items))),
+        (final Object error) => causalityUniverse.emit(
+          CvModelUpdatedCause(
+            CvModel(
+              items: left(error),
+            ),
+          ),
+        ),
+        (final List<CvModelItem> items) => causalityUniverse.emit(
+          CvModelUpdatedCause(
+            CvModel(
+              items: right(some(items)),
+            ),
+          ),
+        ),
       );
-
-  @override
-  CvModel build({
-    required final CvDataService dataService,
-    required final CvNavigationService navigationService,
-  }) {
-    scheduleMicrotask(_initTask.run);
-    return CvModel(items: right(none()));
-  }
 
   @override
   void openItem({required final CvModelItem item}) => item.action.fold(
         () {},
         (final GridModelItemAction action) => action.when(
-          link: (final Uri link) => navigationService.openLink(link: link),
-          route: (final Uri route) => navigationService.push(route: route),
+          link: (final Uri link) => _cvNavigationService.openLink(link: link),
+          route: (final Uri route) => _cvNavigationService.push(route: route),
         ),
       );
 }
+
+class LoadCvCause extends Cause {}

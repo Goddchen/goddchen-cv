@@ -1,13 +1,6 @@
 import 'package:fpdart/fpdart.dart';
 import 'package:goddchen_cv/home/home_package_info_service.dart';
 import 'package:package_info_plus/package_info_plus.dart';
-import 'package:riverpod_annotation/riverpod_annotation.dart';
-
-part 'package_info_service.g.dart';
-
-@Riverpod(keepAlive: true)
-PackageInfoServiceAggregator packageInfoService(final _) =>
-    PackageInfoService();
 
 class PackageInfoService implements PackageInfoServiceAggregator {
   @override
