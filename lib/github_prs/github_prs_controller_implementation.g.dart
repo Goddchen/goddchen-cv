@@ -93,9 +93,9 @@ class GithubPrsControllerImplementationProvider
         GithubPrsModel> {
   /// See also [GithubPrsControllerImplementation].
   GithubPrsControllerImplementationProvider({
-    required this.dataService,
-    required this.navigationService,
-  }) : super.internal(
+    required GithubPrsDataService dataService,
+    required GithubPrsNavigationService navigationService,
+  }) : this._internal(
           () => GithubPrsControllerImplementation()
             ..dataService = dataService
             ..navigationService = navigationService,
@@ -108,10 +108,58 @@ class GithubPrsControllerImplementationProvider
           dependencies: GithubPrsControllerImplementationFamily._dependencies,
           allTransitiveDependencies: GithubPrsControllerImplementationFamily
               ._allTransitiveDependencies,
+          dataService: dataService,
+          navigationService: navigationService,
         );
+
+  GithubPrsControllerImplementationProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.dataService,
+    required this.navigationService,
+  }) : super.internal();
 
   final GithubPrsDataService dataService;
   final GithubPrsNavigationService navigationService;
+
+  @override
+  GithubPrsModel runNotifierBuild(
+    covariant GithubPrsControllerImplementation notifier,
+  ) {
+    return notifier.build(
+      dataService: dataService,
+      navigationService: navigationService,
+    );
+  }
+
+  @override
+  Override overrideWith(GithubPrsControllerImplementation Function() create) {
+    return ProviderOverride(
+      origin: this,
+      override: GithubPrsControllerImplementationProvider._internal(
+        () => create()
+          ..dataService = dataService
+          ..navigationService = navigationService,
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        dataService: dataService,
+        navigationService: navigationService,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeNotifierProviderElement<GithubPrsControllerImplementation,
+      GithubPrsModel> createElement() {
+    return _GithubPrsControllerImplementationProviderElement(this);
+  }
 
   @override
   bool operator ==(Object other) {
@@ -128,16 +176,29 @@ class GithubPrsControllerImplementationProvider
 
     return _SystemHash.finish(hash);
   }
+}
+
+mixin GithubPrsControllerImplementationRef
+    on AutoDisposeNotifierProviderRef<GithubPrsModel> {
+  /// The parameter `dataService` of this provider.
+  GithubPrsDataService get dataService;
+
+  /// The parameter `navigationService` of this provider.
+  GithubPrsNavigationService get navigationService;
+}
+
+class _GithubPrsControllerImplementationProviderElement
+    extends AutoDisposeNotifierProviderElement<
+        GithubPrsControllerImplementation,
+        GithubPrsModel> with GithubPrsControllerImplementationRef {
+  _GithubPrsControllerImplementationProviderElement(super.provider);
 
   @override
-  GithubPrsModel runNotifierBuild(
-    covariant GithubPrsControllerImplementation notifier,
-  ) {
-    return notifier.build(
-      dataService: dataService,
-      navigationService: navigationService,
-    );
-  }
+  GithubPrsDataService get dataService =>
+      (origin as GithubPrsControllerImplementationProvider).dataService;
+  @override
+  GithubPrsNavigationService get navigationService =>
+      (origin as GithubPrsControllerImplementationProvider).navigationService;
 }
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

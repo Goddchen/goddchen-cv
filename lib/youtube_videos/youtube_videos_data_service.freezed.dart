@@ -12,7 +12,7 @@ part of 'youtube_videos_data_service.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$YoutubeVideosDataServiceVideo {
@@ -72,25 +72,25 @@ class _$YoutubeVideosDataServiceVideoCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_YoutubeVideosDataServiceVideoCopyWith<$Res>
+abstract class _$$YoutubeVideosDataServiceVideoImplCopyWith<$Res>
     implements $YoutubeVideosDataServiceVideoCopyWith<$Res> {
-  factory _$$_YoutubeVideosDataServiceVideoCopyWith(
-          _$_YoutubeVideosDataServiceVideo value,
-          $Res Function(_$_YoutubeVideosDataServiceVideo) then) =
-      __$$_YoutubeVideosDataServiceVideoCopyWithImpl<$Res>;
+  factory _$$YoutubeVideosDataServiceVideoImplCopyWith(
+          _$YoutubeVideosDataServiceVideoImpl value,
+          $Res Function(_$YoutubeVideosDataServiceVideoImpl) then) =
+      __$$YoutubeVideosDataServiceVideoImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String id, Option<String> imageAssetPath, String title});
 }
 
 /// @nodoc
-class __$$_YoutubeVideosDataServiceVideoCopyWithImpl<$Res>
+class __$$YoutubeVideosDataServiceVideoImplCopyWithImpl<$Res>
     extends _$YoutubeVideosDataServiceVideoCopyWithImpl<$Res,
-        _$_YoutubeVideosDataServiceVideo>
-    implements _$$_YoutubeVideosDataServiceVideoCopyWith<$Res> {
-  __$$_YoutubeVideosDataServiceVideoCopyWithImpl(
-      _$_YoutubeVideosDataServiceVideo _value,
-      $Res Function(_$_YoutubeVideosDataServiceVideo) _then)
+        _$YoutubeVideosDataServiceVideoImpl>
+    implements _$$YoutubeVideosDataServiceVideoImplCopyWith<$Res> {
+  __$$YoutubeVideosDataServiceVideoImplCopyWithImpl(
+      _$YoutubeVideosDataServiceVideoImpl _value,
+      $Res Function(_$YoutubeVideosDataServiceVideoImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -100,7 +100,7 @@ class __$$_YoutubeVideosDataServiceVideoCopyWithImpl<$Res>
     Object? imageAssetPath = null,
     Object? title = null,
   }) {
-    return _then(_$_YoutubeVideosDataServiceVideo(
+    return _then(_$YoutubeVideosDataServiceVideoImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -119,9 +119,9 @@ class __$$_YoutubeVideosDataServiceVideoCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_YoutubeVideosDataServiceVideo
+class _$YoutubeVideosDataServiceVideoImpl
     implements _YoutubeVideosDataServiceVideo {
-  const _$_YoutubeVideosDataServiceVideo(
+  const _$YoutubeVideosDataServiceVideoImpl(
       {required this.id, required this.imageAssetPath, required this.title});
 
   @override
@@ -137,10 +137,10 @@ class _$_YoutubeVideosDataServiceVideo
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_YoutubeVideosDataServiceVideo &&
+            other is _$YoutubeVideosDataServiceVideoImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.imageAssetPath, imageAssetPath) ||
                 other.imageAssetPath == imageAssetPath) &&
@@ -153,9 +153,10 @@ class _$_YoutubeVideosDataServiceVideo
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_YoutubeVideosDataServiceVideoCopyWith<_$_YoutubeVideosDataServiceVideo>
-      get copyWith => __$$_YoutubeVideosDataServiceVideoCopyWithImpl<
-          _$_YoutubeVideosDataServiceVideo>(this, _$identity);
+  _$$YoutubeVideosDataServiceVideoImplCopyWith<
+          _$YoutubeVideosDataServiceVideoImpl>
+      get copyWith => __$$YoutubeVideosDataServiceVideoImplCopyWithImpl<
+          _$YoutubeVideosDataServiceVideoImpl>(this, _$identity);
 }
 
 abstract class _YoutubeVideosDataServiceVideo
@@ -163,7 +164,7 @@ abstract class _YoutubeVideosDataServiceVideo
   const factory _YoutubeVideosDataServiceVideo(
       {required final String id,
       required final Option<String> imageAssetPath,
-      required final String title}) = _$_YoutubeVideosDataServiceVideo;
+      required final String title}) = _$YoutubeVideosDataServiceVideoImpl;
 
   @override
   String get id;
@@ -173,6 +174,7 @@ abstract class _YoutubeVideosDataServiceVideo
   String get title;
   @override
   @JsonKey(ignore: true)
-  _$$_YoutubeVideosDataServiceVideoCopyWith<_$_YoutubeVideosDataServiceVideo>
+  _$$YoutubeVideosDataServiceVideoImplCopyWith<
+          _$YoutubeVideosDataServiceVideoImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

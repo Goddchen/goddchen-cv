@@ -93,9 +93,9 @@ class HobbiesControllerImplementationProvider
         HobbiesModel> {
   /// See also [HobbiesControllerImplementation].
   HobbiesControllerImplementationProvider({
-    required this.dataService,
-    required this.navigationService,
-  }) : super.internal(
+    required HobbiesDataService dataService,
+    required HobbiesNavigationService navigationService,
+  }) : this._internal(
           () => HobbiesControllerImplementation()
             ..dataService = dataService
             ..navigationService = navigationService,
@@ -108,10 +108,58 @@ class HobbiesControllerImplementationProvider
           dependencies: HobbiesControllerImplementationFamily._dependencies,
           allTransitiveDependencies:
               HobbiesControllerImplementationFamily._allTransitiveDependencies,
+          dataService: dataService,
+          navigationService: navigationService,
         );
+
+  HobbiesControllerImplementationProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.dataService,
+    required this.navigationService,
+  }) : super.internal();
 
   final HobbiesDataService dataService;
   final HobbiesNavigationService navigationService;
+
+  @override
+  HobbiesModel runNotifierBuild(
+    covariant HobbiesControllerImplementation notifier,
+  ) {
+    return notifier.build(
+      dataService: dataService,
+      navigationService: navigationService,
+    );
+  }
+
+  @override
+  Override overrideWith(HobbiesControllerImplementation Function() create) {
+    return ProviderOverride(
+      origin: this,
+      override: HobbiesControllerImplementationProvider._internal(
+        () => create()
+          ..dataService = dataService
+          ..navigationService = navigationService,
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        dataService: dataService,
+        navigationService: navigationService,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeNotifierProviderElement<HobbiesControllerImplementation,
+      HobbiesModel> createElement() {
+    return _HobbiesControllerImplementationProviderElement(this);
+  }
 
   @override
   bool operator ==(Object other) {
@@ -128,16 +176,28 @@ class HobbiesControllerImplementationProvider
 
     return _SystemHash.finish(hash);
   }
+}
+
+mixin HobbiesControllerImplementationRef
+    on AutoDisposeNotifierProviderRef<HobbiesModel> {
+  /// The parameter `dataService` of this provider.
+  HobbiesDataService get dataService;
+
+  /// The parameter `navigationService` of this provider.
+  HobbiesNavigationService get navigationService;
+}
+
+class _HobbiesControllerImplementationProviderElement
+    extends AutoDisposeNotifierProviderElement<HobbiesControllerImplementation,
+        HobbiesModel> with HobbiesControllerImplementationRef {
+  _HobbiesControllerImplementationProviderElement(super.provider);
 
   @override
-  HobbiesModel runNotifierBuild(
-    covariant HobbiesControllerImplementation notifier,
-  ) {
-    return notifier.build(
-      dataService: dataService,
-      navigationService: navigationService,
-    );
-  }
+  HobbiesDataService get dataService =>
+      (origin as HobbiesControllerImplementationProvider).dataService;
+  @override
+  HobbiesNavigationService get navigationService =>
+      (origin as HobbiesControllerImplementationProvider).navigationService;
 }
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

@@ -12,7 +12,7 @@ part of 'hobbies_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$HobbiesModel {
@@ -58,22 +58,22 @@ class _$HobbiesModelCopyWithImpl<$Res, $Val extends HobbiesModel>
 }
 
 /// @nodoc
-abstract class _$$_HobbiesModelCopyWith<$Res>
+abstract class _$$HobbiesModelImplCopyWith<$Res>
     implements $HobbiesModelCopyWith<$Res> {
-  factory _$$_HobbiesModelCopyWith(
-          _$_HobbiesModel value, $Res Function(_$_HobbiesModel) then) =
-      __$$_HobbiesModelCopyWithImpl<$Res>;
+  factory _$$HobbiesModelImplCopyWith(
+          _$HobbiesModelImpl value, $Res Function(_$HobbiesModelImpl) then) =
+      __$$HobbiesModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({Either<Object, Option<List<HobbiesModelHobby>>> items});
 }
 
 /// @nodoc
-class __$$_HobbiesModelCopyWithImpl<$Res>
-    extends _$HobbiesModelCopyWithImpl<$Res, _$_HobbiesModel>
-    implements _$$_HobbiesModelCopyWith<$Res> {
-  __$$_HobbiesModelCopyWithImpl(
-      _$_HobbiesModel _value, $Res Function(_$_HobbiesModel) _then)
+class __$$HobbiesModelImplCopyWithImpl<$Res>
+    extends _$HobbiesModelCopyWithImpl<$Res, _$HobbiesModelImpl>
+    implements _$$HobbiesModelImplCopyWith<$Res> {
+  __$$HobbiesModelImplCopyWithImpl(
+      _$HobbiesModelImpl _value, $Res Function(_$HobbiesModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -81,7 +81,7 @@ class __$$_HobbiesModelCopyWithImpl<$Res>
   $Res call({
     Object? items = null,
   }) {
-    return _then(_$_HobbiesModel(
+    return _then(_$HobbiesModelImpl(
       items: null == items
           ? _value.items
           : items // ignore: cast_nullable_to_non_nullable
@@ -92,8 +92,8 @@ class __$$_HobbiesModelCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_HobbiesModel implements _HobbiesModel {
-  const _$_HobbiesModel({required this.items});
+class _$HobbiesModelImpl implements _HobbiesModel {
+  const _$HobbiesModelImpl({required this.items});
 
   @override
   final Either<Object, Option<List<HobbiesModelHobby>>> items;
@@ -104,10 +104,10 @@ class _$_HobbiesModel implements _HobbiesModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_HobbiesModel &&
+            other is _$HobbiesModelImpl &&
             (identical(other.items, items) || other.items == items));
   }
 
@@ -117,20 +117,20 @@ class _$_HobbiesModel implements _HobbiesModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_HobbiesModelCopyWith<_$_HobbiesModel> get copyWith =>
-      __$$_HobbiesModelCopyWithImpl<_$_HobbiesModel>(this, _$identity);
+  _$$HobbiesModelImplCopyWith<_$HobbiesModelImpl> get copyWith =>
+      __$$HobbiesModelImplCopyWithImpl<_$HobbiesModelImpl>(this, _$identity);
 }
 
 abstract class _HobbiesModel implements HobbiesModel {
   const factory _HobbiesModel(
       {required final Either<Object, Option<List<HobbiesModelHobby>>>
-          items}) = _$_HobbiesModel;
+          items}) = _$HobbiesModelImpl;
 
   @override
   Either<Object, Option<List<HobbiesModelHobby>>> get items;
   @override
   @JsonKey(ignore: true)
-  _$$_HobbiesModelCopyWith<_$_HobbiesModel> get copyWith =>
+  _$$HobbiesModelImplCopyWith<_$HobbiesModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -213,11 +213,11 @@ class _$HobbiesModelHobbyCopyWithImpl<$Res, $Val extends HobbiesModelHobby>
 }
 
 /// @nodoc
-abstract class _$$_HobbiesModelHobbyCopyWith<$Res>
+abstract class _$$HobbiesModelHobbyImplCopyWith<$Res>
     implements $HobbiesModelHobbyCopyWith<$Res> {
-  factory _$$_HobbiesModelHobbyCopyWith(_$_HobbiesModelHobby value,
-          $Res Function(_$_HobbiesModelHobby) then) =
-      __$$_HobbiesModelHobbyCopyWithImpl<$Res>;
+  factory _$$HobbiesModelHobbyImplCopyWith(_$HobbiesModelHobbyImpl value,
+          $Res Function(_$HobbiesModelHobbyImpl) then) =
+      __$$HobbiesModelHobbyImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -230,11 +230,11 @@ abstract class _$$_HobbiesModelHobbyCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_HobbiesModelHobbyCopyWithImpl<$Res>
-    extends _$HobbiesModelHobbyCopyWithImpl<$Res, _$_HobbiesModelHobby>
-    implements _$$_HobbiesModelHobbyCopyWith<$Res> {
-  __$$_HobbiesModelHobbyCopyWithImpl(
-      _$_HobbiesModelHobby _value, $Res Function(_$_HobbiesModelHobby) _then)
+class __$$HobbiesModelHobbyImplCopyWithImpl<$Res>
+    extends _$HobbiesModelHobbyCopyWithImpl<$Res, _$HobbiesModelHobbyImpl>
+    implements _$$HobbiesModelHobbyImplCopyWith<$Res> {
+  __$$HobbiesModelHobbyImplCopyWithImpl(_$HobbiesModelHobbyImpl _value,
+      $Res Function(_$HobbiesModelHobbyImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -247,7 +247,7 @@ class __$$_HobbiesModelHobbyCopyWithImpl<$Res>
     Object? imagePadding = null,
     Object? title = null,
   }) {
-    return _then(_$_HobbiesModelHobby(
+    return _then(_$HobbiesModelHobbyImpl(
       action: null == action
           ? _value.action
           : action // ignore: cast_nullable_to_non_nullable
@@ -278,8 +278,8 @@ class __$$_HobbiesModelHobbyCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_HobbiesModelHobby implements _HobbiesModelHobby {
-  const _$_HobbiesModelHobby(
+class _$HobbiesModelHobbyImpl implements _HobbiesModelHobby {
+  const _$HobbiesModelHobbyImpl(
       {required this.action,
       this.description = const None(),
       this.imageAssetPath = const None(),
@@ -310,10 +310,10 @@ class _$_HobbiesModelHobby implements _HobbiesModelHobby {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_HobbiesModelHobby &&
+            other is _$HobbiesModelHobbyImpl &&
             (identical(other.action, action) || other.action == action) &&
             (identical(other.description, description) ||
                 other.description == description) &&
@@ -333,8 +333,8 @@ class _$_HobbiesModelHobby implements _HobbiesModelHobby {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_HobbiesModelHobbyCopyWith<_$_HobbiesModelHobby> get copyWith =>
-      __$$_HobbiesModelHobbyCopyWithImpl<_$_HobbiesModelHobby>(
+  _$$HobbiesModelHobbyImplCopyWith<_$HobbiesModelHobbyImpl> get copyWith =>
+      __$$HobbiesModelHobbyImplCopyWithImpl<_$HobbiesModelHobbyImpl>(
           this, _$identity);
 }
 
@@ -345,7 +345,7 @@ abstract class _HobbiesModelHobby implements HobbiesModelHobby {
       final Option<String> imageAssetPath,
       final BoxFit imageFit,
       final EdgeInsets imagePadding,
-      required final String title}) = _$_HobbiesModelHobby;
+      required final String title}) = _$HobbiesModelHobbyImpl;
 
   @override
   Option<GridModelItemAction> get action;
@@ -361,6 +361,6 @@ abstract class _HobbiesModelHobby implements HobbiesModelHobby {
   String get title;
   @override
   @JsonKey(ignore: true)
-  _$$_HobbiesModelHobbyCopyWith<_$_HobbiesModelHobby> get copyWith =>
+  _$$HobbiesModelHobbyImplCopyWith<_$HobbiesModelHobbyImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

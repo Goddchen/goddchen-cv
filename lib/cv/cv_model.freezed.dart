@@ -12,7 +12,7 @@ part of 'cv_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$CvModel {
@@ -56,20 +56,21 @@ class _$CvModelCopyWithImpl<$Res, $Val extends CvModel>
 }
 
 /// @nodoc
-abstract class _$$_CvModelCopyWith<$Res> implements $CvModelCopyWith<$Res> {
-  factory _$$_CvModelCopyWith(
-          _$_CvModel value, $Res Function(_$_CvModel) then) =
-      __$$_CvModelCopyWithImpl<$Res>;
+abstract class _$$CvModelImplCopyWith<$Res> implements $CvModelCopyWith<$Res> {
+  factory _$$CvModelImplCopyWith(
+          _$CvModelImpl value, $Res Function(_$CvModelImpl) then) =
+      __$$CvModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({Either<Object, Option<List<CvModelItem>>> items});
 }
 
 /// @nodoc
-class __$$_CvModelCopyWithImpl<$Res>
-    extends _$CvModelCopyWithImpl<$Res, _$_CvModel>
-    implements _$$_CvModelCopyWith<$Res> {
-  __$$_CvModelCopyWithImpl(_$_CvModel _value, $Res Function(_$_CvModel) _then)
+class __$$CvModelImplCopyWithImpl<$Res>
+    extends _$CvModelCopyWithImpl<$Res, _$CvModelImpl>
+    implements _$$CvModelImplCopyWith<$Res> {
+  __$$CvModelImplCopyWithImpl(
+      _$CvModelImpl _value, $Res Function(_$CvModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -77,7 +78,7 @@ class __$$_CvModelCopyWithImpl<$Res>
   $Res call({
     Object? items = null,
   }) {
-    return _then(_$_CvModel(
+    return _then(_$CvModelImpl(
       items: null == items
           ? _value.items
           : items // ignore: cast_nullable_to_non_nullable
@@ -88,8 +89,8 @@ class __$$_CvModelCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_CvModel implements _CvModel {
-  const _$_CvModel({required this.items});
+class _$CvModelImpl implements _CvModel {
+  const _$CvModelImpl({required this.items});
 
   @override
   final Either<Object, Option<List<CvModelItem>>> items;
@@ -100,10 +101,10 @@ class _$_CvModel implements _CvModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_CvModel &&
+            other is _$CvModelImpl &&
             (identical(other.items, items) || other.items == items));
   }
 
@@ -113,20 +114,20 @@ class _$_CvModel implements _CvModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_CvModelCopyWith<_$_CvModel> get copyWith =>
-      __$$_CvModelCopyWithImpl<_$_CvModel>(this, _$identity);
+  _$$CvModelImplCopyWith<_$CvModelImpl> get copyWith =>
+      __$$CvModelImplCopyWithImpl<_$CvModelImpl>(this, _$identity);
 }
 
 abstract class _CvModel implements CvModel {
   const factory _CvModel(
           {required final Either<Object, Option<List<CvModelItem>>> items}) =
-      _$_CvModel;
+      _$CvModelImpl;
 
   @override
   Either<Object, Option<List<CvModelItem>>> get items;
   @override
   @JsonKey(ignore: true)
-  _$$_CvModelCopyWith<_$_CvModel> get copyWith =>
+  _$$CvModelImplCopyWith<_$CvModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -223,11 +224,11 @@ class _$CvModelItemCopyWithImpl<$Res, $Val extends CvModelItem>
 }
 
 /// @nodoc
-abstract class _$$_CvModelItemCopyWith<$Res>
+abstract class _$$CvModelItemImplCopyWith<$Res>
     implements $CvModelItemCopyWith<$Res> {
-  factory _$$_CvModelItemCopyWith(
-          _$_CvModelItem value, $Res Function(_$_CvModelItem) then) =
-      __$$_CvModelItemCopyWithImpl<$Res>;
+  factory _$$CvModelItemImplCopyWith(
+          _$CvModelItemImpl value, $Res Function(_$CvModelItemImpl) then) =
+      __$$CvModelItemImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -242,11 +243,11 @@ abstract class _$$_CvModelItemCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_CvModelItemCopyWithImpl<$Res>
-    extends _$CvModelItemCopyWithImpl<$Res, _$_CvModelItem>
-    implements _$$_CvModelItemCopyWith<$Res> {
-  __$$_CvModelItemCopyWithImpl(
-      _$_CvModelItem _value, $Res Function(_$_CvModelItem) _then)
+class __$$CvModelItemImplCopyWithImpl<$Res>
+    extends _$CvModelItemCopyWithImpl<$Res, _$CvModelItemImpl>
+    implements _$$CvModelItemImplCopyWith<$Res> {
+  __$$CvModelItemImplCopyWithImpl(
+      _$CvModelItemImpl _value, $Res Function(_$CvModelItemImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -261,7 +262,7 @@ class __$$_CvModelItemCopyWithImpl<$Res>
     Object? title = null,
     Object? until = null,
   }) {
-    return _then(_$_CvModelItem(
+    return _then(_$CvModelItemImpl(
       action: null == action
           ? _value.action
           : action // ignore: cast_nullable_to_non_nullable
@@ -300,8 +301,8 @@ class __$$_CvModelItemCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_CvModelItem implements _CvModelItem {
-  const _$_CvModelItem(
+class _$CvModelItemImpl implements _CvModelItem {
+  const _$CvModelItemImpl(
       {this.action = const None(),
       this.description = const None(),
       this.imageAssetPath = const None(),
@@ -341,10 +342,10 @@ class _$_CvModelItem implements _CvModelItem {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_CvModelItem &&
+            other is _$CvModelItemImpl &&
             (identical(other.action, action) || other.action == action) &&
             (identical(other.description, description) ||
                 other.description == description) &&
@@ -366,8 +367,8 @@ class _$_CvModelItem implements _CvModelItem {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_CvModelItemCopyWith<_$_CvModelItem> get copyWith =>
-      __$$_CvModelItemCopyWithImpl<_$_CvModelItem>(this, _$identity);
+  _$$CvModelItemImplCopyWith<_$CvModelItemImpl> get copyWith =>
+      __$$CvModelItemImplCopyWithImpl<_$CvModelItemImpl>(this, _$identity);
 }
 
 abstract class _CvModelItem implements CvModelItem {
@@ -379,7 +380,7 @@ abstract class _CvModelItem implements CvModelItem {
       final EdgeInsets imagePadding,
       final Option<DateTime> from,
       required final String title,
-      final Option<DateTime> until}) = _$_CvModelItem;
+      final Option<DateTime> until}) = _$CvModelItemImpl;
 
   @override
   Option<GridModelItemAction> get action;
@@ -399,6 +400,6 @@ abstract class _CvModelItem implements CvModelItem {
   Option<DateTime> get until;
   @override
   @JsonKey(ignore: true)
-  _$$_CvModelItemCopyWith<_$_CvModelItem> get copyWith =>
+  _$$CvModelItemImplCopyWith<_$CvModelItemImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

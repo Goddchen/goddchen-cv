@@ -92,9 +92,9 @@ class CvControllerImplementationProvider
         CvModel> {
   /// See also [CvControllerImplementation].
   CvControllerImplementationProvider({
-    required this.dataService,
-    required this.navigationService,
-  }) : super.internal(
+    required CvDataService dataService,
+    required CvNavigationService navigationService,
+  }) : this._internal(
           () => CvControllerImplementation()
             ..dataService = dataService
             ..navigationService = navigationService,
@@ -107,10 +107,58 @@ class CvControllerImplementationProvider
           dependencies: CvControllerImplementationFamily._dependencies,
           allTransitiveDependencies:
               CvControllerImplementationFamily._allTransitiveDependencies,
+          dataService: dataService,
+          navigationService: navigationService,
         );
+
+  CvControllerImplementationProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.dataService,
+    required this.navigationService,
+  }) : super.internal();
 
   final CvDataService dataService;
   final CvNavigationService navigationService;
+
+  @override
+  CvModel runNotifierBuild(
+    covariant CvControllerImplementation notifier,
+  ) {
+    return notifier.build(
+      dataService: dataService,
+      navigationService: navigationService,
+    );
+  }
+
+  @override
+  Override overrideWith(CvControllerImplementation Function() create) {
+    return ProviderOverride(
+      origin: this,
+      override: CvControllerImplementationProvider._internal(
+        () => create()
+          ..dataService = dataService
+          ..navigationService = navigationService,
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        dataService: dataService,
+        navigationService: navigationService,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeNotifierProviderElement<CvControllerImplementation, CvModel>
+      createElement() {
+    return _CvControllerImplementationProviderElement(this);
+  }
 
   @override
   bool operator ==(Object other) {
@@ -127,16 +175,27 @@ class CvControllerImplementationProvider
 
     return _SystemHash.finish(hash);
   }
+}
+
+mixin CvControllerImplementationRef on AutoDisposeNotifierProviderRef<CvModel> {
+  /// The parameter `dataService` of this provider.
+  CvDataService get dataService;
+
+  /// The parameter `navigationService` of this provider.
+  CvNavigationService get navigationService;
+}
+
+class _CvControllerImplementationProviderElement
+    extends AutoDisposeNotifierProviderElement<CvControllerImplementation,
+        CvModel> with CvControllerImplementationRef {
+  _CvControllerImplementationProviderElement(super.provider);
 
   @override
-  CvModel runNotifierBuild(
-    covariant CvControllerImplementation notifier,
-  ) {
-    return notifier.build(
-      dataService: dataService,
-      navigationService: navigationService,
-    );
-  }
+  CvDataService get dataService =>
+      (origin as CvControllerImplementationProvider).dataService;
+  @override
+  CvNavigationService get navigationService =>
+      (origin as CvControllerImplementationProvider).navigationService;
 }
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

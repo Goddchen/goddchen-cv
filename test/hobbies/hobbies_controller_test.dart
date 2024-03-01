@@ -8,6 +8,7 @@ import 'package:goddchen_cv/hobbies/hobbies_model.dart';
 import 'package:goddchen_cv/hobbies/hobbies_navigation_service.dart';
 import 'package:mockito/mockito.dart';
 
+import '../dummies.dart';
 import '../mocks.mocks.dart';
 
 void main() {
@@ -19,6 +20,10 @@ void main() {
         dataService: dataService,
         navigationService: navigationService,
       ).notifier.read(ProviderContainer());
+
+  setUpAll(() {
+    registerDummies();
+  });
 
   setUp(() {
     dataService = MockDataServiceAggregator();

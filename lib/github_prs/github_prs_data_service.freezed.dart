@@ -12,7 +12,7 @@ part of 'github_prs_data_service.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$GithubPrsDataServicePr {
@@ -76,23 +76,25 @@ class _$GithubPrsDataServicePrCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_GithubPrsDataServicePrCopyWith<$Res>
+abstract class _$$GithubPrsDataServicePrImplCopyWith<$Res>
     implements $GithubPrsDataServicePrCopyWith<$Res> {
-  factory _$$_GithubPrsDataServicePrCopyWith(_$_GithubPrsDataServicePr value,
-          $Res Function(_$_GithubPrsDataServicePr) then) =
-      __$$_GithubPrsDataServicePrCopyWithImpl<$Res>;
+  factory _$$GithubPrsDataServicePrImplCopyWith(
+          _$GithubPrsDataServicePrImpl value,
+          $Res Function(_$GithubPrsDataServicePrImpl) then) =
+      __$$GithubPrsDataServicePrImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({Uri link, String repo, String title, String user});
 }
 
 /// @nodoc
-class __$$_GithubPrsDataServicePrCopyWithImpl<$Res>
+class __$$GithubPrsDataServicePrImplCopyWithImpl<$Res>
     extends _$GithubPrsDataServicePrCopyWithImpl<$Res,
-        _$_GithubPrsDataServicePr>
-    implements _$$_GithubPrsDataServicePrCopyWith<$Res> {
-  __$$_GithubPrsDataServicePrCopyWithImpl(_$_GithubPrsDataServicePr _value,
-      $Res Function(_$_GithubPrsDataServicePr) _then)
+        _$GithubPrsDataServicePrImpl>
+    implements _$$GithubPrsDataServicePrImplCopyWith<$Res> {
+  __$$GithubPrsDataServicePrImplCopyWithImpl(
+      _$GithubPrsDataServicePrImpl _value,
+      $Res Function(_$GithubPrsDataServicePrImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -103,7 +105,7 @@ class __$$_GithubPrsDataServicePrCopyWithImpl<$Res>
     Object? title = null,
     Object? user = null,
   }) {
-    return _then(_$_GithubPrsDataServicePr(
+    return _then(_$GithubPrsDataServicePrImpl(
       link: null == link
           ? _value.link
           : link // ignore: cast_nullable_to_non_nullable
@@ -126,8 +128,8 @@ class __$$_GithubPrsDataServicePrCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_GithubPrsDataServicePr implements _GithubPrsDataServicePr {
-  const _$_GithubPrsDataServicePr(
+class _$GithubPrsDataServicePrImpl implements _GithubPrsDataServicePr {
+  const _$GithubPrsDataServicePrImpl(
       {required this.link,
       required this.repo,
       required this.title,
@@ -148,10 +150,10 @@ class _$_GithubPrsDataServicePr implements _GithubPrsDataServicePr {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_GithubPrsDataServicePr &&
+            other is _$GithubPrsDataServicePrImpl &&
             (identical(other.link, link) || other.link == link) &&
             (identical(other.repo, repo) || other.repo == repo) &&
             (identical(other.title, title) || other.title == title) &&
@@ -164,9 +166,9 @@ class _$_GithubPrsDataServicePr implements _GithubPrsDataServicePr {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_GithubPrsDataServicePrCopyWith<_$_GithubPrsDataServicePr> get copyWith =>
-      __$$_GithubPrsDataServicePrCopyWithImpl<_$_GithubPrsDataServicePr>(
-          this, _$identity);
+  _$$GithubPrsDataServicePrImplCopyWith<_$GithubPrsDataServicePrImpl>
+      get copyWith => __$$GithubPrsDataServicePrImplCopyWithImpl<
+          _$GithubPrsDataServicePrImpl>(this, _$identity);
 }
 
 abstract class _GithubPrsDataServicePr implements GithubPrsDataServicePr {
@@ -174,7 +176,7 @@ abstract class _GithubPrsDataServicePr implements GithubPrsDataServicePr {
       {required final Uri link,
       required final String repo,
       required final String title,
-      required final String user}) = _$_GithubPrsDataServicePr;
+      required final String user}) = _$GithubPrsDataServicePrImpl;
 
   @override
   Uri get link;
@@ -186,6 +188,6 @@ abstract class _GithubPrsDataServicePr implements GithubPrsDataServicePr {
   String get user;
   @override
   @JsonKey(ignore: true)
-  _$$_GithubPrsDataServicePrCopyWith<_$_GithubPrsDataServicePr> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$GithubPrsDataServicePrImplCopyWith<_$GithubPrsDataServicePrImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

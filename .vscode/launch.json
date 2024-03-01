@@ -7,8 +7,6 @@
             "type": "dart",
             "flutterMode": "debug",
             "args": [
-                "--flavor",
-                "develop",
                 "--web-renderer",
                 "html"
             ],
@@ -19,10 +17,7 @@
             "request": "launch",
             "type": "dart",
             "flutterMode": "profile",
-            "args": [
-                "--flavor",
-                "develop"
-            ],
+            "args": [],
             "program": "lib/main_develop.dart"
         },
         {
@@ -30,10 +25,7 @@
             "request": "launch",
             "type": "dart",
             "flutterMode": "release",
-            "args": [
-                "--flavor",
-                "develop"
-            ],
+            "args": [],
             "program": "lib/main_develop.dart"
         },
         {
@@ -41,10 +33,7 @@
             "request": "launch",
             "type": "dart",
             "flutterMode": "debug",
-            "args": [
-                "--flavor",
-                "production"
-            ],
+            "args": [],
             "program": "lib/main_production.dart"
         },
         {
@@ -52,10 +41,7 @@
             "request": "launch",
             "type": "dart",
             "flutterMode": "profile",
-            "args": [
-                "--flavor",
-                "production"
-            ],
+            "args": [],
             "program": "lib/main_production.dart"
         },
         {
@@ -63,10 +49,7 @@
             "request": "launch",
             "type": "dart",
             "flutterMode": "release",
-            "args": [
-                "--flavor",
-                "production"
-            ],
+            "args": [],
             "program": "lib/main_production.dart"
         }
     ]
