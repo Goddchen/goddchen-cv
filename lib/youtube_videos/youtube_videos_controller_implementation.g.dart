@@ -94,9 +94,9 @@ class YoutubeVideosControllerImplementationProvider
         YoutubeVideosControllerImplementation, YoutubeVideosModel> {
   /// See also [YoutubeVideosControllerImplementation].
   YoutubeVideosControllerImplementationProvider({
-    required this.navigationService,
-    required this.dataService,
-  }) : super.internal(
+    required YoutubeVideosNavigationService navigationService,
+    required YoutubeVideosDataService dataService,
+  }) : this._internal(
           () => YoutubeVideosControllerImplementation()
             ..navigationService = navigationService
             ..dataService = dataService,
@@ -110,10 +110,59 @@ class YoutubeVideosControllerImplementationProvider
               YoutubeVideosControllerImplementationFamily._dependencies,
           allTransitiveDependencies: YoutubeVideosControllerImplementationFamily
               ._allTransitiveDependencies,
+          navigationService: navigationService,
+          dataService: dataService,
         );
+
+  YoutubeVideosControllerImplementationProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.navigationService,
+    required this.dataService,
+  }) : super.internal();
 
   final YoutubeVideosNavigationService navigationService;
   final YoutubeVideosDataService dataService;
+
+  @override
+  YoutubeVideosModel runNotifierBuild(
+    covariant YoutubeVideosControllerImplementation notifier,
+  ) {
+    return notifier.build(
+      navigationService: navigationService,
+      dataService: dataService,
+    );
+  }
+
+  @override
+  Override overrideWith(
+      YoutubeVideosControllerImplementation Function() create) {
+    return ProviderOverride(
+      origin: this,
+      override: YoutubeVideosControllerImplementationProvider._internal(
+        () => create()
+          ..navigationService = navigationService
+          ..dataService = dataService,
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        navigationService: navigationService,
+        dataService: dataService,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeNotifierProviderElement<YoutubeVideosControllerImplementation,
+      YoutubeVideosModel> createElement() {
+    return _YoutubeVideosControllerImplementationProviderElement(this);
+  }
 
   @override
   bool operator ==(Object other) {
@@ -130,16 +179,30 @@ class YoutubeVideosControllerImplementationProvider
 
     return _SystemHash.finish(hash);
   }
+}
+
+mixin YoutubeVideosControllerImplementationRef
+    on AutoDisposeNotifierProviderRef<YoutubeVideosModel> {
+  /// The parameter `navigationService` of this provider.
+  YoutubeVideosNavigationService get navigationService;
+
+  /// The parameter `dataService` of this provider.
+  YoutubeVideosDataService get dataService;
+}
+
+class _YoutubeVideosControllerImplementationProviderElement
+    extends AutoDisposeNotifierProviderElement<
+        YoutubeVideosControllerImplementation,
+        YoutubeVideosModel> with YoutubeVideosControllerImplementationRef {
+  _YoutubeVideosControllerImplementationProviderElement(super.provider);
 
   @override
-  YoutubeVideosModel runNotifierBuild(
-    covariant YoutubeVideosControllerImplementation notifier,
-  ) {
-    return notifier.build(
-      navigationService: navigationService,
-      dataService: dataService,
-    );
-  }
+  YoutubeVideosNavigationService get navigationService =>
+      (origin as YoutubeVideosControllerImplementationProvider)
+          .navigationService;
+  @override
+  YoutubeVideosDataService get dataService =>
+      (origin as YoutubeVideosControllerImplementationProvider).dataService;
 }
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

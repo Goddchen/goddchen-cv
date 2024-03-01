@@ -12,7 +12,7 @@ part of 'hobbies_data_service.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$HobbiesDataServiceHobby {
@@ -98,11 +98,12 @@ class _$HobbiesDataServiceHobbyCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_HobbiesDataServiceHobbyCopyWith<$Res>
+abstract class _$$HobbiesDataServiceHobbyImplCopyWith<$Res>
     implements $HobbiesDataServiceHobbyCopyWith<$Res> {
-  factory _$$_HobbiesDataServiceHobbyCopyWith(_$_HobbiesDataServiceHobby value,
-          $Res Function(_$_HobbiesDataServiceHobby) then) =
-      __$$_HobbiesDataServiceHobbyCopyWithImpl<$Res>;
+  factory _$$HobbiesDataServiceHobbyImplCopyWith(
+          _$HobbiesDataServiceHobbyImpl value,
+          $Res Function(_$HobbiesDataServiceHobbyImpl) then) =
+      __$$HobbiesDataServiceHobbyImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -117,12 +118,13 @@ abstract class _$$_HobbiesDataServiceHobbyCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_HobbiesDataServiceHobbyCopyWithImpl<$Res>
+class __$$HobbiesDataServiceHobbyImplCopyWithImpl<$Res>
     extends _$HobbiesDataServiceHobbyCopyWithImpl<$Res,
-        _$_HobbiesDataServiceHobby>
-    implements _$$_HobbiesDataServiceHobbyCopyWith<$Res> {
-  __$$_HobbiesDataServiceHobbyCopyWithImpl(_$_HobbiesDataServiceHobby _value,
-      $Res Function(_$_HobbiesDataServiceHobby) _then)
+        _$HobbiesDataServiceHobbyImpl>
+    implements _$$HobbiesDataServiceHobbyImplCopyWith<$Res> {
+  __$$HobbiesDataServiceHobbyImplCopyWithImpl(
+      _$HobbiesDataServiceHobbyImpl _value,
+      $Res Function(_$HobbiesDataServiceHobbyImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -134,7 +136,7 @@ class __$$_HobbiesDataServiceHobbyCopyWithImpl<$Res>
     Object? imagePadding = null,
     Object? title = null,
   }) {
-    return _then(_$_HobbiesDataServiceHobby(
+    return _then(_$HobbiesDataServiceHobbyImpl(
       action: null == action
           ? _value.action
           : action // ignore: cast_nullable_to_non_nullable
@@ -161,8 +163,8 @@ class __$$_HobbiesDataServiceHobbyCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_HobbiesDataServiceHobby implements _HobbiesDataServiceHobby {
-  const _$_HobbiesDataServiceHobby(
+class _$HobbiesDataServiceHobbyImpl implements _HobbiesDataServiceHobby {
+  const _$HobbiesDataServiceHobbyImpl(
       {required this.action,
       this.imageAssetPath = const None(),
       this.imageFit = BoxFit.cover,
@@ -189,10 +191,10 @@ class _$_HobbiesDataServiceHobby implements _HobbiesDataServiceHobby {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_HobbiesDataServiceHobby &&
+            other is _$HobbiesDataServiceHobbyImpl &&
             (identical(other.action, action) || other.action == action) &&
             (identical(other.imageAssetPath, imageAssetPath) ||
                 other.imageAssetPath == imageAssetPath) &&
@@ -210,10 +212,9 @@ class _$_HobbiesDataServiceHobby implements _HobbiesDataServiceHobby {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_HobbiesDataServiceHobbyCopyWith<_$_HobbiesDataServiceHobby>
-      get copyWith =>
-          __$$_HobbiesDataServiceHobbyCopyWithImpl<_$_HobbiesDataServiceHobby>(
-              this, _$identity);
+  _$$HobbiesDataServiceHobbyImplCopyWith<_$HobbiesDataServiceHobbyImpl>
+      get copyWith => __$$HobbiesDataServiceHobbyImplCopyWithImpl<
+          _$HobbiesDataServiceHobbyImpl>(this, _$identity);
 }
 
 abstract class _HobbiesDataServiceHobby implements HobbiesDataServiceHobby {
@@ -222,7 +223,7 @@ abstract class _HobbiesDataServiceHobby implements HobbiesDataServiceHobby {
       final Option<String> imageAssetPath,
       final BoxFit imageFit,
       final EdgeInsets imagePadding,
-      required final String title}) = _$_HobbiesDataServiceHobby;
+      required final String title}) = _$HobbiesDataServiceHobbyImpl;
 
   @override
   HobbiesDataServiceHobbyAction get action;
@@ -236,7 +237,7 @@ abstract class _HobbiesDataServiceHobby implements HobbiesDataServiceHobby {
   String get title;
   @override
   @JsonKey(ignore: true)
-  _$$_HobbiesDataServiceHobbyCopyWith<_$_HobbiesDataServiceHobby>
+  _$$HobbiesDataServiceHobbyImplCopyWith<_$HobbiesDataServiceHobbyImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -304,23 +305,23 @@ class _$HobbiesDataServiceHobbyActionCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$HobbiesDataServiceHobbyActionLinkCopyWith<$Res> {
-  factory _$$HobbiesDataServiceHobbyActionLinkCopyWith(
-          _$HobbiesDataServiceHobbyActionLink value,
-          $Res Function(_$HobbiesDataServiceHobbyActionLink) then) =
-      __$$HobbiesDataServiceHobbyActionLinkCopyWithImpl<$Res>;
+abstract class _$$HobbiesDataServiceHobbyActionLinkImplCopyWith<$Res> {
+  factory _$$HobbiesDataServiceHobbyActionLinkImplCopyWith(
+          _$HobbiesDataServiceHobbyActionLinkImpl value,
+          $Res Function(_$HobbiesDataServiceHobbyActionLinkImpl) then) =
+      __$$HobbiesDataServiceHobbyActionLinkImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Uri link});
 }
 
 /// @nodoc
-class __$$HobbiesDataServiceHobbyActionLinkCopyWithImpl<$Res>
+class __$$HobbiesDataServiceHobbyActionLinkImplCopyWithImpl<$Res>
     extends _$HobbiesDataServiceHobbyActionCopyWithImpl<$Res,
-        _$HobbiesDataServiceHobbyActionLink>
-    implements _$$HobbiesDataServiceHobbyActionLinkCopyWith<$Res> {
-  __$$HobbiesDataServiceHobbyActionLinkCopyWithImpl(
-      _$HobbiesDataServiceHobbyActionLink _value,
-      $Res Function(_$HobbiesDataServiceHobbyActionLink) _then)
+        _$HobbiesDataServiceHobbyActionLinkImpl>
+    implements _$$HobbiesDataServiceHobbyActionLinkImplCopyWith<$Res> {
+  __$$HobbiesDataServiceHobbyActionLinkImplCopyWithImpl(
+      _$HobbiesDataServiceHobbyActionLinkImpl _value,
+      $Res Function(_$HobbiesDataServiceHobbyActionLinkImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -328,7 +329,7 @@ class __$$HobbiesDataServiceHobbyActionLinkCopyWithImpl<$Res>
   $Res call({
     Object? link = null,
   }) {
-    return _then(_$HobbiesDataServiceHobbyActionLink(
+    return _then(_$HobbiesDataServiceHobbyActionLinkImpl(
       link: null == link
           ? _value.link
           : link // ignore: cast_nullable_to_non_nullable
@@ -339,9 +340,9 @@ class __$$HobbiesDataServiceHobbyActionLinkCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$HobbiesDataServiceHobbyActionLink
+class _$HobbiesDataServiceHobbyActionLinkImpl
     implements HobbiesDataServiceHobbyActionLink {
-  const _$HobbiesDataServiceHobbyActionLink({required this.link});
+  const _$HobbiesDataServiceHobbyActionLinkImpl({required this.link});
 
   @override
   final Uri link;
@@ -352,10 +353,10 @@ class _$HobbiesDataServiceHobbyActionLink
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$HobbiesDataServiceHobbyActionLink &&
+            other is _$HobbiesDataServiceHobbyActionLinkImpl &&
             (identical(other.link, link) || other.link == link));
   }
 
@@ -365,10 +366,10 @@ class _$HobbiesDataServiceHobbyActionLink
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$HobbiesDataServiceHobbyActionLinkCopyWith<
-          _$HobbiesDataServiceHobbyActionLink>
-      get copyWith => __$$HobbiesDataServiceHobbyActionLinkCopyWithImpl<
-          _$HobbiesDataServiceHobbyActionLink>(this, _$identity);
+  _$$HobbiesDataServiceHobbyActionLinkImplCopyWith<
+          _$HobbiesDataServiceHobbyActionLinkImpl>
+      get copyWith => __$$HobbiesDataServiceHobbyActionLinkImplCopyWithImpl<
+          _$HobbiesDataServiceHobbyActionLinkImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -436,33 +437,33 @@ class _$HobbiesDataServiceHobbyActionLink
 abstract class HobbiesDataServiceHobbyActionLink
     implements HobbiesDataServiceHobbyAction {
   const factory HobbiesDataServiceHobbyActionLink({required final Uri link}) =
-      _$HobbiesDataServiceHobbyActionLink;
+      _$HobbiesDataServiceHobbyActionLinkImpl;
 
   Uri get link;
   @JsonKey(ignore: true)
-  _$$HobbiesDataServiceHobbyActionLinkCopyWith<
-          _$HobbiesDataServiceHobbyActionLink>
+  _$$HobbiesDataServiceHobbyActionLinkImplCopyWith<
+          _$HobbiesDataServiceHobbyActionLinkImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$HobbiesDataServiceHobbyActionRouteCopyWith<$Res> {
-  factory _$$HobbiesDataServiceHobbyActionRouteCopyWith(
-          _$HobbiesDataServiceHobbyActionRoute value,
-          $Res Function(_$HobbiesDataServiceHobbyActionRoute) then) =
-      __$$HobbiesDataServiceHobbyActionRouteCopyWithImpl<$Res>;
+abstract class _$$HobbiesDataServiceHobbyActionRouteImplCopyWith<$Res> {
+  factory _$$HobbiesDataServiceHobbyActionRouteImplCopyWith(
+          _$HobbiesDataServiceHobbyActionRouteImpl value,
+          $Res Function(_$HobbiesDataServiceHobbyActionRouteImpl) then) =
+      __$$HobbiesDataServiceHobbyActionRouteImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Uri route});
 }
 
 /// @nodoc
-class __$$HobbiesDataServiceHobbyActionRouteCopyWithImpl<$Res>
+class __$$HobbiesDataServiceHobbyActionRouteImplCopyWithImpl<$Res>
     extends _$HobbiesDataServiceHobbyActionCopyWithImpl<$Res,
-        _$HobbiesDataServiceHobbyActionRoute>
-    implements _$$HobbiesDataServiceHobbyActionRouteCopyWith<$Res> {
-  __$$HobbiesDataServiceHobbyActionRouteCopyWithImpl(
-      _$HobbiesDataServiceHobbyActionRoute _value,
-      $Res Function(_$HobbiesDataServiceHobbyActionRoute) _then)
+        _$HobbiesDataServiceHobbyActionRouteImpl>
+    implements _$$HobbiesDataServiceHobbyActionRouteImplCopyWith<$Res> {
+  __$$HobbiesDataServiceHobbyActionRouteImplCopyWithImpl(
+      _$HobbiesDataServiceHobbyActionRouteImpl _value,
+      $Res Function(_$HobbiesDataServiceHobbyActionRouteImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -470,7 +471,7 @@ class __$$HobbiesDataServiceHobbyActionRouteCopyWithImpl<$Res>
   $Res call({
     Object? route = null,
   }) {
-    return _then(_$HobbiesDataServiceHobbyActionRoute(
+    return _then(_$HobbiesDataServiceHobbyActionRouteImpl(
       route: null == route
           ? _value.route
           : route // ignore: cast_nullable_to_non_nullable
@@ -481,9 +482,9 @@ class __$$HobbiesDataServiceHobbyActionRouteCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$HobbiesDataServiceHobbyActionRoute
+class _$HobbiesDataServiceHobbyActionRouteImpl
     implements HobbiesDataServiceHobbyActionRoute {
-  const _$HobbiesDataServiceHobbyActionRoute({required this.route});
+  const _$HobbiesDataServiceHobbyActionRouteImpl({required this.route});
 
   @override
   final Uri route;
@@ -494,10 +495,10 @@ class _$HobbiesDataServiceHobbyActionRoute
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$HobbiesDataServiceHobbyActionRoute &&
+            other is _$HobbiesDataServiceHobbyActionRouteImpl &&
             (identical(other.route, route) || other.route == route));
   }
 
@@ -507,10 +508,10 @@ class _$HobbiesDataServiceHobbyActionRoute
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$HobbiesDataServiceHobbyActionRouteCopyWith<
-          _$HobbiesDataServiceHobbyActionRoute>
-      get copyWith => __$$HobbiesDataServiceHobbyActionRouteCopyWithImpl<
-          _$HobbiesDataServiceHobbyActionRoute>(this, _$identity);
+  _$$HobbiesDataServiceHobbyActionRouteImplCopyWith<
+          _$HobbiesDataServiceHobbyActionRouteImpl>
+      get copyWith => __$$HobbiesDataServiceHobbyActionRouteImplCopyWithImpl<
+          _$HobbiesDataServiceHobbyActionRouteImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -578,11 +579,11 @@ class _$HobbiesDataServiceHobbyActionRoute
 abstract class HobbiesDataServiceHobbyActionRoute
     implements HobbiesDataServiceHobbyAction {
   const factory HobbiesDataServiceHobbyActionRoute({required final Uri route}) =
-      _$HobbiesDataServiceHobbyActionRoute;
+      _$HobbiesDataServiceHobbyActionRouteImpl;
 
   Uri get route;
   @JsonKey(ignore: true)
-  _$$HobbiesDataServiceHobbyActionRouteCopyWith<
-          _$HobbiesDataServiceHobbyActionRoute>
+  _$$HobbiesDataServiceHobbyActionRouteImplCopyWith<
+          _$HobbiesDataServiceHobbyActionRouteImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

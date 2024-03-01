@@ -12,7 +12,7 @@ part of 'portfolio_data_service.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$PortfolioDataServiceProject {
@@ -96,12 +96,12 @@ class _$PortfolioDataServiceProjectCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_PortfolioDataServiceProjectCopyWith<$Res>
+abstract class _$$PortfolioDataServiceProjectImplCopyWith<$Res>
     implements $PortfolioDataServiceProjectCopyWith<$Res> {
-  factory _$$_PortfolioDataServiceProjectCopyWith(
-          _$_PortfolioDataServiceProject value,
-          $Res Function(_$_PortfolioDataServiceProject) then) =
-      __$$_PortfolioDataServiceProjectCopyWithImpl<$Res>;
+  factory _$$PortfolioDataServiceProjectImplCopyWith(
+          _$PortfolioDataServiceProjectImpl value,
+          $Res Function(_$PortfolioDataServiceProjectImpl) then) =
+      __$$PortfolioDataServiceProjectImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -114,13 +114,13 @@ abstract class _$$_PortfolioDataServiceProjectCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_PortfolioDataServiceProjectCopyWithImpl<$Res>
+class __$$PortfolioDataServiceProjectImplCopyWithImpl<$Res>
     extends _$PortfolioDataServiceProjectCopyWithImpl<$Res,
-        _$_PortfolioDataServiceProject>
-    implements _$$_PortfolioDataServiceProjectCopyWith<$Res> {
-  __$$_PortfolioDataServiceProjectCopyWithImpl(
-      _$_PortfolioDataServiceProject _value,
-      $Res Function(_$_PortfolioDataServiceProject) _then)
+        _$PortfolioDataServiceProjectImpl>
+    implements _$$PortfolioDataServiceProjectImplCopyWith<$Res> {
+  __$$PortfolioDataServiceProjectImplCopyWithImpl(
+      _$PortfolioDataServiceProjectImpl _value,
+      $Res Function(_$PortfolioDataServiceProjectImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -133,7 +133,7 @@ class __$$_PortfolioDataServiceProjectCopyWithImpl<$Res>
     Object? link = null,
     Object? title = null,
   }) {
-    return _then(_$_PortfolioDataServiceProject(
+    return _then(_$PortfolioDataServiceProjectImpl(
       description: null == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
@@ -164,8 +164,9 @@ class __$$_PortfolioDataServiceProjectCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_PortfolioDataServiceProject implements _PortfolioDataServiceProject {
-  const _$_PortfolioDataServiceProject(
+class _$PortfolioDataServiceProjectImpl
+    implements _PortfolioDataServiceProject {
+  const _$PortfolioDataServiceProjectImpl(
       {required this.description,
       this.imageAssetPath = const None(),
       this.imageFit = BoxFit.cover,
@@ -195,10 +196,10 @@ class _$_PortfolioDataServiceProject implements _PortfolioDataServiceProject {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_PortfolioDataServiceProject &&
+            other is _$PortfolioDataServiceProjectImpl &&
             (identical(other.description, description) ||
                 other.description == description) &&
             (identical(other.imageAssetPath, imageAssetPath) ||
@@ -218,9 +219,9 @@ class _$_PortfolioDataServiceProject implements _PortfolioDataServiceProject {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_PortfolioDataServiceProjectCopyWith<_$_PortfolioDataServiceProject>
-      get copyWith => __$$_PortfolioDataServiceProjectCopyWithImpl<
-          _$_PortfolioDataServiceProject>(this, _$identity);
+  _$$PortfolioDataServiceProjectImplCopyWith<_$PortfolioDataServiceProjectImpl>
+      get copyWith => __$$PortfolioDataServiceProjectImplCopyWithImpl<
+          _$PortfolioDataServiceProjectImpl>(this, _$identity);
 }
 
 abstract class _PortfolioDataServiceProject
@@ -231,7 +232,7 @@ abstract class _PortfolioDataServiceProject
       final BoxFit imageFit,
       final EdgeInsets imagePadding,
       required final Uri link,
-      required final String title}) = _$_PortfolioDataServiceProject;
+      required final String title}) = _$PortfolioDataServiceProjectImpl;
 
   @override
   String get description;
@@ -247,6 +248,6 @@ abstract class _PortfolioDataServiceProject
   String get title;
   @override
   @JsonKey(ignore: true)
-  _$$_PortfolioDataServiceProjectCopyWith<_$_PortfolioDataServiceProject>
+  _$$PortfolioDataServiceProjectImplCopyWith<_$PortfolioDataServiceProjectImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

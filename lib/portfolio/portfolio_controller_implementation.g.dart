@@ -93,9 +93,9 @@ class PortfolioControllerImplementationProvider
         PortfolioModel> {
   /// See also [PortfolioControllerImplementation].
   PortfolioControllerImplementationProvider({
-    required this.dataService,
-    required this.navigationService,
-  }) : super.internal(
+    required PortfolioDataService dataService,
+    required PortfolioNavigationService navigationService,
+  }) : this._internal(
           () => PortfolioControllerImplementation()
             ..dataService = dataService
             ..navigationService = navigationService,
@@ -108,10 +108,58 @@ class PortfolioControllerImplementationProvider
           dependencies: PortfolioControllerImplementationFamily._dependencies,
           allTransitiveDependencies: PortfolioControllerImplementationFamily
               ._allTransitiveDependencies,
+          dataService: dataService,
+          navigationService: navigationService,
         );
+
+  PortfolioControllerImplementationProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.dataService,
+    required this.navigationService,
+  }) : super.internal();
 
   final PortfolioDataService dataService;
   final PortfolioNavigationService navigationService;
+
+  @override
+  PortfolioModel runNotifierBuild(
+    covariant PortfolioControllerImplementation notifier,
+  ) {
+    return notifier.build(
+      dataService: dataService,
+      navigationService: navigationService,
+    );
+  }
+
+  @override
+  Override overrideWith(PortfolioControllerImplementation Function() create) {
+    return ProviderOverride(
+      origin: this,
+      override: PortfolioControllerImplementationProvider._internal(
+        () => create()
+          ..dataService = dataService
+          ..navigationService = navigationService,
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        dataService: dataService,
+        navigationService: navigationService,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeNotifierProviderElement<PortfolioControllerImplementation,
+      PortfolioModel> createElement() {
+    return _PortfolioControllerImplementationProviderElement(this);
+  }
 
   @override
   bool operator ==(Object other) {
@@ -128,16 +176,29 @@ class PortfolioControllerImplementationProvider
 
     return _SystemHash.finish(hash);
   }
+}
+
+mixin PortfolioControllerImplementationRef
+    on AutoDisposeNotifierProviderRef<PortfolioModel> {
+  /// The parameter `dataService` of this provider.
+  PortfolioDataService get dataService;
+
+  /// The parameter `navigationService` of this provider.
+  PortfolioNavigationService get navigationService;
+}
+
+class _PortfolioControllerImplementationProviderElement
+    extends AutoDisposeNotifierProviderElement<
+        PortfolioControllerImplementation,
+        PortfolioModel> with PortfolioControllerImplementationRef {
+  _PortfolioControllerImplementationProviderElement(super.provider);
 
   @override
-  PortfolioModel runNotifierBuild(
-    covariant PortfolioControllerImplementation notifier,
-  ) {
-    return notifier.build(
-      dataService: dataService,
-      navigationService: navigationService,
-    );
-  }
+  PortfolioDataService get dataService =>
+      (origin as PortfolioControllerImplementationProvider).dataService;
+  @override
+  PortfolioNavigationService get navigationService =>
+      (origin as PortfolioControllerImplementationProvider).navigationService;
 }
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

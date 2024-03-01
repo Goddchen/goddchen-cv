@@ -12,7 +12,7 @@ part of 'grid_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$GridModelItemAction {
@@ -75,20 +75,23 @@ class _$GridModelItemActionCopyWithImpl<$Res, $Val extends GridModelItemAction>
 }
 
 /// @nodoc
-abstract class _$$_GridModelItemActionLinkCopyWith<$Res> {
-  factory _$$_GridModelItemActionLinkCopyWith(_$_GridModelItemActionLink value,
-          $Res Function(_$_GridModelItemActionLink) then) =
-      __$$_GridModelItemActionLinkCopyWithImpl<$Res>;
+abstract class _$$GridModelItemActionLinkImplCopyWith<$Res> {
+  factory _$$GridModelItemActionLinkImplCopyWith(
+          _$GridModelItemActionLinkImpl value,
+          $Res Function(_$GridModelItemActionLinkImpl) then) =
+      __$$GridModelItemActionLinkImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Uri link});
 }
 
 /// @nodoc
-class __$$_GridModelItemActionLinkCopyWithImpl<$Res>
-    extends _$GridModelItemActionCopyWithImpl<$Res, _$_GridModelItemActionLink>
-    implements _$$_GridModelItemActionLinkCopyWith<$Res> {
-  __$$_GridModelItemActionLinkCopyWithImpl(_$_GridModelItemActionLink _value,
-      $Res Function(_$_GridModelItemActionLink) _then)
+class __$$GridModelItemActionLinkImplCopyWithImpl<$Res>
+    extends _$GridModelItemActionCopyWithImpl<$Res,
+        _$GridModelItemActionLinkImpl>
+    implements _$$GridModelItemActionLinkImplCopyWith<$Res> {
+  __$$GridModelItemActionLinkImplCopyWithImpl(
+      _$GridModelItemActionLinkImpl _value,
+      $Res Function(_$GridModelItemActionLinkImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -96,7 +99,7 @@ class __$$_GridModelItemActionLinkCopyWithImpl<$Res>
   $Res call({
     Object? link = null,
   }) {
-    return _then(_$_GridModelItemActionLink(
+    return _then(_$GridModelItemActionLinkImpl(
       link: null == link
           ? _value.link
           : link // ignore: cast_nullable_to_non_nullable
@@ -107,8 +110,8 @@ class __$$_GridModelItemActionLinkCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_GridModelItemActionLink implements _GridModelItemActionLink {
-  const _$_GridModelItemActionLink({required this.link});
+class _$GridModelItemActionLinkImpl implements _GridModelItemActionLink {
+  const _$GridModelItemActionLinkImpl({required this.link});
 
   @override
   final Uri link;
@@ -119,10 +122,10 @@ class _$_GridModelItemActionLink implements _GridModelItemActionLink {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_GridModelItemActionLink &&
+            other is _$GridModelItemActionLinkImpl &&
             (identical(other.link, link) || other.link == link));
   }
 
@@ -132,10 +135,9 @@ class _$_GridModelItemActionLink implements _GridModelItemActionLink {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_GridModelItemActionLinkCopyWith<_$_GridModelItemActionLink>
-      get copyWith =>
-          __$$_GridModelItemActionLinkCopyWithImpl<_$_GridModelItemActionLink>(
-              this, _$identity);
+  _$$GridModelItemActionLinkImplCopyWith<_$GridModelItemActionLinkImpl>
+      get copyWith => __$$GridModelItemActionLinkImplCopyWithImpl<
+          _$GridModelItemActionLinkImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -202,30 +204,32 @@ class _$_GridModelItemActionLink implements _GridModelItemActionLink {
 
 abstract class _GridModelItemActionLink implements GridModelItemAction {
   const factory _GridModelItemActionLink({required final Uri link}) =
-      _$_GridModelItemActionLink;
+      _$GridModelItemActionLinkImpl;
 
   Uri get link;
   @JsonKey(ignore: true)
-  _$$_GridModelItemActionLinkCopyWith<_$_GridModelItemActionLink>
+  _$$GridModelItemActionLinkImplCopyWith<_$GridModelItemActionLinkImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_GridModelItemActionRouteCopyWith<$Res> {
-  factory _$$_GridModelItemActionRouteCopyWith(
-          _$_GridModelItemActionRoute value,
-          $Res Function(_$_GridModelItemActionRoute) then) =
-      __$$_GridModelItemActionRouteCopyWithImpl<$Res>;
+abstract class _$$GridModelItemActionRouteImplCopyWith<$Res> {
+  factory _$$GridModelItemActionRouteImplCopyWith(
+          _$GridModelItemActionRouteImpl value,
+          $Res Function(_$GridModelItemActionRouteImpl) then) =
+      __$$GridModelItemActionRouteImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Uri route});
 }
 
 /// @nodoc
-class __$$_GridModelItemActionRouteCopyWithImpl<$Res>
-    extends _$GridModelItemActionCopyWithImpl<$Res, _$_GridModelItemActionRoute>
-    implements _$$_GridModelItemActionRouteCopyWith<$Res> {
-  __$$_GridModelItemActionRouteCopyWithImpl(_$_GridModelItemActionRoute _value,
-      $Res Function(_$_GridModelItemActionRoute) _then)
+class __$$GridModelItemActionRouteImplCopyWithImpl<$Res>
+    extends _$GridModelItemActionCopyWithImpl<$Res,
+        _$GridModelItemActionRouteImpl>
+    implements _$$GridModelItemActionRouteImplCopyWith<$Res> {
+  __$$GridModelItemActionRouteImplCopyWithImpl(
+      _$GridModelItemActionRouteImpl _value,
+      $Res Function(_$GridModelItemActionRouteImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -233,7 +237,7 @@ class __$$_GridModelItemActionRouteCopyWithImpl<$Res>
   $Res call({
     Object? route = null,
   }) {
-    return _then(_$_GridModelItemActionRoute(
+    return _then(_$GridModelItemActionRouteImpl(
       route: null == route
           ? _value.route
           : route // ignore: cast_nullable_to_non_nullable
@@ -244,8 +248,8 @@ class __$$_GridModelItemActionRouteCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_GridModelItemActionRoute implements _GridModelItemActionRoute {
-  const _$_GridModelItemActionRoute({required this.route});
+class _$GridModelItemActionRouteImpl implements _GridModelItemActionRoute {
+  const _$GridModelItemActionRouteImpl({required this.route});
 
   @override
   final Uri route;
@@ -256,10 +260,10 @@ class _$_GridModelItemActionRoute implements _GridModelItemActionRoute {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_GridModelItemActionRoute &&
+            other is _$GridModelItemActionRouteImpl &&
             (identical(other.route, route) || other.route == route));
   }
 
@@ -269,9 +273,9 @@ class _$_GridModelItemActionRoute implements _GridModelItemActionRoute {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_GridModelItemActionRouteCopyWith<_$_GridModelItemActionRoute>
-      get copyWith => __$$_GridModelItemActionRouteCopyWithImpl<
-          _$_GridModelItemActionRoute>(this, _$identity);
+  _$$GridModelItemActionRouteImplCopyWith<_$GridModelItemActionRouteImpl>
+      get copyWith => __$$GridModelItemActionRouteImplCopyWithImpl<
+          _$GridModelItemActionRouteImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -338,10 +342,10 @@ class _$_GridModelItemActionRoute implements _GridModelItemActionRoute {
 
 abstract class _GridModelItemActionRoute implements GridModelItemAction {
   const factory _GridModelItemActionRoute({required final Uri route}) =
-      _$_GridModelItemActionRoute;
+      _$GridModelItemActionRouteImpl;
 
   Uri get route;
   @JsonKey(ignore: true)
-  _$$_GridModelItemActionRouteCopyWith<_$_GridModelItemActionRoute>
+  _$$GridModelItemActionRouteImplCopyWith<_$GridModelItemActionRouteImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

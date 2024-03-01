@@ -12,7 +12,7 @@ part of 'hobbies_view_test.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$GridViewCardsVariant {
@@ -66,11 +66,11 @@ class _$GridViewCardsVariantCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_GridViewCardsVariantCopyWith<$Res>
+abstract class _$$GridViewCardsVariantImplCopyWith<$Res>
     implements $GridViewCardsVariantCopyWith<$Res> {
-  factory _$$_GridViewCardsVariantCopyWith(_$_GridViewCardsVariant value,
-          $Res Function(_$_GridViewCardsVariant) then) =
-      __$$_GridViewCardsVariantCopyWithImpl<$Res>;
+  factory _$$GridViewCardsVariantImplCopyWith(_$GridViewCardsVariantImpl value,
+          $Res Function(_$GridViewCardsVariantImpl) then) =
+      __$$GridViewCardsVariantImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -78,11 +78,11 @@ abstract class _$$_GridViewCardsVariantCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_GridViewCardsVariantCopyWithImpl<$Res>
-    extends _$GridViewCardsVariantCopyWithImpl<$Res, _$_GridViewCardsVariant>
-    implements _$$_GridViewCardsVariantCopyWith<$Res> {
-  __$$_GridViewCardsVariantCopyWithImpl(_$_GridViewCardsVariant _value,
-      $Res Function(_$_GridViewCardsVariant) _then)
+class __$$GridViewCardsVariantImplCopyWithImpl<$Res>
+    extends _$GridViewCardsVariantCopyWithImpl<$Res, _$GridViewCardsVariantImpl>
+    implements _$$GridViewCardsVariantImplCopyWith<$Res> {
+  __$$GridViewCardsVariantImplCopyWithImpl(_$GridViewCardsVariantImpl _value,
+      $Res Function(_$GridViewCardsVariantImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -91,7 +91,7 @@ class __$$_GridViewCardsVariantCopyWithImpl<$Res>
     Object? expectedNumberOfCardWidgets = null,
     Object? inputHobbies = null,
   }) {
-    return _then(_$_GridViewCardsVariant(
+    return _then(_$GridViewCardsVariantImpl(
       expectedNumberOfCardWidgets: null == expectedNumberOfCardWidgets
           ? _value.expectedNumberOfCardWidgets
           : expectedNumberOfCardWidgets // ignore: cast_nullable_to_non_nullable
@@ -106,8 +106,8 @@ class __$$_GridViewCardsVariantCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_GridViewCardsVariant implements _GridViewCardsVariant {
-  const _$_GridViewCardsVariant(
+class _$GridViewCardsVariantImpl implements _GridViewCardsVariant {
+  const _$GridViewCardsVariantImpl(
       {required this.expectedNumberOfCardWidgets,
       required final List<HobbiesModelHobby> inputHobbies})
       : _inputHobbies = inputHobbies;
@@ -128,10 +128,10 @@ class _$_GridViewCardsVariant implements _GridViewCardsVariant {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_GridViewCardsVariant &&
+            other is _$GridViewCardsVariantImpl &&
             (identical(other.expectedNumberOfCardWidgets,
                     expectedNumberOfCardWidgets) ||
                 other.expectedNumberOfCardWidgets ==
@@ -147,16 +147,17 @@ class _$_GridViewCardsVariant implements _GridViewCardsVariant {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_GridViewCardsVariantCopyWith<_$_GridViewCardsVariant> get copyWith =>
-      __$$_GridViewCardsVariantCopyWithImpl<_$_GridViewCardsVariant>(
-          this, _$identity);
+  _$$GridViewCardsVariantImplCopyWith<_$GridViewCardsVariantImpl>
+      get copyWith =>
+          __$$GridViewCardsVariantImplCopyWithImpl<_$GridViewCardsVariantImpl>(
+              this, _$identity);
 }
 
 abstract class _GridViewCardsVariant implements GridViewCardsVariant {
   const factory _GridViewCardsVariant(
           {required final int expectedNumberOfCardWidgets,
           required final List<HobbiesModelHobby> inputHobbies}) =
-      _$_GridViewCardsVariant;
+      _$GridViewCardsVariantImpl;
 
   @override
   int get expectedNumberOfCardWidgets;
@@ -164,6 +165,6 @@ abstract class _GridViewCardsVariant implements GridViewCardsVariant {
   List<HobbiesModelHobby> get inputHobbies;
   @override
   @JsonKey(ignore: true)
-  _$$_GridViewCardsVariantCopyWith<_$_GridViewCardsVariant> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$GridViewCardsVariantImplCopyWith<_$GridViewCardsVariantImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

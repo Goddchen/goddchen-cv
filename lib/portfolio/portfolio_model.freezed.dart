@@ -12,7 +12,7 @@ part of 'portfolio_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$PortfolioModel {
@@ -58,22 +58,22 @@ class _$PortfolioModelCopyWithImpl<$Res, $Val extends PortfolioModel>
 }
 
 /// @nodoc
-abstract class _$$_PortfolioModelCopyWith<$Res>
+abstract class _$$PortfolioModelImplCopyWith<$Res>
     implements $PortfolioModelCopyWith<$Res> {
-  factory _$$_PortfolioModelCopyWith(
-          _$_PortfolioModel value, $Res Function(_$_PortfolioModel) then) =
-      __$$_PortfolioModelCopyWithImpl<$Res>;
+  factory _$$PortfolioModelImplCopyWith(_$PortfolioModelImpl value,
+          $Res Function(_$PortfolioModelImpl) then) =
+      __$$PortfolioModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({Either<Object, Option<List<PortfolioModelProject>>> items});
 }
 
 /// @nodoc
-class __$$_PortfolioModelCopyWithImpl<$Res>
-    extends _$PortfolioModelCopyWithImpl<$Res, _$_PortfolioModel>
-    implements _$$_PortfolioModelCopyWith<$Res> {
-  __$$_PortfolioModelCopyWithImpl(
-      _$_PortfolioModel _value, $Res Function(_$_PortfolioModel) _then)
+class __$$PortfolioModelImplCopyWithImpl<$Res>
+    extends _$PortfolioModelCopyWithImpl<$Res, _$PortfolioModelImpl>
+    implements _$$PortfolioModelImplCopyWith<$Res> {
+  __$$PortfolioModelImplCopyWithImpl(
+      _$PortfolioModelImpl _value, $Res Function(_$PortfolioModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -81,7 +81,7 @@ class __$$_PortfolioModelCopyWithImpl<$Res>
   $Res call({
     Object? items = null,
   }) {
-    return _then(_$_PortfolioModel(
+    return _then(_$PortfolioModelImpl(
       items: null == items
           ? _value.items
           : items // ignore: cast_nullable_to_non_nullable
@@ -92,8 +92,8 @@ class __$$_PortfolioModelCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_PortfolioModel implements _PortfolioModel {
-  const _$_PortfolioModel({required this.items});
+class _$PortfolioModelImpl implements _PortfolioModel {
+  const _$PortfolioModelImpl({required this.items});
 
   @override
   final Either<Object, Option<List<PortfolioModelProject>>> items;
@@ -104,10 +104,10 @@ class _$_PortfolioModel implements _PortfolioModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_PortfolioModel &&
+            other is _$PortfolioModelImpl &&
             (identical(other.items, items) || other.items == items));
   }
 
@@ -117,20 +117,21 @@ class _$_PortfolioModel implements _PortfolioModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_PortfolioModelCopyWith<_$_PortfolioModel> get copyWith =>
-      __$$_PortfolioModelCopyWithImpl<_$_PortfolioModel>(this, _$identity);
+  _$$PortfolioModelImplCopyWith<_$PortfolioModelImpl> get copyWith =>
+      __$$PortfolioModelImplCopyWithImpl<_$PortfolioModelImpl>(
+          this, _$identity);
 }
 
 abstract class _PortfolioModel implements PortfolioModel {
   const factory _PortfolioModel(
       {required final Either<Object, Option<List<PortfolioModelProject>>>
-          items}) = _$_PortfolioModel;
+          items}) = _$PortfolioModelImpl;
 
   @override
   Either<Object, Option<List<PortfolioModelProject>>> get items;
   @override
   @JsonKey(ignore: true)
-  _$$_PortfolioModelCopyWith<_$_PortfolioModel> get copyWith =>
+  _$$PortfolioModelImplCopyWith<_$PortfolioModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -214,11 +215,12 @@ class _$PortfolioModelProjectCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_PortfolioModelProjectCopyWith<$Res>
+abstract class _$$PortfolioModelProjectImplCopyWith<$Res>
     implements $PortfolioModelProjectCopyWith<$Res> {
-  factory _$$_PortfolioModelProjectCopyWith(_$_PortfolioModelProject value,
-          $Res Function(_$_PortfolioModelProject) then) =
-      __$$_PortfolioModelProjectCopyWithImpl<$Res>;
+  factory _$$PortfolioModelProjectImplCopyWith(
+          _$PortfolioModelProjectImpl value,
+          $Res Function(_$PortfolioModelProjectImpl) then) =
+      __$$PortfolioModelProjectImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -231,11 +233,12 @@ abstract class _$$_PortfolioModelProjectCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_PortfolioModelProjectCopyWithImpl<$Res>
-    extends _$PortfolioModelProjectCopyWithImpl<$Res, _$_PortfolioModelProject>
-    implements _$$_PortfolioModelProjectCopyWith<$Res> {
-  __$$_PortfolioModelProjectCopyWithImpl(_$_PortfolioModelProject _value,
-      $Res Function(_$_PortfolioModelProject) _then)
+class __$$PortfolioModelProjectImplCopyWithImpl<$Res>
+    extends _$PortfolioModelProjectCopyWithImpl<$Res,
+        _$PortfolioModelProjectImpl>
+    implements _$$PortfolioModelProjectImplCopyWith<$Res> {
+  __$$PortfolioModelProjectImplCopyWithImpl(_$PortfolioModelProjectImpl _value,
+      $Res Function(_$PortfolioModelProjectImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -248,7 +251,7 @@ class __$$_PortfolioModelProjectCopyWithImpl<$Res>
     Object? imagePadding = null,
     Object? title = null,
   }) {
-    return _then(_$_PortfolioModelProject(
+    return _then(_$PortfolioModelProjectImpl(
       action: null == action
           ? _value.action
           : action // ignore: cast_nullable_to_non_nullable
@@ -279,8 +282,8 @@ class __$$_PortfolioModelProjectCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_PortfolioModelProject implements _PortfolioModelProject {
-  const _$_PortfolioModelProject(
+class _$PortfolioModelProjectImpl implements _PortfolioModelProject {
+  const _$PortfolioModelProjectImpl(
       {required this.action,
       this.description = const None(),
       this.imageAssetPath = const None(),
@@ -311,10 +314,10 @@ class _$_PortfolioModelProject implements _PortfolioModelProject {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_PortfolioModelProject &&
+            other is _$PortfolioModelProjectImpl &&
             (identical(other.action, action) || other.action == action) &&
             (identical(other.description, description) ||
                 other.description == description) &&
@@ -334,9 +337,9 @@ class _$_PortfolioModelProject implements _PortfolioModelProject {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_PortfolioModelProjectCopyWith<_$_PortfolioModelProject> get copyWith =>
-      __$$_PortfolioModelProjectCopyWithImpl<_$_PortfolioModelProject>(
-          this, _$identity);
+  _$$PortfolioModelProjectImplCopyWith<_$PortfolioModelProjectImpl>
+      get copyWith => __$$PortfolioModelProjectImplCopyWithImpl<
+          _$PortfolioModelProjectImpl>(this, _$identity);
 }
 
 abstract class _PortfolioModelProject implements PortfolioModelProject {
@@ -346,7 +349,7 @@ abstract class _PortfolioModelProject implements PortfolioModelProject {
       final Option<String> imageAssetPath,
       final BoxFit imageFit,
       final EdgeInsets imagePadding,
-      required final String title}) = _$_PortfolioModelProject;
+      required final String title}) = _$PortfolioModelProjectImpl;
 
   @override
   Option<GridModelItemAction> get action;
@@ -362,6 +365,6 @@ abstract class _PortfolioModelProject implements PortfolioModelProject {
   String get title;
   @override
   @JsonKey(ignore: true)
-  _$$_PortfolioModelProjectCopyWith<_$_PortfolioModelProject> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$PortfolioModelProjectImplCopyWith<_$PortfolioModelProjectImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

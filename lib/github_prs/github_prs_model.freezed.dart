@@ -12,7 +12,7 @@ part of 'github_prs_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$GithubPrsModel {
@@ -58,22 +58,22 @@ class _$GithubPrsModelCopyWithImpl<$Res, $Val extends GithubPrsModel>
 }
 
 /// @nodoc
-abstract class _$$_GithubPrsModelCopyWith<$Res>
+abstract class _$$GithubPrsModelImplCopyWith<$Res>
     implements $GithubPrsModelCopyWith<$Res> {
-  factory _$$_GithubPrsModelCopyWith(
-          _$_GithubPrsModel value, $Res Function(_$_GithubPrsModel) then) =
-      __$$_GithubPrsModelCopyWithImpl<$Res>;
+  factory _$$GithubPrsModelImplCopyWith(_$GithubPrsModelImpl value,
+          $Res Function(_$GithubPrsModelImpl) then) =
+      __$$GithubPrsModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({Either<Object, Option<List<GithubPrsModelPr>>> items});
 }
 
 /// @nodoc
-class __$$_GithubPrsModelCopyWithImpl<$Res>
-    extends _$GithubPrsModelCopyWithImpl<$Res, _$_GithubPrsModel>
-    implements _$$_GithubPrsModelCopyWith<$Res> {
-  __$$_GithubPrsModelCopyWithImpl(
-      _$_GithubPrsModel _value, $Res Function(_$_GithubPrsModel) _then)
+class __$$GithubPrsModelImplCopyWithImpl<$Res>
+    extends _$GithubPrsModelCopyWithImpl<$Res, _$GithubPrsModelImpl>
+    implements _$$GithubPrsModelImplCopyWith<$Res> {
+  __$$GithubPrsModelImplCopyWithImpl(
+      _$GithubPrsModelImpl _value, $Res Function(_$GithubPrsModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -81,7 +81,7 @@ class __$$_GithubPrsModelCopyWithImpl<$Res>
   $Res call({
     Object? items = null,
   }) {
-    return _then(_$_GithubPrsModel(
+    return _then(_$GithubPrsModelImpl(
       items: null == items
           ? _value.items
           : items // ignore: cast_nullable_to_non_nullable
@@ -92,8 +92,8 @@ class __$$_GithubPrsModelCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_GithubPrsModel implements _GithubPrsModel {
-  const _$_GithubPrsModel({required this.items});
+class _$GithubPrsModelImpl implements _GithubPrsModel {
+  const _$GithubPrsModelImpl({required this.items});
 
   @override
   final Either<Object, Option<List<GithubPrsModelPr>>> items;
@@ -104,10 +104,10 @@ class _$_GithubPrsModel implements _GithubPrsModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_GithubPrsModel &&
+            other is _$GithubPrsModelImpl &&
             (identical(other.items, items) || other.items == items));
   }
 
@@ -117,20 +117,21 @@ class _$_GithubPrsModel implements _GithubPrsModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_GithubPrsModelCopyWith<_$_GithubPrsModel> get copyWith =>
-      __$$_GithubPrsModelCopyWithImpl<_$_GithubPrsModel>(this, _$identity);
+  _$$GithubPrsModelImplCopyWith<_$GithubPrsModelImpl> get copyWith =>
+      __$$GithubPrsModelImplCopyWithImpl<_$GithubPrsModelImpl>(
+          this, _$identity);
 }
 
 abstract class _GithubPrsModel implements GithubPrsModel {
   const factory _GithubPrsModel(
       {required final Either<Object, Option<List<GithubPrsModelPr>>>
-          items}) = _$_GithubPrsModel;
+          items}) = _$GithubPrsModelImpl;
 
   @override
   Either<Object, Option<List<GithubPrsModelPr>>> get items;
   @override
   @JsonKey(ignore: true)
-  _$$_GithubPrsModelCopyWith<_$_GithubPrsModel> get copyWith =>
+  _$$GithubPrsModelImplCopyWith<_$GithubPrsModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -213,11 +214,11 @@ class _$GithubPrsModelPrCopyWithImpl<$Res, $Val extends GithubPrsModelPr>
 }
 
 /// @nodoc
-abstract class _$$_GithubPrsModelPrCopyWith<$Res>
+abstract class _$$GithubPrsModelPrImplCopyWith<$Res>
     implements $GithubPrsModelPrCopyWith<$Res> {
-  factory _$$_GithubPrsModelPrCopyWith(
-          _$_GithubPrsModelPr value, $Res Function(_$_GithubPrsModelPr) then) =
-      __$$_GithubPrsModelPrCopyWithImpl<$Res>;
+  factory _$$GithubPrsModelPrImplCopyWith(_$GithubPrsModelPrImpl value,
+          $Res Function(_$GithubPrsModelPrImpl) then) =
+      __$$GithubPrsModelPrImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -230,11 +231,11 @@ abstract class _$$_GithubPrsModelPrCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_GithubPrsModelPrCopyWithImpl<$Res>
-    extends _$GithubPrsModelPrCopyWithImpl<$Res, _$_GithubPrsModelPr>
-    implements _$$_GithubPrsModelPrCopyWith<$Res> {
-  __$$_GithubPrsModelPrCopyWithImpl(
-      _$_GithubPrsModelPr _value, $Res Function(_$_GithubPrsModelPr) _then)
+class __$$GithubPrsModelPrImplCopyWithImpl<$Res>
+    extends _$GithubPrsModelPrCopyWithImpl<$Res, _$GithubPrsModelPrImpl>
+    implements _$$GithubPrsModelPrImplCopyWith<$Res> {
+  __$$GithubPrsModelPrImplCopyWithImpl(_$GithubPrsModelPrImpl _value,
+      $Res Function(_$GithubPrsModelPrImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -247,7 +248,7 @@ class __$$_GithubPrsModelPrCopyWithImpl<$Res>
     Object? imagePadding = null,
     Object? title = null,
   }) {
-    return _then(_$_GithubPrsModelPr(
+    return _then(_$GithubPrsModelPrImpl(
       action: null == action
           ? _value.action
           : action // ignore: cast_nullable_to_non_nullable
@@ -278,8 +279,8 @@ class __$$_GithubPrsModelPrCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_GithubPrsModelPr implements _GithubPrsModelPr {
-  const _$_GithubPrsModelPr(
+class _$GithubPrsModelPrImpl implements _GithubPrsModelPr {
+  const _$GithubPrsModelPrImpl(
       {required this.action,
       this.description = const None(),
       this.imageAssetPath = const None(),
@@ -310,10 +311,10 @@ class _$_GithubPrsModelPr implements _GithubPrsModelPr {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_GithubPrsModelPr &&
+            other is _$GithubPrsModelPrImpl &&
             (identical(other.action, action) || other.action == action) &&
             (identical(other.description, description) ||
                 other.description == description) &&
@@ -333,8 +334,9 @@ class _$_GithubPrsModelPr implements _GithubPrsModelPr {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_GithubPrsModelPrCopyWith<_$_GithubPrsModelPr> get copyWith =>
-      __$$_GithubPrsModelPrCopyWithImpl<_$_GithubPrsModelPr>(this, _$identity);
+  _$$GithubPrsModelPrImplCopyWith<_$GithubPrsModelPrImpl> get copyWith =>
+      __$$GithubPrsModelPrImplCopyWithImpl<_$GithubPrsModelPrImpl>(
+          this, _$identity);
 }
 
 abstract class _GithubPrsModelPr implements GithubPrsModelPr {
@@ -344,7 +346,7 @@ abstract class _GithubPrsModelPr implements GithubPrsModelPr {
       final Option<String> imageAssetPath,
       final BoxFit imageFit,
       final EdgeInsets imagePadding,
-      required final String title}) = _$_GithubPrsModelPr;
+      required final String title}) = _$GithubPrsModelPrImpl;
 
   @override
   Option<GridModelItemAction> get action;
@@ -360,6 +362,6 @@ abstract class _GithubPrsModelPr implements GithubPrsModelPr {
   String get title;
   @override
   @JsonKey(ignore: true)
-  _$$_GithubPrsModelPrCopyWith<_$_GithubPrsModelPr> get copyWith =>
+  _$$GithubPrsModelPrImplCopyWith<_$GithubPrsModelPrImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

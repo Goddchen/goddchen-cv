@@ -12,7 +12,7 @@ part of 'cv_data_service.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$CvDataServiceItem {
@@ -86,11 +86,11 @@ class _$CvDataServiceItemCopyWithImpl<$Res, $Val extends CvDataServiceItem>
 }
 
 /// @nodoc
-abstract class _$$_CvDataServiceItemCopyWith<$Res>
+abstract class _$$CvDataServiceItemImplCopyWith<$Res>
     implements $CvDataServiceItemCopyWith<$Res> {
-  factory _$$_CvDataServiceItemCopyWith(_$_CvDataServiceItem value,
-          $Res Function(_$_CvDataServiceItem) then) =
-      __$$_CvDataServiceItemCopyWithImpl<$Res>;
+  factory _$$CvDataServiceItemImplCopyWith(_$CvDataServiceItemImpl value,
+          $Res Function(_$CvDataServiceItemImpl) then) =
+      __$$CvDataServiceItemImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -102,11 +102,11 @@ abstract class _$$_CvDataServiceItemCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_CvDataServiceItemCopyWithImpl<$Res>
-    extends _$CvDataServiceItemCopyWithImpl<$Res, _$_CvDataServiceItem>
-    implements _$$_CvDataServiceItemCopyWith<$Res> {
-  __$$_CvDataServiceItemCopyWithImpl(
-      _$_CvDataServiceItem _value, $Res Function(_$_CvDataServiceItem) _then)
+class __$$CvDataServiceItemImplCopyWithImpl<$Res>
+    extends _$CvDataServiceItemCopyWithImpl<$Res, _$CvDataServiceItemImpl>
+    implements _$$CvDataServiceItemImplCopyWith<$Res> {
+  __$$CvDataServiceItemImplCopyWithImpl(_$CvDataServiceItemImpl _value,
+      $Res Function(_$CvDataServiceItemImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -118,7 +118,7 @@ class __$$_CvDataServiceItemCopyWithImpl<$Res>
     Object? title = null,
     Object? until = null,
   }) {
-    return _then(_$_CvDataServiceItem(
+    return _then(_$CvDataServiceItemImpl(
       description: null == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
@@ -145,8 +145,8 @@ class __$$_CvDataServiceItemCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_CvDataServiceItem implements _CvDataServiceItem {
-  const _$_CvDataServiceItem(
+class _$CvDataServiceItemImpl implements _CvDataServiceItem {
+  const _$CvDataServiceItemImpl(
       {this.description = const None(),
       this.from = const None(),
       this.link = const None(),
@@ -174,10 +174,10 @@ class _$_CvDataServiceItem implements _CvDataServiceItem {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_CvDataServiceItem &&
+            other is _$CvDataServiceItemImpl &&
             (identical(other.description, description) ||
                 other.description == description) &&
             (identical(other.from, from) || other.from == from) &&
@@ -193,8 +193,8 @@ class _$_CvDataServiceItem implements _CvDataServiceItem {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_CvDataServiceItemCopyWith<_$_CvDataServiceItem> get copyWith =>
-      __$$_CvDataServiceItemCopyWithImpl<_$_CvDataServiceItem>(
+  _$$CvDataServiceItemImplCopyWith<_$CvDataServiceItemImpl> get copyWith =>
+      __$$CvDataServiceItemImplCopyWithImpl<_$CvDataServiceItemImpl>(
           this, _$identity);
 }
 
@@ -204,7 +204,7 @@ abstract class _CvDataServiceItem implements CvDataServiceItem {
       final Option<DateTime> from,
       final Option<Uri> link,
       required final String title,
-      final Option<DateTime> until}) = _$_CvDataServiceItem;
+      final Option<DateTime> until}) = _$CvDataServiceItemImpl;
 
   @override
   Option<String> get description;
@@ -218,6 +218,6 @@ abstract class _CvDataServiceItem implements CvDataServiceItem {
   Option<DateTime> get until;
   @override
   @JsonKey(ignore: true)
-  _$$_CvDataServiceItemCopyWith<_$_CvDataServiceItem> get copyWith =>
+  _$$CvDataServiceItemImplCopyWith<_$CvDataServiceItemImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
