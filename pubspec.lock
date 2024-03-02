@@ -124,10 +124,9 @@ packages:
   causality:
     dependency: "direct main"
     description:
-      name: causality
-      sha256: "06d5d5416f5c08e0cbb65512b67437dadf2c0b7ae40f8c8057d56e4d09c52476"
-      url: "https://pub.dev"
-    source: hosted
+      path: "../causality/packages/causality"
+      relative: true
+    source: path
     version: "0.0.1"
   characters:
     dependency: transitive
@@ -337,10 +336,9 @@ packages:
   flutter_causality:
     dependency: "direct main"
     description:
-      name: flutter_causality
-      sha256: de572621e628494c674578596d66e199cc609312f320b539187e928555977c34
-      url: "https://pub.dev"
-    source: hosted
+      path: "../causality/packages/flutter_causality"
+      relative: true
+    source: path
     version: "0.0.1"
   flutter_flavorizr:
     dependency: "direct dev"

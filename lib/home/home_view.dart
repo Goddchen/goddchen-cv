@@ -11,6 +11,7 @@ import 'package:get_it/get_it.dart';
 import 'package:goddchen_cv/common.dart';
 import 'package:goddchen_cv/constants.dart';
 import 'package:goddchen_cv/cv/cv_controller.dart';
+import 'package:goddchen_cv/cv/cv_controller_implementation.dart';
 import 'package:goddchen_cv/cv/cv_model.dart';
 import 'package:goddchen_cv/cv/cv_view_item.dart';
 import 'package:goddchen_cv/gen/assets.gen.dart';
@@ -57,38 +58,13 @@ class HomeView extends MvcView<HomeModel, HomeController> {
         ),
         child: Column(
           children: <Widget>[
-            _buildCv(),
+            const _CvWidget(),
             _buildPortfolio(),
             _buildGithubPrs(),
             _buildYoutubeVideos(),
             _buildHobbies(),
             _buildFooter(),
           ],
-        ),
-      );
-
-  Widget _buildCv() => LayoutBuilder(
-        key: cvKey,
-        builder: (final _, final BoxConstraints constraints) => EffectWidget(
-          builder: (final Cause? cause) => switch (cause) {
-            CvModelUpdatedCause? _ =>
-              grid_view.GridView<CvModel, CvController, CvModelItem>(
-                childAspectRatio: some(constraints.maxWidth / 160),
-                controller: GetIt.I<CvController>(),
-                itemBuilder: some(
-                  (final CvModelItem item) => CvViewItem(
-                    controller: GetIt.I<CvController>(),
-                    item: item,
-                  ),
-                ),
-                model: cause?.model ?? CvModel(items: right(none())),
-                maxExtent: some(double.infinity),
-                seedColor: cvColor,
-                title: LocaleKeys.sections_cv_title.tr(),
-              ),
-            _ => Container(),
-          },
-          observedCauseTypes: const <Type>[CvModelUpdatedCause],
         ),
       );
 
@@ -341,4 +317,38 @@ class HomeView extends MvcView<HomeModel, HomeController> {
       return 0;
     }
   }
+}
+
+class _CvWidget extends StatelessWidget {
+  const _CvWidget();
+
+  @override
+  Widget build(final BuildContext context) => LayoutBuilder(
+        key: cvKey,
+        builder: (final _, final BoxConstraints constraints) => EffectWidget(
+          builder: (final Cause? latestCause) {
+            final CvController controller = GetIt.I();
+            return switch (latestCause) {
+              CvModelUpdatedCause _ =>
+                grid_view.GridView<CvModel, CvController, CvModelItem>(
+                  childAspectRatio: some(constraints.maxWidth / 160),
+                  controller: controller,
+                  itemBuilder: some(
+                    (final CvModelItem item) => CvViewItem(
+                      controller: controller,
+                      item: item,
+                    ),
+                  ),
+                  model: latestCause.model,
+                  maxExtent: some(double.infinity),
+                  seedColor: cvColor,
+                  title: LocaleKeys.sections_cv_title.tr(),
+                ),
+              _ => const SizedBox.shrink(),
+            };
+          },
+          initCauses: <Cause>[LoadCvCause()],
+          observedCauseTypes: const <Type>[CvModelUpdatedCause],
+        ),
+      );
 }

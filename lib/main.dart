@@ -9,12 +9,16 @@ import 'package:get_it/get_it.dart';
 import 'package:go_router/go_router.dart';
 import 'package:goddchen_cv/cv/cv_controller.dart';
 import 'package:goddchen_cv/cv/cv_controller_implementation.dart';
+import 'package:goddchen_cv/cv/cv_data_service.dart';
+import 'package:goddchen_cv/cv/cv_navigation_service.dart';
 import 'package:goddchen_cv/flavors.dart';
 import 'package:goddchen_cv/generated/codegen_loader.g.dart';
 import 'package:goddchen_cv/github_prs/github_prs_data_service.dart';
 import 'package:goddchen_cv/github_prs/github_prs_navigation_service.dart';
 import 'package:goddchen_cv/hobbies/hobbies_data_service.dart';
 import 'package:goddchen_cv/hobbies/hobbies_navigation_service.dart';
+import 'package:goddchen_cv/hobbies/ksp/hobby_ksp_navigation_service.dart';
+import 'package:goddchen_cv/hobbies/lol/hobby_lol_navigation_service.dart';
 import 'package:goddchen_cv/home/home_flavor_service.dart';
 import 'package:goddchen_cv/home/home_navigation_service.dart';
 import 'package:goddchen_cv/home/home_package_info_service.dart';
@@ -68,12 +72,16 @@ void _setupDependencies() {
   GetIt.I.registerSingleton(goRouter());
   final NavigationServiceAggregator navigationService =
       GoRouterNavigationService(goRouter: GetIt.I());
+  GetIt.I.registerSingleton<CvNavigationService>(navigationService);
   GetIt.I.registerSingleton<HomeNavigationService>(navigationService);
   GetIt.I.registerSingleton<GithubPrsNavigationService>(navigationService);
   GetIt.I.registerSingleton<HobbiesNavigationService>(navigationService);
   GetIt.I.registerSingleton<PortfolioNavigationService>(navigationService);
   GetIt.I.registerSingleton<YoutubeVideosNavigationService>(navigationService);
+  GetIt.I.registerSingleton<HobbyKspNavigationService>(navigationService);
+  GetIt.I.registerSingleton<HobbyLolNavigationService>(navigationService);
   final DataServiceAggregator dataService = DataServiceImplementation();
+  GetIt.I.registerSingleton<CvDataService>(dataService);
   GetIt.I.registerSingleton<GithubPrsDataService>(dataService);
   GetIt.I.registerSingleton<HobbiesDataService>(dataService);
   GetIt.I.registerSingleton<PortfolioDataService>(dataService);
@@ -83,8 +91,8 @@ void _setupDependencies() {
   GetIt.I.registerSingleton<HomePackageInfoService>(PackageInfoService());
   GetIt.I.registerSingleton<CvController>(
     CvControllerImplementation(
-      cvDataService: dataService,
-      cvNavigationService: navigationService,
+      dataService: dataService,
+      navigationService: navigationService,
     ),
   );
 }
