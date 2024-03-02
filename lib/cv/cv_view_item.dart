@@ -1,20 +1,18 @@
+import 'package:causality/causality.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_causality/flutter_causality.dart';
 import 'package:fpdart/fpdart.dart';
 import 'package:goddchen_cv/cv/cv_model.dart';
-import 'package:goddchen_cv/grid/grid_controller.dart';
 import 'package:intl/intl.dart';
 
 class CvViewItem extends StatelessWidget {
-  final GridController<CvModelItem> _controller;
   final DateFormat _dateFormat = DateFormat.y();
   final CvModelItem _item;
 
   CvViewItem({
     super.key,
-    required final GridController<CvModelItem> controller,
     required final CvModelItem item,
-  })  : _controller = controller,
-        _item = item;
+  }) : _item = item;
 
   @override
   Widget build(final BuildContext context) => Card(
@@ -22,7 +20,15 @@ class CvViewItem extends StatelessWidget {
         color: Theme.of(context).colorScheme.surfaceVariant,
         child: InkWell(
           onTap: _item.action
-              .map((final _) => () => _controller.openItem(item: _item))
+              .map(
+                (final _) => () {
+                  if (CausalityUniverseWidget.maybeOf(context)
+                          ?.causalityUniverse
+                      case CausalityUniverse universe) {
+                    OpenCvViewItemCause(_item).emit(universe: universe);
+                  }
+                },
+              )
               .toNullable(),
           borderRadius: BorderRadius.circular(16),
           child: Padding(
@@ -99,4 +105,10 @@ class CvViewItem extends StatelessWidget {
           ),
         ),
       );
+}
+
+class OpenCvViewItemCause extends Cause {
+  final CvModelItem item;
+
+  OpenCvViewItemCause(this.item);
 }

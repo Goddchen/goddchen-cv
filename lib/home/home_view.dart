@@ -335,7 +335,6 @@ class _CvWidget extends StatelessWidget {
                   controller: controller,
                   itemBuilder: some(
                     (final CvModelItem item) => CvViewItem(
-                      controller: controller,
                       item: item,
                     ),
                   ),
