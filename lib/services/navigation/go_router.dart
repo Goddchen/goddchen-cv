@@ -1,5 +1,5 @@
 import 'package:flutter/foundation.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart' hide AsyncData;
+import 'package:get_it/get_it.dart';
 import 'package:go_router/go_router.dart';
 import 'package:goddchen_cv/common.dart';
 import 'package:goddchen_cv/hobbies/dog_sport/dog_sport_view.dart';
@@ -10,43 +10,33 @@ import 'package:goddchen_cv/home/home_controller_implementation.dart';
 import 'package:goddchen_cv/home/home_flavor_service.dart';
 import 'package:goddchen_cv/home/home_model.dart';
 import 'package:goddchen_cv/home/home_view.dart';
-import 'package:goddchen_cv/services/flavor/flavor_service.dart';
-import 'package:goddchen_cv/services/navigation/navigation_service.dart';
 import 'package:goddchen_cv/services/navigation/routes.dart';
-import 'package:goddchen_cv/services/package_info/package_info_service.dart';
-import 'package:riverpod_annotation/riverpod_annotation.dart' hide AsyncData;
 
-part 'go_router.g.dart';
-
-@Riverpod(keepAlive: true)
-GoRouter goRouter(final _) {
+GoRouter goRouter() {
   GoRouter.optionURLReflectsImperativeAPIs = true;
   return GoRouter(
     debugLogDiagnostics: kDebugMode,
     routes: <GoRoute>[
       GoRoute(
-        builder: (final _, final __) => Consumer(
-          builder: (final _, final WidgetRef ref, final ___) {
-            final HomeFlavorService flavorService =
-                ref.watch(flavorServiceProvider);
-            final HomeModel model = HomeModel(
-              flavor: flavorService.homeFlavorServiceFlavor,
-              selectedIndex: ValueNotifier<int>(0),
-              title: flavorService.homeFlavorServiceTitle,
-              versionName:
-                  ValueNotifier<AsyncData<String>>(AsyncData<String>.loading()),
-            );
-            return HomeView(
-              controller: HomeControllerImplementation(
-                flavorService: flavorService,
-                model: model,
-                navigationService: ref.watch(navigationServiceProvider),
-                packageInfoService: ref.watch(packageInfoServiceProvider),
-              ),
+        builder: (final _, final __) {
+          final HomeFlavorService flavorService = GetIt.I();
+          final HomeModel model = HomeModel(
+            flavor: flavorService.homeFlavorServiceFlavor,
+            selectedIndex: ValueNotifier<int>(0),
+            title: flavorService.homeFlavorServiceTitle,
+            versionName:
+                ValueNotifier<AsyncData<String>>(AsyncData<String>.loading()),
+          );
+          return HomeView(
+            controller: HomeControllerImplementation(
+              flavorService: flavorService,
               model: model,
-            );
-          },
-        ),
+              navigationService: GetIt.I(),
+              packageInfoService: GetIt.I(),
+            ),
+            model: model,
+          );
+        },
         path: '/',
         routes: <GoRoute>[
           GoRoute(
@@ -58,18 +48,14 @@ GoRouter goRouter(final _) {
             path: igpRoute.toString().substring(1),
           ),
           GoRoute(
-            builder: (final _, final __) => Consumer(
-              builder: (final _, final WidgetRef ref, final ___) => KspView(
-                navigationService: ref.watch(navigationServiceProvider),
-              ),
+            builder: (final _, final __) => KspView(
+              navigationService: GetIt.I(),
             ),
             path: kspRoute.toString().substring(1),
           ),
           GoRoute(
-            builder: (final _, final __) => Consumer(
-              builder: (final _, final WidgetRef ref, final ___) => LolView(
-                navigationService: ref.watch(navigationServiceProvider),
-              ),
+            builder: (final _, final __) => LolView(
+              navigationService: GetIt.I(),
             ),
             path: lolRoute.toString().substring(1),
           ),

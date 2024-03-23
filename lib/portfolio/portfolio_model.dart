@@ -1,3 +1,4 @@
+import 'package:causality/causality.dart';
 import 'package:flutter/widgets.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:goddchen_cv/common.dart';
@@ -27,4 +28,10 @@ class PortfolioModelProject
     @Default(EdgeInsets.all(0)) final EdgeInsets imagePadding,
     required final String title,
   }) = _PortfolioModelProject;
+}
+
+class PortfolioModelUpdatedCause extends Cause {
+  final PortfolioModel model;
+
+  PortfolioModelUpdatedCause(this.model);
 }

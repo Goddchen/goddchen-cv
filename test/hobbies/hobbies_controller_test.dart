@@ -1,4 +1,4 @@
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:causality/causality.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:fpdart/fpdart.dart';
 import 'package:goddchen_cv/grid/grid_model.dart';
@@ -12,20 +12,23 @@ import '../dummies.dart';
 import '../mocks.mocks.dart';
 
 void main() {
+  late CausalityUniverse causalityUniverse;
   late HobbiesDataService dataService;
   late HobbiesNavigationService navigationService;
 
   HobbiesControllerImplementation createTestController() =>
-      HobbiesControllerImplementationProvider(
+      HobbiesControllerImplementation(
+        causalityUniverse: causalityUniverse,
         dataService: dataService,
         navigationService: navigationService,
-      ).notifier.read(ProviderContainer());
+      );
 
   setUpAll(() {
     registerDummies();
   });
 
   setUp(() {
+    causalityUniverse = CausalityUniverse();
     dataService = MockDataServiceAggregator();
     navigationService = MockNavigationServiceAggregator();
 
@@ -49,8 +52,28 @@ void main() {
     ).called(1);
   });
 
-  test('Loads data on init', () {
+  test('Loads data on $LoadHobbiesCause', () {
     createTestController();
+
+    causalityUniverse.emit(LoadHobbiesCause());
+
     verify(dataService.hobbiesTask).called(1);
   });
+
+  for (final Type observedCauseType in const <Type>{
+    LoadHobbiesCause,
+    OpenHobbyCause,
+  }) {
+    test(
+      'Constructor registers effect(s) for $observedCauseType',
+      () {
+        createTestController();
+
+        expect(
+          causalityUniverse.observations,
+          containsPair(observedCauseType, anything),
+        );
+      },
+    );
+  }
 }

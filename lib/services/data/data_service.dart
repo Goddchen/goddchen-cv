@@ -9,12 +9,6 @@ import 'package:goddchen_cv/hobbies/hobbies_data_service.dart';
 import 'package:goddchen_cv/portfolio/portfolio_data_service.dart';
 import 'package:goddchen_cv/services/navigation/routes.dart';
 import 'package:goddchen_cv/youtube_videos/youtube_videos_data_service.dart';
-import 'package:riverpod_annotation/riverpod_annotation.dart';
-
-part 'data_service.g.dart';
-
-@Riverpod(keepAlive: true)
-DataServiceAggregator dataService(final _) => DataServiceImplementation();
 
 abstract interface class DataServiceAggregator
     implements

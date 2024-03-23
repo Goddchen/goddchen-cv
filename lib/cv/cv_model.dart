@@ -1,3 +1,4 @@
+import 'package:causality/causality.dart';
 import 'package:flutter/widgets.dart';
 import 'package:fpdart/fpdart.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -25,4 +26,10 @@ class CvModelItem with _$CvModelItem implements GridModelItem {
     required final String title,
     @Default(None()) final Option<DateTime> until,
   }) = _CvModelItem;
+}
+
+class CvModelUpdatedCause extends Cause {
+  final CvModel model;
+
+  CvModelUpdatedCause(this.model);
 }

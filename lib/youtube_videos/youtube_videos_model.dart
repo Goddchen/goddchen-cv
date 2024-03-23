@@ -1,3 +1,4 @@
+import 'package:causality/causality.dart';
 import 'package:flutter/widgets.dart';
 import 'package:fpdart/fpdart.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -28,4 +29,16 @@ class YoutubeVideosModelVideo
     @Default(EdgeInsets.all(0)) final EdgeInsets imagePadding,
     required final String title,
   }) = _YoutubeVideosModelVideo;
+}
+
+class YoutubeVideosModelUpdatedCause extends Cause {
+  final YoutubeVideosModel model;
+
+  YoutubeVideosModelUpdatedCause(this.model);
+}
+
+class OpenYoutubeVideoCause extends Cause {
+  final YoutubeVideosModelVideo video;
+
+  OpenYoutubeVideoCause(this.video);
 }
