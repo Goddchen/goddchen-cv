@@ -1,3 +1,4 @@
+import 'package:causality/causality.dart';
 import 'package:flutter/widgets.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:goddchen_cv/common.dart';
@@ -25,4 +26,16 @@ class GithubPrsModelPr with _$GithubPrsModelPr implements GridModelItem {
     @Default(EdgeInsets.all(0)) final EdgeInsets imagePadding,
     required final String title,
   }) = _GithubPrsModelPr;
+}
+
+class GithubPrsModelUpdatedCause extends Cause {
+  final GithubPrsModel model;
+
+  GithubPrsModelUpdatedCause(this.model);
+}
+
+class OpenGithubPrCause extends Cause {
+  final GithubPrsModelPr pr;
+
+  OpenGithubPrCause(this.pr);
 }

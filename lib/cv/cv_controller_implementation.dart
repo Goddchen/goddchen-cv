@@ -55,11 +55,11 @@ class CvControllerImplementation implements CvController {
   })  : _dataService = dataService,
         _navigationService = navigationService {
     _loadDataEffect.observe(
-      types: <Type>[LoadCvCause],
+      <Type>[LoadCvCause],
       universe: causalityUniverse,
     );
     _openCvItemEffect.observe(
-      types: <Type>[OpenCvViewItemCause],
+      <Type>[OpenCvViewItemCause],
       universe: causalityUniverse,
     );
   }

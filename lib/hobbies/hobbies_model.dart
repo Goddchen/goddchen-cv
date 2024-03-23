@@ -1,3 +1,4 @@
+import 'package:causality/causality.dart';
 import 'package:flutter/widgets.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:goddchen_cv/common.dart';
@@ -23,4 +24,16 @@ class HobbiesModelHobby with _$HobbiesModelHobby implements GridModelItem {
     @Default(EdgeInsets.all(0)) final EdgeInsets imagePadding,
     required final String title,
   }) = _HobbiesModelHobby;
+}
+
+class HobbiesModelUpdatedCause extends Cause {
+  final HobbiesModel model;
+
+  HobbiesModelUpdatedCause(this.model);
+}
+
+class OpenHobbyCause extends Cause {
+  final HobbiesModelHobby hobby;
+
+  OpenHobbyCause(this.hobby);
 }

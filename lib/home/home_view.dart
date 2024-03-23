@@ -5,7 +5,6 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_adaptive_scaffold/flutter_adaptive_scaffold.dart';
 import 'package:flutter_causality/flutter_causality.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart' hide AsyncData;
 import 'package:fpdart/fpdart.dart' hide State;
 import 'package:get_it/get_it.dart';
 import 'package:goddchen_cv/common.dart';
@@ -115,58 +114,64 @@ class HomeView extends MvcView<HomeModel, HomeController> {
         ),
       );
 
-  Widget _buildGithubPrs() => Consumer(
+  Widget _buildGithubPrs() => EffectWidget(
         key: prsKey,
-        builder: (final _, final WidgetRef ref, final ___) {
-          final GithubPrsControllerImplementationProvider provider =
-              githubPrsControllerImplementationProvider(
-            dataService: GetIt.I(),
-            navigationService: GetIt.I(),
-          );
-          return grid_view.GridView<GithubPrsModel, GithubPrsController,
-              GithubPrsModelPr>(
-            seedColor: githubColor,
-            title: LocaleKeys.sections_prs_title.tr(),
-            controller: ref.watch(provider.notifier),
-            model: ref.watch(provider),
-          );
+        builder: (final Cause? latestCause) => switch (latestCause) {
+          final GithubPrsModelUpdatedCause _ => grid_view.GridView<
+                GithubPrsModel, GithubPrsController, GithubPrsModelPr>(
+              seedColor: githubColor,
+              title: LocaleKeys.sections_prs_title.tr(),
+              controller: GetIt.I(),
+              model: latestCause.model,
+            ),
+          _ => const SizedBox.shrink(),
         },
+        initCauses: <Cause>[
+          LoadPrsCause(),
+        ],
+        observedCauseTypes: const <Type>[
+          GithubPrsModelUpdatedCause,
+        ],
       );
 
-  Widget _buildHobbies() => Consumer(
+  Widget _buildHobbies() => EffectWidget(
         key: hobbiesKey,
-        builder: (final _, final WidgetRef ref, final ___) {
-          final HobbiesControllerImplementationProvider provider =
-              hobbiesControllerImplementationProvider(
-            dataService: GetIt.I(),
-            navigationService: GetIt.I(),
-          );
-          return grid_view.GridView<HobbiesModel, HobbiesController,
-              HobbiesModelHobby>(
-            seedColor: hobbiesColor,
-            title: LocaleKeys.sections_hobbies_title.tr(),
-            controller: ref.watch(provider.notifier),
-            model: ref.watch(provider),
-          );
+        builder: (final Cause? latestCause) => switch (latestCause) {
+          final HobbiesModelUpdatedCause _ => grid_view.GridView<HobbiesModel,
+                HobbiesController, HobbiesModelHobby>(
+              seedColor: hobbiesColor,
+              title: LocaleKeys.sections_hobbies_title.tr(),
+              controller: GetIt.I(),
+              model: latestCause.model,
+            ),
+          _ => const SizedBox.shrink(),
         },
+        initCauses: <Cause>[
+          LoadHobbiesCause(),
+        ],
+        observedCauseTypes: const <Type>[
+          HobbiesModelUpdatedCause,
+        ],
       );
 
-  Widget _buildPortfolio() => Consumer(
+  Widget _buildPortfolio() => EffectWidget(
         key: portfolioKey,
-        builder: (final _, final WidgetRef ref, final ___) {
-          final PortfolioControllerImplementationProvider provider =
-              portfolioControllerImplementationProvider(
-            dataService: GetIt.I(),
-            navigationService: GetIt.I(),
-          );
-          return grid_view.GridView<PortfolioModel, PortfolioController,
-              PortfolioModelProject>(
-            controller: ref.watch(provider.notifier),
-            model: ref.watch(provider),
-            seedColor: portfolioColor,
-            title: LocaleKeys.sections_portfolio_title.tr(),
-          );
+        builder: (final Cause? latestCause) => switch (latestCause) {
+          final PortfolioModelUpdatedCause _ => grid_view.GridView<
+                PortfolioModel, PortfolioController, PortfolioModelProject>(
+              controller: GetIt.I(),
+              model: latestCause.model,
+              seedColor: portfolioColor,
+              title: LocaleKeys.sections_portfolio_title.tr(),
+            ),
+          _ => const SizedBox.shrink(),
         },
+        initCauses: <Cause>[
+          LoadPortfolioCause(),
+        ],
+        observedCauseTypes: const <Type>[
+          PortfolioModelUpdatedCause,
+        ],
       );
 
   Widget _buildScaffold() => ValueListenableBuilder<int>(
@@ -273,22 +278,26 @@ class HomeView extends MvcView<HomeModel, HomeController> {
         ),
       );
 
-  Widget _buildYoutubeVideos() => Consumer(
+  Widget _buildYoutubeVideos() => EffectWidget(
         key: youtubeVideosKey,
-        builder: (final _, final WidgetRef ref, final ___) {
-          final YoutubeVideosControllerImplementationProvider provider =
-              youtubeVideosControllerImplementationProvider(
-            dataService: GetIt.I(),
-            navigationService: GetIt.I(),
-          );
-          return grid_view.GridView<YoutubeVideosModel, YoutubeVideosController,
-              YoutubeVideosModelVideo>(
-            seedColor: youtubeColor,
-            title: LocaleKeys.sections_youtube_title.tr(),
-            controller: ref.watch(provider.notifier),
-            model: ref.watch(provider),
-          );
+        builder: (final Cause? latestCause) => switch (latestCause) {
+          final YoutubeVideosModelUpdatedCause _ => grid_view.GridView<
+                YoutubeVideosModel,
+                YoutubeVideosController,
+                YoutubeVideosModelVideo>(
+              seedColor: youtubeColor,
+              title: LocaleKeys.sections_youtube_title.tr(),
+              controller: GetIt.I(),
+              model: latestCause.model,
+            ),
+          _ => const SizedBox.shrink(),
         },
+        initCauses: <Cause>[
+          LoadYoutubeVideosCause(),
+        ],
+        observedCauseTypes: const <Type>[
+          YoutubeVideosModelUpdatedCause,
+        ],
       );
 
   int _calculateSelectedIndex({
@@ -329,7 +338,7 @@ class _CvWidget extends StatelessWidget {
           final _,
           final BoxConstraints constraints,
         ) =>
-            RebuildEffectWidget(
+            EffectWidget(
           builder: (final Cause? latestCause) {
             final CvController controller = GetIt.I();
             return switch (latestCause) {
@@ -350,8 +359,12 @@ class _CvWidget extends StatelessWidget {
               _ => const SizedBox.shrink(),
             };
           },
-          initCauses: <Cause>[LoadCvCause()],
-          observedCauseTypes: const <Type>[CvModelUpdatedCause],
+          initCauses: <Cause>[
+            LoadCvCause(),
+          ],
+          observedCauseTypes: const <Type>[
+            CvModelUpdatedCause,
+          ],
         ),
       );
 }
