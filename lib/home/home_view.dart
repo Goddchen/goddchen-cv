@@ -325,7 +325,11 @@ class _CvWidget extends StatelessWidget {
   @override
   Widget build(final BuildContext context) => LayoutBuilder(
         key: cvKey,
-        builder: (final _, final BoxConstraints constraints) => EffectWidget(
+        builder: (
+          final _,
+          final BoxConstraints constraints,
+        ) =>
+            RebuildEffectWidget(
           builder: (final Cause? latestCause) {
             final CvController controller = GetIt.I();
             return switch (latestCause) {
