@@ -327,10 +327,10 @@ class DataServiceImplementation implements DataServiceAggregator {
           ),
           GithubPrsDataServicePr(
             link: Uri.parse(
-              'https://github.com/MaikuB/flutter_local_notifications/issues/2309',
+              'https://github.com/MaikuB/flutter_local_notifications/pull/2406',
             ),
             repo: 'flutter_local_notifications',
-            title: 'Exception while trying to read notification channels',
+            title: 'fix: handle exception while loading resource name',
             user: 'MaikuB',
           ),
         ],
