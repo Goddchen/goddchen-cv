@@ -325,6 +325,14 @@ class DataServiceImplementation implements DataServiceAggregator {
                 'Fix: popToNamed(...), need to break from the while loop when entry found',
             user: 'slovnicki',
           ),
+          GithubPrsDataServicePr(
+            link: Uri.parse(
+              'https://github.com/MaikuB/flutter_local_notifications/issues/2309',
+            ),
+            repo: 'flutter_local_notifications',
+            title: 'Exception while trying to read notification channels',
+            user: 'MaikuB',
+          ),
         ],
       );
 
